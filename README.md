@@ -184,16 +184,12 @@ The system includes comprehensive evaluation tools:
 ```bash
 # Generate QA pairs for evaluation
 python create_paper_questions.py --paper_folder "path/to/paper"
-
+<!-- 
 # Run all evaluations
 python run_all_evaluations.py --paper_name "Paper Title" --base_dir "path/to/papers" --judge_version "v2" --auto_generate_qa
-```
+``` -->
 
-### Manual Evaluation
-```bash
-# Individual metric evaluation
-python eval_website_pipeline.py --paper_name "Paper Title" --base_dir "path/to/papers" --judge_version "v2" --metric informative_judge -->
-```
+
 
 ## 🤝 Contributing
 
