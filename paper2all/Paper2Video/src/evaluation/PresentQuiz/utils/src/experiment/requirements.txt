@@ -1,5 +1,0 @@
-scienceplots
-aiohttp
-googlesearch-python
-pytorch_fid
-seaborn
