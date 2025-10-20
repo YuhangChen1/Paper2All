@@ -78,7 +78,7 @@ def latex_code_gen_upgrade(prompt_path, tex_dir, beamer_save_path,
     ## fix if error
     num_try = 0
     token_usage["fix"] = []
-    while num_try < 1:
+    while num_try < 2:
         if "error" in feedback:
             error_info = re.findall(r'^(error: .+)', feedback, flags=re.MULTILINE)
             agent.reset()

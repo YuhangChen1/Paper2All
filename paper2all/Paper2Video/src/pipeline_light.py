@@ -121,8 +121,8 @@ if __name__ == '__main__':
 
     
         # Step 3-1: Speech Generation
-        # tts_per_slide(model_type='f5', script_path=subtitle_cursor_save_path, 
-        #             speech_save_dir=speech_save_dir, ref_audio=args.ref_audio, ref_text=args.ref_text)  
+        tts_per_slide(model_type='f5', script_path=subtitle_cursor_save_path, 
+                    speech_save_dir=speech_save_dir, ref_audio=args.ref_audio, ref_text=args.ref_text)  
         step3_1_time =  time.time()
         time_second["tts"] = [step3_1_time-step2_time]
         print("Speech Generation", step3_1_time-step2_time)

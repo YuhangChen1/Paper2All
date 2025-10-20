@@ -28,8 +28,7 @@ try:
 except Exception as e:
     print(f"ERROR: Failed to initialize OpenRouter client. Check API key. Error: {e}")
     client = None
-image_text_to_text_model= "/data/huangjianuo-20250903/UI-TARS-1.5-7B"
-whisperx_model = "/data/huangjianuo-20250903/faster-whisper-large-v3"
+whisperx_model = "large-v3"
 
 def encode_image_to_base64(image_path):
     """Encodes a local image file into a Base64 string for API calls."""
@@ -205,6 +204,7 @@ def cursor_gen_per_sentence(script_path, slide_img_dir, slide_audio_dir, cursor_
     
     slide_imgs = [name for name in os.listdir(slide_img_dir)]
     slide_imgs = sorted(slide_imgs, key=lambda x: int(re.search(r'\d+', x).group()))
+    print(slide_imgs)
     slide_imgs = [path.join(slide_img_dir, name) for name in slide_imgs]
     
     ## location
@@ -213,6 +213,7 @@ def cursor_gen_per_sentence(script_path, slide_img_dir, slide_audio_dir, cursor_
     task_list = []
     for slide_idx in range(len(parsed_speech)):
         speech_with_cursor = parsed_speech[slide_idx]
+        print(slide_idx)
         image_path = slide_imgs[slide_idx]
         for sentence_idx, (prompt, cursor_prompt) in enumerate(speech_with_cursor):
             gpu_id = gpu_list[process_idx % num_gpus]
@@ -220,7 +221,7 @@ def cursor_gen_per_sentence(script_path, slide_img_dir, slide_audio_dir, cursor_
             process_idx += 1  
     
     ctx = mp.get_context("spawn")
-    with ctx.Pool(processes=2) as pool: cursor_result = pool.map(infer, task_list)
+    with ctx.Pool(processes=1) as pool: cursor_result = pool.map(infer, task_list)
     
     slide_w, slide_h = cv2.imread(slide_imgs[0]).shape[:2]
     for index in range(len(cursor_result)):

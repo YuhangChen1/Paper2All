@@ -24,7 +24,7 @@ use_cut: true
 audio_ckpt_dir: ./pretrained_models/hallo2
 
 
-save_path: MaskKV_all/talking_hallo2/12
+save_path: output/talking_hallo2/12
 cache_path: ./pretrained_models/.cache
 
 base_model_path: ./pretrained_models/stable-diffusion-v1-5
