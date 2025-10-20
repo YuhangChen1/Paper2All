@@ -1,0 +1,72 @@
+<Poster Width="658" Height="930">
+	<Panel left="12" right="102" width="313" height="188">
+		<Text>S TRUCTURE FROM MOTION : SFM</Text>
+		<Text>Structure from Motion depends on robust estimation; RANSAC isused to exclude outliers.</Text>
+		<Figure left="15" right="151" width="307" height="135" no="1" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="10" right="298" width="315" height="215">
+		<Text>ROBUST ESTIMATION THRESHOLD DILEMMA</Text>
+		<Text>RANSAC requires the choice of a threshold T , which must be bal-anced:</Text>
+		<Text>Too small: Too few inliers, leading to model imprecision,</Text>
+		<Text>Too large: Models are contaminated by outliers (false data).</Text>
+		<Figure left="20" right="380" width="291" height="77" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>Goal: making T adaptive to data and noise.</Text>
+		<Text>Find a model that best fits the data with a confidence threshold T thatadapts automatically to noise by using AC-RANSAC.</Text>
+	</Panel>
+
+	<Panel left="332" right="102" width="315" height="409">
+		<Text>A CONTRARIO S TRUCTURE FROM M OTION</Text>
+		<Text>AC-RANSAC. A threshold-less rigid model estimation framework.</Text>
+		<Text>The method answers the question:“Could the rigid set of data have occurred by chance?”</Text>
+		<Text>The threshold T adapts for inlier/outlier discrimination.</Text>
+		<Text>It provides a confidence score for each model.</Text>
+		<Text>A Contrario criterion [3]:</Text>
+		<Text>Use a background model H0 : uniform distribution.</Text>
+		<Text>Strong deviation from H0 is deemed meaningful.</Text>
+		<Text>AC-RANSAC relies on a the following definitions:</Text>
+		<Text>Number of False Alarms (NFA) measures model fitness to data</Text>
+		<Text>Given model M , assuming k inliers among n correspondences,Tk denotes the k th smallest residual</Text>
+		<Text>Expectation: NFA(M ) = mink=N+1...n NFA(M, k) ≤ 1.RANSAC maximizes inlier count. AC-RANSAC minimizes NFA.</Text>
+		<Text>Application to Structure fromMotion: estimation of</Text>
+		<Text>* Homography</Text>
+		<Text>Pose/Resection</Text>
+		<Text>Fundamental matrix</Text>
+		<Text>Essential matrix</Text>
+		<Figure left="489" right="383" width="153" height="97" no="3" OriWidth="0" OriHeight="0
+" />
+		<Text>Only assumption: returned model is fitted by at least 2 ∗ Nsample data.</Text>
+	</Panel>
+
+	<Panel left="8" right="519" width="638" height="258">
+		<Text>E XPERIMENTAL RESULTS</Text>
+		<Figure left="16" right="569" width="308" height="203" no="4" OriWidth="0.385549" OriHeight="0.183081
+" />
+		<Figure left="326" right="545" width="315" height="228" no="5" OriWidth="0.557803" OriHeight="0.355537
+" />
+	</Panel>
+
+	<Panel left="10" right="785" width="476" height="142">
+		<Text>C ONTRIBUTIONS</Text>
+		<Text>An SfM pipeline built on AC-RANSAC:</Text>
+		<Text>AC-RANSAC estimation of E, F, H, Pose,</Text>
+		<Text>Experimental validation showing the benefit of adaptive au-tomatic threshold.</Text>
+		<Text>openMVG open source library</Text>
+		<Text>A multiple-view geometry library,</Text>
+		<Text>A collection of 2-view solvers,</Text>
+		<Text>Generic robust estimators: RANSAC, AC-RANSAC.</Text>
+		<Text> Synthetic datasets with GT calibration:</Text>
+		<Figure left="295" right="835" width="186" height="76" no="6" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="495" right="785" width="152" height="142">
+		<Text>REFERENCES</Text>
+		<Text>[1] N. Snavely et al. Photo tourism: ex-ploring photo collections in 3D. InSIGGRAPH 2006.</Text>
+		<Text>[2] C. Strecha et al. On benchmarkingcamera calibration and multi-viewstereo for high resolution imagery.In CVPR 2008.</Text>
+		<Text>[3] L. Moisan et al. Automatic ho-mographic registration of a pairof images, with a contrario elim-ination of outliers. In IPOL 2012,http://dx.doi.org/10.5201/ipol.2012.mmm-oh.</Text>
+	</Panel>
+
+</Poster>

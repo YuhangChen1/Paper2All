@@ -1,0 +1,30 @@
+\begin{table*}
+    \centering
+    \caption{Detailed information of the datasets in the LongBench benchmark.}
+    \label{tab:longbench_datasets_simplified}
+    \setlength{\tabcolsep}{5pt} 
+    % 在这里增加了一个 'r' 列
+    \begin{tabular}{lllrcrcr}
+        \toprule
+        \textbf{Label} & \textbf{Task} & \textbf{Eval Metric} & \textbf{Avg Len} & \textbf{Gen Len} & \textbf{Language} & \textbf{Sample Num} \\
+        \midrule
+        NrtvQA & NarrativeQA & F1 & 18,409 & 128 & EN & 200 \\
+        Qasper & Qasper & F1 & 3,619 & 128 & EN & 200 \\
+        MF-en & MultiFieldQA-en & F1 & 4,559 & 64 & EN & 150 \\
+        HotpotQA & HotpotQA & F1 & 9,151 & 32 & EN & 200 \\
+        2WikiMQA & 2WikiMultihopQA & F1 & 4,887 & 32 & EN & 200 \\
+        Musique & MuSiQue & F1 & 11,214 & 32 & EN & 200 \\
+        GovReport & GovReport & Rouge-L & 8,734 & 512 & EN & 200 \\
+        QMSum & QMSum & Rouge-L & 10,614 & 512 & EN & 200 \\
+        MultiNews & MultiNews & Rouge-L & 2,113 & 512 & EN & 200 \\
+        TREC & TREC & Accuracy & 5,177 & 64 & EN & 200 \\
+        TriviaQA & TriviaQA & F1 & 8,209 & 32 & EN & 200 \\
+        SAMSum & SAMSum & Rouge-L & 6,258 & 128 & EN & 200 \\
+        PCount & PassageCount & Accuracy & 11,141 & 32 & EN & 200 \\
+        PRe & PassageRetrieval-en & Accuracy & 9,289 & 32 & EN & 200 \\
+        Lcc & LCC & Edit Sim & 1,235 & 64 & Python/C\#/Java & 500 \\
+        RB-P & RepoBench-P & Edit Sim & 4,206 & 64 & Python/Java & 500 \\
+        \bottomrule
+    \end{tabular}
+\end{table*}
+

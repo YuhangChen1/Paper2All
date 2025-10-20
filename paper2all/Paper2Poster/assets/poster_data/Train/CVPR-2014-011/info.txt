@@ -1,0 +1,204 @@
+<Poster Width="1734" Height="1041">
+	<Panel left="9" right="115" width="526" height="277">
+		<Text>Introduction & Motivation</Text>
+		<Text>unsolved problems, and bridge computer and human</Text>
+		<Text>vision, we define a battery of 5 tests that measure the</Text>
+		<Text>gap between human and machine performances in</Text>
+		<Text>several dimensions.- Here, to help focus research efforts onto the hardest</Text>
+		<Text>design new experiments to understand mechanisms</Text>
+		<Text>of human vision, and to reason about its failure.</Text>
+		<Text>Cases where humans are better inspire computational</Text>
+		<Text>researchers to learn from humans.- Cases where machines are superior motivate us to</Text>
+		<Text>or personal robots), perfect accuracy is not necessarily</Text>
+		<Text>the goal; rather, having the same type of behavior (e.g.,</Text>
+		<Text>failing in cases where humans fail too) is favorable.In some applications (e.g., human-machine interaction</Text>
+		<Figure left="329" right="148" width="203" height="240" no="1" OriWidth="0.373988" OriHeight="0.322163
+" />
+	</Panel>
+
+	<Panel left="11" right="397" width="524" height="393">
+		<Text>Test 1: Scene Recognition</Text>
+		<Figure left="19" right="423" width="165" height="147" no="2" OriWidth="0.254335" OriHeight="0.169794
+" />
+		<Figure left="183" right="419" width="171" height="153" no="3" OriWidth="0.245665" OriHeight="0.167113
+" />
+		<Figure left="356" right="422" width="174" height="149" no="4" OriWidth="0.253179" OriHeight="0.169348
+" />
+		<Text>A & B) Scene classification accuracy over 6-, 8- and 15-CAT datasets. Error bars represent the standard error of the mean over 10 runs. Naive</Text>
+		<Text>chance is simply set by the size of the largest class. All models work well above chance level. C) Top: animal vs. non-animal (distractor images)</Text>
+		<Text>classification. Bottom: classification of target images. 4-way classification is only over target scenes (and not distractors).</Text>
+		<Text>- A & B: We find that HOG, SSIM, texton, denseSIFT, LBP,</Text>
+		<Text>and LBHPF outperform other models (accuracy above 70%).</Text>
+		<Text>We note that spatial feature integration (i.e., x_pyr for the</Text>
+		<Text>model x) enhances accuracies.</Text>
+		<Text>- C: Animal vs. Non-Animal: All models perform above 70%,</Text>
+		<Text>except tiny image. Human accuracy here is about 80%. Inter-</Text>
+		<Text>estingly, some models exceed human performance here.</Text>
+		<Text>SUN dataset: Models that performed well on small datasets</Text>
+		<Text>(although they degrade heavily) still rank on top. GIST model</Text>
+		<Text>works well here (16.3%) but below top contenders: HOG, tex-</Text>
+		<Text>ton, SSIM, denseSIFT, and LBP (or their variants). Models</Text>
+		<Text>ranking at the bottom, in order, are tiny image, line hist, geo</Text>
+		<Text>color, HMAX, and geo map8x8.</Text>
+		<Figure left="302" right="611" width="235" height="147" no="5" OriWidth="0.37341" OriHeight="0.180965
+" />
+		<Text>Performances and correlations on SUN dataset. We randomly</Text>
+		<Text>chose n = { 1, 5, 10, 20, 50} images per class for training and 50 for test.</Text>
+	</Panel>
+
+	<Panel left="11" right="795" width="522" height="234">
+		<Text>Learned Lessons</Text>
+		<Text>1) Models outperform humans in rapid categorization tasks, indicating that discriminative informa-</Text>
+		<Text>tion is in place but humans do not have enough time to extract it. Models outperform humans on</Text>
+		<Text>jumbled images and score relatively high in absence of (less) global information.</Text>
+		<Text>2) We find that some models and edge detection methods are more efficient on line drawings and</Text>
+		<Text>edge maps. Our analysis helps objectively assess the power of edge detection algorithms to ex-</Text>
+		<Text>tract meaningful structural features for classification, which hints toward new directions.</Text>
+		<Text>3) While models are far from human performance over object and scene recognition on natural</Text>
+		<Text>scenes, even classic models show high performance and correlation with humans on sketches.</Text>
+		<Text>4) Consistent with the literature, we find that some models (e.g., HOG, SSIM, geo/texton, and</Text>
+		<Text>GIST) perform well. We find that they also resemble Fighumans better.</Text>
+		<Text>5) Invariance analysis shows that only sparseSIFT and geo_color are invariant to in-plane rotation</Text>
+		<Text>with the former having higher accuracy (our 3rd test). GIST, a model of scene recognition works</Text>
+		<Text>better than many models over both Caltech-256 and Sketch datasets.</Text>
+	</Panel>
+
+	<Panel left="540" right="116" width="490" height="915">
+		<Text>Test 2: Recognition of Line Drawings and Edge Maps</Text>
+		<Text>Line Drawings</Text>
+		<Text>- Scenes were were presented</Text>
+		<Text>to subjects for 17-87 ms</Text>
+		<Text>in a 6-alternative force choice</Text>
+		<Text>task (human acc= 77.3%).</Text>
+		<Text>- On color images, geo_color,</Text>
+		<Text>sparseSIFT, GIST, and SSIM</Text>
+		<Text>showed the highest correla-</Text>
+		<Text>tion (all with classification ac-</Text>
+		<Text>curacy ≥ 75%), while tiny</Text>
+		<Text>images, texton, LBHF, and</Text>
+		<Text>LBP showed the least. Over</Text>
+		<Text>the SUN dataset, HOG,</Text>
+		<Text>denseSIFT, and texton</Text>
+		<Text>showed high correlation with</Text>
+		<Text>human CM.</Text>
+		<Text>- It seems that those models</Text>
+		<Text>that take advantage of re-</Text>
+		<Text>gional histogram of features</Text>
+		<Text>(e.g., denseSIFT, GIST, geo_</Text>
+		<Text>x; x=map or color) or heavily</Text>
+		<Text>rely on edge histograms</Text>
+		<Text>(texton and HOG) show</Text>
+		<Text>higher correlation with</Text>
+		<Text>humans on color images</Text>
+		<Text>(although low in magnitude).</Text>
+		<Text>- Over line drawings: As </Text>
+		<Text>images, geo_color, SSIM,</Text>
+		<Text>and sparseSIFT correlate </Text>
+		<Text>with humans.To our surprise,</Text>
+		<Text>geo_color worked well.</Text>
+		<Figure left="714" right="168" width="318" height="233" no="6" OriWidth="0.383815" OriHeight="0.219839
+" />
+		<Text> Human-model agreement on the 6-CAT dataset. See our paper</Text>
+		<Text>and its supplement for confusion matrices of models.</Text>
+		<Figure left="711" right="437" width="321" height="101" no="7" OriWidth="0.383815" OriHeight="0.219839
+" />
+		<Text> Geometric map: ground, pourous, sky, and vertical regions.</Text>
+		<Figure left="712" right="570" width="319" height="56" no="8" OriWidth="0.374566" OriHeight="0.0469169
+" />
+		<Text> Edge maps for a sample image .</Text>
+		<Text>Edge Maps</Text>
+		<Figure left="548" right="670" width="479" height="86" no="9" OriWidth="0.772832" OriHeight="0.108579
+" />
+		<Text> Scene classification results using edge detected images over 6-CAT dataset. Canny edge detector</Text>
+		<Text>leads to best accuracies followed by the log and gPb methods.</Text>
+		<Text>- A majority of models perform > 70% on line</Text>
+		<Text>drawings which is higher than human perfor-</Text>
+		<Text>mance (similar pattern on images with</Text>
+		<Text>human=77.3% and models > 80%).</Text>
+		<Text>- SVM trained on images and tested on line</Text>
+		<Text>drawings: Some models (e.g., line hists, GIST,</Text>
+		<Text>geo map, sparseSIFT) better generalize to </Text>
+		<Text>drawings.</Text>
+		<Text>SVM trained on line drawings and tested on</Text>
+		<Text>edge maps: Surprisingly, averaged over all</Text>
+		<Text>models, Sobel and Canny perform better than</Text>
+		<Text>gPb. GIST, line hists, and HMAX were the most</Text>
+		<Text>successful models using all edge detection</Text>
+		<Text>methods. sparseSIFT, LBP, geo_color, and</Text>
+		<Text>geo_texton were the most affected ones.</Text>
+		<Text>- Models using Canny technique achieved the</Text>
+		<Text>best scene classification accuracy.</Text>
+		<Figure left="773" right="781" width="258" height="211" no="10" OriWidth="0.373988" OriHeight="0.241734
+" />
+		<Text> Top: training a SVM from color photographs and testing on</Text>
+		<Text>line drawings, gPb edge maps, and inverted (FL) images. Bottom: SVM</Text>
+		<Text>trained on line drawings and applied to edge maps.</Text>
+	</Panel>
+
+	<Panel left="1035" right="115" width="349" height="396">
+		<Text>Test 3: Invariance Analysis</Text>
+		<Figure left="1039" right="142" width="328" height="238" no="11" OriWidth="0.371676" OriHeight="0.230563
+" />
+		<Text> d values over original, 90 o , and 180 o rotated animal images.</Text>
+		<Text>- A majority of models are invariant to scaling while few are drasti-</Text>
+		<Text>cally affected with a large amount of scaling (e.g., siagianItti07,</Text>
+		<Text>SSIM, line hists, and sparseSIFT).</Text>
+		<Text>- Interestingly, LBP here shows a similar pattern as humans across</Text>
+		<Text>four stimulus categories (i. e., max for head, min for close body).</Text>
+		<Text>- Some models show higher similarity to human disruption over the</Text>
+		<Text>four categories of the animal dataset: sparseSIFT, SSIM, and HOG.</Text>
+	</Panel>
+
+	<Panel left="1387" right="117" width="333" height="394">
+		<Text>Test 4: Local vs. Global Information</Text>
+		<Figure left="1397" right="141" width="326" height="212" no="12" OriWidth="0.372254" OriHeight="0.188561
+" />
+		<Text> Correlation and classification accuracy over jumbled images.</Text>
+		<Text>As expected, models based on histograms are less influ-</Text>
+		<Text>enced (e.g ., geo color, line hist, HOG, texton, and LBP).</Text>
+		<Text>- Models correlate higher with humans over scenes (OSR and</Text>
+		<Text>ISR) than objects, and better on outdoor scenes than indoors.</Text>
+		<Text>- Some models, which use global feature statistics, show high</Text>
+		<Text>correlation only on scenes but very low on objects (e.g.,</Text>
+		<Text>GIST, texton, geo map, and LBP), since they do not capture</Text>
+		<Text>object shape or structure.</Text>
+	</Panel>
+
+	<Panel left="1032" right="516" width="689" height="361">
+		<Text>Test 5: Object Recognition</Text>
+		<Text>- On Caltech-256,</Text>
+		<Text>HOG achieves the</Text>
+		<Text>highest accuracy</Text>
+		<Text>about 33.28% fol-</Text>
+		<Text>lowed by SSIM,</Text>
+		<Text>texton, and dense</Text>
+		<Text>SIFT.</Text>
+		<Text>GIST which is spe-</Text>
+		<Text>cifically designed for</Text>
+		<Text>scene categorization</Text>
+		<Text>achieves 27.4% accu-</Text>
+		<Text>racy, better than some</Text>
+		<Text>models specialized</Text>
+		<Text>for object recognition</Text>
+		<Text>(e.g., HMAX).</Text>
+		<Figure left="1170" right="544" width="276" height="217" no="13" OriWidth="0.388439" OriHeight="0.258713
+" />
+		<Figure left="1444" right="541" width="276" height="220" no="14" OriWidth="0.387861" OriHeight="0.258266
+" />
+		<Text> Left: Object recognition performance on Caltech-256 dataset. Right: Recognition rate and correlations on Sketch dataset.</Text>
+		<Text>On sketch images, the shogSmooth model, specially designed for recognizing sketch images, outperforms others</Text>
+		<Text>(acc=57.2%). Texton histogram and SSIM ranked second and fourth, respectively. HMAX did very well (in contrast to</Text>
+		<Text>Caltech-256), perhaps due to its success in capturing edges, corners, etc.</Text>
+		<Text>- Overall, models did much better on sketches than on natural objects (results are almost 2 times higher than the Caltech-</Text>
+		<Text>256). Here, similar to the Caltech-256, features relying on geometry (e.g., geo_map) did not perform well.</Text>
+	</Panel>
+
+	<Panel left="1034" right="883" width="683" height="149">
+		<Text>Summary</Text>
+		<Figure left="1081" right="884" width="621" height="128" no="15" OriWidth="0.719653" OriHeight="0.119303
+" />
+		<Text> Classification results corresponding to 50 training and (50 over SUN and remaining images over Caltech-256 and Sketch) testing images per class</Text>
+		<Text>Animal vs. non-Animal corresponds to classification of 600 target vs. 600 distractor images . Top three models on each dataset are highlighted in red.</Text>
+	</Panel>
+
+</Poster>

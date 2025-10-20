@@ -1,0 +1,203 @@
+<Poster Width="1003" Height="1418">
+	<Panel left="18" right="155" width="642" height="105">
+		<Text>Abstract</Text>
+		<Text>This paper investigates domain generalization: How to take knowledge acquired from an arbitrary number of related domains and apply it to</Text>
+		<Text>previously unseen domains? We propose Domain-Invariant Component Analysis (DICA), a kernel-based optimization algorithm that learns an</Text>
+		<Text>invariant transformation by minimizing the dissimilarity across domains, whilst preserving the functional relationship between input and output</Text>
+		<Text>variables. A learning-theoretic analysis shows that reducing dissimilarity improves the expected generalization ability of classifiers on new</Text>
+		<Text>domains, motivating the proposed algorithm. Experimental results on synthetic and real-world datasets demonstrate that DICA successfully</Text>
+		<Text>learns invariant features and improves classifier performance in practice.</Text>
+	</Panel>
+
+	<Panel left="17" right="269" width="643" height="296">
+		<Text>Domain Generalization</Text>
+		<Text>come from the same distribution, learn a classifier/regressor that</Text>
+		<Text>generalizes well to the test data.Standard Setting: Assume that the training data and test data</Text>
+		<Text>Domain Adaptation: the training data and test data may come</Text>
+		<Text>from different distributions. The common assumption is that we</Text>
+		<Text>observe the test data at the training time. Adapt the classi-</Text>
+		<Text>fier/regressor trained using the training data to the specific set</Text>
+		<Text>of test data.</Text>
+		<Text>tional P(Y |X) stays the same.Covariate Shift: The marginal P(X) changes, but the condi-</Text>
+		<Text>Target Shift/Concept Drift The marginal P(Y ) or condi-</Text>
+		<Text>tional P(Y |X) may also change.</Text>
+		<Text>distributions. Learn a classifier/regressor that generalizes well to</Text>
+		<Text>the unseen test data, which also comes from different distribution.Domain Generalization: The training data comes from different</Text>
+		<Text>Applications: medical diagnosis: aggregating the diagnosis of pre-</Text>
+		<Text>vious patients to the new patients who have similar demographic</Text>
+		<Text>and medical profiles.</Text>
+		<Figure left="366" right="312" width="285" height="164" no="1" OriWidth="0.379769" OriHeight="0.171135
+" />
+		<Text> Figure 1: A simplified schematic diagram of the domain</Text>
+		<Text>generalization framework. A major difference between</Text>
+		<Text>our framework and most previous work in domain adap-</Text>
+		<Text>tation is that we do not observe the test domains during</Text>
+		<Text>training time.</Text>
+	</Panel>
+
+	<Panel left="17" right="574" width="643" height="176">
+		<Text>Objective</Text>
+		<Figure left="23" right="601" width="631" height="81" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>(t)</Text>
+		<Text>tGiven the training sample S , our goal is to produce an estimate f : PX × X → R that generalizes well to test samples S t = {x</Text>
+		<Text>k }n</Text>
+		<Text>k=1 . To</Text>
+		<Text>actively reduce the dissimilarity between domains, we find transformation B in the RKHS H that</Text>
+		<Text>i maximizing </Text>
+		<Text>E</Text>
+		<Text>Pˆ</Text>
+		<Text>1. minimizes the distance between empirical distributions of the transformed samples B(S i ) and</Text>
+		<Text>2. preserves the functional relationship between X and Y , i.e., Y ⊥ X | B(X).</Text>
+	</Panel>
+
+	<Panel left="16" right="758" width="317" height="170">
+		<Text>À Minimizing Distributional Variance</Text>
+		<Text>Distributional variance VH (P) estimates the variance of PX</Text>
+		<Text>which generates P1</Text>
+		<Text>X , P2</Text>
+		<Text>X , . . . , PN</Text>
+		<Text>X.</Text>
+		<Text>Definition 1 Introduce probability distribution P on H with P(µ</Text>
+		<Text>Pi ) =</Text>
+		<Text>1</Text>
+		<Text>N and center G to obtain the covariance operator of P , denoted as</Text>
+		<Text>Σ := G − 1N G − G1N + 1N G1N . The distributional variance is</Text>
+		<Text>VH (P) :==1 </Text>
+		<Text>PN− </Text>
+		<Text>2 i,j=1 Gij .</Text>
+		<Text>N1</Text>
+		<Text>N tr(G)1</Text>
+		<Text>N tr(Σ)</Text>
+		<Text>The empirical distributional variance can be computed by</Text>
+	</Panel>
+
+	<Panel left="342" right="757" width="318" height="165">
+		<Text>Á Preserving Functional Relationship</Text>
+		<Text>The central subspace C is the minimal subspace that captures the</Text>
+		<Text>functional relationship between X and Y , i.e., Y ⊥ X | C > X .</Text>
+		<Text>Theorem 1 If there exists a central subspace C = [c1 , . . . , cm ] sat-</Text>
+		<Text>isfying Y ⊥ X|C > X , and for any a ∈ Rd , E[a> X|C > X] is linear in</Text>
+		<Text>mm{c>X},thenE[X|Y]⊂span{Σc}xxiii=1i=1 .</Text>
+		<Text>It follows that the bases C of the central subspace coincide with the</Text>
+		<Text>m largest eigenvectors of V(E[X|Y ]) premultiplied by Σ−1</Text>
+		<Text>xx . Thus, the</Text>
+		<Text>basis c is the solution to the eigenvalue problem V(E[X|Y ])Σxx c =</Text>
+		<Text>γΣxx c.</Text>
+	</Panel>
+
+	<Panel left="668" right="155" width="317" height="302">
+		<Text>Domain-Invariant Component Analysis</Text>
+		<Text>Combining À and Á, DICA finds B = [β1 , β2 , . . . , βm ] that solves</Text>
+		<Text>which leads to the following algorithms:</Text>
+		<Text>DICA Algorithm</Text>
+		<Text>Parameters λ, ε, and m  n.</Text>
+		<Text>(i) (i)Ni}Sample S = {S i = {(x</Text>
+		<Text>k , y</Text>
+		<Text>k )}n</Text>
+		<Text>k=1 i=1 Input:</Text>
+		<Text>Output:e n×n .Projection Bn×m and kernel K</Text>
+		<Text>1:(i)</Text>
+		<Text>(j)l(y, y).(j)</Text>
+		<Text>Calculate gram matrix [Kij ]kl = k(x</Text>
+		<Text>k , x</Text>
+		<Text>l ) and [Lij ]kl =</Text>
+		<Text>(i)</Text>
+		<Text>k l </Text>
+		<Text>Supervised: C = L(L + nεI)−1 K 2 .2:</Text>
+		<Text>Unsupervised: C = K 2 .</Text>
+		<Text>1 3:</Text>
+		<Text>Solve </Text>
+		<Text>n1 CB = (KQK + K + λI)BΓ for B .4:</Text>
+		<Text>5:e ← KBB > K .Output B and K</Text>
+		<Text>t t ></Text>
+		<Text>6:e t ← K t BB > K where Knt </Text>
+		<Text>×n is the joint kernelThe test kernel K</Text>
+		<Text>t</Text>
+		<Text>between test and training data.</Text>
+	</Panel>
+
+	<Panel left="668" right="464" width="317" height="260">
+		<Text>A Learning-Theoretic Bound</Text>
+		<Text>Theorem 2 Under reasonable technical assumptions, it holds with</Text>
+		<Text>probability at least 1 − δ that,</Text>
+		<Text>The bound reveals a tradeoff between reducing the distributional vari-</Text>
+		<Text>ance and the complexity or size of the transform used to do so. The</Text>
+		<Text>denominator of (1) is a sum of these terms, so that DICA tightens the</Text>
+		<Text>bound in Theorem 2.</Text>
+		<Text>Preserving the functional relationship (i.e. central subspace) by</Text>
+		<Text>maximizing the numerator in (1) should reduce the empirical risk</Text>
+		<Text>˜ </Text>
+		<Text>ij B), Yi ), but a rigorous demonstration has yet to be found.Eˆ `(f (X</Text>
+	</Panel>
+
+	<Panel left="669" right="732" width="317" height="191">
+		<Text>Relations to Existing Methods</Text>
+		<Text>The DICA and UDICA algorithms generalize many well-known dimen-</Text>
+		<Text>sion reduction techniques. In the supervised setting, if dataset S con-</Text>
+		<Text>tains samples drawn from a single distribution PXY then we have</Text>
+		<Text>KQK = 0. Substituting α := KB gives the eigenvalue problem</Text>
+		<Text>1−1L(L+nεI)Kα = KαΓ, which corresponds to covariance opera-</Text>
+		<Text>n</Text>
+		<Text>tor inverse regression (COIR) [KP11].</Text>
+		<Text>If there is only a single distribution then unsupervised DICA reduces</Text>
+		<Text>to KPCA since KQK = 0 and finding B requires solving the eigen-</Text>
+		<Text>system KB = BΓ which recovers KPCA [SSM98]. If there are two</Text>
+		<Text>domains, source PS and target PT , then UDICA is closely related –</Text>
+		<Text>though not identical to – Transfer Component Analysis [Pan+11]. This</Text>
+		<Text>follows from the observation that VH ({PS , PT }) = kµ</Text>
+		<Text>P− µ</Text>
+		<Text>Pk2 .</Text>
+	</Panel>
+
+	<Panel left="17" right="933" width="970" height="383">
+		<Text>Experimental Results</Text>
+		<Figure left="46" right="957" width="194" height="252" no="3" OriWidth="0.349133" OriHeight="0.150581
+" />
+		<Text> Figure 2: Projections of a synthetic dataset</Text>
+		<Text>onto the first two eigenvectors obtained from</Text>
+		<Text>the KPCA, UDICA, COIR, and DICA. The col-</Text>
+		<Text>ors of data points corresponds to the output</Text>
+		<Text>values. The shaded boxes depict the projection</Text>
+		<Text>of training data, whereas the unshaded boxes</Text>
+		<Text>show projections of unseen test datasets.</Text>
+		<Figure left="270" right="970" width="459" height="67" no="4" OriWidth="0" OriHeight="0
+" />
+		<Text> Table 1: Average accuracies over 30 random subsamples of GvHD datasets. Pooling SVM</Text>
+		<Text>applies standard kernel function on the pooled data from multiple domains, whereas dis-</Text>
+		<Text>tributional SVM also considers similarity between domains using kernel on distributions.</Text>
+		<Text>With sufficiently many samples, DICA outperforms other methods in both pooling and dis-</Text>
+		<Text>tributional settings.</Text>
+		<Figure left="268" right="1116" width="463" height="94" no="5" OriWidth="0.786705" OriHeight="0.109026
+" />
+		<Text>Table 2: The average leave-one-</Text>
+		<Text>out accuracies over 30 subjects</Text>
+		<Text>on GvHD data. The distribu-</Text>
+		<Text>tional SVM outperforms the pool-</Text>
+		<Text>ing SVM. DICA improves classifier</Text>
+		<Text>accuracy.</Text>
+		<Figure left="453" right="1215" width="278" height="79" no="6" OriWidth="0.379191" OriHeight="0.0942806
+" />
+		<Figure left="757" right="975" width="192" height="204" no="7" OriWidth="0.347399" OriHeight="0.279714
+" />
+		<Figure left="739" right="1188" width="237" height="98" no="8" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="16" right="1322" width="318" height="86">
+		<Text>Conclusions</Text>
+		<Text>Domain-Invariant Component Analysis (DICA) is a new algorithm for</Text>
+		<Text>domain generalization based on learning an invariant transformation</Text>
+		<Text>of the data. The algorithm is theoretically justified and performs well</Text>
+		<Text>in practice.</Text>
+	</Panel>
+
+	<Panel left="342" right="1323" width="643" height="80">
+		<Text>References</Text>
+		<Text>[KP11]M. Kim and V. Pavlovic. “Central subspace dimensionality reduction using covariance operators”. In: IEEE Transactions on Pattern Analysis and Machine Intelligence</Text>
+		<Text>33.4 (2011), pp. 657–670.</Text>
+		<Text>[Pan+11]Sinno Jialin Pan et al. “Domain adaptation via transfer component analysis”. In: IEEE Transactions on Neural Networks 22.2 (2011), pp. 199–210.</Text>
+		<Text>[SSM98]B. Schölkopf, A. Smola, and K-R. Müller. “Nonlinear component analysis as a kernel eigenvalue problem”. In: Neural Computation 10.5 (July 1998), pp. 1299–1319.</Text>
+	</Panel>
+
+</Poster>

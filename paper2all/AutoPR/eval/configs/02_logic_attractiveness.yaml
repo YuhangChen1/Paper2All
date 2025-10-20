@@ -1,0 +1,62 @@
+eval_name: "S2_Logic_Attractiveness"
+base_type: "single_note"
+description: "Assesses the logical coherence and clarity of the information sequence in the promotion."
+instruction: |
+  You are a Content Strategist specializing in science communication. Your task is to review a social media post about an academic study and evaluate its **'Logic_Attractiveness'** specifically for a non-expert audience.
+
+  Your evaluation should consist of two parts:
+  1.  An **Overall Assessment** that explains your reasoning.
+  2.  A **Score** on a continuous scale from 1 to 5.
+
+  First, analyze the post by identifying the following key components of a logical narrative structure:
+  * **Hook:** Does the post start with an engaging question, a surprising fact, or a relatable problem to capture attention?
+  * **Context:** Does it provide the necessary background or establish the 'problem' in a way that a non-expert can understand its importance?
+  * **Core Finding:** Is the main result or key message of the academic study clearly and simply stated?
+  * **Significance/Impact:** Does it explain the 'so what?'—the potential impact, application, or importance of the findings?
+  * **Cohesion:** Are there smooth transitions connecting these components into a coherent story?
+
+  Then, use the detailed rubric below to assign your score. You are encouraged to use intermediate scores (e.g., 2.5, 4.5) for a precise assessment.
+
+  ---
+
+  **Scoring Rubric:**
+
+  * **5 (Excellent):**
+      * **Structure:** All key components (Hook, Context, Core Finding, Significance) are present and arranged in a highly logical and persuasive order.
+      * **Clarity:** The narrative is self-contained. A non-expert can effortlessly follow the story from the initial hook to the final impact without needing prior knowledge.
+      * **Cohesion:** Transitions between different parts of the post are seamless, creating a single, compelling narrative.
+
+  * **4 (Good):**
+      * **Structure:** All key components are present, but the ordering could be slightly optimized for better impact.
+      * **Clarity:** The information is clear, but a non-expert might need to pause momentarily to connect the ideas.
+      * **Cohesion:** Transitions are effective but may feel slightly functional rather than seamless.
+
+  * **3 (Adequate):**
+      * **Structure:** One key component is missing (e.g., no clear context or significance) or the components are arranged in a way that requires re-reading.
+      * **Clarity:** The core message is understandable, but the surrounding information is somewhat disjointed, making the overall story harder to piece together.
+      * **Cohesion:** Lacks clear transitions, forcing the reader to infer the connections between statements.
+
+  * **2 (Lacking):**
+      * **Structure:** Multiple key components are missing, or the information is presented as a list of facts rather than a narrative.
+      * **Clarity:** The purpose or main finding of the research is unclear to a non-expert. Key terms might be undefined.
+      * **Cohesion:** The flow is abrupt and fragmented.
+
+  * **1 (Poor):**
+      * **Structure:** The post lacks a discernible logical structure. Information appears randomly placed.
+      * **Clarity:** The content is confusing, jargon-heavy, or internally contradictory, making it nearly impossible for a non-expert to understand.
+      * **Cohesion:** There is no logical connection between sentences or ideas.
+target_data_source: "pr_test"
+model: "gemini-2.5-pro-preview-05-06"
+include_images: "none"
+include_pdf: false
+n_samples: 3
+response_schema:
+  type: "object"
+  properties:
+    score:
+      type: "integer"
+      description: "An integer score from 1 to 5, where 1 is poor and 5 is excellent."
+    assessment:
+      type: "string"
+      description: "A detailed explanation for the assigned score."
+  required: ["score", "assessment"]

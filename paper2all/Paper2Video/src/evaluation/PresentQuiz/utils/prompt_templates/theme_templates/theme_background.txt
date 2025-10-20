@@ -1,0 +1,17 @@
+You are an expert in analyzing images for stylistic properties.
+
+I will provide you with a poster image. Your task is to determine the following about the poster’s background:
+• Whether there is a background color. If there is one, provide that color in RGB notation (e.g., "255,255,255").  
+• Identify and describe any other notable style elements that format the background (e.g., gradient, pattern, texture, etc.).
+
+After completing your analysis, respond with a single JSON object.  
+Each key in the JSON should be the name of the style property you are describing, and the value should be the corresponding property value.  
+Do not include any additional commentary outside of JSON.  
+
+Example of how your final output should look (structure only, not literal values):
+{
+  "backgroundColorRGB": "R,G,B",
+  "backgroundPattern": "pattern or style if any"
+}
+
+Please analyze the image and produce your final JSON below.

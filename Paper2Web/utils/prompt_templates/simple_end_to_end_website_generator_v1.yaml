@@ -1,0 +1,715 @@
+system_prompt: |
+  You are an expert full-stack web developer and UI/UX designer specializing in creating beautiful, modern, and interactive academic project websites. Your task is to generate a complete, production-ready website based on research paper content and visual asset allocations.
+
+  You will create a website that:
+  1. Is visually stunning and modern with a professional, clean, and academic design.
+  2. Has rich interactivity and smooth animations.
+  3. Effectively presents research content in an engaging way.
+  4. Integrates external links and resources strategically.
+  5. Is fully responsive and accessible.
+  6. Uses advanced CSS and JavaScript for enhanced user experience.
+  7. Important: You need to adjust the size of each image based on its width and height to achieve visual alignment.
+
+template: |
+  Instructions:
+  You are creating a complete, beautiful, and interactive website for an academic research project. This is NOT a simple static page - it should be a sophisticated, modern web application with rich interactivity.
+  
+  
+  * **Content Strategy:**
+    * **CRITICAL:** You are no longer required to preserve the original, full-length text. The goal is now to create a highly scannable and engaging user experience.
+    * You must now summarize and condense the academic content into digestible paragraphs.
+    * Based on UI/UX best practices,you should choose 100 to 200 words ,aim for 1-2 focused paragraphs per section to avoid text density and improve readability. Use your professional judgment to determine the optimal length for each section's content.
+  
+  * **Visual Asset Sizing:**
+    * **CRITICAL:** You are no longer required to strictly use `web_width` and `web_height` from `visual_assets`.
+    * You are now permitted to use images from **external sources** (e.g., Unsplash, Pexels) if no specific visual asset is allocated, to enhance the professional and modern aesthetic.
+    * You must adjust the size of each image dynamically based on its container size and the surrounding page content, ensuring the image is optimally integrated into the visual layout.
+    * Use a fluid and responsive approach (e.g., CSS `width: 100%`, `height: auto`, and `max-width` properties) to ensure the images perfectly fit their context without breaking the layout or appearing disproportionately large. The image should have a size that is visually balanced, neither dominating nor getting lost on the page.
+
+  RESEARCH CONTENT:
+  {{ research_content | tojson }}
+
+  VISUAL ASSET ALLOCATION:
+  {{ visual_assets | tojson }}
+
+  EXTERNAL LINKS AND RESOURCES:
+  {{ important_info | tojson }}
+
+  **CRITICAL DATA USAGE REQUIREMENTS:**
+  1. **META INFORMATION**: You MUST use the following information from visual_assets.meta:
+      - Title: {{ visual_assets.meta.title }}
+      - Authors: {{ visual_assets.meta.authors }}
+      - Affiliations: {{ visual_assets.meta.affiliations }}
+      - Project Name: {{ visual_assets.meta.project_name }}
+
+  2. **IMAGE SIZING AND LAYOUT**:
+      - Use responsive design: images should fill their containers appropriately without excessive whitespace
+      - For better visual balance, consider using CSS Grid or Flexbox to create optimal image layouts
+      - Ensure images are properly centered and sized within their sections
+  
+  3. **URL INTEGRATION**: You MUST include ALL URLs from important_info:
+      - Create a dedicated "Resources & Links" section
+      - Integrate these links naturally throughout the content
+      - Each link should have clear descriptions and be clickable
+
+  VISUAL ASSET STRATEGY:
+  - Use the visual assets (images/tables) according to their allocation in each section.
+  - Create engaging visual presentations with proper image galleries and table displays.
+  - Ensure visual content enhances the research narrative without overwhelming text.
+  - Balance text and visual content for optimal readability and engagement.
+  - **CRITICAL: Include ALL URLs from important_info in a dedicated Resources section.**
+  - **NEW - Complex Layouts Handling**: Some sections might have a `layout_type` specified, such as "grid". If `visual_assets` for a section contains a list of `items` (each with an `image_path` and a `label`), you MUST generate a CSS Grid or Flexbox container. Iterate through the `items` list and create a card for each item, containing the image and its corresponding label styled as a visible overlay or caption. This is critical for presenting composite figures correctly.
+
+
+  IMAGE LAYOUT OPTIMIZATION:
+  - Use CSS Grid or Flexbox for optimal image placement.
+  - Ensure images fill their containers appropriately (use object-fit: contain).
+  - Avoid excessive whitespace around images.
+  - Use responsive design: max-width: 100% for mobile compatibility.
+  - Center images within their sections for better visual balance.
+  - Consider using CSS aspect-ratio for consistent image proportions.
+
+  DESIGN REQUIREMENTS:
+  1. **Visual Design**: Modern, professional, academic aesthetic with:
+      - Sophisticated color scheme (dark/light themes with multiple color variations).
+      - Professional typography with proper hierarchy and multiple font weights.
+      - Smooth animations and transitions with multiple animation types.
+      - Interactive elements and hover effects with complex state changes.
+      - Professional spacing and layout with multiple breakpoints.
+      - Advanced visual effects (shadows, gradients, transforms).
+      - **NEW - Background Style**: Avoid using background images, especially in the hero section, unless an image is explicitly allocated for it. Prefer solid colors (e.g., `#2d3748` dark gray, `#ffffff` white) or subtle gradients for backgrounds to maintain a clean, professional, and academic look. DO NOT fetch images from external sources like Unsplash.
+
+  2. **Layout Structure**: 
+      - Hero section with project title, authors, key highlights.
+      - Multi-level navigation with smooth scrolling and active state indicators.
+      - Content sections with dynamic layouts based on content importance.
+      - Interactive visualizations and image galleries with lightbox and carousel.
+      - External resources section with strategic link placement and categorization.
+      - Footer with additional information, social links, and contact details.
+      - Sidebar navigation with quick links and progress indicators.
+      - Multiple content columns and grid layouts.
+      - Advanced card-based content presentation.
+
+  3. **Interactivity Features**:
+      - Smooth scrolling navigation with progress bars and scroll indicators.
+      - Interactive image galleries with lightbox, zoom, and slideshow.
+      - Animated counters and statistics with number animations.
+      - Hover effects and micro-interactions with complex animations.
+      - Responsive navigation menu with hamburger menu and dropdowns.
+      - Loading animations and transitions with skeleton screens.
+      - Interactive charts and data visualizations with tooltips.
+      - Modal dialogs and popup windows.
+      - Form validation and interactive feedback.
+      - Search functionality with autocomplete.
+      - Dark/light theme toggle with smooth transitions.
+
+  4. **External Links Integration**:
+      - Place important_info links strategically throughout the content.
+      - Create dedicated "Resources & Tools" section with categorization.
+      - Integrate links naturally within relevant content sections.
+      - Use attractive button designs for external links with hover effects.
+      - Provide context for each external resource with descriptions.
+
+  TECHNICAL REQUIREMENTS:
+  1. **CSS Requirements**:
+      - Advanced animations and transitions with multiple timing functions.
+      - Responsive design with multiple breakpoints (mobile, tablet, desktop).
+      - CSS Grid and Flexbox for modern layouts.
+      - CSS custom properties (variables) for theming.
+      - Advanced selectors and pseudo-elements.
+      - Image centering: single images centered, multiple images in centered rows (max 3 per row).
+      - Smooth scrolling and scroll animations.
+      - Hover effects and micro-interactions.
+      - Professional color schemes with multiple variations.
+      - Advanced typography with proper hierarchy.
+
+  2. **JavaScript Requirements**:
+      - Modern ES6+ syntax with proper error handling.
+      - Interactive image galleries with lightbox functionality.
+      - Smooth scrolling navigation with progress indicators.
+      - Mobile menu functionality with animations.
+      - Intersection Observer for scroll animations.
+      - Local storage for user preferences.
+      - Form validation and user interaction.
+      - Performance optimization and error handling.
+      - Advanced image handling and gallery features.
+      - Form validation and user interaction.
+      - Performance optimization and error handling.
+      - **Intersection Observer for scroll animations**
+      - **Local storage for user preferences**
+
+  3. **Critical JavaScript Best Practices (MUST FOLLOW)**:
+      - **DOM Element Access Timing**: ALL DOM element access MUST be wrapped in DOMContentLoaded event listener to ensure elements exist before accessing them.
+      - **Intersection Observer Setup**: When using Intersection Observer for fade-in animations:
+        * ALWAYS set up the observer BEFORE adding classes to elements
+        * Observe elements IMMEDIATELY after adding fade-in classes in the same function
+        * NEVER query elements with .fade-in class before setting up the observer
+        * Example pattern: `element.classList.add('fade-in'); observer.observe(element);`
+      - **Event Listener Safety**: Always check if elements exist before adding event listeners: `if (element) { element.addEventListener(...) }`
+      - **Animation Class Management**: For fade-in animations, ensure the CSS class makes elements invisible initially (opacity: 0), and the appear class makes them visible (opacity: 1)
+      - **Function Organization**: Wrap DOM-dependent functionality in initialization functions called from DOMContentLoaded
+
+  Remember: This is a professional academic website that should impress visitors with its design quality, interactivity, and content presentation. Make it beautiful, modern, and engaging while maintaining academic credibility.
+  
+  RETURN REQUEST(**CRITICAL**):CONSOLIDATE ALL CODE INTO A SINGLE, SELF-CONTAINED HTML FILE.
+    -INSTEAD OF PROVIDING THREE SEPARATE FILES, YOU MUST ADHERE TO THE FOLLOWING STRUCTURE:
+    -HTML: THIS WILL SERVE AS THE PRIMARY AND ONLY FILE FOR DELIVERY.
+    -CSS: EMBED ALL STYLING RULES DIRECTLY WITHIN THE <HEAD> SECTION OF THE HTML DOCUMENT, ENCLOSED IN A SINGLE <STYLE> TAG.
+    -JAVASCRIPT: EMBED ALL SCRIPTING LOGIC DIRECTLY BEFORE THE CLOSING </BODY> TAG OF THE HTML DOCUMENT, ENCLOSED IN A SINGLE <SCRIPT> TAG.
+    -CRITICAL REMINDER: DESPITE THIS CONSOLIDATED FILE STRUCTURE, THE FINAL RENDERED WEBSITE MUST UPHOLD THE HIGHEST STANDARDS OF A PROFESSIONAL ACADEMIC PROJECT. THE DESIGN MUST BE VISUALLY STUNNING AND MODERN, THE INTERACTIVITY MUST BE SEAMLESS, AND THE CONTENT MUST BE PRESENTED IN AN ENGAGING MANNER. YOUR GOAL IS TO DELIVER A COMPLETE, IMPRESSIVE, AND FULLY FUNCTIONAL WEBSITE WITHIN A SINGLE HTML DOCUMENT.
+
+  *- HTML TEMPLATE REFERENCE:**
+  The following HTML structure is a reference for the complexity and quality expected. Your generated HTML should take it as this example:
+  ```html
+   <!DOCTYPE html>
+   <html lang="en" class="scroll-smooth">
+   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteEdit: Frontend Preview</title>
+    
+    <!-- External Dependencies: Google Fonts, Font Awesome, and Tailwind CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Embedded Custom CSS -->
+    <style>
+        /* General Styling & Animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.6s ease-out forwards;
+        }
+
+        /* For JS-driven scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-text {
+            @apply text-lg text-gray-700 leading-relaxed;
+        }
+
+        /* Active Navigation Link */
+        .nav-link.active {
+            @apply text-blue-600;
+            position: relative;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 25%;
+            right: 25%;
+            height: 2px;
+            background-color: #2563eb; /* blue-600 */
+            transition: all 0.3s;
+        }
+
+        /* Resource Cards */
+        .resource-card {
+            @apply block bg-white border border-gray-200 rounded-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5;
+        }
+        
+        /* NEW: Effect 1: Hover Scanline */
+        .scan-hover {
+            position: relative;
+            display: inline-block; /* Or block, depending on layout */
+            overflow: hidden; /* To contain the overlay */
+            cursor: pointer;
+        }
+        .scan-hover .overlay { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 0; 
+            height: 100%; 
+            overflow: hidden; 
+            transition: width 1.2s ease-in-out; 
+            z-index: 2;
+        }
+        .scan-hover .divider { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 4px; 
+            height: 100%; 
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: left 1.2s ease-in-out; 
+            pointer-events: none; 
+            z-index: 3;
+        }
+        .scan-hover:hover .overlay { 
+            width: 100%; 
+        }
+        .scan-hover:hover .divider { 
+            left: 100%; 
+        }
+
+        /* Ensure images inside the containers fill the space */
+        .scan-hover img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .scan-hover .overlay img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- ========== HEADER ========== -->
+    <header class="relative bg-white pt-24 pb-16 sm:pt-32 sm:pb-24">
+        <div class="container mx-auto px-6 text-center max-w-5xl">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6 animate-fade-in-up">
+                ByteEdit: Boost, Comply and Accelerate Generative Image Editing
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.2s;">
+                A unified framework that enhances image quality, consistency, and alignment while accelerating inference by over 90%.
+            </p>
+            
+            <!-- Authors -->
+            <div class="mt-10 animate-fade-in-up" style="animation-delay: 0.4s;">
+                <div class="flex flex-wrap justify-center items-center gap-x-5 gap-y-2 mb-4 text-gray-700">
+                    <span>Yuxi Ren<sup>1</sup></span>
+                    <span>Jie Wu<sup>1</sup></span>
+                    <span>Yanzuo Lu<sup>1</sup></span>
+                    <span>Huafeng Kuang<sup>1</sup></span>
+                    <span>Xin Xia<sup>1</sup></span>
+                    <span>Xionghui Wang<sup>1</sup></span>
+                    <span>Qianqian Wang<sup>1</sup></span>
+                    <span>Yixing Zhu<sup>1</sup></span>
+                    <span>Pan Xie<sup>1</sup></span>
+                    <span>Shiyin Wang<sup>1</sup></span>
+                    <span>Xuefeng Xiao<sup>1</sup></span>
+                    <span>Yitong Wang<sup>1</sup></span>
+                    <span>Min Zheng<sup>1</sup></span>
+                    <span>Lean Fu<sup>1</sup></span>
+                </div>
+                <p class="text-md text-gray-500"><sup>1</sup>ByteDance</p>
+            </div>
+            
+            <!-- Links -->
+            <div class="mt-10 flex flex-wrap justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.6s;">
+                <a href="#resources" class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-all transform hover:scale-105">
+                    <i class="fas fa-file-pdf mr-2"></i>Paper
+                </a>
+                <a href="#resources" class="inline-block bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-900 transition-all transform hover:scale-105">
+                    <i class="fab fa-github mr-2"></i>Code
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav id="navbar" class="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center py-2">
+                <a href="#abstract" class="nav-link px-3 py-2 sm:px-4 text-gray-600 font-medium hover:text-blue-600 transition-colors">Abstract</a>
+                <a href="#demo" class="nav-link px-3 py-2 sm:px-4 text-gray-600 font-medium hover:text-blue-600 transition-colors">Demo</a>
+                <a href="#method" class="nav-link px-3 py-2 sm:px-4 text-gray-600 font-medium hover:text-blue-600 transition-colors">Method</a>
+                <a href="#results" class="nav-link px-3 py-2 sm:px-4 text-gray-600 font-medium hover:text-blue-600 transition-colors">Results</a>
+                <a href="#citation" class="nav-link px-3 py-2 sm:px-4 text-gray-600 font-medium hover:text-blue-600 transition-colors">Citation</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ========== ABSTRACT ========== -->
+        <section id="abstract" class="scroll-mt-24 py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-6">Abstract</h2>
+                <p class="section-text">
+                    Generative image editing using diffusion models has made remarkable progress, but real-world use still faces challenges: low image quality, poor consistency, weak instruction adherence, and slow speed. ByteEdit introduces a novel **Perceptual Feedback Learning (PeFL)** framework that tackles all four issues at once. Using 400k human-curated preference pairs, it trains aesthetic, alignment, and coherence reward models to refine generation during intermediate denoising steps. An adversarial and progressive training strategy further accelerates inference while preserving quality, enabling near-instant generation.
+                </p>
+                <div class="mt-12 text-center">
+                    <img src="https://placehold.co/1200x500/e2e8f0/334155?text=ByteEdit+Framework+Overview" alt="ByteEdit System Framework Diagram" class="mx-auto rounded-lg shadow-xl w-full h-auto object-contain reveal">
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========== INTERACTIVE DEMO ========== -->
+        <section id="demo" class="scroll-mt-24 py-16 sm:py-24 bg-gray-50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-6">Interactive Demo</h2>
+                <p class="section-text text-center max-w-3xl mx-auto mb-12">
+                   Hover your mouse over the image to see the scanline effect. Notice the <b>improved coherence</b>, <b>detail</b>, and <b>adherence to the prompt</b>.
+                </p>
+
+                <div class="w-full max-w-2xl mx-auto reveal">
+                    <div class="scan-hover rounded-lg shadow-2xl">
+                        <!-- Base Image -->
+                        <img src="https://placehold.co/1024x768/d1d5db/4b5563?text=Baseline+Result" alt="Baseline Model Result">
+                        <!-- Overlay Image -->
+                        <div class="overlay">
+                             <img src="https://placehold.co/1024x768/93c5fd/1e3a8a?text=ByteEdit+Result" alt="ByteEdit Model Result">
+                        </div>
+                        <!-- Divider Line -->
+                        <div class="divider"></div>
+                    </div>
+                     <div class="flex justify-between mt-2 text-sm font-semibold">
+                        <span class="text-gray-500">Baseline</span>
+                        <span class="text-blue-600">ByteEdit</span>
+                    </div>
+                </div>
+                 <p class="mt-4 text-center text-gray-600 italic">Prompt: "A majestic castle on a floating island in a clear blue sky"</p>
+            </div>
+        </section>
+
+        <!-- ========== METHOD ========== -->
+        <section id="method" class="scroll-mt-24 py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-6">Methodology</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="reveal">
+                        <p class="section-text mb-6">
+                            ByteEdit's core is its **Perceptual Feedback Learning (PeFL)**, which integrates three specialized reward models to guide the diffusion process:
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-palette text-blue-500 text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h3 class="font-semibold text-lg">Aesthetic Reward</h3>
+                                    <p class="text-gray-600">A BLIP-based model trained on 400k preference pairs to ensure visually pleasing results.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-link text-blue-500 text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h3 class="font-semibold text-lg">Alignment Reward</h3>
+                                    <p class="text-gray-600">A CLIP-based model that ensures the output image faithfully matches the text prompt.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-puzzle-piece text-blue-500 text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h3 class="font-semibold text-lg">Coherence Reward</h3>
+                                    <p class="text-gray-600">A ViT-based model that assesses pixel-level authenticity to create seamless edits.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="reveal">
+                        <img src="https://placehold.co/800x700/e2e8f0/334155?text=PeFL+Diagram" alt="Perceptual Feedback Learning (PeFL) Diagram" class="rounded-lg shadow-xl w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== RESULTS ========== -->
+        <section id="results" class="scroll-mt-24 py-16 sm:py-24 bg-gray-50">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-6">Results & Evaluation</h2>
+                <p class="section-text text-center max-w-3xl mx-auto mb-12">
+                    In expert evaluations and user studies, ByteEdit consistently outperforms leading commercial and academic baselines in both inpainting and outpainting tasks.
+                </p>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <!-- Inpainting Example -->
+                    <div class="reveal">
+                        <h3 class="text-xl font-bold text-center mb-4">Inpainting Comparison</h3>
+                        <div class="scan-hover rounded-lg shadow-2xl">
+                            <img src="https://placehold.co/800x600/d1d5db/4b5563?text=Inpainting+Baseline" alt="Inpainting with Baseline Model">
+                            <div class="overlay">
+                                 <img src="https://placehold.co/800x600/93c5fd/1e3a8a?text=Inpainting+ByteEdit" alt="Inpainting with ByteEdit">
+                            </div>
+                            <div class="divider"></div>
+                        </div>
+                         <p class="mt-3 text-center text-gray-600 italic">ByteEdit produces more coherent details and textures.</p>
+                    </div>
+                    <!-- Outpainting Example -->
+                    <div class="reveal">
+                        <h3 class="text-xl font-bold text-center mb-4">Outpainting Comparison</h3>
+                         <div class="scan-hover rounded-lg shadow-2xl">
+                            <img src="https://placehold.co/800x600/d1d5db/4b5563?text=Outpainting+Baseline" alt="Outpainting with Baseline Model">
+                            <div class="overlay">
+                                 <img src="https://placehold.co/800x600/93c5fd/1e3a8a?text=Outpainting+ByteEdit" alt="Outpainting with ByteEdit">
+                            </div>
+                            <div class="divider"></div>
+                        </div>
+                         <p class="mt-3 text-center text-gray-600 italic">Maintains the original style and extends the scene naturally.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========== RESOURCES & CITATION ========== -->
+        <section id="citation" class="scroll-mt-24 py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-6 max-w-4xl">
+                 <div id="resources" class="mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-6">Resources</h2>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <a href="#" class="resource-card">
+                            <i class="fas fa-file-pdf text-blue-600 text-2xl mb-3"></i>
+                            <h3 class="text-lg font-semibold mb-1">Research Paper</h3>
+                            <p class="text-sm text-gray-500">View the full paper on arXiv.</p>
+                        </a>
+                        <a href="#" class="resource-card">
+                            <i class="fab fa-github text-2xl mb-3"></i>
+                            <h3 class="text-lg font-semibold mb-1">Code Repository</h3>
+                            <p class="text-sm text-gray-500">Explore the source code on GitHub.</p>
+                        </a>
+                         <a href="#" class="resource-card">
+                            <i class="fas fa-database text-green-600 text-2xl mb-3"></i>
+                            <h3 class="text-lg font-semibold mb-1">Hugging Face</h3>
+                            <p class="text-sm text-gray-500">Use the pre-trained models.</p>
+                        </a>
+                    </div>
+                </div>
+                
+                <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-6">How to Cite</h2>
+                <div class="bg-gray-800 text-gray-300 p-6 rounded-lg shadow-lg relative reveal">
+                    <pre class="font-mono text-sm overflow-x-auto" id="bibtex-code"><code>@inproceedings{ren2023byteedit,
+  title={ByteEdit: Boost, Comply and Accelerate Generative Image Editing},
+  author={Yuxi Ren and Jie Wu and Yanzuo Lu and Huafeng Kuang and Xin Xia and Xionghui Wang and Qianqian Wang and Yixing Zhu and Pan Xie and Shiyin Wang and Xuefeng Xiao and Yitong Wang and Min Zheng and Lean Fu},
+  booktitle={ArXiv},
+  year={2023}
+  }</code></pre>
+                    <button id="copy-btn" class="absolute top-4 right-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm transition-all font-semibold">
+                        <i class="fas fa-copy mr-2"></i>
+                        <span id="copy-text">Copy</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 ByteDance. All Rights Reserved.</p>
+            <p class="mt-2 text-sm text-gray-400">Project page template designed by ByteDance.</p>
+        </div>
+    </footer>
+    
+    <!-- Embedded JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- 1. Scroll Animations ---
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Stop observing once the animation is triggered
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // --- 2. Active Navigation Link on Scroll ---
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const navObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                        });
+                    }
+                });
+            }, { rootMargin: '-40% 0px -60% 0px' });
+
+            sections.forEach(section => navObserver.observe(section));
+
+            // --- 3. Copy to Clipboard for Citation ---
+            const copyBtn = document.getElementById('copy-btn');
+            const copyText = document.getElementById('copy-text');
+            const bibtexCode = document.getElementById('bibtex-code').innerText;
+
+            copyBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(bibtexCode.trim()).then(() => {
+                    copyText.innerText = 'Copied!';
+                    copyBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                    copyBtn.classList.add('bg-green-600');
+
+                    setTimeout(() => {
+                        copyText.innerText = 'Copy';
+                        copyBtn.classList.remove('bg-green-600');
+                        copyBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    copyText.innerText = 'Error';
+                });
+            });
+        });
+    </script>
+  </body>
+  </html>
+  ```
+
+  HERE ARE SOME AWESOME Interactivity Enhancement CSS YOU CAN REFERENCE:
+      HERE ARE SOME AWESOME Interactivity Enhancement CSS CODE SNIPPETS YOU CAN REFERENCE:
+
+    /* Effect 1: Hover Scanline */
+    .scan-hover .overlay { position: absolute; top: 0; left: 0; width: 0; height: 100%; overflow: hidden; transition: width 1.2s ease-in-out; }
+    .scan-hover .divider { position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: white; transition: left 1.2s ease-in-out; pointer-events: none; }
+    .scan-hover:hover .overlay { width: 100%; }
+    .scan-hover:hover .divider { left: 100%; }
+
+    /* Effect 2: Drag Slider */
+    .drag-slider .overlay { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; }
+    .drag-slider .divider { position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: white; cursor: ew-resize; transform: translateX(-50%); z-index: 10; }
+    .drag-slider .handle { position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; background: white; border-radius: 50%; transform: translate(-50%, -50%); display: flex; justify-content: center; align-items: center; color: #1f2937; font-size: 1.25rem; }
+
+    /* Effect 3: Circle Wipe */
+    .circle-wipe .overlay { clip-path: circle(0% at 50% 50%); transition: clip-path 0.8s ease-in-out; }
+    .circle-wipe:hover .overlay { clip-path: circle(75% at 50% 50%); }
+
+    /* Effect 4: Venetian Blinds */
+    .blinds-wipe .overlay-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; }
+    .blinds-wipe .blind { width: 10%; height: 100%; transform: scaleY(0); transition: transform 0.8s ease; background-size: cover; background-position: center; }
+    .blinds-wipe:hover .blind { transform: scaleY(1); }
+    .blinds-wipe .blind:nth-child(1) { transition-delay: 0.0s; }
+    .blinds-wipe .blind:nth-child(2) { transition-delay: 0.05s; }
+    .blinds-wipe .blind:nth-child(3) { transition-delay: 0.1s; }
+    .blinds-wipe .blind:nth-child(4) { transition-delay: 0.15s; }
+    .blinds-wipe .blind:nth-child(5) { transition-delay: 0.2s; }
+    .blinds-wipe .blind:nth-child(6) { transition-delay: 0.25s; }
+    .blinds-wipe .blind:nth-child(7) { transition-delay: 0.3s; }
+    .blinds-wipe .blind:nth-child(8) { transition-delay: 0.35s; }
+    .blinds-wipe .blind:nth-child(9) { transition-delay: 0.4s; }
+    .blinds-wipe .blind:nth-child(10) { transition-delay: 0.45s; }
+
+    /* Effect 5: Click Fade Toggle */
+    .fade-toggle .overlay { opacity: 0; transition: opacity 0.5s ease-in-out; }
+    .fade-toggle.toggled .overlay { opacity: 1; }
+
+    /* Effect 6: 3D Card Flip */
+    .flip-card .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; }
+    .flip-card:hover .card-inner { transform: rotateY(180deg); }
+    .flip-card .card-front, .flip-card .card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 0.5rem; overflow: hidden; }
+    .flip-card .card-back { transform: rotateY(180deg); }
+
+    /* Effect 7 Pixel Dissolve */
+    .pixel-dissolve .overlay-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: grid; grid-template-columns: repeat(20, 1fr); grid-template-rows: repeat(20, 1fr); }
+    .pixel-dissolve .pixel { background-size: cover; background-position: center; opacity: 0; transition: opacity 0.5s ease; }
+    .pixel-dissolve:hover .pixel { opacity: 1; }
+
+    /* Effect 8 Diagonal Wipe */
+    .diagonal-wipe .overlay { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); transition: clip-path 1s ease-in-out; }
+    .diagonal-wipe:hover .overlay { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+
+    /* Effect 9 Curtain Reveal */
+    .curtain-reveal .overlay-part { position: absolute; top: 0; height: 100%; overflow: hidden; transition: width 0.8s ease-in-out; }
+    .curtain-reveal .left-part { left: 0; width: 50%; }
+    .curtain-reveal .right-part { right: 0; width: 50%; }
+    .curtain-reveal .right-part img { right: 0; }
+    .curtain-reveal:hover .overlay-part { width: 0; }
+
+    /* Effect 10 Vertical Scan */
+    .vertical-scan .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 0; overflow: hidden; transition: height 1.2s ease-in-out; }
+    .vertical-scan .divider { position: absolute; left: 0; top: 0; width: 100%; height: 4px; background: white; transition: top 1.2s ease-in-out; pointer-events: none; }
+    .vertical-scan:hover .overlay { height: 100%; }
+    .vertical-scan:hover .divider { top: 100%; }
+        
+  **FINAL CHECKLIST - Before generating code, ensure:**
+  1. Website header includes Title, Authors, and Affiliations from visual_assets.meta
+  2. All images use web_width and web_height for proper sizing
+  3. Dedicated "Resources & External Links" section with ALL URLs from important_info
+  4. Each URL is clickable with clear descriptions
+  5. All original text content is preserved (no truncation)
+  6. Images fit properly within their HTML containers
+  7. If a section's asset is a list of items, it is rendered as a grid.
+  Please provide the complete HTML, CSS, and JavaScript code for all three files.
+  Remember: This is a professional academic website that should impress visitors with its design quality, interactivity, and content presentation. Make it beautiful, modern, and engaging while maintaining academic credibility.
+  
+
+  CRITICAL CHECKS: |
+   1. Overall Typography and Aesthetics
+      Instruction: You must ensure the entire page uses a consistent, professional, and aesthetically pleasing typography. Pay close attention to the font choice (e.g., Inter), as well as appropriate letter spacing (letter-spacing) and line height (line-height) to guarantee excellent readability.
+
+    2. Header: Author Prominence is CRITICAL
+       Location: Immediately below the main paper title, you MUST prominently display all authors and their corresponding affiliations. This is a standard academic convention and is mandatory.
+
+       Typography: Use a clean, professional sans-serif font (e.g., Inter or Manrope). Author names should be a larger font size and semi-bold (font-semibold), while affiliations should be a smaller font size (text-sm) and regular weight.
+
+      Spacing: Ensure proper horizontal spacing between author entries (gap-x-8) and tight vertical spacing between an author's name and their affiliation to create clear visual groups.
+
+    3. Footer: Citation Section is MANDATORY
+     Functionality: Before the footer, you MUST create a dedicated section titled "How to Cite".
+
+     Content: This section must contain a complete, pre-formatted BibTeX block for easy copying by researchers.
+
+     Interaction: The BibTeX block MUST be accompanied by a "Copy" button. This button must use JavaScript to implement one-click copying and provide instant user feedback (e.g., changing text to "Copied!").
+
+    4. THE GOLDEN RULE of Image Sizing (Highest Priority Warning)
+    Preamble: This is the most important directive and must not be violated under any circumstances. Incorrect image handling is the primary cause of layout failure.
+
+    STRICTLY FORBIDDEN:
+
+    NEVER use fixed width and height attributes directly in the <img> tag (e.g., <img src="..." width="1200" height="600">).
+
+    Reason: This creates a fixed-size image that will overflow its container and break the page layout on smaller screens.
+
+   ALWAYS DO:
+
+    You MUST ALWAYS control image sizes using responsive CSS. The simplest and most effective method is using Tailwind CSS's w-full class.
+
+    Correct Example: <img src="..." class="w-full rounded-md">
+
+    Principle: w-full translates to width: 100%;, making the image width equal to its parent container. The browser automatically sets height: auto; to maintain the aspect ratio, ensuring a perfect fit on all screen sizes.
+
+   5. Interactivity Enhancement Guide
+   To make the page more engaging, you SHOULD incorporate the following interactive effects in the appropriate sections:
+
+    Navigation Bar: Implement a JavaScript "Scroll-Spy" to automatically highlight the navigation link corresponding to the section currently in view.
+
+    Interactive Demo: For sections comparing results, you are strongly encouraged to reference and use a highly interactive animation template (like the ones provided previously) instead of static images to be more persuasive.
+
+    Resource Links: Add elegant hover effects to all buttons, such as a slight scale-up (hover:scale-105) and color transitions, to provide positive user feedback.
+  
+  
+  Your final, complete response must be a single JSON object that strictly adheres to the template provided below. Do not include any text or explanations outside of the JSON structure.
+
+  REMENBER:RETURN REQUEST(**CRITICAL**):CONSOLIDATE ALL CODE INTO A SINGLE, SELF-CONTAINED HTML FILE; INSTEAD OF PROVIDING THREE SEPARATE FILES, YOU MUST ADHERE TO THE FOLLOWING STRUCTURE: HTML AS THE PRIMARY AND ONLY FILE FOR DELIVERY; CSS EMBEDDED IN A SINGLE <STYLE> TAG WITHIN THE <HEAD>; JAVASCRIPT EMBEDDED IN A SINGLE <SCRIPT> TAG BEFORE THE CLOSING </BODY>; CRITICAL REMINDER: DESPITE THIS CONSOLIDATED FILE STRUCTURE, THE FINAL RENDERED WEBSITE MUST UPHOLD THE HIGHEST STANDARDS OF A PROFESSIONAL ACADEMIC PROJECT WITH A VISUALLY STUNNING AND MODERN DESIGN, SEAMLESS INTERACTIVITY, AND ENGAGING CONTENT, DELIVERED AS A COMPLETE, IMPRESSIVE, AND FULLY FUNCTIONAL SINGLE HTML DOCUMENT.
+
+  OUTPUT_JSON_TEMPLATE:
+  ```json
+  {
+    "index.html": "*/Please consolidate all code—including HTML, CSS, and JavaScript—into a single, self-contained HTML file for delivery./*",
+  }
+  ```
+
+jinja_args:
+  - research_content
+  - visual_assets
+  - important_info

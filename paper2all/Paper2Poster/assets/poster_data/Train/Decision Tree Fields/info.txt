@@ -1,0 +1,60 @@
+<Poster Width="1734" Height="2602">
+	<Panel left="26" right="480" width="1671" height="396">
+		<Text>Overview</Text>
+		<Text>DTF = Efficiently learnable non-parametric CRFs for discrete image labelling tasks</Text>
+		<Text>• All factors (unary, pairwise, higher-order) are represented by decision trees</Text>
+		<Text>• Decision trees are non-parametric</Text>
+		<Text>• Efficient training of millions of parameters using pseudo-likelihood</Text>
+	</Panel>
+
+	<Panel left="26" right="879" width="1677" height="578">
+		<Text>Formally</Text>
+		<Figure left="26" right="1002" width="299" height="279" no="1" OriWidth="0.180507" OriHeight="0.131907
+" />
+		<Text>Graphical Model:</Text>
+		<Text>Factor types</Text>
+		<Figure left="331" right="1028" width="303" height="243" no="2" OriWidth="0.196078" OriHeight="0.118093
+" />
+		<Text>Factor Graph</Text>
+		<Text>Energy</Text>
+		<Text>Energy linear in w</Text>
+		<Text>Example pairwise factor</Text>
+		<Figure left="1382" right="1027" width="326" height="336" no="3" OriWidth="0.155133" OriHeight="0.111408
+" />
+	</Panel>
+
+	<Panel left="33" right="1458" width="1666" height="347">
+		<Text>Special Cases</Text>
+		<Text>• Unary factors only = Decision Forest, with learned leaf node distributions</Text>
+		<Text>Zero-depth trees (pairwise factors) = MRF</Text>
+		<Text>• Conditional (pairwise factors) = CRF</Text>
+		<Figure left="1289" right="1563" width="270" height="169" no="4" OriWidth="0.190888" OriHeight="0.114973
+" />
+		<Figure left="784" right="1635" width="383" height="161" no="5" OriWidth="0.194925" OriHeight="0.114973
+" />
+	</Panel>
+
+	<Panel left="26" right="1805" width="1671" height="399">
+		<Text>Algorithm - Overview</Text>
+		<Text>Training</Text>
+		<Text>1.Define connective structure (factor types)</Text>
+		<Text>2.Train all decision trees (split functions) separately</Text>
+		<Text>3.Jointly optimize all weights</Text>
+		<Text>Testing (2 options)</Text>
+		<Text>•“Unroll” factor graph:</Text>
+		<Text>run: BP, TRW, QPBO, etc.</Text>
+		<Text>•Don’t “unroll” factor graph:</Text>
+		<Text>run Gibbs Sampling; Simulated Annealing</Text>
+	</Panel>
+
+	<Panel left="24" right="2203" width="1672" height="352">
+		<Text>Training of weights “w”</Text>
+		<Text>•Maximum Pseudo-Likelihood training, convex optimization problem</Text>
+		<Text>Converges in practice after 150-200 L-BFGS iterations</Text>
+		<Text>Efficient even for large graphs (e.g. 12 connected, 1.47M weights, 22mins)</Text>
+		<Text>•Is parallel on the variable level</Text>
+		<Text>•Variable sub-sampling possible</Text>
+		<Text>Code will be made available next month!</Text>
+	</Panel>
+
+</Poster>

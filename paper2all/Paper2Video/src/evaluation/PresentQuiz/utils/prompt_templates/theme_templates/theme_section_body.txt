@@ -1,0 +1,24 @@
+You are an expert in analyzing images for stylistic properties.
+
+I will provide you with a poster image. Your task is to determine the following about each section of the poster’s content:
+• What is the font/typeface of the content text? (e.g., Arial, Times New Roman, or another specific font?)  
+• Is the text italic, or have any other stylistic attribute?  
+• What is the color of the text in RGB notation (e.g., "255,255,255")? 
+• What is the filled color of the section in RGB notation (e.g., "255,255,255")? 
+• Is there a box or container behind the section text? If so, is it filled with any color? If so, what is that color in RGB notation?
+
+I want you to always explicitly point out the filled color of the section, and provide the RGB. 
+If it is white, you should explicitly give the RGB value as "255,255,255".
+
+After examining the image, respond with a single JSON object.  
+Each key in the JSON should be the name of the style property you are auditing, and the value should be the property’s value.  
+Please do not include any commentary outside of the JSON object.
+
+Example of how your final output might look (structure only, not literal values):
+{
+  "fontName": "Arial",
+  "textColorRGB": "R,G,B",
+  "sectionBodyBoxFillColorRGB": "R,G,B"
+}
+
+Please analyze the poster and produce your final JSON below.

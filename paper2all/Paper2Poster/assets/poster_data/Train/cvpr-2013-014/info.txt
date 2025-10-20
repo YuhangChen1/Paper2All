@@ -1,0 +1,180 @@
+<Poster Width="1734" Height="1115">
+	<Panel left="5" right="146" width="558" height="382">
+		<Text>Motivation</Text>
+		<Text>How do you describe this object? What class is this object?</Text>
+		<Text>Carþ Boatþ Sofaý Airplaneý</Text>
+		<Text>Independent of its object category, it looks Abnormal!</Text>
+		<Text>We Argue that Abnormalities are among most important</Text>
+		<Text>components that form what worth mentioning.</Text>
+		<Text>We are Proposing a method that Recognize Abnormalities</Text>
+		<Text>in images and Reports Weird Visual Attributes.</Text>
+		<Figure left="424" right="153" width="131" height="133" no="1" OriWidth="0" OriHeight="0
+" />
+		<Text>Research Questions</Text>
+		<Text>I)  What is Abnormality?A: There is NO clear answer for it!</Text>
+		<Text>II)  What can make an image look weird?A: Large variety of sources!</Text>
+		<Text>III)  Is it a simple Two-way classification (Normal vs. Abnormal)?</Text>
+		<Text>A: It is not a straightforward classification problem.</Text>
+		<Text>We can not use abnormal images for training the classifier mainly because:</Text>
+		<Text>1) Imbalanced number of Abnormal objects comparing to Normal objects.</Text>
+		<Text>2) People are able to judge Normality while they have not seen any Abnormal.</Text>
+		<Text>We only use Normal objects for learning a “Typicality Model” and represents</Text>
+		<Text>Abnormality as meaningful deviation from Normality.</Text>
+	</Panel>
+
+	<Panel left="5" right="535" width="558" height="565">
+		<Text>Dataset</Text>
+		<Text>Cause of Abnormality: I) Abnormalities rooted in Object by itself (Our Focus</Text>
+		<Text>II) Context related Abnormality</Text>
+		<Text>We present the First Dataset on Abnormal Objects. Along with a Novel</Text>
+		<Text>Human Subject Experiment to acquire Ground truth annotation.</Text>
+		<Text>Data acquisition</Text>
+		<Figure left="7" right="684" width="554" height="117" no="2" OriWidth="0" OriHeight="0
+" />
+		<Figure left="10" right="807" width="409" height="288" no="3" OriWidth="0.67341" OriHeight="0.302949
+" />
+		<Text>1)  Does	</Text>
+		<Text>  this	</Text>
+		<Text>  image	</Text>
+		<Text>  look	</Text>
+		<Text>  </Text>
+		<Text>abnormal?	</Text>
+		<Text>  </Text>
+		<Text>2)  What	</Text>
+		<Text>  is	</Text>
+		<Text>  the	</Text>
+		<Text>  reason?	</Text>
+		<Text>  </Text>
+		<Text>Object	</Text>
+		<Text>  vs.	</Text>
+		<Text>  Context	</Text>
+		<Text>  </Text>
+		<Text>3)  Categorize	</Text>
+		<Text>  the	</Text>
+		<Text>  </Text>
+		<Text>object	</Text>
+		<Text>  </Text>
+		<Text>4)  Assuming	</Text>
+		<Text>  its	</Text>
+		<Text>  </Text>
+		<Text>category	</Text>
+		<Text>  </Text>
+		<Text>membership,	</Text>
+		<Text>  rate	</Text>
+		<Text>  </Text>
+		<Text>the	</Text>
+		<Text>  abnormality	</Text>
+		<Text>  </Text>
+		<Text>cues:	</Text>
+		<Text>  </Text>
+		<Text>	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  Shape	</Text>
+		<Text>  /	</Text>
+		<Text>  Color	</Text>
+		<Text>  </Text>
+		<Text>	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  Texture	</Text>
+		<Text>  /	</Text>
+		<Text>  Pose	</Text>
+		<Text>  </Text>
+	</Panel>
+
+	<Panel left="573" right="144" width="513" height="296">
+		<Text>Human Subject Experiment</Text>
+		<Text>vTen human subject for each image</Text>
+		<Text>vOutlier responders are removed</Text>
+		<Text>vAveraging responses across users</Text>
+		<Text>Here are some insights:</Text>
+		<Text>§ It is even hard for Human to categorize</Text>
+		<Text>Abnormal Objects</Text>
+		<Text>§ Across different cues, Shape is the</Text>
+		<Text>most important reason for abnormality.</Text>
+		<Text>§ Except for Aeroplane people are sure</Text>
+		<Text>about the cause of Abnormality.</Text>
+		<Figure left="868" right="172" width="213" height="91" no="4" OriWidth="0.354913" OriHeight="0.06479
+" />
+		<Figure left="872" right="264" width="210" height="168" no="5" OriWidth="0.344509" OriHeight="0.178284
+" />
+	</Panel>
+
+	<Panel left="575" right="444" width="509" height="659">
+		<Text>Proposed Abnormality Model</Text>
+		<Text>Normality assumption (N) imposes a peaked distribution over Object</Text>
+		<Text>Classes (C) . As a result multimodal and uniform distributions over</Text>
+		<Text>Categories suggests Abnormality.</Text>
+		<Text>Considering this point, Normality Model</Text>
+		<Text>can be illustrated by this graphical model:</Text>
+		<Text>Conditioned on observed visual attributes (A)</Text>
+		<Text>and without any assumption on the object</Text>
+		<Text>class, Abnormality is the complement event</Text>
+		<Text>of Normality:</Text>
+		<Figure left="888" right="520" width="197" height="230" no="6" OriWidth="0.306936" OriHeight="0.19571
+" />
+		<Text>Estimating the joint attribute likelihood by marginalizing over object</Text>
+		<Text>Classes:and as given</Text>
+		<Text>An object class, attributes are independent:</Text>
+		<Text>For a given object class, each visual attribute has a different importance</Text>
+		<Text>factor. We measured it by Conditional Entropy:</Text>
+		<Text>As the learned attribute classifiers are not perfect we consider their</Text>
+		<Text>accuracy during learning as a measure of their reliability:</Text>
+	</Panel>
+
+	<Panel left="1095" right="146" width="630" height="956">
+		<Text>Experimental Results</Text>
+		<Text>I) Abnormality Prediction</Text>
+		<Text>* We use Normal images from Pascal dataset</Text>
+		<Text>and Abnormal images from our dataset.</Text>
+		<Text>* Parameters are learned ONLY on Normal objects,</Text>
+		<Text>which are represented by 64 Visual attributes.</Text>
+		<Text>* Our model has a better accuracy for Abnormality</Text>
+		<Text>Detection (we are not using any abnormal images –</Text>
+		<Text>during training). Second row shows the result for</Text>
+		<Text>the case of using Abnormal images during training a classifier.</Text>
+		<Text>* Using surprise score, we are able to rank images based on how abnormal they look :</Text>
+		<Figure left="1494" right="151" width="226" height="171" no="7" OriWidth="0.369942" OriHeight="0.0710456
+" />
+		<Figure left="1101" right="361" width="625" height="203" no="8" OriWidth="0.772254" OriHeight="0.103664
+" />
+		<Text>II) Abnormal Attribute Reporting	</Text>
+		<Text>  </Text>
+		<Text>* Given an abnormal instance from an object class, we</Text>
+		<Text>can Determine Missing (M) and Unexpected (U)</Text>
+		<Text>attributes.</Text>
+		<Text>* For quantitative results, we made the baseline based on:</Text>
+		<Text>Farhadi et al (CVPR 2009) which assumes a Gaussian</Text>
+		<Text>Distribution over attributes for normal objects.</Text>
+		<Text>*To be comparable with human responses we have</Text>
+		<Text>grouped Visual attributes into disjoint lists, representing :</Text>
+		<Text>Shape, Pose, Color and Texture.</Text>
+		<Figure left="1496" right="567" width="231" height="250" no="9" OriWidth="0.325434" OriHeight="0.205094
+" />
+		<Text> {Numbers are KL-Divergence}</Text>
+		<Figure left="1103" right="820" width="622" height="118" no="10" OriWidth="0.378035" OriHeight="0.041555
+" />
+		<Text>III) Abnormality Detection helps</Text>
+		<Text>Object Categorization</Text>
+		<Text>*By knowing an object is an abnormal instance of a</Text>
+		<Text>given class, we will have a list of attributes which</Text>
+		<Text>made this object look weird.</Text>
+		<Text>*Adjusting these abnormal attributes with what is</Text>
+		<Text>expected from a normal instance, will improve</Text>
+		<Text>the object categorization task.</Text>
+		<Text>* We Measure KL-Divergence between Distribution</Text>
+		<Text>over object categories using TURK vs. our Model</Text>
+		<Text> KL-Divergence</Text>
+		<Figure left="1419" right="988" width="305" height="108" no="11" OriWidth="0.371098" OriHeight="0.0308311
+" />
+	</Panel>
+
+</Poster>

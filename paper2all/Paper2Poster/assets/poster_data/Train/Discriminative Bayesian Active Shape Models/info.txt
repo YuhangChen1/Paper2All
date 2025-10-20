@@ -1,0 +1,282 @@
+<Poster Width="1003" Height="1419">
+	<Panel left="59" right="281" width="887" height="158">
+		<Text></Text>
+		<Text>Overview:	</Text>
+		<Text>  	</Text>
+		<Text>  </Text>
+		<Text>Goal:	</Text>
+		<Text>  Face	</Text>
+		<Text>  alignment	</Text>
+		<Text>  in	</Text>
+		<Text>  unseen	</Text>
+		<Text>  images.	</Text>
+		<Text>  </Text>
+		<Text>Closely	</Text>
+		<Text>  related	</Text>
+		<Text>  to	</Text>
+		<Text>  Constrained	</Text>
+		<Text>  Local	</Text>
+		<Text>  Models	</Text>
+		<Text>  (CLM)	</Text>
+		<Text>  and	</Text>
+		<Text>  Ac)ve	</Text>
+		<Text>  Shape	</Text>
+		<Text>  Models	</Text>
+		<Text>  (ASM),	</Text>
+		<Text>  where	</Text>
+		<Text>  a	</Text>
+		<Text>  set	</Text>
+		<Text>  of	</Text>
+		<Text>  local	</Text>
+		<Text>  detectors	</Text>
+		<Text>  is	</Text>
+		<Text>  constrained	</Text>
+		<Text>  </Text>
+		<Text>to	</Text>
+		<Text>  lie	</Text>
+		<Text>  in	</Text>
+		<Text>  the	</Text>
+		<Text>  subspace	</Text>
+		<Text>  spanned	</Text>
+		<Text>  by	</Text>
+		<Text>  a	</Text>
+		<Text>  Point	</Text>
+		<Text>  Distribu)on	</Text>
+		<Text>  Model	</Text>
+		<Text>  (PDM).	</Text>
+		<Text>  	</Text>
+		<Text>  </Text>
+		<Text>Two	</Text>
+		<Text>  step	</Text>
+		<Text>  ﬁOng	</Text>
+		<Text>  approach:	</Text>
+		<Text>  </Text>
+		<Text>Two	</Text>
+		<Text>  step	</Text>
+		<Text>  ﬁOng	</Text>
+		<Text>  approach:	</Text>
+		<Text>  </Text>
+		<Text>(1)	</Text>
+		<Text>  Local	</Text>
+		<Text>  search	</Text>
+		<Text>  using	</Text>
+		<Text>  the	</Text>
+		<Text>  local	</Text>
+		<Text>  detectors	</Text>
+		<Text>  (response	</Text>
+		<Text>  maps	</Text>
+		<Text>  for	</Text>
+		<Text>  each	</Text>
+		<Text>  landmark).	</Text>
+		<Text>  </Text>
+		<Text>(2)	</Text>
+		<Text>  Global	</Text>
+		<Text>  op)miza)on	</Text>
+		<Text>  strategy	</Text>
+		<Text>  that	</Text>
+		<Text>  ﬁnds	</Text>
+		<Text>  the	</Text>
+		<Text>  PDM	</Text>
+		<Text>  parameters	</Text>
+		<Text>  that	</Text>
+		<Text>  jointly	</Text>
+		<Text>  maximize	</Text>
+		<Text>  all	</Text>
+		<Text>  the	</Text>
+		<Text>  detec)on	</Text>
+		<Text>  at	</Text>
+		<Text>  once.	</Text>
+		<Text>  </Text>
+		<Text>• New	</Text>
+		<Text>  Bayesian	</Text>
+		<Text>  global	</Text>
+		<Text>  op)miza)on	</Text>
+		<Text>  strategy	</Text>
+		<Text>  using	</Text>
+		<Text>  second	</Text>
+		<Text>  order	</Text>
+		<Text>  sta)s)cs	</Text>
+		<Text>  of	</Text>
+		<Text>  the	</Text>
+		<Text>  shape	</Text>
+		<Text>  and	</Text>
+		<Text>  pose	</Text>
+		<Text>  parameters.	</Text>
+		<Text>  </Text>
+	</Panel>
+
+	<Panel left="61" right="438" width="427" height="210">
+		<Text>The	</Text>
+		<Text>  Shape	</Text>
+		<Text>  (PDM)	</Text>
+		<Text>  and	</Text>
+		<Text>  Appearance	</Text>
+		<Text>  Models	</Text>
+		<Text>  </Text>
+		<Figure left="96" right="475" width="382" height="166" no="1" OriWidth="0" OriHeight="0.000408664
+" />
+	</Panel>
+
+	<Panel left="54" right="654" width="436" height="252">
+		<Text>Local	</Text>
+		<Text>  Detectors	</Text>
+		<Text>  (MOSSE	</Text>
+		<Text>  Filters)	</Text>
+		<Text>  	</Text>
+		<Text>  </Text>
+		<Figure left="57" right="679" width="283" height="216" no="2" OriWidth="0.398266" OriHeight="0.189211
+" />
+		<Text>Correla)on	</Text>
+		<Text>  in	</Text>
+		<Text>  Fourier	</Text>
+		<Text>  Domain	</Text>
+		<Text>  </Text>
+		<Figure left="346" right="721" width="135" height="64" no="3" OriWidth="0" OriHeight="0
+" />
+		<Text>PMOSSE	</Text>
+		<Text>  Filter	</Text>
+		<Text>  X</Text>
+	</Panel>
+
+	<Panel left="65" right="898" width="416" height="400">
+		<Text>The	</Text>
+		<Text>  Alignment	</Text>
+		<Text>  Goal	</Text>
+		<Text>  </Text>
+		<Text>Given	</Text>
+		<Text>  a	</Text>
+		<Text>  shape	</Text>
+		<Text>  observa)on	</Text>
+		<Text>  (y),	</Text>
+		<Text>  ﬁnd	</Text>
+		<Text>  the	</Text>
+		<Text>  op)mal	</Text>
+		<Text>  set	</Text>
+		<Text>  of	</Text>
+		<Text>  shape	</Text>
+		<Text>  (b)	</Text>
+		<Text>  </Text>
+		<Text>and	</Text>
+		<Text>  pose	</Text>
+		<Text>  parameters	</Text>
+		<Text>  that	</Text>
+		<Text>  maximize	</Text>
+		<Text>  the	</Text>
+		<Text>  posterior	</Text>
+		<Text>  probability	</Text>
+		<Text>  	</Text>
+		<Text>  </Text>
+		<Text>Assuming:	</Text>
+		<Text>  </Text>
+		<Text>Assuming:	</Text>
+		<Text>  </Text>
+		<Text>① Condi)onal	</Text>
+		<Text>  independence	</Text>
+		<Text>  between	</Text>
+		<Text>  landmarks	</Text>
+		<Text>  </Text>
+		<Text>② Close	</Text>
+		<Text>  to	</Text>
+		<Text>  a	</Text>
+		<Text>  solu)on	</Text>
+		<Text>  </Text>
+		<Figure left="108" right="1032" width="359" height="92" no="4" OriWidth="0" OriHeight="0
+" />
+		<Text>The	</Text>
+		<Text>  Likelihood	</Text>
+		<Text>  Term	</Text>
+		<Text>  </Text>
+		<Figure left="83" right="1141" width="365" height="99" no="5" OriWidth="0" OriHeight="0
+" />
+		<Text>The	</Text>
+		<Text>  Prior	</Text>
+		<Text>  Term	</Text>
+		<Text>  </Text>
+	</Panel>
+
+	<Panel left="519" right="445" width="430" height="238">
+		<Text>Local	</Text>
+		<Text>  Op)miza)on	</Text>
+		<Text>  Strategies	</Text>
+		<Text>  (Finding	</Text>
+		<Text>  the	</Text>
+		<Text>  Likelihood	</Text>
+		<Text>  Parameters)</Text>
+		<Figure left="526" right="473" width="420" height="99" no="6" OriWidth="0.57341" OriHeight="0.0870454
+" />
+		<Text>Weighted	</Text>
+		<Text>  Peak	</Text>
+		<Text>  Response	</Text>
+		<Text>  (WPR)	</Text>
+		<Text>  (current	</Text>
+		<Text>  mesh	</Text>
+		<Text>  es)mate)	</Text>
+		<Text>  </Text>
+		<Text>Gaussian	</Text>
+		<Text>  Response	</Text>
+		<Text>  (GR)	</Text>
+		<Text>  </Text>
+		<Text>Kernel	</Text>
+		<Text>  Density	</Text>
+		<Text>  Es)mator	</Text>
+		<Text>  (KDE)	</Text>
+		<Text>  </Text>
+	</Panel>
+
+	<Panel left="506" right="678" width="453" height="218">
+		<Text>2nd	</Text>
+		<Text>  Order	</Text>
+		<Text>  MAP	</Text>
+		<Text>  Global	</Text>
+		<Text>  Alignment	</Text>
+		<Text>  (DBASM)	</Text>
+		<Text>  </Text>
+		<Figure left="510" right="711" width="199" height="51" no="7" OriWidth="0" OriHeight="0
+" />
+		<Figure left="803" right="727" width="146" height="96" no="8" OriWidth="0" OriHeight="0
+" />
+		<Figure left="515" right="773" width="269" height="127" no="9" OriWidth="0" OriHeight="0
+" />
+		<Figure left="806" right="821" width="149" height="70" no="10" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="512" right="901" width="444" height="153">
+		<Text>Qualita)ve	</Text>
+		<Text>  Results	</Text>
+		<Text>  -­‐	</Text>
+		<Text>  Labeled	</Text>
+		<Text>  Faces	</Text>
+		<Text>  in	</Text>
+		<Text>  the	</Text>
+		<Text>  Wild	</Text>
+		<Text>  </Text>
+		<Figure left="514" right="927" width="439" height="126" no="11" OriWidth="0.56185" OriHeight="0.110748
+" />
+		<Text>Evalua)ng	</Text>
+		<Text>  Global	</Text>
+		<Text>  Op)miza)on	</Text>
+		<Text>  Strategies	</Text>
+		<Text>  </Text>
+		<Figure left="519" right="907" width="240" height="78" no="12" OriWidth="0.560116" OriHeight="0.140172
+" />
+		<Figure left="760" right="918" width="193" height="60" no="13" OriWidth="0.562428" OriHeight="0.102983
+" />
+	</Panel>
+
+	<Panel left="514" right="1167" width="443" height="128">
+		<Text>Tracking	</Text>
+		<Text>  Performance	</Text>
+		<Text>  -­‐	</Text>
+		<Text>  FGNET	</Text>
+		<Text>  Talking	</Text>
+		<Text>  Face	</Text>
+		<Text>  Sequence	</Text>
+		<Text>  </Text>
+		<Figure left="516" right="1188" width="442" height="42" no="14" OriWidth="0.555491" OriHeight="0.0326931
+" />
+		<Figure left="513" right="1237" width="438" height="58" no="15" OriWidth="0.517919" OriHeight="0.0776461
+" />
+	</Panel>
+
+</Poster>

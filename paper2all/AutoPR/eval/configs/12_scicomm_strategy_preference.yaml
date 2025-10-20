@@ -1,0 +1,47 @@
+eval_name: "P3_SciComm_Strategy_Preference"
+base_type: "preference"
+target_data_source: "pr_test"
+description: "Compares two posts on their effectiveness as pieces of science communication for a general enthusiast audience."
+instruction: |
+  ## Your Role
+  You are a top-tier science communicator (e.g., a producer for Veritasium or 3Blue1Brown), skilled at making complex topics engaging and understandable for the public.
+
+  ## Your Task
+  You are presented with two posts (A and B) promoting the same research to an enthusiast audience on **{platform_source}**. Determine which post is a **more effective piece of science communication.**
+
+  ## Evaluation Criteria
+  - **Intuition Building:** Which post does a better job of building intuition around the core concept, rather than just stating facts?
+  - **Engagement and 'Wow' Factor:** Which post is more likely to generate genuine excitement and a sense of wonder?
+  - **Clarity without Oversimplification:** Which post strikes a better balance, making the topic understandable without losing the essence of the science?
+  - **Potential for Virality:** Which post has a higher potential to be shared widely among a curious, non-expert audience?
+
+  ## Content for Review
+
+  **Post A Content:**
+  {post_a_content}
+
+  ---
+
+  **Post B Content:**
+  {post_b_content}
+
+  
+  ## Final Instruction
+  Based on your expert assessment of science communication strategy.
+
+model: "gemini-2.5-pro-preview-05-06"
+include_images: "real"
+include_pdf: false
+n_samples: 2
+enable_rotation: true
+response_schema:
+  type: "object"
+  properties:
+    preference:
+      type: "string"
+      enum: ["Post A", "Post B", "Tie"]
+      description: "Your preference."
+    explanation:
+      type: "string"
+      description: "A detailed explanation justifying your preference, comparing and contrasting Post A and Post B."
+  required: ["preference", "explanation"]

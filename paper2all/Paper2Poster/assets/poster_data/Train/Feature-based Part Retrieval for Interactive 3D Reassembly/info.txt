@@ -1,0 +1,64 @@
+<Poster Width="1734" Height="2244">
+	<Panel left="73" right="348" width="812" height="408">
+		<Text>Motivation</Text>
+		<Text> Archeology</Text>
+		<Text>Reconstruct broken artifacts</Text>
+		<Text> Molecular Biology</Text>
+		<Text>Identify compatible proteins</Text>
+		<Text> Forensics</Text>
+		<Text>Understand disaster scene</Text>
+	</Panel>
+
+	<Panel left="884" right="349" width="774" height="405">
+		<Text>Goal</Text>
+		<Text>Help user to reconstruct 3D object from a large</Text>
+		<Text>collection of pieces</Text>
+		<Figure left="910" right="502" width="582" height="244" no="1" OriWidth="0.383506" OriHeight="0.17246
+" />
+	</Panel>
+
+	<Panel left="74" right="757" width="807" height="1437">
+		<Text>Approach</Text>
+		<Text>1. Detect interest regions and compute local</Text>
+		<Text>descriptors</Text>
+		<Figure left="125" right="998" width="523" height="176" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>2. Identify candidate descriptor correspondences</Text>
+		<Figure left="128" right="1316" width="519" height="167" no="3" OriWidth="0" OriHeight="0
+" />
+		<Text>3. Quantify geometric compatibility between parts</Text>
+		<Figure left="130" right="1595" width="502" height="172" no="4" OriWidth="0" OriHeight="0
+" />
+		<Text>4. Compute final match score using spectral methods</Text>
+		<Figure left="121" right="1863" width="317" height="194" no="5" OriWidth="0" OriHeight="0
+" />
+		<Figure left="481" right="1864" width="373" height="183" no="6" OriWidth="0" OriHeight="0
+" />
+		<Text>Motivated by [Leordeanu & Hebert, 2005]</Text>
+	</Panel>
+
+	<Panel left="883" right="758" width="776" height="1437">
+		<Text>Results</Text>
+		<Text>Database of solid objects, each broken into four pieces</Text>
+		<Figure left="917" right="942" width="472" height="153" no="7" OriWidth="0.303922" OriHeight="0.087344
+" />
+		<Text>System correctly identifies the pieces for each object</Text>
+		<Figure left="908" right="1194" width="502" height="238" no="8" OriWidth="0.257209" OriHeight="0.0989305
+" />
+		<Figure left="892" right="1498" width="384" height="283" no="9" OriWidth="0.28489" OriHeight="0.163102
+" />
+		<Text> 100 piece database</Text>
+		<Text> High retrieval</Text>
+		<Text>accuracy at low ranks</Text>
+		<Text> Robust to noise</Text>
+		<Figure left="887" right="1855" width="384" height="301" no="10" OriWidth="0.153979" OriHeight="0.126114
+" />
+		<Text> Accuracy at low ranks</Text>
+		<Text>is crucial metric to</Text>
+		<Text>evaluate retrieval</Text>
+		<Text> Significantly out-</Text>
+		<Text>performs baseline at</Text>
+		<Text>varying noise levels</Text>
+	</Panel>
+
+</Poster>

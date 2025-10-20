@@ -1,0 +1,75 @@
+<Poster Width="1003" Height="1419">
+	<Panel left="62" right="279" width="884" height="159">
+		<Text>Overview:--</Text>
+		<Text>Goal:&Face&alignment&in&unseen&images.&• </Text>
+		<Text>Constrained&Local&Models&(CLM):&combine&an&ensemble&of&local&detectors&with&a&global&op)miza)on&strategy&that&constrains&the&</Text>
+		<Text>feature&points&to&lie&in&the&subspace&spanned&by&a&linear&shape&model&(Point&Distribu)on&Model&<&PDM).&&</Text>
+		<Text>CLM&two&step&ﬁLng&approach:&</Text>
+		<Text>(1)&Local&search&using&the&detectors&(likelihood&map&for&each&landmark).&</Text>
+		<Text>(2)&Global&op)miza)on&strategy&that&es)mates&the&PDM&parameters&that&jointly&maximize&all&the&detec)ons.&</Text>
+		<Text>Non<Parametric&Bayesian&global&op)miza)on&strategy&that&models&the&posterior&distribu)on&by&a&Kernel&Density&Es)mator&(KDE).&&&</Text>
+	</Panel>
+
+	<Panel left="72" right="443" width="412" height="207">
+		<Text>CLM:-Shape-Model-(PDM)-and-Local-Detectors-</Text>
+		<Figure left="92" right="475" width="387" height="170" no="1" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="69" right="657" width="426" height="283">
+		<Figure left="72" right="678" width="262" height="247" no="2" OriWidth="0.386705" OriHeight="0.272118
+" />
+		<Text>Correla)on&in&Fourier&Domain&</Text>
+		<Figure left="345" right="712" width="137" height="101" no="3" OriWidth="0" OriHeight="0
+" />
+		<Text>MOSSE&Filter&</Text>
+		<Text>Prob.&Landmark&(j)&being&aligned&</Text>
+	</Panel>
+
+	<Panel left="73" right="943" width="425" height="223">
+		<Text>Given&a&shape&observa)on&(y),&ﬁnd&the&op)mal&set&of&shape&(b)&</Text>
+		<Text>and&pose&parameters&that&maximize&the&posterior&probability&&</Text>
+		<Figure left="68" right="1034" width="429" height="94" no="4" OriWidth="0" OriHeight="0
+" />
+		<Figure left="347" right="1121" width="150" height="49" no="5" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="63" right="1148" width="440" height="152">
+		<Text>Posterior-Distribu?on-(KDE)-</Text>
+		<Text>Kernel&Density&Es)mator&(KDE)&</Text>
+		<Text>X</Text>
+		<Text>Inference&by&a&Regularized&Par)cle&Filter&(RPF)&</Text>
+		<Figure left="61" right="1259" width="299" height="38" no="6" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="503" right="448" width="449" height="342">
+		<Text>Non$Parametric-Global-Op?miza?on</Text>
+		<Figure left="529" right="476" width="415" height="77" no="7" OriWidth="0" OriHeight="0
+" />
+		<Figure left="601" right="563" width="103" height="96" no="8" OriWidth="0.0682081" OriHeight="0.0509383
+" />
+		<Text>Alignment-Quality:-‘Robust’&Product&of&All&Landmarks&</Text>
+		<Text>0</Text>
+		<Figure left="523" right="674" width="418" height="68" no="9" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="503" right="766" width="457" height="358">
+		<Text>FiTng-Performance-$-Labeled-Faces-in-the-Wild-(LFW)-</Text>
+		<Figure left="504" right="795" width="450" height="195" no="10" OriWidth="0.801156" OriHeight="0.154155
+" />
+		<Figure left="499" right="1011" width="460" height="87" no="11" OriWidth="0.765318" OriHeight="0.126899
+" />
+	</Panel>
+
+	<Panel left="506" right="1119" width="446" height="178">
+		<Text>Tracking-Performance-$-FGNET-Talking-Face-Sequence-</Text>
+		<Figure left="514" right="1140" width="429" height="50" no="12" OriWidth="0.771676" OriHeight="0.0831099
+" />
+		<Figure left="504" right="1194" width="444" height="103" no="13" OriWidth="0.779191" OriHeight="0.130027
+" />
+	</Panel>
+
+</Poster>

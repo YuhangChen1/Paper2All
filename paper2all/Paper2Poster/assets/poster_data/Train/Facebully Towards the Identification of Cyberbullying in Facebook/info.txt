@@ -1,0 +1,89 @@
+<Poster Width="1734" Height="1419">
+	<Panel left="27" right="169" width="514" height="235">
+		<Text>❖ Motivation ❖</Text>
+		<Text>• In the past year, 1 million children were victims</Text>
+		<Text>of cyberbullying on Facebook.</Text>
+		<Text>• There has not been sufficient research in</Text>
+		<Text>identifying cyberbullying behavior in social</Text>
+		<Text>networks and media.</Text>
+	</Panel>
+
+	<Panel left="35" right="407" width="506" height="289">
+		<Text>❖ Our Contribution ❖</Text>
+		<Text>• Facebully is an application designed to identify</Text>
+		<Text>a case of cyberbullying by exploiting the social</Text>
+		<Text>media data available.</Text>
+		<Text>• The application is based off of a model</Text>
+		<Text>designed for cyberbully identification that was</Text>
+		<Text>built on previous research findings of both</Text>
+		<Text>traditional and cyberbullying in adolescents.</Text>
+	</Panel>
+
+	<Panel left="34" right="701" width="506" height="337">
+		<Text>❖ Benefits ❖</Text>
+		<Text>• Once Facebully is ready for deployment, it can</Text>
+		<Text>be used, e.g., for parents to monitor their</Text>
+		<Text>children via their social network and forewarn</Text>
+		<Text>them if their child is a victim of online</Text>
+		<Text>aggression.</Text>
+		<Text>• The model used to design the application can</Text>
+		<Text>be modified to identify other behaviors as well,</Text>
+		<Text>such as depression or self-destructive</Text>
+		<Text>tendencies.</Text>
+	</Panel>
+
+	<Panel left="38" right="1046" width="502" height="297">
+		<Text>❖ Future Work ❖</Text>
+		<Text>• Finish the implementation of Facebully 1.0.</Text>
+		<Text>• Study mechanisms to dynamically adjust the</Text>
+		<Text>Bullying Rank by using machine learning</Text>
+		<Text>techniques and to incorporate new</Text>
+		<Text>cyberbullying factors that cannot be directly</Text>
+		<Text>extracted from Facebook, e.g., ethnicity,</Text>
+		<Text>physical and mental disabilities, etc.</Text>
+	</Panel>
+
+	<Panel left="541" right="170" width="640" height="590">
+		<Text>❖ Architecture ❖</Text>
+		<Figure left="555" right="242" width="605" height="491" no="1" OriWidth="0.383506" OriHeight="0.318627
+" />
+	</Panel>
+
+	<Panel left="541" right="760" width="640" height="581">
+		<Text>❖ Rank Factors ❖</Text>
+		<Figure left="546" right="821" width="627" height="492" no="2" OriWidth="0.392734" OriHeight="0.247326
+" />
+	</Panel>
+
+	<Panel left="1179" right="166" width="539" height="1178">
+		<Text>❖ Design ❖</Text>
+		<Text>• Facebully measures the intensity of online</Text>
+		<Text>aggression a user may be experiencing by first</Text>
+		<Text>identifying two major factors:</Text>
+		<Text>• Warning signs</Text>
+		<Text>• Vulnerability</Text>
+		<Text>• Each factor consists of sub-factors whose</Text>
+		<Text>values can be computed from the data</Text>
+		<Text>available in the user’s profile.</Text>
+		<Text>• The Bullying Rank (B) is computed by an</Text>
+		<Text>equation that normalizes the intensity of</Text>
+		<Text>cyberbullying.</Text>
+		<Text>𝑾𝒂𝒓𝒏𝒊𝒏𝒈 𝑺𝒊𝒈𝒏𝒔 𝑺 : 0, 100</Text>
+		<Text>𝑽𝒖𝒍𝒏𝒆𝒓𝒂𝒃𝒊𝒍𝒊𝒕𝒚 𝑽 : 0.22, 0.59</Text>
+		<Text>𝑩𝒖𝒍𝒍𝒚𝒊𝒏𝒈 𝑹𝒂𝒏𝒌 𝑩 : 0, 59</Text>
+		<Text>• The possible range of values of the Bullying</Text>
+		<Text>Rank (B) is divided into three levels of risk</Text>
+		<Text>intensity.</Text>
+		<Text>𝑹𝒊𝒔𝒌 𝑳𝒆𝒗𝒆𝒍𝒔</Text>
+		<Text>1. 𝐿𝑜𝑤 𝑅𝑖𝑠𝑘: 0, 20</Text>
+		<Text>2. 𝑀𝑒𝑑𝑖𝑢𝑚 𝑅𝑖𝑠𝑘: 21, 40</Text>
+		<Text>3. 𝐻𝑖𝑔ℎ 𝑅𝑖𝑠𝑘: 41, 59</Text>
+		<Text>• The parent/guardian of the minor is then</Text>
+		<Text>notified of the Bullying Rank (B) and its level of</Text>
+		<Text>intensity.</Text>
+		<Text>• Any extracted data or prior computations that</Text>
+		<Text>need to be used for later updating the Bullying</Text>
+		<Text>Rank (B) are stored in the permanent storage.</Text>
+	</Panel>
+
+</Poster>

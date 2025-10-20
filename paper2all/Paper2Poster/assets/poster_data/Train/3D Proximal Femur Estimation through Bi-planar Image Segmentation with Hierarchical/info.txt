@@ -1,0 +1,92 @@
+<Poster Width="685" Height="968">
+	<Panel left="5" right="160" width="674" height="123">
+		<Text>Introduction</Text>
+		<Text>Problem statement:</Text>
+		<Text>3D Proximal Femur modeling from low-dose bi-planar X-Ray images ⇐ important diagnostic interest in Total Hip Replacement.</Text>
+		<Text>Contributions:</Text>
+		<Text>Non-uniform hierarchical decomposition of the shape prior of increasing clinical-relevant precision.◮</Text>
+		<Text>Graphical-model representation of the femur involving third-order and fourth-order priors.</Text>
+		<Text>Similarity and mirror-symmetry invariant.</Text>
+		<Text>Providing means of measuring regional and boundary supports in the bi-planar views.</Text>
+		<Text>Can be learned from a small number of training examples.</Text>
+		<Text>A dual-decomposition optimization approach for efficient inference of the 3D femur configuration from bi-planar views.</Text>
+		<Figure left="567" right="178" width="81" height="99" no="1" OriWidth="0.1363" OriHeight="0.0992141
+" />
+	</Panel>
+
+	<Panel left="8" right="289" width="335" height="440">
+		<Text>Hierarchical Multi-Resolution Probabilistic Modeling</Text>
+		<Text>Mesh sub-sampling formulated as clustering achieved through curvaturedriven unsupervised clustering acting on the geodesic distances between vertices.</Text>
+		<Text>d (v , vˆ ): the geodesic distance between v and vˆ on M0,</Text>
+		<Text>curv(ˆv ): the curvature at vˆ on M0.</Text>
+		<Text>Level of detail selection:</Text>
+		<Text>Vertices are organized in a tree structure.</Text>
+		<Text>Starting from the coarsest resolution, regions are selected to be refined iteratively untilreaching the required accuracy for every part.</Text>
+		<Text>Connectivity computation</Text>
+		<Text>Edges EMR based on Delaunay triangulation of VMR associated to the geodesic distance.◮</Text>
+		<Text>Faces FMR computed by searching for minimal cycles in the edge list.</Text>
+		<Figure left="137" right="488" width="91" height="83" no="2" OriWidth="0.115438" OriHeight="0.101179
+" />
+		<Text>Probabilistic shape modeling</Text>
+		<Text>Pose-invariant prior:</Text>
+		<Text>Based on the relative Euclidean distance dˆ</Text>
+		<Text>ij = dij / </Text>
+		<Text>(i,j)∈Pdij for each pair of points (i, j) ∈ Pc in a triplet cP◮of vertices.</Text>
+		<Text>ˆ </Text>
+		<Text>c ) of dˆ </Text>
+		<Text>c is learned from the training data, using Gaussian Mixture Models (GMMs).The distribution ψc (d</Text>
+		<Text>Smoothness potential function:</Text>
+		<Text>Encoding constraints on the change of the normal directions, for each quadruplet q of verticescorresponding to a pair of adjacent facets:</Text>
+	</Panel>
+
+	<Panel left="7" right="730" width="335" height="210">
+		<Text>Probabilistic 3D Surface Estimation Framework</Text>
+		<Text>Posterior probability maximization:</Text>
+		<Text>Higher-order MRF formulation:</Text>
+		<Text>H</Text>
+		<Text>fR (uf ): regional-term potentials.</Text>
+		<Text>BH (uq ): boundary-term potentials.</Text>
+		<Text>q</Text>
+		<Text>PPH (uc ) and H : model prior potentials.</Text>
+		<Text>qc</Text>
+		<Text>H (uc ) and H : model prior potentials.</Text>
+		<Text>qc</Text>
+		<Text>MRF inference through dual-decomposition:</Text>
+		<Text>Decompose the original graph into a series of factor trees.</Text>
+		<Text>Solve factor trees using max-product belief propagation.</Text>
+		<Text>Maximize lower bound using a projected subgradient method.</Text>
+	</Panel>
+
+	<Panel left="344" right="289" width="335" height="318">
+		<Text>I = (Ik )k∈K (K = {1, . . . , K }, K = 2 for the case of bi-planar views): Kobserved images captured from different viewpoints with the correspondingprojection matrices Π = (Πk )k∈K</Text>
+		<Text>Regional term</Text>
+		<Text>uf : 3D coordinates of the vertices of a facet f ,</Text>
+		<Text>δf (uf , Πk ): front-facing facet indicator function,</Text>
+		<Text>◮ Ωf (uf , Πk ): 2D region corresponding to the projection of f ,</Text>
+		<Text>pfg and pbg : distributions of the intensity for the regions of the femur and the background.</Text>
+		<Text>Boundary term</Text>
+		<Text>Γ(uq , Πk ): projection of the edge shared by the two adjacent facets,</Text>
+		<Text>−−−−→</Text>
+		<Text>∂Ik (x,y )n(x, y ): outward-pointing unit normal of Γ(uq , Πk ), ∇Ik (x, y ) = (</Text>
+		<Text>∂x ,</Text>
+		<Text>∂Ik (x,y )</Text>
+		<Text>∂y ): gradient of the intensity at (x, y ).</Text>
+	</Panel>
+
+	<Panel left="345" right="610" width="334" height="260">
+		<Text>Experimental Validation</Text>
+		<Text>Validation using both dry femurs and real clinical data.</Text>
+		<Text>Comparaison with the gold standard CT method, through Point-to-surfacedistance and DICE coefficient.</Text>
+		<Figure left="353" right="671" width="320" height="154" no="3" OriWidth="0.557719" OriHeight="0.180747
+" />
+		<Text>Figure: (a) Four 3D surface reconstruction results with point-to-surface errors on femoral head. (b)Boxplots on the DICE, the mean and STD of the point-to-surface errors (mm). (c) and (d)Projection results on in vivo data.</Text>
+	</Panel>
+
+	<Panel left="345" right="872" width="334" height="68">
+		<Text>Future Work</Text>
+		<Text>Introducing a joint model that couples femur with the hipbone socket.</Text>
+		<Text>Combining anatomical landmarks with the existing formulation.</Text>
+		<Text>Application to other clinical settings.</Text>
+	</Panel>
+
+</Poster>

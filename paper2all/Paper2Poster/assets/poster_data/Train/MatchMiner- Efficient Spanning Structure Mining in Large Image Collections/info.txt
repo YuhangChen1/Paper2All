@@ -1,0 +1,85 @@
+<Poster Width="1766" Height="883">
+	<Panel left="8" right="134" width="454" height="737">
+		<Text>Motivation</Text>
+		<Text>•</Text>
+		<Text>•</Text>
+		<Text>•</Text>
+		<Text>•Internet photos cover large parts of the world</Text>
+		<Text>Novel applications are using image graphs</Text>
+		<Text>We want to connect images as efficiently as possible</Text>
+		<Text>We focus on finding connected components</Text>
+		<Figure left="10" right="282" width="446" height="131" no="1" OriWidth="0.552738" OriHeight="0.116952
+" />
+		<Text>Challenges with Unstructured Collections</Text>
+		<Text>•</Text>
+		<Text>•</Text>
+		<Text>•</Text>
+		<Text>•Image matching is expensive</Text>
+		<Text>It is hard to know promising image pairs beforehand</Text>
+		<Text>Visual similarity is a noisy predictor</Text>
+		<Text>Large image collections have many “singleton” images</Text>
+		<Text>Contributions: a large-scale image matcher that:</Text>
+		<Text>• We incorporate relevance feedback</Text>
+		<Text>• We propose rank distance to prune singleton images</Text>
+		<Text>• We propose an information-theoretic approach</Text>
+		<Text>Image Representation and Matching Procedure</Text>
+		<Text>•</Text>
+		<Text>•</Text>
+		<Text>•</Text>
+		<Text>•Each image is represented using BoW model</Text>
+		<Text>One million visual words are trained offline</Text>
+		<Text>Standard tf-idf weights are applied on image vectors</Text>
+		<Text>We use standard geometric verification procedure</Text>
+		<Text>• SIFT matching</Text>
+		<Text>• RANSAC-based F-matrix estimation</Text>
+	</Panel>
+
+	<Panel left="461" right="134" width="582" height="740">
+		<Text>MatchMiner</Text>
+		<Text>Two stage approach: (1) we find an initial set of CCs by matching similar </Text>
+		<Text>images, incorporating relevance feedback, (2) we merge CCs using an</Text>
+		<Text>information-theoretic approach and discard singleton images.</Text>
+		<Text>Step 1</Text>
+		<Text>• Each image vector 𝑄1 retrieves a short list of images {I}</Text>
+		<Text>• Geometric verification partitions {I} into two sets, P and N</Text>
+		<Text>𝑡+1𝑡+1𝑄=𝑄+𝛼/|𝑃|𝐼−𝛽/|𝑁|• Relevance feedback: 𝑡+1𝑡</Text>
+		<Text>𝐼∈𝑃𝐼∈𝑁𝐼</Text>
+		<Figure left="484" right="361" width="546" height="222" no="2" OriWidth="0.567723" OriHeight="0.162184
+" />
+		<Text>Step 2</Text>
+		<Text>• Minimizing entropy H(C); prefer to merge large CCs</Text>
+		<Text>• Rank distance: 𝑅 𝐼, 𝐽 = 2𝑅𝑎𝑛𝑘𝐼 𝐽 𝑅𝑎𝑛𝑘𝐽 (𝐼)/(𝑅𝑎𝑛𝑘𝐼 𝐽 + 𝑅𝑎𝑛𝑘𝐽 (𝐼))</Text>
+		<Figure left="465" right="665" width="258" height="186" no="3" OriWidth="0.206916" OriHeight="0.099022
+" />
+		<Text> Entropy-descent Strategy</Text>
+		<Figure left="720" right="664" width="319" height="173" no="4" OriWidth="0.299712" OriHeight="0.099837
+" />
+		<Text> Motivation of Rank Distance</Text>
+	</Panel>
+
+	<Panel left="1043" right="136" width="719" height="737">
+		<Text>Experiments</Text>
+		<Text>• Five medium-sized datasets and two large datasets</Text>
+		<Text>• We compare MatchMiner with Image Webs [Heath et al. 10]</Text>
+		<Text>Relevance Feedback</Text>
+		<Figure left="1053" right="248" width="703" height="111" no="5" OriWidth="0.9586933" OriHeight="0.0969845
+" />
+		<Text>Rank Distance</Text>
+		<Figure left="1054" right="386" width="250" height="145" no="6" OriWidth="0.337752" OriHeight="0.140587
+" />
+		<Text> False Edges Pruned by RD</Text>
+		<Text>Rate of prunning true edges <0.1%</Text>
+		<Text>Mining Results</Text>
+		<Figure left="1305" right="386" width="445" height="211" no="7" OriWidth="0.498559" OriHeight="0.163407
+" />
+		<Text>Mining Large-scale Datasets</Text>
+		<Figure left="1057" right="607" width="413" height="252" no="8" OriWidth="0.548703" OriHeight="0.239201
+" />
+		<Text>• Largest CC of Forum</Text>
+		<Text>• 1 hr 39 min</Text>
+		<Text>• 53 nodes</Text>
+		<Figure left="1484" right="688" width="264" height="172" no="9" OriWidth="0.254179" OriHeight="0.0855746
+" />
+	</Panel>
+
+</Poster>

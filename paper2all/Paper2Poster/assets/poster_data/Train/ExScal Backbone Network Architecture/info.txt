@@ -1,0 +1,95 @@
+<Poster Width="1734" Height="2244">
+	<Panel left="163" right="406" width="1408" height="351">
+		<Text>Introduction: Extreme Scaling of a A Line in the Sand</Text>
+		<Text>ExScal Specifications Imply a Backbone Network</Text>
+		<Text>(Tier 2)</Text>
+		<Text>•System</Text>
+		<Text>A distributed system of ~1000 sensor nodes spread across 1.26 Km X 300m</Text>
+		<Text>•Real Time Behavior</Text>
+		<Text>Detection, classification, and tracking at the base station in real time</Text>
+		<Text>•Low Overhead</Text>
+		<Text>Low cost, power efficient, robust, accurate, easily deployable, and self</Text>
+		<Text>configurable system</Text>
+		<Text>Network Hierarchy</Text>
+		<Figure left="896" right="501" width="663" height="255" no="1" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="161" right="756" width="1410" height="350">
+		<Text>Tier 2 Anatomy: Hardware and Layout of XSS Network Deployment</Text>
+		<Text>XSS (Extreme Scale Stargate)</Text>
+		<Figure left="179" right="845" width="662" height="252" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>Network Topology</Text>
+		<Figure left="884" right="851" width="662" height="232" no="3" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="162" right="1106" width="1410" height="515">
+		<Text>Problem Description: Fault Tolerant Services for the Tier 2</Text>
+		<Text>Specifications of Middleware Services:</Text>
+		<Text>•Initialization of XSSs</Text>
+		<Text>– Initialize processes on all XSSs and collect the geograhic locations of all</Text>
+		<Text>XSSs at the base station</Text>
+		<Text>– Communicate reliably and (energy) efficiently packets, each of size up to 1</Text>
+		<Text>Kbyte, to all XSSs and collect a packet of size up to 32 bytes from each of</Text>
+		<Text>XSSs</Text>
+		<Text>•Convergecast</Text>
+		<Text>– Collect data and status from all XSSs e.g. intruder event detection, tier-1</Text>
+		<Text>reprogramming feedback, tier-1 and tier-2 management feedback</Text>
+		<Text>– Reliable and energy efficient delivery of an event detection message from</Text>
+		<Text>any XSS to the base station within 6 seconds</Text>
+		<Text>•Broadcast</Text>
+		<Text>– Disseminate bulk of data to all XSSs e.g. reprogramming of the XSMs,</Text>
+		<Text>tier-1 and tier-2 management queries</Text>
+		<Text>– Reliable and energy efficient transmission of a file of size up to 200</Text>
+		<Text>Kbytes to all XSSs</Text>
+		<Text>•Management</Text>
+		<Text>– Monitor processes on XSSs e.g. CPU usage, disk usage</Text>
+		<Text>– Configure services running on XSSs e.g. change transmission power level</Text>
+		<Text>– Invoke Deluge, SNMS queries and collect the result of the queries</Text>
+		<Text>Fault Model:</Text>
+		<Text>–Crash of one or more user level processes on a XSS</Text>
+		<Text>–Fail stop of a XSS</Text>
+		<Text>–Change of location for a XSS</Text>
+		<Text>Challenges:</Text>
+		<Text>•Initialization of XSSs</Text>
+		<Text>– No assumption about the topology of the network</Text>
+		<Text>•Convergecast</Text>
+		<Text>– Estimate the qualities of the links using only data traffic</Text>
+		<Text>•Broadcast</Text>
+		<Text>— Avoid collisions among messages while broadcasting without timesync</Text>
+	</Panel>
+
+	<Panel left="163" right="1619" width="1409" height="529">
+		<Text>Solution: Tier 2 Network Protocol Suite and Management</Text>
+		<Text>Protocols:</Text>
+		<Text>•Init</Text>
+		<Text>– Uses controlled flooding to construct a distributed tree over the network</Text>
+		<Text>•uniComm</Text>
+		<Text>– Chooses route based on beacon-free in-situ link estimation</Text>
+		<Text>•Sprinkler</Text>
+		<Text>– Constructs a CDS (connected dominating set) and a corresponding packet</Text>
+		<Text>forwarding schedule for the nodes in CDS to minimize the number of</Text>
+		<Text>transmissions</Text>
+		<Text>– Streaming Phase: Uses explicit acknowledgements, piggybacked on the</Text>
+		<Text>data packets, to reliably communicate packets to all the nodes in CDS</Text>
+		<Text>– Recovery Phase: Reliably communicates packets to all the non</Text>
+		<Text>dominating nodes using pull model and unicast transmission</Text>
+		<Text>Management</Text>
+		<Text>– Uses Sprinkler to broadcast the queries to all XSSs and the responses from</Text>
+		<Text>all XSSs are collected at the base station using the UniComm</Text>
+		<Text>– Uses timer to monitor the spawned processes</Text>
+		<Text>Architecture Diagram:</Text>
+		<Figure left="996" right="1707" width="441" height="241" no="4" OriWidth="0.195389" OriHeight="0.0696822
+" />
+		<Text>Performance:</Text>
+		<Text>•Init</Text>
+		<Text>– Average latency of 6.5 seconds with 100% reliability</Text>
+		<Text>•uniComm</Text>
+		<Text>– Average end-to-end latency is 0.25 seconds</Text>
+		<Text>•Sprinkler</Text>
+		<Text>– Minimum Latency to transmit a 100Kbytes file to all XSSs is 6 seconds</Text>
+	</Panel>
+
+</Poster>

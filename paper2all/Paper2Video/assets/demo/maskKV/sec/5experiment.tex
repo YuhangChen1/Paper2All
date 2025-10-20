@@ -1,0 +1,55 @@
+\section{Experiment}
+\subsection{Experiment Settings}
+
+\noindent \textbf{Implementation Details.}
+We evaluate the effectiveness of our method on two representative dLLMs, including LLaDA-8B-Instruct~\citep{nie2025large} and Dream-7B-Instruct~\citep{ye2025dream}.
+For long-context evaluation, we follow the strategy of LongLLaDA~\citep{liu2025longllada} to ensure reliable performance on extended sequences.
+All experiments were conducted on 8 × NVIDIA A100 80GB GPUs. Additional details are provided in Appendix~\ref{implement details}.
+
+\subsection{Main Results}
+\input{sec/main_table}
+\noindent \textbf{Preserving Accuracy with Reduced Cache.}
+As shown in Tab.~\ref{tab:main_b32_b128_results}, our method consistently surpasses prior cache-eviction strategies on specific budgets. Under the extreme 32 KV budget, it outperforms the best competing baseline by 7.02 points on LLaDA-8B. Notably, our method can even surpass the full-context dLLM-Cache baseline, likely because eviction removes distracting noise from the context and enhances the model's focus.
+
+\noindent \textbf{Stable Performance across Varied Budgets.}
+As shown in Fig.\ref{fig:across_size}, with a 256~KV budget, our method retains 94.33\% of the dLLM‑Cache baseline's performance on \textbf{LLaDA} and 98.66\% on \textbf{Dream}, achieving the best results. This advantage holds across all KV budgets and remains strong even in extremely low‑budget regimes where autoregressive models typically collapse~\citep{xiao2023efficient}. We attribute this robustness to bidirectional attention, which integrates information from the entire sequence to form richer KV representations, enabling aggressive pruning with preserving high generation quality.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figure/across_budget_new.pdf}
+  \caption{Average LongBench performance across varying KV cache sizes.}
+  \label{fig:across_size}
+\end{figure}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figure/efficiency_new.pdf}
+  \caption{Analysis on latency and memory reduction.}
+  \label{fig:efficiency}
+\end{figure}
+
+\noindent \textbf{Efficiency in Speed and Memory.}
+Our method markedly improves throughput and memory efficiency for long-context inference. 
+We introduce two implementation optimizations, \textit{Prompt-State Exclusion} and \textit{Mask-Only Projection} (details in Appendix~\ref{sec:maskkv_details}). 
+With these techniques, the memory footprint of \emph{MaskKV} becomes comparable to, or even lower than, that of LLaDA under identical configurations. 
+At a 32K-token context, it achieves \textbf{31$\times$} faster decoding and \textbf{65\%} lower peak memory than LLaDA, supporting up to \textbf{8$\times$} longer prompts on an RTX 4090 GPU. 
+Ablation results isolating the effects of cache eviction and the proposed optimizations are provided in Tab.~\ref{tab:ablation_memory}.
+
+\subsection{Ablation Study} 
+\noindent \textbf{Effect of Base Rates $\alpha$ and $\beta$.}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{figure/hy_new.pdf}
+  \caption{Impact of base rate on model performance.}
+  \label{fig:hy}
+\end{figure}
+The base rate of head ($\alpha$) and layer ($\beta$) represent uniform budget floors for attention heads and network layers, respectively.
+These base rates first guarantee each unit a minimal share, after which the remaining budget is redistributed according to estimated importance.
+Excessively large values drive allocations toward near‑uniformity, diluting capacity for critical modules, whereas overly small values make the policy too aggressive and unstable.
+Empirical results (Fig.~\ref{fig:hy}) show that setting $\alpha=0.1$ 
+and $\beta=0.4$ provides the most stable accuracy and key-value (KV) budgets, while 
+still concentrating resources where they matter most.
+
+\input{sec/abalation}
+\noindent \textbf{Mask-Token Voting and Budget Allocation.}
+Our Mask-Voting consistently achieves superior performance over other token selection methods by directly leveraging mask queries, which helps avoid local bias and better identify influential tokens. More comprehensive comparisons with alternative token selection strategies are provided in  Tab.~\ref{tab:voting}. In addition, our budget allocation strategies Boundary-Aware at the layer level and Prompt-Preference at the head level both outperform competing approaches in Tab.~\ref{tab:ablation}.
+

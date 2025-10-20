@@ -1,0 +1,222 @@
+\section{Appendix}
+\label{sec:appendix}
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.0\linewidth]{figure/NIAH_a.pdf}
+  \caption{Performance comparison of different KV Cache compression techniques on LLaDA-8B and Dream-7B models in the ``Needle-in-a-Haystack'' test (Budget B=256). The heatmaps show retrieval accuracy at different context lengths (x-axis) and depths (y-axis), where greener colors indicate better performance.}
+  \label{fig:niah_all}
+\end{figure*}
+
+\input{sec/LLada_result}
+\input{sec/dream_result}
+
+\begin{table}[t!]
+\caption{Comparison of \textbf{dLLM-Cache} with its simplified variants.}
+\label{tab:ablation_memory}
+\centering
+\begin{tabular}{l c}
+\toprule
+\textbf{Method} & \textbf{Memory (GB)} \\
+\midrule
+\textbf{dLLM-Cache}                            & 68.13 \\
+\midrule
+\quad + Mask-Only Projection                 & 53.74 \\
+\quad + Prompt state exclusion             & 38.12 \\
+\quad + \mymethod (online)                            & 38.12 \\
+\quad + \mymethod (offline)                            & \textbf{23.42} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Details of \emph{MaskKV}}
+\label{sec:maskkv_details}
+\paragraph{Prompt-state Exclusion.}
+In dLLM-Cache, features from both the prompt and response tokens (including keys, values, attention outputs, and MLP activations) are cached at each denoising step.
+However, we observe that only the key–value representations of prompt tokens contribute to the attention computation of mask tokens, while the prompt-side attention and MLP outputs have no downstream influence.
+We therefore exclude these redundant prompt features from caching and retain only their key–value pairs, which substantially reduces memory usage without affecting generation quality.
+
+\paragraph{Mask-only Projection.}
+In the official LLaDA implementation, after the final layer computation, the model projects all tokens (including both prompt and mask positions) into the vocabulary space to produce logits.
+This operation yields a large but unnecessary tensor, as the logits of prompt tokens are never used during decoding.
+We thus restrict the vocabulary projection to masked positions only and skip the prompt ones.
+This \emph{mask-only projection} optimization removes redundant matrix multiplications and further reduces GPU memory consumption.
+
+\subsection{Implementation Details}
+\label{implement details}
+\paragraph{Evaluation Metrics.}
+We evaluate both the efficiency and quality of our method using quantitative metrics. 
+Generation quality is assessed with the official task-specific metrics (see Table~\ref{tab:longbench_datasets_simplified} for details) of LongBench, which measure model accuracy under cache eviction.  
+Computation efficiency is reported in Tokens Per Second (TPS), reflecting the average number of tokens decoded per second.  
+For memory efficiency, we track both the peak GPU memory during inference and the size of the KV cache.  
+Under bf16 precision, the KV cache memory footprint is given by  
+\begin{equation}
+\text{Mem}_{\text{KV}} = 2 \cdot L \cdot H \cdot d_{\text{head}} \cdot s_{\text{bf16}},
+\end{equation}
+where $L$ is the sequence length, $H$ the number of attention heads, $d_{\text{head}}$ the dimension per head, and $s_{\text{bf16}}=2$ bytes denotes the storage size of a \texttt{bf16} element.  
+The factor $2$ represents the storage requirements for both key and value states.
+
+\paragraph{Baseline.}
+We compare one token-selection scheme and three architectural budget-allocation policies under an identical cache budget, enabling a fair, apples-to-apples assessment of their effectiveness. \\
+For the token selection strategy, we evaluate one strong KV-cache compression method as a baseline for autoregressive models.
+\begin{itemize}
+  \item \textbf{SnapKV} uses a small ``observation window'' at the end of the prompt to predict which parts of the entire context are most important. It analyzes the attention scores from this window in ``voting'' mechanism to identify and select these key parts.
+\end{itemize}
+For architectural budget allocation, we evaluate competitive approaches that distribute the budget across the model's various structural components.
+\begin{itemize}
+  \item \textbf{PyramidKV} implements a static, non-uniform budget allocation where the cache capacity of each layer is a direct function of its depth. This function is engineered to be monotonically decreasing, granting the maximal budget to the lowest layers and progressively constricting it for higher layers that process more semantically aggregated representations.
+  \item \textbf{SqueezeAttention} gauges layer importance by calculating the cosine similarity between the input and output of an attention block. Based on this score, it classifies layers into three tiers and assigns a minimal cache budget to the least important one.
+  \item \textbf{Ada-KV} allocates its cache budget in a fine-grained, adaptive manner: it first assesses the relative importance of each key–value (KV) pair across all attention heads, then distributes the budget proportionally, granting a larger share of resources to KVs belonging to the most salient heads.
+\end{itemize}
+
+
+\paragraph{Parameters.}
+Our experimental parameters are configured in accordance with prior research\citep{li2024snapkv, cai2024pyramidkv,wang2024squeezeattention, feng2024ada}. The specific settings are as follows:
+
+\begin{itemize}
+    \item \textbf{Default Selection Method}: Unless otherwise specified, we adopt \textbf{SnapKV} as the foundational selection method for all budget allocation strategies. For SnapKV~\citep{li2024snapkv} itself, the final window size is set to \textbf{32}, consistent with its application in the LongBench benchmark.
+    \item \textbf{Pyramid-based Allocation}: We set the hyperparameter $\beta$, which directly controls the ``steepness''
+    of the allocation pyramid, to \textbf{20}, adhering to the default value proposed in the original paper~\citep{cai2024pyramidkv}.
+    \item \textbf{SqueezeAttention}: We cluster the layers into three distinct groups. A \textbf{40\%} budget is allocated to the least important group, a setting identified as optimal in its original study.
+    \item \textbf{AdaKV}\citep{feng2024ada}: We reserve a \textbf{20\%} budget for uniform allocation. This measure is implemented to prevent the assignment of excessively small budgets to highly sparse attention heads.
+\end{itemize}
+
+
+\paragraph{Experiment settings.}
+To ensure reproducibility, we outline our experimental settings. Unless otherwise specified, our default configuration sets the prompt refresh interval to 50, the response refresh interval to 5, the transfer ratio to 0.25, and the block length to 8. The step size is set equal to the generation length, which is specified for each task in Table~\ref{tab:longbench_datasets_simplified}.
+For the results presented in Fig.~\ref{fig:across_size} and the ablation study in Tab.~\ref{tab:ablation}, the KV cache budget is set to 256. The experiment in Fig.~\ref{fig:hy}~ is conducted on the HotpotQA dataset with a budget of 32. For the NIAH baseline, we adopt the same configuration as that used in DuoAttention~\citep{xiao2024duoattention}.
+
+
+
+
+
+\paragraph{Datasets.}
+
+We conducted evaluations using LongBench~\citep{bai2023longbench}.
+The LongBench benchmark \citep{bai2023longbench} evaluates large language models across a diverse set of long-context tasks. The benchmark is structured into six key domains:
+\begin{itemize}
+    \item \textbf{Single-Document QA:} Assesses a model's ability to extract answers from a single source document. This category utilizes datasets such as NarrativeQA~\citep{kovcisky2018narrativeqa}, Qasper~\citep{dasigi2021dataset}, and MultiFieldQA~\citep{bai2023longbench}, covering documents ranging from academic papers and legal files to encyclopedias.
+
+    \item \textbf{Multi-Document QA:} Challenges models to synthesize information from multiple documents to formulate a coherent answer. It employs Wikipedia-based multi-hop QA datasets, including HotpotQA~\citep{yang2018hotpotqa}, 2WikiMultihopQA~\citep{ho2020constructing}, and MuSiQue~\citep{trivedi2022musique}.
+
+    \item \textbf{Summarization:} Tests a model's capacity for comprehensive understanding and condensation of long texts. The datasets for this task are GovReport~\citep{huang2021efficient}, QMSum~\citep{zhong2021qmsum}, and the multi-document corpus MultiNews~\citep{fabbri2019multi}.
+
+    \item \textbf{Few-shot Learning:} Measures a model's adaptability on a variety of tasks with limited examples. This includes classification with TREC~\citep{li2002learning}, conversational summarization with SAMSum~\citep{gliwa2019samsum}, and reading comprehension with TriviaQA~\citep{joshi2017triviaqa}.
+    
+    \item \textbf{Synthetic Tasks:} Purpose-built challenges designed to test specific abilities, such as counting unique passages (PassageCount~\citep{bai2023longbench}) or matching a summary to its source passage (PassageRetrieval-en~\citep{raffel2020exploring}).
+
+    \item \textbf{Code Completion:} Evaluates a model's proficiency in generating code based on existing context. This is tested using the LCC~\citep{guo2023longcoder} dataset for single-file contexts and the RepoBench-P~\citep{liu2023repobench} dataset for tasks requiring information aggregation across multiple files.
+\end{itemize}
+\input{sec/longbench_info}
+
+% -------------------------------
+
+\subsection{A Formal Proof on the Primacy of Mask Attention}
+\label{the primacy of mask attention}
+\subsubsection{Preliminaries and Notation}
+
+To ensure the rigor of the proof, we first define the symbols and notation used throughout this section.
+\begin{itemize}
+    \item \textbf{Input Sequence:} The input sequence $X \in \mathbb{R}^{n \times d}$ consists of embeddings for $n$ tokens, where $d$ is the embedding dimension. The sequence $X$ is partitioned into two parts:
+    \begin{itemize}
+        \item \textbf{Prompt:} $X_p \in \mathbb{R}^{n_p \times d}$, with its set of token indices denoted as $S_p$.
+        \item \textbf{Mask:} $X_m \in \mathbb{R}^{n_m \times d}$, with its set of token indices denoted as $S_m$.
+    \end{itemize}
+    The full sequence is a concatenation $X = [X_p, X_m]$, with a total length of $n = n_p + n_m$.
+
+    \item \textbf{Transformer Layer:} A standard Transformer model consists of $L$ identical layers stacked on top of each other. Let $h^{(l)} \in \mathbb{R}^{n \times d}$ denote the output hidden state of the $l$-th layer, where $l \in \{1, \dots, L\}$. We define the initial embedding as the output of the 0-th layer, i.e., $h^{(0)} = X$.
+
+    \item \textbf{Intra-Layer Computation:} The computation within layer $l$ can be represented as a function, $\text{Block}$, which takes the output of the previous layer $h^{(l-1)}$ as input:
+    $$h^{(l)} = \text{Block}(h^{(l-1)})$$
+    To analyze the information flow, we can abstract the update process of each layer. The output of layer $l$ is the sum of its input and an update term $\Delta^{(l)}$:
+    $$h^{(l)} = h^{(l-1)} + \Delta^{(l)}$$
+    where $\Delta^{(l)}$ represents the total update contributed by the sub-layers (MHA and FFN) of layer $l$.
+\end{itemize}
+
+\begin{table}[t!]
+\caption{Comparison of token selection strategies on \textbf{gsm8k} with \textbf{budget=128}.}
+\label{tab:voting}
+\centering
+\begin{tabular}{l c}
+\toprule
+\textbf{Token Selection Strategy} & \textbf{Score (\%)} \\
+\midrule
+SnapKV       & 64.90 \\
+Prompt-Voting  & 60.35 \\
+Mask-Voting    & \textbf{68.08} \\
+All-Voting     & 66.64 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Proposition}
+
+For any mask token $m \in S_m$, its final hidden state $h^{(L)}_m$, which directly determines the predictive logits, can be precisely expressed as the sum of its initial embedding $h^{(0)}_m$ and the cumulative updates from all $L$ layers of the model. Within these updates, the Multi-Head Attention (MHA) mechanism serves as the sole channel for the mask token to incorporate information from the prompt tokens. Consequently, the attention scores originating from mask queries are the most direct and fundamental indicators of the importance of prompt information for the model's generative process.
+
+\begin{table*}[t!]
+    \centering
+    \small
+    \caption{Effect of mask token position on voting performance (\textbf{budget=256}). The best score in each column and the best overall average are highlighted in \textbf{bold}.}
+    \label{tab:mask_voting_position}
+    \setlength{\tabcolsep}{5pt}
+    \renewcommand{\arraystretch}{1.1}
+
+    % \resizebox{\textwidth}{!}{% <-- 删掉这一行
+    \begin{tabular}{@{}lcccccc@{}}
+        \toprule
+        \textbf{Mask Position} &
+        \textbf{HotpotQA} &
+        \textbf{2WikiMQA} &
+        \textbf{Musique} &
+        \textbf{TriviaQA} &
+        \textbf{PRe} &
+        \textbf{Average} \\
+        \midrule
+        first (front) & 12.39 & 15.72 & 9.19 & 41.69 & \textbf{99.75} & 35.75 \\
+        second (middle) & 12.89 & 15.85 & 8.49 & 37.99 & 96.58 & 34.36 \\
+        third (middle) & 12.82 & \textbf{16.82} & 8.72 & 39.74 & 96.00 & 34.82 \\
+        last (back) & \textbf{14.33} & 15.97 & \textbf{9.69} & \textbf{44.75} & 97.50 & \textbf{36.45} \\
+        \bottomrule
+    \end{tabular}
+    % } % <-- 删掉这一行
+\end{table*}
+
+
+
+\subsubsection{Proof}
+
+The proof proceeds in three steps. First, we establish the central role of $h_m^{(L)}$ by considering the model's objective function. Second, we derive the compositional structure of $h_m^{(L)}$ through a recursive expansion. Finally, we analyze the components of this structure to demonstrate the unique role of the attention mechanism.
+
+\paragraph{Step 1: The Inference Objective and Decisive Computations}
+During inference, the objective of the model is to predict a sequence of tokens for the positions specified by the mask index set, $S_m$. This generative process begins with the computation of the final hidden states, $h^{(L)} \in \mathbb{R}^{n \times d}$, for the entire sequence. The language model head (LM Head), a linear projection matrix $W_{out} \in \mathbb{R}^{d \times |V|}$ (where $|V|$ is the vocabulary size), then maps these hidden states to logit vectors:
+$$ \text{Logits} = h^{(L)} \cdot W_{out} $$
+A ``softmax'' function is subsequently applied to the logits at each position to yield a probability distribution over the vocabulary.
+
+Critically, for the task at hand, our interest lies exclusively in the logits at the active mask positions ($S_m$), since all other tokens—whether part of the original prompt ($S_p$) or already unmasked in prior steps—are considered fixed context. Therefore, the generative process, whether it be greedy decoding or sampling, is performed exclusively on the probability distributions corresponding to the mask positions. This implies that the quantities of interest, which solely determine the generated output, are the final hidden states of the mask tokens, $\{h_m^{(L)} \mid m \in S_m\}$. 
+
+\paragraph{Step 2: Recursive Expansion of the Hidden State}
+Based on the abstract update rule $h^{(l)} = h^{(l-1)} + \Delta^{(l)}$, we can perform a recursive expansion (a telescoping sum) for the final hidden state $h_m^{(L)}$ of any mask token $m$:
+\begin{align*}
+    h_m^{(L)} &= h_m^{(L-1)} + \Delta_m^{(L)} \\
+              &= (h_m^{(L-2)} + \Delta_m^{(L-1)}) + \Delta_m^{(L)} \\
+              &= h_m^{(L-2)} + \Delta_m^{(L-1)} + \Delta_m^{(L)} \\
+              &\vdots \\
+              &= h_m^{(0)} + \sum_{l=1}^{L} \Delta_m^{(l)} \label{eq:telescoping_sum}
+\end{align*}
+This expansion is the mathematical centerpiece of our proof, showing that the final representation is an accumulation of updates upon its initial state.
+
+\paragraph{Step 3: Analysis of the Update Components}
+We now analyze the composition of the cumulative update term $\sum_{l=1}^{L} \Delta_m^{(l)}$. Each layer's update $\Delta_m^{(l)}$ consists of contributions from the MHA and FFN sub-layers: $\Delta_m^{(l)} = \text{MHA}_m^{(l)} + \text{FFN}_m^{(l)}$.
+\begin{itemize}
+    \item \textbf{Contribution of the Feed-Forward Network (FFN):} The FFN is a position-wise transformation. Its computation for token $m$ is independent of all other tokens $j \neq m$. Thus, the FFN can only process and non-linearly transform the information already present in $h_m$; it cannot introduce new information from the prompt.
+
+    \item \textbf{Contribution of Multi-Head Attention (MHA):} The MHA mechanism is fundamentally different. The output for token $m$, $\text{AttnOut}_m$, is a weighted sum of the Value vectors $V_j$ of all tokens in the sequence:
+    $$ \text{AttnOut}_m = \sum_{j=1}^{n} \alpha_{mj} V_j $$
+    where the attention weight $\alpha_{mj} = \text{softmax}\left(\frac{Q_m K_j^T}{\sqrt{d_k}}\right)$. The summation index $j$ spans all tokens, including those in the prompt ($j \in S_p$). This demonstrates that MHA is the \textbf{exclusive} mechanism that allows for information exchange between different token positions. For a mask token $m \in S_m$, only through MHA can it interact with prompt tokens $j \in S_p$ to aggregate relevant information.
+\end{itemize}
+Combining these points, we see that within the final representation $h_m^{(L)} = h_m^{(0)} + \sum_{l=1}^{L} (\text{MHA}_m^{(l)} + \text{FFN}_m^{(l)})$, the MHA term is the sole channel through which information from the prompt can be incorporated into the mask token's representation.
+
+\subsubsection{Conclusion and Implication}
+
+In conclusion, our theoretical proof establishes the primacy of attention guided by mask queries within the generative paradigm of dLLMs. By demonstrating that this mechanism is the indispensable information bridge from context to target, our findings provide a robust theoretical foundation for novel inference strategies, such as the KV cache selection method proposed in this work.
+
+

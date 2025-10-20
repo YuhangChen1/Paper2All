@@ -1,0 +1,143 @@
+<Poster Width="1735" Height="1227">
+	<Panel left="20" right="127" width="412" height="435">
+		<Text>P ROBLEM</Text>
+		<Text>Most hashing methods are designed to gen-</Text>
+		<Text>erate binary codes that preserve the Euclidean</Text>
+		<Text>distance in the original space. Manifold learn-</Text>
+		<Text>ing techniques, in contrast, are better able to pre-</Text>
+		<Text>serve the intrinsic geodesic distance. However,</Text>
+		<Text>the following problems hinders the use of mani-</Text>
+		<Text>fold learning for hashing:</Text>
+		<Text>1. Prohibitive computational cost</Text>
+		<Text>2. Out-of-sample extension problem – Most</Text>
+		<Text>manifold learning methods are non-</Text>
+		<Text>parametric.</Text>
+		<Text>• Spectral Hashing: uniform data assumption</Text>
+		<Text>• Anchor Graph Hashing: Nyström extension</Text>
+		<Text>• Self-Taught Hashing: out-of-sample extension</Text>
+		<Text>by SVMExisting methods – All based on Laplacian eigenmaps</Text>
+	</Panel>
+
+	<Panel left="22" right="568" width="408" height="473">
+		<Text>C ONTRIBUTIONS</Text>
+		<Text>We showed how to learn compact binary</Text>
+		<Text>embeddings on their intrinsic manifolds. The</Text>
+		<Text>proposed approach here is inspired by Delal-</Text>
+		<Text>leau et al.[2], where they have focused on semi-</Text>
+		<Text>supervised classification. Our contributions in-</Text>
+		<Text>clude</Text>
+		<Text>1. Make semantic hashing on data manifolds</Text>
+		<Text>practical by an inductive hashing frame-</Text>
+		<Text>work</Text>
+		<Text>• Efficient: Linear indexing time O(n)</Text>
+		<Text>and Constant query time O(1)</Text>
+		<Text>• Effective: Better than L2 scan with t-</Text>
+		<Text>SNE et al.</Text>
+		<Text>2. Connect manifold learning and hashing</Text>
+		<Text>• Any manifold learning methods can be</Text>
+		<Text>applied in the hashing framework.</Text>
+		<Text>• Evaluation of 9 manifold learning</Text>
+		<Text>methods for hashing</Text>
+	</Panel>
+
+	<Panel left="21" right="1045" width="410" height="172">
+		<Text>R EFERENCES</Text>
+		<Text>[1] F. Shen, C. Shen, Q. Shi, A. van den Hengel, Z. Tang. In-</Text>
+		<Text>ductive Hashing on Manifolds. In IEEE Conf. Comp. Vis.</Text>
+		<Text>Pattern Recogn., 2013.</Text>
+		<Text>[2] O. Delalleau, Y. Bengio, and N. Le Roux. Efficient non-</Text>
+		<Text>parametric function induction in semi-supervised learn-</Text>
+		<Text>ing. In Proc. Int. Workshop Artif. Intelli. Stat., 2005.</Text>
+	</Panel>
+
+	<Panel left="445" right="128" width="411" height="1081">
+		<Text>ORMULATION</Text>
+		<Text>Denote the training data by X := {x1 , x2 ,</Text>
+		<Text>, xn } and their manifold embedding by Y :=</Text>
+		<Text>1 , y2 , · · · , yn }. Given a new data point xq ,</Text>
+		<Text>we aim to generate an embedding yq which pre-</Text>
+		<Text>serves the local neighborhood relationships:</Text>
+		<Text>where w(xq , xi ) is the similarity. which is only</Text>
+		<Text>non-zero for its k nearest neighbors. This results</Text>
+		<Text>in</Text>
+		<Text>This provides a simple inductive formulation for</Text>
+		<Text>the embedding of a new data point by a linear</Text>
+		<Text>combination of the base embeddings.</Text>
+		<Text>We developed a prototype algorithm which</Text>
+		<Text>was able to approximate yq using only a small</Text>
+		<Text>base set with a good bound: m clusters were used</Text>
+		<Text>to cover Y. Observing that the cluster centers</Text>
+		<Text>have the largest overall weight</Text>
+		<Text>P w.r.t the points</Text>
+		<Text>from their own cluster, i.e.,</Text>
+		<Text>i∈Ij w(cj , xi ), we</Text>
+		<Text>then approximately select all cluster centers to ex-</Text>
+		<Text>ˆ for efficiency.press y</Text>
+		<Text>We obtain our general inductive hash function</Text>
+		<Text>by binarizing the low-dimensional embedding</Text>
+		<Text>where YB := {y1 , y2 , · · · , ym } is the embedding</Text>
+		<Text>for the base set B := {c1 , c2 , · · · , cm }, which is the</Text>
+		<Text>cluster centers obtained by K-means. With this,</Text>
+		<Text>the embedding for the training data becomes</Text>
+		<Text>¯ </Text>
+		<Text>XB is defined such that W¯ </Text>
+		<Text>ij =where W</Text>
+		<Text>w(xi ,cj )</Text>
+		<Text>Pm,forx∈X,c∈B.Wetermijw(x,c)i ji=1</Text>
+		<Text>our hashing method Inductive Manifold-Hashing</Text>
+		<Text>(IMH). For IMH, any manifold learning methods</Text>
+		<Text>can be applied to generate the low dimensional</Text>
+		<Text>embedding YB as a base.</Text>
+	</Panel>
+
+	<Panel left="872" right="126" width="410" height="344">
+		<Text>A LGORITHM</Text>
+		<Figure left="883" right="179" width="395" height="292" no="1" OriWidth="0.386127" OriHeight="0.145666
+" />
+	</Panel>
+
+	<Panel left="873" right="477" width="409" height="115">
+		<Text>S OURCE C ODE</Text>
+		<Text>available at: http://goo.gl/A9IFL</Text>
+	</Panel>
+
+	<Panel left="871" right="595" width="412" height="614">
+		<Text>E VALUATION</Text>
+		<Text>Evaluation of manifold learning methods</Text>
+		<Figure left="891" right="658" width="366" height="215" no="2" OriWidth="0.274566" OriHeight="0.124218
+" />
+		<Figure left="902" right="876" width="376" height="163" no="3" OriWidth="0.373988" OriHeight="0.110366
+" />
+		<Figure left="906" right="1042" width="364" height="161" no="4" OriWidth="0.309249" OriHeight="0.0826631
+" />
+	</Panel>
+
+	<Panel left="1298" right="127" width="414" height="1094">
+		<Text>R ESULTS</Text>
+		<Text>(60K)CIFAR-10onresultsRetrieval</Text>
+		<Figure left="1314" right="187" width="231" height="168" no="5" OriWidth="0.19711" OriHeight="0.109026
+" />
+		<Text>(by IMH-tSNE)</Text>
+		<Figure left="1336" right="371" width="182" height="136" no="6" OriWidth="0.187283" OriHeight="0.115728
+" />
+		<Figure left="1524" right="366" width="173" height="140" no="7" OriWidth="0.183237" OriHeight="0.115728
+" />
+		<Text>Retrieval results on MNIST (70K)</Text>
+		<Figure left="1336" right="542" width="183" height="145" no="8" OriWidth="0.185549" OriHeight="0.117516
+" />
+		<Figure left="1519" right="544" width="179" height="144" no="9" OriWidth="0.182659" OriHeight="0.116175
+" />
+		<Text>Retrieval results on SIFT1M and GIST1M</Text>
+		<Figure left="1339" right="712" width="178" height="147" no="10" OriWidth="0.182659" OriHeight="0.115282
+" />
+		<Figure left="1519" right="712" width="177" height="144" no="11" OriWidth="0.184393" OriHeight="0.117069
+" />
+		<Text>Computational times (seconds) on MNIST</Text>
+		<Figure left="1344" right="886" width="331" height="163" no="12" OriWidth="0.29422" OriHeight="0.123771
+" />
+		<Text>Classification accuracy with linear SVM</Text>
+		<Figure left="1343" right="1073" width="245" height="151" no="13" OriWidth="0.264162" OriHeight="0.128686
+" />
+	</Panel>
+
+</Poster>

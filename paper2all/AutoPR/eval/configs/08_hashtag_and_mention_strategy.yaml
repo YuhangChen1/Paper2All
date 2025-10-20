@@ -1,0 +1,55 @@
+eval_name: "S8_Hashtag_and_Mention_Strategy"
+base_type: "single_note"
+description: "Assesses the strategic use of hashtags and mentions for discoverability and community engagement."
+instruction: |
+  You are a social media strategist specializing in academic communications. Your task is to evaluate the **'Hashtag and Mention Strategy'** of the provided social media post, which aims to promote academic work.
+
+  Provide a concise overall assessment of the strategy's effectiveness and assign a score on a continuous scale from 1.0 to 5.0.
+
+  Use the detailed rubric below. The anchor points (1, 3, 5) provide clear criteria. You are encouraged to use intermediate scores (e.g., 2.5, 4.0) to reflect the precise quality of the strategy based on these criteria.
+
+  ---
+
+  #### **Detailed Scoring Rubric:**
+
+  **Score 5.0 (Excellent / Strategic)**
+  Award this score if the strategy meets almost all of the following criteria:
+  * **Tiered Hashtag Approach:** Utilizes a sophisticated mix of at least two, and ideally three, types of hashtags:
+      * **Broad/Topical:** Includes 1-2 high-traffic, general hashtags to maximize broad reach (e.g., `#Science`, `#Research`, `#AI`).
+      * **Niche/Specific:** Includes 2-4 specific hashtags that target a specialized audience, such as the academic sub-field, methodology, or specific conference (e.g., `#QuantumComputing`, `#CRISPR`, `#MLA2025`).
+      * **Community/Branded:** Includes relevant hashtags for the institution, lab, or campaign (e.g., `#StateUResearch`).
+  * **Strategic Mentions:** Effectively uses `@mentions` to tag relevant entities such as co-authors, the university/institution, the research lab, funders, and the publisher/journal. This is done to directly notify partners and encourage network amplification.
+  * **Optimal Quantity:** The total number of hashtags is appropriate for the platform and feels integrated, not spammy (generally 3-6 hashtags is a strong range).
+  * **Overall:** The combination of hashtags and mentions creates clear pathways for discovery by both a broad audience and niche academic peers.
+
+  **Score 3.0 (Adequate / Functional)**
+  Award this score if the strategy is functional but lacks sophistication.
+  * **Generic Hashtags:** Primarily uses relevant but overly broad hashtags (e.g., uses only `#Science`, `#Academic`, `#Paper`).
+  * **Missed Opportunities:** Fails to include specific, niche hashtags that would effectively target the core academic audience.
+  * **Limited Mentions:** May mention the primary institution but omits key collaborators like co-authors, funders, or the specific journal.
+  * **Suboptimal Quantity:** May use too few hashtags (e.g., only one) or a slightly excessive amount of generic ones.
+  * **Overall:** The strategy is better than nothing and will contribute to some discoverability, but it does not effectively target the most relevant communities.
+
+  **Score 1.0 (Poor / Ineffective)**
+  Award this score if the strategy demonstrates a clear lack of understanding.
+  * **Irrelevant or No Hashtags:** Uses hashtags that are completely unrelated to the academic content (e.g., `#photooftheday`), are broken (e.g., `#My Research Paper`), or are absent altogether.
+  * **Spammy:** Uses an excessive number of unrelated, high-volume hashtags in a clear attempt at "hashtag stuffing."
+  * **No Mentions:** Makes no use of `@mentions` to tag any relevant people or organizations, isolating the post from its potential network.
+  * **Overall:** The strategy does nothing to enhance discoverability or engagement and may even detract from the post's credibility.
+
+
+target_data_source: "pr_test"
+model: "gemini-2.5-pro-preview-05-06"
+include_images: "none"
+include_pdf: false
+n_samples: 3
+response_schema:
+  type: "object"
+  properties:
+    score:
+      type: "integer"
+      description: "An integer score from 1 to 5, where 1 is poor and 5 is excellent."
+    assessment:
+      type: "string"
+      description: "A detailed explanation for the assigned score."
+  required: ["score", "assessment"]

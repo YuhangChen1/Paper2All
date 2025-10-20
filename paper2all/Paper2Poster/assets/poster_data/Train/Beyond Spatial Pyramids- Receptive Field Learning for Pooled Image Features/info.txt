@@ -1,0 +1,134 @@
+<Poster Width="1734" Height="1227">
+	<Panel left="31" right="156" width="408" height="237">
+		<Text>1. C ONTRIBUTIONS</Text>
+		<Text>The key contributions of our work are:</Text>
+		<Text>• Analysis of the spatial receptive ﬁeld (RF) designs for</Text>
+		<Text>pooled features.</Text>
+		<Text>• Evidence that spatial pyramids may be suboptimal in</Text>
+		<Text>feature generation.</Text>
+		<Text>• An algorithm that jointly learns adaptive RF and</Text>
+		<Text>the classiﬁers, with an efﬁcient implementation using</Text>
+		<Text>over-completeness and structured sparsity.</Text>
+	</Panel>
+
+	<Panel left="451" right="157" width="828" height="238">
+		<Text>2. T HE P IPELINE</Text>
+		<Figure left="532" right="194" width="667" height="137" no="1" OriWidth="0.555491" OriHeight="0.0848972
+" />
+		<Text>State-of-the-art classiﬁcation algorithms take a two-layer pipeline: the coding layer learns activations from local</Text>
+		<Text>image patches, and the pooling layer aggregates activations in multiple spatial regions. Linear classiﬁers are learned</Text>
+		<Text>from the pooled features.</Text>
+	</Panel>
+
+	<Panel left="1293" right="156" width="407" height="239">
+		<Text>3. N EUROSCIENCE I NSPIRATION</Text>
+		<Figure left="1347" right="199" width="314" height="178" no="2" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="30" right="408" width="409" height="408">
+		<Text>4. S PATIAL P OOLING R EVISITED</Text>
+		<Text>• Much work has been done on the coding part, while</Text>
+		<Text>the spatial pooling methods are often hand-crafted.</Text>
+		<Text>• Sample performances on CIFAR-10 with different re-</Text>
+		<Text>ceptive ﬁeld designs:</Text>
+		<Figure left="102" right="553" width="280" height="132" no="3" OriWidth="0" OriHeight="0
+" />
+		<Text>Note the suboptimality of SPM - random selection</Text>
+		<Text>from an overcomplete set of spatially pooled features</Text>
+		<Text>consistently outperforms SPM.</Text>
+		<Text>• We propose to learn the spatial receptive ﬁelds as well</Text>
+		<Text>as the codes and the classiﬁer.</Text>
+	</Panel>
+
+	<Panel left="31" right="830" width="406" height="364">
+		<Text>5. N OTATIONS</Text>
+		<Text>• I: image input.</Text>
+		<Text>• A1 , · · · , AK : code activation as matrices, with Akij : ac-</Text>
+		<Text>tivation of code k at position (i, j).</Text>
+		<Text>• Ri : RF of the i-th pooled feature.</Text>
+		<Text>• op(·): pooling operator, such as max(·).</Text>
+		<Text>• f (x, θ): the classiﬁer based on pooled features x.</Text>
+		<Text>• A pooled feature xi is deﬁned by choosing a code in-</Text>
+		<Text>dexed by ci and a spatial RF Ri :</Text>
+		<Text>The vector of pooled features x is then determined</Text>
+		<Text>by the set of parameters C = {c1 , · · · , cM } and R =</Text>
+		<Text>{R1 , · · · , RM }.</Text>
+	</Panel>
+
+	<Panel left="452" right="410" width="406" height="361">
+		<Text>6. T HE L EARNING P ROBLEM</Text>
+		<Text>N{(In , yn )}n=1 ,• Given a set of training datawe jointly</Text>
+		<Text>learn the classiﬁer and the pooled features as (assum-</Text>
+		<Text>ing that coding is done in an unsupervised way):</Text>
+		<Text>• Advantage: pooled features are tailored towards the</Text>
+		<Text>classiﬁcation task (also reduces redundancy).</Text>
+		<Text>• Disadvantage: may be intractable - an exponential</Text>
+		<Text>number of possible receptive ﬁelds.</Text>
+		<Text>• Solution: reasonably overcomplete receptive ﬁeld</Text>
+		<Text>candidates + sparsity constraints to control the num-</Text>
+		<Text>ber of ﬁnal features.</Text>
+	</Panel>
+
+	<Panel left="452" right="785" width="406" height="411">
+		<Text>7. O VERCOMPLETE RF</Text>
+		<Text>• We propose to use overcomplete receptive ﬁeld can-</Text>
+		<Text>didates based on regular grids:</Text>
+		<Figure left="487" right="879" width="102" height="100" no="4" OriWidth="0.104624" OriHeight="0.0817694
+" />
+		<Text> (a) Base</Text>
+		<Figure left="606" right="878" width="102" height="101" no="5" OriWidth="0.104624" OriHeight="0.080429
+" />
+		<Text> (b) SPM</Text>
+		<Figure left="725" right="878" width="102" height="101" no="6" OriWidth="0.103468" OriHeight="0.0808758
+" />
+		<Text> (c) Ours</Text>
+		<Text>• The structured sparsity regularization is adopted to</Text>
+		<Text>select only a subset of features for classiﬁcation:</Text>
+	</Panel>
+
+	<Panel left="871" right="409" width="407" height="787">
+		<Text>8. G REEDY F EATURE S ELECTION</Text>
+		<Text>• Directly perform optimization is still time and mem-</Text>
+		<Text>ory consuming.</Text>
+		<Text>• Following [Perkins JMLR03], We adopted an incre-</Text>
+		<Text>mental, greedy approach to select features based on</Text>
+		<Text>their scores:</Text>
+		<Text>• After each increment, the model is retrained only with</Text>
+		<Text>respect to an active subset of selected features to en-</Text>
+		<Text>sure fast re-training:</Text>
+		<Figure left="983" right="753" width="193" height="160" no="7" OriWidth="0.212717" OriHeight="0.139857
+" />
+		<Text>• Beneﬁt of overcompleteness in spatial pooling + fea-</Text>
+		<Text>ture selection: higher performance with smaller code-</Text>
+		<Text>books and lower feature dimensions.</Text>
+		<Figure left="981" right="1008" width="222" height="169" no="8" OriWidth="0.244509" OriHeight="0.150134
+" />
+	</Panel>
+
+	<Panel left="1293" right="410" width="405" height="540">
+		<Text>9. R ESULTS</Text>
+		<Text>• Performance comparison on CIFAR-10 with state-of-</Text>
+		<Text>the-art approaches:</Text>
+		<Figure left="1332" right="506" width="354" height="213" no="9" OriWidth="0.343353" OriHeight="0.152368
+" />
+		<Text>• Result on MNIST and the 1-vs-1 saliency map ob-</Text>
+		<Text>tained from our algorithm:</Text>
+		<Figure left="1327" right="790" width="359" height="155" no="10" OriWidth="0.358382" OriHeight="0.120197
+" />
+	</Panel>
+
+	<Panel left="1294" right="964" width="404" height="230">
+		<Text>10. R EFERENCES</Text>
+		<Text>• A Coates and AY Ng. The importance of encoding</Text>
+		<Text>versus training with sparse coding and vector quanti-</Text>
+		<Text>zation. ICML 2011.</Text>
+		<Text>• S Perkins, K Lacker, and J Theiler. Grafting: fast, incre-</Text>
+		<Text>mental feature selection by gradient descent in func-</Text>
+		<Text>tion space. JMLR, 3:1333–1356, 2003.</Text>
+		<Text>• DH Hubel and TN Wiesel. Receptive ﬁelds, binocu-</Text>
+		<Text>lar interaction and functional architecture in the cat’s</Text>
+		<Text>visual cortex. J. of Physiology, 160(1):106–154, 1962.</Text>
+	</Panel>
+
+</Poster>

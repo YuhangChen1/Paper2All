@@ -1,0 +1,73 @@
+<Poster Width="625" Height="893">
+	<Panel left="11" right="208" width="295" height="129">
+		<Text>Introduction</Text>
+		<Text>Hazard perception (HP) is receptive to training. Yet, there is no</Text>
+		<Text>consensus on an optimal training program or acceptable</Text>
+		<Text>measures to assess effectiveness. We aimed to evaluate a</Text>
+		<Text>simulator based hazard perception test (SBHPT) for</Text>
+		<Text>assessing improvements in HP skills of trained young-novice</Text>
+		<Text>drivers, relative to a control group, and relative to a group of</Text>
+		<Text>experienced drivers who served as gold standard.</Text>
+	</Panel>
+
+	<Panel left="11" right="342" width="295" height="548">
+		<Text>Method</Text>
+		<Text>Participants. Thirty nine young- novice drivers, 17-18 year-olds</Text>
+		<Text>with less than three months of driving experience, underwent</Text>
+		<Text>one of four HP training conditions (AAHPT active, hybrid, RAPT</Text>
+		<Text>and control) prior to the testing phase. Six experienced drivers</Text>
+		<Text>(mean age 26, with more than 8 years of driving experience,)</Text>
+		<Text>completed the test phase.</Text>
+		<Text>Driving Scenarios. Use of a variety of traffic environments is</Text>
+		<Text>important as the driving environment dictates the type and</Text>
+		<Text>frequency of hazardous situations. The simulated drive</Text>
+		<Text>consisted of 8 urban and 6 residential scenarios merged into a</Text>
+		<Text>single 18 km drive. Two pairs of urban and residential scenarios</Text>
+		<Text>are detailed in Table 1. Sample snapshots are shown in Figures</Text>
+		<Text>1 and 2.</Text>
+		<Figure left="13" right="557" width="290" height="206" no="1" OriWidth="0.562313" OriHeight="0.181113
+" />
+		<Figure left="15" right="772" width="281" height="82" no="2" OriWidth="0.509472" OriHeight="0.0916138
+" />
+		<Text> Figure 1. Sample snapshots of events in urban scenarios. Left: a curve in the road</Text>
+		<Text>(U1-U2). Right: a bus parked in the station and a pedestrian (marked by an ellipse)</Text>
+		<Text>crossing the road to catch it (U4).</Text>
+	</Panel>
+
+	<Panel left="320" right="304" width="293" height="402">
+		<Text>Results and analysis</Text>
+		<Text>Driver velocity was sampled every 2m. Average velocity among</Text>
+		<Text>individuals of the same group (AAHPT active, hybrid, RAPT,</Text>
+		<Text>control, experienced) was calculated for each point. Generating</Text>
+		<Text>600 sampling points per group per scenario. Using cubic</Text>
+		<Text>smoothing spline, a smooth curve was fitted to each set of</Text>
+		<Text>observations for each group (solid line in Figure 3). A statistical</Text>
+		<Text>test was then conducted to examine whether the five separate</Text>
+		<Text>curves, fitted for each group, could be replaced by a single</Text>
+		<Text>curve (i.e., that all groups chose their speed in the same way).</Text>
+		<Text>For all 8 scenarios, the group curves could not be combined into</Text>
+		<Text>one. Since groups were different, additional descriptive</Text>
+		<Text>examinations were made.</Text>
+		<Figure left="322" right="515" width="288" height="167" no="3" OriWidth="0.601196" OriHeight="0.239605
+" />
+		<Text> Figure 3. The distribution of longitudinal velocity sampling points per each group, per</Text>
+		<Text>points along scenarios U1-U4. Solid lines are the fitted longitudinal velocity curves.</Text>
+	</Panel>
+
+	<Panel left="320" right="709" width="293" height="178">
+		<Text>Conclusions</Text>
+		<Text>Group-related metrics can discriminate among driver</Text>
+		<Text>groups.</Text>
+		<Text>Patterns of driving behaviour can be evaluated via</Text>
+		<Text>driving speed.</Text>
+		<Text>driving speed.</Text>
+		<Text>Comparisons to control, and to experienced drivers</Text>
+		<Text>complemented; where the resemblance of trainees</Text>
+		<Text>was higher to control, they tended to resemble the</Text>
+		<Text>experienced group less.</Text>
+		<Text>Events that require a complete stop are less</Text>
+		<Text>diagnostic than events that require slowing down but</Text>
+		<Text>not a complete halt.</Text>
+	</Panel>
+
+</Poster>

@@ -1,0 +1,100 @@
+<Poster Width="1766" Height="883">
+	<Panel left="25" right="149" width="403" height="419">
+		<Text>Overview of our approach</Text>
+		<Text>In this paper, we present an approach of scene understanding by</Text>
+		<Text>reasoning physical stability of objects based on the input of point</Text>
+		<Text>clouds. We utilize a simple observation:</Text>
+		<Text>By human design, objects in static scenes should be</Text>
+		<Text>stable with respect to gravity.</Text>
+		<Text>Our method consists of two major steps:</Text>
+		<Text>Geometric reasoning: recovering solid 3D volumetric</Text>
+		<Text>primitives from defective point cloud.</Text>
+		<Text>Physical reasoning: grouping the unstable primitives </Text>
+		<Text>physically stable objects by optimizing the stability and </Text>
+		<Text>scene prior.</Text>
+		<Text>Our main contributions includes</Text>
+		<Text>We define the physical stability function explicitly by studying</Text>
+		<Text>minimum energy need to change the pose and position of an</Text>
+		<Text>primitive (or object) from one equilibrium to another</Text>
+		<Text>We introduce disconnectivity graph (DG) from physics (Spin-</Text>
+		<Text>glass) to represent the energy landscapes.</Text>
+		<Text>We solve the complex optimization problem of stability</Text>
+		<Text>maximization by the sampling method Swendsen-Wang cut</Text>
+	</Panel>
+
+	<Panel left="28" right="567" width="400" height="291">
+		<Text>Geometric reasoning</Text>
+		<Text>Given a point cloud of scene, the goal of geometric reasoning is to</Text>
+		<Text>recover a volumetric representation of object with physical properties,</Text>
+		<Text>like volume, mass, support relation etc.</Text>
+		<Text>We first segment the point cloud with Implicit Algebraic Models (IAMs)</Text>
+		<Text>Region growing segmentation by iterative IAMs fitting</Text>
+		<Text>Further merging “convexly” connect regions.</Text>
+		<Text>We then convert the defective point cloud segments to solid</Text>
+		<Text>volumetric primitives.</Text>
+		<Text>Estimation gravity direction and generating voxels.</Text>
+		<Text>Estimating Invisible (occluded) space</Text>
+		<Text>Filling missing voxels.</Text>
+	</Panel>
+
+	<Panel left="457" right="150" width="834" height="414">
+		<Text>A illustration of our approach</Text>
+		<Figure left="460" right="171" width="832" height="396" no="1" OriWidth="0.646243" OriHeight="0.245308
+" />
+	</Panel>
+
+	<Panel left="459" right="589" width="832" height="272">
+		<Text>Modeling object stabilityPhysical reasoningand</Text>
+		<Figure left="467" right="613" width="310" height="125" no="2" OriWidth="0.372254" OriHeight="0.148794
+" />
+		<Figure left="467" right="741" width="313" height="123" no="3" OriWidth="0.365896" OriHeight="0.111707
+" />
+		<Text>Definition of stability:</Text>
+		<Text>The stability S(a, x</Text>
+		<Text>0,W) of an object a at state x</Text>
+		<Text>0 in the presence of a disturbance work W is the maximum</Text>
+		<Text>energy that it can release when it moves out the energy barrier by the work W.</Text>
+		<Text>The physical reasoning is then posed as a well-known graph partition problem, through which the unstable</Text>
+		<Text>primitives can be grouped together to achieve the maximum global stability.</Text>
+		<Text>Inference of Maximum stability:</Text>
+		<Text>where L is the labels of graph partition, x(O</Text>
+		<Text>i) is the current state of grouped object O</Text>
+		<Text>i, and F(O</Text>
+		<Text>i)</Text>
+		<Text>represents a penalty function for the object geometric prior e.g. the size and shape complexity.</Text>
+	</Panel>
+
+	<Panel left="1321" right="150" width="400" height="129">
+		<Text>Problem Inference</Text>
+		<Text>The Swendsen-Wang cut is applied to solve the complex optimization problem</Text>
+		<Text>by the sampling the partitioning of unstable primitives..</Text>
+		<Figure left="1341" right="198" width="385" height="81" no="4" OriWidth="0.767052" OriHeight="0.116175
+" />
+	</Panel>
+
+	<Panel left="1320" right="279" width="401" height="538">
+		<Text>Experiment</Text>
+		<Text>Qualitative results: (a) rgb images (b) results after geometric reasoning</Text>
+		<Text>(c) results after physical reasoning</Text>
+		<Figure left="1332" right="329" width="390" height="167" no="5" OriWidth="0.769364" OriHeight="0.228329
+" />
+		<Text>Other qualitative results on large scale point clouds captured by KinectFusion</Text>
+		<Figure left="1335" right="513" width="390" height="156" no="6" OriWidth="0.787861" OriHeight="0.241287
+" />
+		<Text>Comparison of segmentation error</Text>
+		<Figure left="1332" right="681" width="217" height="138" no="7" OriWidth="0.30578" OriHeight="0.14924
+" />
+		<Text>Comparison of missing voxel recovery</Text>
+		<Figure left="1544" right="699" width="178" height="33" no="8" OriWidth="0.365318" OriHeight="0.0495979
+" />
+		<Text>Comparison of physical relation inference</Text>
+		<Figure left="1553" right="770" width="172" height="35" no="9" OriWidth="0.304327" OriHeight="0.0495979
+" />
+	</Panel>
+
+	<Panel left="1321" right="817" width="403" height="40">
+		<Text>Project Page</Text>
+		<Text>http://www.stat.ucla.edu/~ybzhao/research/physics/</Text>
+	</Panel>
+
+</Poster>

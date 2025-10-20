@@ -1,0 +1,73 @@
+<Poster Width="1734" Height="1098">
+	<Panel left="13" right="159" width="480" height="435">
+		<Text>Introduction</Text>
+		<Text> Goal</Text>
+		<Text>• Classify high level events from unconstrained web</Text>
+		<Text>videos</Text>
+		<Text> Challenges</Text>
+		<Text>• Complex human-object interactions</Text>
+		<Text>• Diverse video quality (e.g. YouTube)</Text>
+		<Text>• Large scale dataset</Text>
+		<Text> Motivation</Text>
+		<Text>• Encoding activity concept transitions</Text>
+		<Figure left="32" right="427" width="209" height="157" no="1" OriWidth="0.247982" OriHeight="0.171123
+" />
+		<Figure left="259" right="426" width="207" height="161" no="2" OriWidth="0.344291" OriHeight="0.201872
+" />
+	</Panel>
+
+	<Panel left="515" right="158" width="739" height="439">
+		<Text>Hidden Markov Model Fisher Vector (HMMFV)</Text>
+		<Figure left="534" right="190" width="707" height="194" no="3" OriWidth="0.77105" OriHeight="0.143048
+" />
+		<Text> Video Representation: A sequence of activity concept responses</Text>
+		<Text> Fisher Kernel: Partial derivatives of log-likelihood function</Text>
+		<Text> HMMFV: Partial derivatives about HMM transition parameters</Text>
+	</Panel>
+
+	<Panel left="1276" right="158" width="441" height="441">
+		<Text>Experimental Setup</Text>
+		<Text> Dataset</Text>
+		<Text>•</Text>
+		<Text>•TRECVID MED 2011 Event Kit</Text>
+		<Text>70% for training, 30% for testing</Text>
+		<Text> Setup</Text>
+		<Text>•Gaussian kernel SVM, 5-fold cross validation</Text>
+		<Text> Activity Concepts</Text>
+		<Text>•</Text>
+		<Text>•Same domain (Event Kit annotations [1])</Text>
+		<Text>Cross domain (UCF 101)</Text>
+		<Figure left="1347" right="352" width="334" height="239" no="4" OriWidth="0.342561" OriHeight="0.203654
+" />
+	</Panel>
+
+	<Panel left="10" right="610" width="789" height="470">
+		<Text>Top Activity Concept Transitions Visualization</Text>
+		<Figure left="25" right="645" width="769" height="424" no="5" OriWidth="0.747405" OriHeight="0.31328
+" />
+	</Panel>
+
+	<Panel left="821" right="612" width="901" height="472">
+		<Text>Quantitative results</Text>
+		<Text> Comparison with baseline</Text>
+		<Figure left="830" right="671" width="358" height="179" no="6" OriWidth="0" OriHeight="0
+" />
+		<Text> Training with 10 positive samples</Text>
+		<Figure left="832" right="873" width="337" height="133" no="7" OriWidth="0" OriHeight="0
+" />
+		<Text> Comparison with state-of-the-art</Text>
+		<Figure left="1208" right="663" width="500" height="317" no="8" OriWidth="0.368512" OriHeight="0.241533
+" />
+		<Text> Conclusion</Text>
+		<Text>•</Text>
+		<Text>•</Text>
+		<Text>•Coding temporal transitions of activities by HMMFV improves performance</Text>
+		<Text>Activity concepts coded by HMMFV is desirable with limited training samples</Text>
+		<Text>May be useful for video event recounting (description)</Text>
+		<Text>[1] H. Izadinia and M. Shah. Recognizing complex events using large</Text>
+		<Text>margin joint low-level event model. In ECCV, 2012.</Text>
+		<Text>[2] C. Sun and R. Nevatia. Large-scale Web Video Event Classification</Text>
+		<Text>by use of Fisher Vectors. In WACV, 2013</Text>
+	</Panel>
+
+</Poster>

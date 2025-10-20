@@ -1,0 +1,141 @@
+<Poster Width="1735" Height="1227">
+	<Panel left="19" right="115" width="411" height="157">
+		<Text>Abstract</Text>
+		<Text>We demonstrate and compare three unsupervised</Text>
+		<Text>Bayesian latent variable models implemented in</Text>
+		<Text>Infer.NET [1] for biomedical data modeling of</Text>
+		<Text>42 skin and ageing phenotypes measured on the</Text>
+		<Text>12,000 female twins in the Twins UK study [2].</Text>
+	</Panel>
+
+	<Panel left="21" right="288" width="412" height="422">
+		<Text>Data characteristics</Text>
+		<Text>Like many biomedical applications:</Text>
+		<Text>4. High dimensional. 6000 phenotype and ex-</Text>
+		<Text>posure variables, measured at multiple time</Text>
+		<Text>points: use dimensionality reduction3. Multiple observations. Combine into a single</Text>
+		<Text>phenotype: aids interpretability, improves</Text>
+		<Text>statistical power and helps with missingness.2. Heterogeneous data. Continuous, categorical</Text>
+		<Text>(including binary), ordinal and count data:</Text>
+		<Text>using appropriate likelihood functions for</Text>
+		<Text>each of these data types improves statistical</Text>
+		<Text>power.1. High missingness. Many variables have up to</Text>
+		<Text>80% missing: Bayesian methods are able to</Text>
+		<Text>naturally deal with missingness</Text>
+	</Panel>
+
+	<Panel left="20" right="727" width="411" height="477">
+		<Text>Medical expertise: prior knowledge</Text>
+		<Figure left="30" right="774" width="388" height="262" no="1" OriWidth="0.644752" OriHeight="0.325758
+" />
+		<Text>Key processes involved in skin and ageing, de-</Text>
+		<Text>vised in collaboration with an experienced derma-</Text>
+		<Text>tologist. We use this prior knowledge in a very</Text>
+		<Text>crude way at the moment (separating explanatory</Text>
+		<Text>variables and symptoms) but we intend to use such</Text>
+		<Text>knowledge to incorporate more structure into our</Text>
+		<Text>models.</Text>
+	</Panel>
+
+	<Panel left="448" right="116" width="839" height="483">
+		<Text>Models</Text>
+		<Text>Factor graphs for the three proposed models.</Text>
+		<Text></Text>
+		<Figure left="473" right="269" width="271" height="198" no="2" OriWidth="0.271626" OriHeight="0.148396
+" />
+		<Text>1. Generalised mixture model.</Text>
+		<Text>Clusters individuals. Suitable</Text>
+		<Text>conjugate prior for each data</Text>
+		<Text>type.</Text>
+		<Figure left="739" right="184" width="271" height="280" no="3" OriWidth="0.284314" OriHeight="0.220588
+" />
+		<Text>2.Generalised factor anal-</Text>
+		<Text>ysis model. Allows different</Text>
+		<Text>observed data types using vari-</Text>
+		<Text>ous likelihood functions</Text>
+		<Figure left="1018" right="266" width="253" height="198" no="4" OriWidth="0.312572" OriHeight="0.193405
+" />
+		<Text>3. Combined regression and</Text>
+		<Text>factor analysis model. Pro-</Text>
+		<Text>vides the expressive power</Text>
+		<Text>of FA and interpretability of</Text>
+		<Text>regression.</Text>
+	</Panel>
+
+	<Panel left="449" right="614" width="836" height="591">
+		<Text>Results</Text>
+		<Figure left="492" right="665" width="321" height="228" no="5" OriWidth="0.350058" OriHeight="0.187611
+" />
+		<Text>Synthetic data test. Ordinal regression with</Text>
+		<Text>5 output values, P = 20 observed explana-</Text>
+		<Text>tory variables and varying sample size.</Text>
+		<Figure left="887" right="651" width="305" height="265" no="6" OriWidth="0.480392" OriHeight="0.318627
+" />
+		<Text>Correlation under the model. The fitted FA model</Text>
+		<Text>implies a particular covariance structure for the</Text>
+		<Text>variables of interest.</Text>
+		<Figure left="456" right="999" width="547" height="202" no="7" OriWidth="0.500577" OriHeight="0.141711
+" />
+		<Text>Imputation performance (real</Text>
+		<Text>data). For a random 10% of indi-</Text>
+		<Text>viduals treat symptoms (e.g. skin</Text>
+		<Text>cancer, wrinkles) as missing, but</Text>
+		<Text>leave the explanatory variables</Text>
+		<Text>(e.g. age, smoking, sun exposure),</Text>
+		<Text>and infer the predictive posterior</Text>
+		<Text>over the held out values.</Text>
+	</Panel>
+
+	<Panel left="1302" right="114" width="413" height="137">
+		<Text>Methods</Text>
+		<Text>We use Variational Message Passing under the In-</Text>
+		<Text>fer.NET framework. To support these models var-</Text>
+		<Text>ious factors were added to the framework: e.g. lo-</Text>
+		<Text>gistic regression, ordinal regression, “sum where”.</Text>
+	</Panel>
+
+	<Panel left="1303" right="267" width="409" height="281">
+		<Text>Conclusions</Text>
+		<Text>1. Using appropriate likelihood models allows</Text>
+		<Text>optimal integration of different data types</Text>
+		<Text>2. FA models have superior predictive perfor-</Text>
+		<Text>mance to mixture models in this setting</Text>
+		<Text>3. Combining regression and FA components</Text>
+		<Text>eases interpretability but at some cost to</Text>
+		<Text>predictive performance (this may be due to</Text>
+		<Text>scheduling problems or local minima)</Text>
+		<Text>4. Infer.NET allows us to use complex models</Text>
+	</Panel>
+
+	<Panel left="1301" right="566" width="413" height="325">
+		<Text>Future work</Text>
+		<Text>1. Time series. Multiple asynchronous visits, dif-</Text>
+		<Text>ferent phenotypes recorded each time.</Text>
+		<Text>2. Scalability. Although our message passing al-</Text>
+		<Text>gorithms are efficient, scaling modern health-</Text>
+		<Text>care size datasets remains a challenge. Paral-</Text>
+		<Text>lelization is a potential solution.</Text>
+		<Text>3. Online learning. This would allow new data</Text>
+		<Text>could be incorporated as it is recorded.</Text>
+		<Text>4. Nonlinearities. We are currently experiment-</Text>
+		<Text>ing with Gaussian Process and Mixture of Ex-</Text>
+		<Text>perts models to accommodate nonlinearity.</Text>
+	</Panel>
+
+	<Panel left="1304" right="908" width="409" height="176">
+		<Text>References</Text>
+		<Text>[1] T. Minka, J.M. Winn, J.P. Guiver, and D.A. Knowles.</Text>
+		<Text>Infer.NET 2.4, 2010.Microsoft Research Cambridge.</Text>
+		<Text>http://research.microsoft.com/infernet.</Text>
+		<Text>[2] Tim D. Spector and Alex J. MacGregor. The St. Thomas’ UK</Text>
+		<Text>Adult Twin Registry. Twin Research, 5:440–443(4), 1 October</Text>
+		<Text>2002.</Text>
+	</Panel>
+
+	<Panel left="1301" right="1117" width="411" height="88">
+		<Text>Funding</Text>
+		<Text>DK was supported by Microsoft Research through the Roger</Text>
+		<Text>Needham Scholarship at Wolfson College, Cambridge.</Text>
+	</Panel>
+
+</Poster>

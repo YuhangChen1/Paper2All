@@ -1,0 +1,118 @@
+<Poster Width="1734" Height="1060">
+	<Panel left="16" right="170" width="547" height="205">
+		<Text>Abstract</Text>
+		<Text>We introduce a new approach to automatically extract an idealized logical</Text>
+		<Text>structure from a parallel execution trace. We use this structure to define</Text>
+		<Text>intuitive metrics such as the lateness of a process involved in a parallel</Text>
+		<Text>execution. By analyzing and illustrating traces in terms of logical steps, we</Text>
+		<Text>leverage a developer’s understanding of the happened-before relations in</Text>
+		<Text>a parallel program. This technique can uncover dependency chains,</Text>
+		<Text>elucidate communication patterns, and highlight sources and propagation</Text>
+		<Text>of delays, all of which may be obscured in a traditional trace visualization.</Text>
+	</Panel>
+
+	<Panel left="13" right="387" width="548" height="623">
+		<Text>Extracting Logical Structure</Text>
+		<Text>The logical structure of a program is the ordering of events implied by that</Text>
+		<Text>program. We describe the logical structure by assigning a logical step to</Text>
+		<Text>each event.</Text>
+		<Text>Structure extraction occurs in two phases:</Text>
+		<Text>1.  Partitioning related communication</Text>
+		<Text>2.  Step assignment</Text>
+		<Text>Partitioning</Text>
+		<Text>Partitions represent non-overlapping application phases. If not predefined,</Text>
+		<Text>we derive them from the trace:</Text>
+		<Text>Matching sends and receives and communication handled by the same</Text>
+		<Text>MPI call must be related and thus in the same partition. When merged,</Text>
+		<Text>this can create cycles in ordering:</Text>
+		<Figure left="24" right="711" width="263" height="112" no="1" OriWidth="0" OriHeight="0
+" />
+		<Figure left="309" right="705" width="250" height="105" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>Communication partitions forming a cycle do not permit a partial order, so</Text>
+		<Text>we infer these partitions are related and merge them.</Text>
+		<Text>In addition to merging due to ordering</Text>
+		<Text>constraints, we can optionally merge due</Text>
+		<Text>to behavioral assumptions. For example,</Text>
+		<Text>in bulk synchronous codes we expect</Text>
+		<Text>each process to be active at some</Text>
+		<Text>distance in the partition graph.</Text>
+		<Figure left="342" right="867" width="215" height="129" no="3" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="595" right="171" width="545" height="369">
+		<Text>Step Assignment</Text>
+		<Text>Each partition is independently assigned steps based on two principles:</Text>
+		<Text>1.  Happened-before relationships must be maintained</Text>
+		<Text>2.  Send events have greater impact on structure</Text>
+		<Figure left="602" right="268" width="228" height="69" no="4" OriWidth="0" OriHeight="0
+" />
+		<Text>Consider this trace segment from an 8-</Text>
+		<Text>process run of the pF3D stencil</Text>
+		<Text>communication benchmark [1].</Text>
+		<Text>First we determine groups of</Text>
+		<Text>simultaneous sends (gray) using</Text>
+		<Text>receives only for ordering.</Text>
+		<Figure left="899" right="343" width="236" height="69" no="5" OriWidth="0" OriHeight="0
+" />
+		<Figure left="599" right="416" width="240" height="70" no="6" OriWidth="0" OriHeight="0
+" />
+		<Text>Then we assign the least step</Text>
+		<Text>possible to each event.</Text>
+		<Text>Finally we insert aggregated non-communication events between the</Text>
+		<Text>sends and receives and determine global steps using partition ordering.</Text>
+	</Panel>
+
+	<Panel left="594" right="558" width="546" height="453">
+		<Text>Temporal Metrics</Text>
+		<Text>Having determined a logical structure, we can calculate how late an event</Text>
+		<Text>was relative to its peers. We define lateness as excess completion time</Text>
+		<Text>over the earliest related event at a step.</Text>
+		<Text>We visualize a portion of an MG [2] trace using traditional methods as</Text>
+		<Text>represented by Vampir [3] (left) and logical structure and lateness (right).</Text>
+		<Text>In the latter the communication pattern and delay propagation is clear.</Text>
+		<Figure left="602" right="724" width="258" height="108" no="7" OriWidth="0.184544" OriHeight="0.0597148
+" />
+		<Figure left="872" right="726" width="260" height="106" no="8" OriWidth="0.191465" OriHeight="0.0610517
+" />
+		<Text>We classify four situations contributing to event lateness:</Text>
+		<Figure left="595" right="866" width="540" height="54" no="9" OriWidth="0.398501" OriHeight="0.0534759
+" />
+		<Text>Using this classification, we can narrow our focus to events where</Text>
+		<Text>lateness originates by subtracting out propagated lateness. This</Text>
+		<Text>differential lateness allows us to pinpoint sources of delays automatically.</Text>
+	</Panel>
+
+	<Panel left="1171" right="168" width="550" height="731">
+		<Text>Case Study</Text>
+		<Text>We analyze a massively parallel algorithm to compute merge trees. The</Text>
+		<Text>algorithm relies on a global gather-scatter approach where each level</Text>
+		<Text>requires messages sent both up and down a k-ary gather tree:</Text>
+		<Figure left="1177" right="262" width="538" height="85" no="10" OriWidth="0" OriHeight="0
+" />
+		<Text>Below are the Vampir (left) and logical structure (right) visualizations of a</Text>
+		<Text>16 process, 4-ary merge tree calculation. In the logical structure view,</Text>
+		<Text>lateness reflects data-dependent load imbalance. Logical steps highlight</Text>
+		<Text>the gather tree structure, revealing that the gather processes send back to</Text>
+		<Text>the leaves before sending up to the root, missing an opportunity for more</Text>
+		<Text>aggressive pipelining.</Text>
+		<Figure left="1179" right="471" width="276" height="71" no="11" OriWidth="0.392157" OriHeight="0.0757576
+" />
+		<Figure left="1466" right="475" width="247" height="65" no="12" OriWidth="0.390427" OriHeight="0.0815508
+" />
+		<Text>The 1024-process, 8-ary tree below shows similar issues. The recurring</Text>
+		<Text>“panhandle” shape highlights waiting due to sending down before up.</Text>
+		<Figure left="1180" right="602" width="534" height="290" no="13" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="1173" right="915" width="546" height="97">
+		<Text>References</Text>
+		<Text>1.  C. H. Still et al. Filamentation nd forward brillouin scatter of entire smoothed and aberrated laser beams.</Text>
+		<Text>Physics of Plasmas, 7(5):2023, 2000.</Text>
+		<Text>2.  D. H. Bailey et al. The nas parallel benchmarks. Int. J. Supercomput. Appl., 5(3):63–73, 1991.</Text>
+		<Text>3.  W. E. Nagel et al. VAMPIR: Visualization and analysis of MPI resources. Supercomputer, 12(1):69-80, 1996.</Text>
+	</Panel>
+
+</Poster>

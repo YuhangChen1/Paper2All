@@ -1,0 +1,69 @@
+<Poster Width="1734" Height="1900">
+	<Panel left="54" right="437" width="523" height="181">
+		<Text>Abstract</Text>
+		<Text>We enhance the efficiency of assembly of microparts in batch dry</Text>
+		<Text>assembly methods studied previously by our group. Here we study the</Text>
+		<Text>system dynamics with the addition of a few non-participating millimeter</Text>
+		<Text>scale parts that act as ‘catalysts’. We present experimental results that</Text>
+		<Text>show 25-50% reduction in acceleration needed to trigger part motion</Text>
+		<Text>and up to 4 times increase in concentration of parts in motion due to</Text>
+		<Text>addition of catalysts. We adapt a model from chemical kinetic theory to</Text>
+		<Text>understand our system behavior.</Text>
+	</Panel>
+
+	<Panel left="56" right="650" width="525" height="1077">
+		<Text>Analogy with Chemical Kinetics</Text>
+		<Figure left="59" right="701" width="518" height="483" no="1" OriWidth="0.375723" OriHeight="0.206434
+" />
+		<Figure left="119" right="1233" width="384" height="237" no="2" OriWidth="0" OriHeight="0
+" />
+		<Figure left="118" right="1493" width="384" height="235" no="3" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="604" right="436" width="515" height="1376">
+		<Text>Experimental Setup and Data</Text>
+		<Text>Collection/Analysis Capabilities</Text>
+		<Text>•Parts (800x800x50µm ) and catalysts (2x2x.5mm ) are made</Text>
+		<Text>respectively from SOI/silicon wafers using standard lithography and</Text>
+		<Text>DRIE etching.33</Text>
+		<Text>•High speed camera is used to capture part motion</Text>
+		<Text>•Dedicated Matlab routines were developed for image processing and</Text>
+		<Text>subsequent data reduction</Text>
+		<Figure left="627" right="658" width="491" height="378" no="4" OriWidth="0.410983" OriHeight="0.288204
+" />
+		<Figure left="627" right="1065" width="492" height="238" no="5" OriWidth="0.34104" OriHeight="0.218499
+" />
+		<Figure left="627" right="1335" width="491" height="187" no="6" OriWidth="0" OriHeight="0
+" />
+		<Figure left="628" right="1556" width="490" height="255" no="7" OriWidth="0.357225" OriHeight="0.147006
+" />
+	</Panel>
+
+	<Panel left="1163" right="435" width="526" height="878">
+		<Text>Results</Text>
+		<Figure left="1171" right="482" width="523" height="314" no="8" OriWidth="0.350289" OriHeight="0.193476
+" />
+		<Figure left="1172" right="821" width="519" height="494" no="9" OriWidth="0.371098" OriHeight="0.145219
+" />
+	</Panel>
+
+	<Panel left="1162" right="1330" width="526" height="473">
+		<Text>Conclusion</Text>
+		<Text>•‘Catalyst’ is a promising new concept in dry self-assembly</Text>
+		<Text>•Infrastructure for automated assembly analysis is developed</Text>
+		<Text>•Chemical Kinetics analogous models and empirical data are available</Text>
+		<Text>•Future developments include automated accounting of assembly in</Text>
+		<Text>assembly sites</Text>
+		<Figure left="1187" right="1499" width="490" height="187" no="10" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="1163" right="1820" width="487" height="107">
+		<Text>Acknowledgements</Text>
+		<Text>•This work was supported by research grants from Intel Corporation.</Text>
+		<Text>•Authors thank the feedback and assistance from members of UW-MEMS</Text>
+		<Text>Lab.</Text>
+	</Panel>
+
+</Poster>

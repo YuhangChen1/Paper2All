@@ -1,0 +1,33 @@
+# eval/configs/02_factual_accuracy.yaml
+eval_name: "Factual Accuracy Assessment"
+base_type: "fine_grained"
+target_data_source: "pr_test"
+description: "Evaluates the factual accuracy of the note against the original paper using a detailed checklist."
+
+# The subdirectory for this evaluation's data (checklists)
+criteria_subdir: "Factual_accuracy"
+
+# The instruction template.
+# It will be formatted for each item in the checklist.
+instruction: |
+  Please act as a meticulous fact-checker. Based on the provided research paper content and the {platform_source} post, evaluate the post against the following criterion:
+
+  Criterion: "{description}"
+
+  Your task is to provide an integer score from 0 to {max_score} and a clear explanation for your score.
+  A score of {max_score} means the post perfectly meets the criterion. A score of 0 means it completely fails.
+
+model: "gemini-2.5-pro-preview-05-06"
+include_images: "none"
+include_pdf: false
+n_samples: 1
+response_schema:
+  type: "object"
+  properties:
+    score:
+      type: "integer"
+      description: "The integer score you assign, from 0 to the max_score."
+    explanation:
+      type: "string"
+      description: "A detailed justification for your assigned score, referencing the paper or note."
+  required: ["score", "explanation"]

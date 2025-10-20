@@ -1,0 +1,110 @@
+<Poster Width="1734" Height="958">
+	<Panel left="25" right="161" width="476" height="352">
+		<Text>Visual Comparisons</Text>
+		<Text>Which shoe is more sporty?</Text>
+		<Figure left="38" right="224" width="252" height="88" no="1" OriWidth="0.316609" OriHeight="0.13057
+" />
+		<Text>Problem:</Text>
+		<Text>Fine-grained visual</Text>
+		<Text>comparisons require</Text>
+		<Text>accounting for subtle</Text>
+		<Text>visual differences specific</Text>
+		<Text>to each comparison pair.</Text>
+		<Text>Status Quo: Learning a Global Ranking Function</Text>
+		<Text>[Parikh & Grauman 11, Datta et al. 11, Li et al. 12, Kovashka et al. 12, ...]</Text>
+		<Figure left="36" right="353" width="454" height="56" no="2" OriWidth="0.86361" OriHeight="0.0512478
+" />
+		<Text>o fails to account for subtle differences</Text>
+		<Text>among closely related images</Text>
+		<Text>o each comparison pair exhibits unique</Text>
+		<Text>visual cues/rationales</Text>
+		<Text>o visual comparisons need not be transitive</Text>
+		<Figure left="341" right="409" width="118" height="102" no="3" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="22" right="526" width="479" height="409">
+		<Text>Our Approach</Text>
+		<Text>We propose a local learning approach for fine-grained comparisons.</Text>
+		<Figure left="29" right="589" width="471" height="254" no="4" OriWidth="0.33218" OriHeight="0.134135
+" />
+		<Text>o learn attribute-specific distance metrics</Text>
+		<Text>o identify top K analogous neighboring pairs w.r.t. each novel pair</Text>
+		<Text>o train local function that tailors to the neighborhood statistics</Text>
+		<Text>Key Idea: having the right data > having more data</Text>
+	</Panel>
+
+	<Panel left="513" right="159" width="478" height="228">
+		<Text>Analogous Neighboring Pairs</Text>
+		<Text>Detect analogous pairs based on individual similarity & paired contrast.</Text>
+		<Text>o select neighboring pairs that accentuate fine-grained differences</Text>
+		<Text>o take product of pairwise distances of individual members</Text>
+		<Text>o i.e. highly analogous if both query-training couplings are similar</Text>
+		<Figure left="531" right="279" width="455" height="105" no="5" OriWidth="0.275087" OriHeight="0.0748663
+" />
+	</Panel>
+
+	<Panel left="513" right="399" width="477" height="372">
+		<Text>Learned Attribute Distance</Text>
+		<Text>Learn a Mahalanobis metric per attribute (similarity computation).</Text>
+		<Text>o attribute similarity doesn’t rely equally on each dim of feature space</Text>
+		<Text>o constraints  similar images be close, dissimilar images be far</Text>
+		<Figure left="525" right="503" width="458" height="224" no="6" OriWidth="0.773933" OriHeight="0.237968
+" />
+		<Text>Observation: Nearest analogous pairs most suited for local</Text>
+		<Text>learning need not be those closest in raw feature space.</Text>
+	</Panel>
+
+	<Panel left="516" right="783" width="478" height="152">
+		<Text>UT Zappos50K Dataset</Text>
+		<Text>We introduce a new large shoe dataset UT-Zap50K, consisting of</Text>
+		<Text>CoarseFine-Grained50,025 catalog images from Zappos.com.</Text>
+		<Text>4 relative attributes (open, pointy, sporty, comfort)</Text>
+		<Text>ohigh confidence pairwise labels from mTurk workers</Text>
+		<Text>o6,751 ordered labels + 4,612 “equal” labels</Text>
+		<Text>o4,334 twice-labeled fine-grained labels (no “equal” option)o</Text>
+		<Figure left="804" right="840" width="185" height="86" no="7" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="1006" right="161" width="707" height="506">
+		<Text>Results: UT-Zap50K</Text>
+		<Text>o FG-LocalPair: our proposed fine-grained approach</Text>
+		<Text>o Global[Parikh & Grauman 11]: status quo of learning a single</Text>
+		<Text>global ranking function per attributeo RandPair: local approach with random neighbors</Text>
+		<Text>o RelTree[Li et al. 12]: non-linear relative attribute approacho LocalPair: our approach w/o the learned metric</Text>
+		<Text>(10 iterations @ K=100)Accuracy Comparison</Text>
+		<Text>o coarser comparisons</Text>
+		<Figure left="1019" right="361" width="329" height="73" no="8" OriWidth="0.32699" OriHeight="0.0681818
+" />
+		<Text>o fine-grained comparisons</Text>
+		<Figure left="1020" right="463" width="325" height="77" no="9" OriWidth="0.325836" OriHeight="0.0663993
+" />
+		<Figure left="1379" right="203" width="319" height="135" no="10" OriWidth="0" OriHeight="0
+" />
+		<Figure left="1380" right="344" width="322" height="94" no="11" OriWidth="0" OriHeight="0
+" />
+		<Figure left="1376" right="443" width="320" height="97" no="12" OriWidth="0.000576701" OriHeight="0
+" />
+		<Text>o accuracy for the 30 hardest test pairs (according to learned metrics)</Text>
+		<Figure left="1013" right="569" width="429" height="94" no="13" OriWidth="0.723184" OriHeight="0.115865
+" />
+		<Text>Observation:</Text>
+		<Text>We outperform all baselines,</Text>
+		<Text>demonstrating strong advantage for</Text>
+		<Text>detecting subtle differences on the</Text>
+		<Text>harder comparisons (~20% more).</Text>
+	</Panel>
+
+	<Panel left="1004" right="678" width="706" height="258">
+		<Text>Results: PubFig & Scenes</Text>
+		<Text>We form supervision pairs using the category-wise comparisons  avg. 20,000 ordered labels / attribute.</Text>
+		<Text>o Public Figures Face (PubFig): 772 images w/ 11 attributes</Text>
+		<Text>o Outdoor Scene Recognition (OSR): 2,688 images w/ 6 attributes</Text>
+		<Figure left="1014" right="783" width="684" height="108" no="14" OriWidth="0" OriHeight="0
+" />
+		<Text>Observation: We outperform the current state of the art on 2 popular relative attribute</Text>
+		<Text>datasets. Our gains are especially dominant on localizable attributes due to the learned metrics.</Text>
+	</Panel>
+
+</Poster>

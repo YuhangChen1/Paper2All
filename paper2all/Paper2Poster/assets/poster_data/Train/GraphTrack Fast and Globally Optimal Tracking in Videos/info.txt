@@ -1,0 +1,87 @@
+<Poster Width="1735" Height="2230">
+	<Panel left="32" right="227" width="542" height="622">
+		<Text>P ROBLEM</Text>
+		<Text>Special effects in movies require tracks</Text>
+		<Text>of features through scenes. Tracks are</Text>
+		<Text>found in an interactive process. The</Text>
+		<Text>artist marks a position, and the com-</Text>
+		<Text>puter proposes a track which is then</Text>
+		<Text>further refined by the artist.</Text>
+		<Text>This is a difficult problem due to three</Text>
+		<Text>aspects.</Text>
+		<Text>1. Sudden appearance changes due</Text>
+		<Text>to lighting and pose</Text>
+		<Text>2. Occlusions</Text>
+		<Text>3. Speed: Interactive editing re-</Text>
+		<Text>quires higher than framerate</Text>
+		<Text>speed</Text>
+	</Panel>
+
+	<Panel left="596" right="227" width="541" height="623">
+		<Text>C ONTRIBUTIONS</Text>
+		<Text>We formulated tracking as path search</Text>
+		<Text>in a large graph, and solve it efficiently</Text>
+		<Text>with a modificiation of Dijkstra’s algo-</Text>
+		<Text>rithm.</Text>
+		<Text>The method is based on [2]. Our main</Text>
+		<Text>contributions are</Text>
+		<Text>1. Efficient incorporation of a back-</Text>
+		<Text>ground appearance model</Text>
+		<Text>2. Formulation as a shortest path</Text>
+		<Text>problem</Text>
+		<Text>3. Correct handling of occlusions</Text>
+		<Text>4. High-Efficiency implementation</Text>
+		<Text>with up to 200 fps for a high</Text>
+		<Text>resolution video</Text>
+	</Panel>
+
+	<Panel left="1161" right="227" width="540" height="621">
+		<Text>M ETHOD</Text>
+		<Figure left="1174" right="300" width="513" height="348" no="1" OriWidth="0.183968" OriHeight="0.112745
+" />
+		<Text>The cost is interpreted as a directed</Text>
+		<Text>acyclic graph with weights on the</Text>
+		<Text>nodes and edges. The shortest path</Text>
+		<Text>corresponds to the optimal track. The</Text>
+		<Text>dashed edges are occlusions.</Text>
+	</Panel>
+
+	<Panel left="33" right="872" width="1667" height="1019">
+		<Text>R ESULTS</Text>
+		<Figure left="46" right="947" width="1643" height="771" no="2" OriWidth="0.376586" OriHeight="0.153298
+" />
+		<Text>Between one and three user clicks were</Text>
+		<Text>needed to achieve accurate tracking for</Text>
+		<Text>the head sequence. Note the correct</Text>
+		<Text>handling of the occluded ear, which re-</Text>
+		<Text>quired only a single click.</Text>
+		<Text>The eye of the running giraffe required</Text>
+		<Text>eight user interactions, of which three</Text>
+		<Text>marked occlusions.</Text>
+	</Panel>
+
+	<Panel left="33" right="1914" width="541" height="283">
+		<Text>R EFERENCES</Text>
+		<Text>[1] B. Amberg, T. Vetter. GraphTrack: Fast and</Text>
+		<Text>Globally Optimal Tracking in Videos In</Text>
+		<Text>CVPR ’11</Text>
+		<Text>[2] A. Buchanan and A. Fitzgibbon. Interactive</Text>
+		<Text>Feature Tracking using K-D Trees and Dy-</Text>
+		<Text>namic Programming. In CVPR ’06</Text>
+	</Panel>
+
+	<Panel left="598" right="1916" width="1104" height="280">
+		<Text>A F UTURE D IRECTION</Text>
+		<Text>We incorporated a background model,</Text>
+		<Text>where a click informs us not only that</Text>
+		<Text>“this is how the patch looks like”, but</Text>
+		<Text>also for the rest of the frame, “this is</Text>
+		<Text>how the patch does not look like”.</Text>
+		<Text>Can we also efficiently use a back-</Text>
+		<Text>ground tracks model, allowing us to</Text>
+		<Text>reason, “this would be a good track,</Text>
+		<Text>but part of it can be better explained by</Text>
+		<Text>another track”.</Text>
+	</Panel>
+
+</Poster>

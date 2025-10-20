@@ -1,0 +1,76 @@
+<Poster Width="1734" Height="1226">
+	<Panel left="20" right="192" width="531" height="990">
+		<Text>1. Abstract</Text>
+		<Text>• We formulate the problem of joint visual</Text>
+		<Text>attribute and object class image segmentation</Text>
+		<Text>as a dense multi-labelling problem, where each</Text>
+		<Text>pixel in an image can be associated with both</Text>
+		<Text>an object class and a set of visual attributes</Text>
+		<Text>labels.</Text>
+		<Text>• In order to learn the label correlations, we</Text>
+		<Text>adopt a boosting-based piecewise training</Text>
+		<Text>approach with respect to the visual appearance</Text>
+		<Text>and co-occurrence cues.</Text>
+		<Text>Weuseafiltering-basedmean-field</Text>
+		<Text>approximation approach for efficient joint</Text>
+		<Text>inference. Further, we develop a hierarchical</Text>
+		<Text>model to incorporate region-level object and</Text>
+		<Text>attribute information.</Text>
+		<Text>Object class segmentation</Text>
+		<Text>• Assigning an object class label to each pixel</Text>
+		<Figure left="29" right="706" width="511" height="174" no="1" OriWidth="0.379469" OriHeight="0.0748663
+" />
+		<Text>Image Segmentation with Objects and Attributes</Text>
+		<Text>• Assigning an object class label and a set of</Text>
+		<Text>visual attribute labels to each pixel</Text>
+		<Figure left="26" right="987" width="515" height="175" no="2" OriWidth="0.3812" OriHeight="0.0766488
+" />
+	</Panel>
+
+	<Panel left="585" right="191" width="515" height="648">
+		<Figure left="586" right="237" width="516" height="367" no="3" OriWidth="0.369666" OriHeight="0.202317
+" />
+		<Figure left="590" right="648" width="506" height="171" no="4" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="586" right="841" width="516" height="337">
+		<Figure left="591" right="914" width="509" height="247" no="5" OriWidth="0.795848" OriHeight="0.289216
+" />
+		<Text> Fully-connected CRF</Text>
+		<Text> Joint Pixel-level CRF</Text>
+		<Text> Hierarchical CRF</Text>
+		<Text> Ground Truth</Text>
+	</Panel>
+
+	<Panel left="1150" right="194" width="517" height="646">
+		<Text>4. Attribute-augmented NYU dataset</Text>
+		<Figure left="1153" right="242" width="515" height="313" no="6" OriWidth="0.784314" OriHeight="0.3988425
+" />
+		<Text> Attribute annotation</Text>
+		<Text> Image</Text>
+		<Text> Object annotation</Text>
+		<Text>Following the CORE dataset, we augment the</Text>
+		<Text>attribute annotations for NYU V2 dataset. Above</Text>
+		<Text>figure shows the annotations for aNYU dataset.</Text>
+		<Text>Below figure demonstrate the annotation of CORE</Text>
+		<Text>dataset and aPASCAL dataset.</Text>
+	</Panel>
+
+	<Panel left="1144" right="842" width="569" height="321">
+		<Text>5. Acknowledgement</Text>
+		<Text>This project is supported by EPSRC EP/I001107/2,</Text>
+		<Text>ERC HELIOS 2013-2018Advanced Investigator Award.</Text>
+		<Text>[1] Dense semantic image segmentation</Text>
+		<Text>with objects and attributes. CVPR, 2014.</Text>
+		<Text>[2] ImageSpirit: Verbal Guided Image</Text>
+		<Text>Parsing, ACM TOG 2014.</Text>
+		<Text>[3] Efficient Inference in Fully Connected</Text>
+		<Text>CRFs with Gaussian Edge Potentials.</Text>
+		<Text>NIPS 2011.</Text>
+		<Text>http://kylezheng.org/densesegattobj/</Text>
+		<Figure left="1539" right="961" width="172" height="173" no="7" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+</Poster>

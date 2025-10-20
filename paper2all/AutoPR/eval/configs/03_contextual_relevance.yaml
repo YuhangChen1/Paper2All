@@ -1,0 +1,45 @@
+eval_name: "S3_Contextual_Relevance"
+base_type: "single_note"
+description: "Evaluates if the promotion's content, language, and style are appropriate for the target social media platform."
+instruction: |
+  You are an expert social media analyst. Your task is to review the following academic promotion post and evaluate its 'Contextual Relevance' for the specified platform: **{platform_source}**. Note that this platform will be either **X (formerly Twitter)** or **小红书 (Xiaohongshu)**.
+
+  Your review must include two parts:
+  1.  **Detailed Assessment:** Provide a structured analysis of the post, adapting your evaluation to the norms of the specified `{platform_source}`. Specifically comment on:
+      * **Tone & Framing:** How is the content framed? Is the tone appropriate for the platform (e.g., X's conversational style vs. 小红书's personal, storytelling style)? For 小红书, pay special attention to the title's effectiveness as a "hook."
+      * **Format & Visuals:** How well are the format and visuals optimized for the platform? (e.g., For X: conciseness, use of threads, and a single strong visual. For 小红书: high-quality cover image, aesthetic carousels, and scannable text with emojis).
+      * **Content & Value:** How is the academic content presented? Is it distilled into a valuable, easy-to-digest insight for a general audience? Is jargon explained?
+      * **Engagement Strategy:** Does it use platform-specific features to drive interaction? (e.g., For X: strategic hashtags, mentions, polls. For 小红书: topic tags (#) and encouraging "Saves," "Likes," and comments).
+  2.  **Overall Score:** Based on your assessment, provide a score on a continuous scale from 1 to 5. Use the detailed rubric below, paying close attention to the examples specific to `{platform_source}`. You are encouraged to use intermediate scores (e.g., 2.5, 4.5). Justify your score by referencing your analysis.
+
+  ---
+
+  #### **Unified Scoring Rubric**
+
+  * **5 (Excellent - Native to the Platform):** The post feels perfectly designed for the platform.
+      * **On X:** It is concise, conversational, and features a strong visual hook. It uses strategic hashtags/mentions and has a clear call-to-action, potentially using a thread for depth.
+      * **On 小红书:** It has a magnetic title and a high-quality, aesthetic cover image. The tone is personal and story-driven. The content is presented as valuable "干货" (useful stuff) with great formatting, encouraging saves and comments.
+
+  * **3 (Adequate - Adapted but not Native):** The post shows adaptation but doesn't fully embrace the platform's culture.
+      * **On X:** It might be too formal or slightly too long (without using a thread). The visual may be generic or missing, and the engagement strategy is weak. It feels like a shrunken-down press release.
+      * **On 小红书:** The title and cover image are functional but not compelling. The tone is more informational than personal. It looks like content designed for another platform and cross-posted.
+
+  * **1 (Poor - Disregards the Platform):** The post is a clear copy-paste from a formal document and ignores all platform norms.
+      * This applies to **both platforms**. The post is a dense block of unformatted, academic text. It lacks any relevant visuals, has no title hook (for 小红书), and uses no engagement features (hashtags, mentions, CTAs).
+
+
+target_data_source: "pr_test"
+model: "gemini-2.5-pro-preview-05-06"
+include_images: "none"
+include_pdf: false
+n_samples: 3
+response_schema:
+  type: "object"
+  properties:
+    score:
+      type: "integer"
+      description: "An integer score from 1 to 5, where 1 is poor and 5 is excellent."
+    assessment:
+      type: "string"
+      description: "A detailed explanation for the assigned score."
+  required: ["score", "assessment"]

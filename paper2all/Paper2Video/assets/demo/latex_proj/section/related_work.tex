@@ -1,0 +1,81 @@
+% Video Creation Agent - MovieAgent, PresentAgent
+% Visual Design Agent - SlideGen, PosterGen
+\vspace{-0.5\baselineskip} 
+\section{Related Works}
+\vspace{-0.3\baselineskip} 
+% \kevin{size / vid. dur / domain / diff + code}
+% 需 booktabs, multirow 宏包；如需更紧凑标题距离，可用 \usepackage{caption}
+\begin{table}[!t]
+\centering
+\begingroup
+\setlength{\tabcolsep}{4pt}       % 列间距（默认约 6pt）
+\renewcommand{\arraystretch}{0.95}% 行距（默认 1.0）
+% \captionsetup{skip=2pt}         % 若已加载 caption 宏包，可启用以缩小标题间距
+\footnotesize
+\caption{\textbf{Comparison of \our~with existing benchmarks.} Top: existing natural video generation; Button: recent Agents for research works.
+% where they support subtitle, slides and cursor generation, and presenter identity image and audio control.
+}
+\footnotesize
+\begin{tabular}{@{}lccccccc@{}} % 去掉左右内边距；移除列格式中的空格
+\toprule
+\multirow{2}{*}{Benchmarks} & 
+\multirow{2}{*}{Inputs} & 
+\multirow{2}{*}{Outputs} & 
+\multirow{2}{*}{Subtitle} & 
+\multirow{2}{*}{Slides} & 
+\multirow{2}{*}{Cursor} & 
+\multicolumn{2}{c}{Speaker} \\
+\cmidrule(lr){7-8}
+ & & & & & & Face & Voice \\
+\midrule
+\multicolumn{8}{c}{{\textcolor[RGB]{105, 105, 105}{\textit{Natural Video Generation}}}}  \\
+VBench~\cite{vbench} & Text & Short Vid. & \xmark & \xmark & \xmark & \xmark & \xmark \\
+VBench$+$$+$~\cite{vbench++} & Text\&Image & Short Vid. & \xmark & \xmark & \xmark & \xmark & \xmark\\
+Talkinghead~\cite{talking-head-1} & Audio\&Image & Short Vid. & \xmark & \xmark & \xmark & \textcolor{citecolor}{\cmark} & \textcolor{citecolor}{\cmark} \\
+MovieBench~\cite{wu2025moviebench} & Text\&Audio\&Image & Long Vid. & \textcolor{citecolor}{\cmark} & \xmark & \xmark & \textcolor{citecolor}{\cmark} & \textcolor{citecolor}{\cmark} \\
+\midrule
+\multicolumn{8}{c}{{\textcolor[RGB]{105, 105, 105}{\textit{Multimodal Agent for Research}}}}  \\
+% Paperbench~\cite{paperbench} & Paper & Code & \xmark & \xmark & \xmark & \xmark & \xmark \\
+% Paper2Code~\cite{paper2code} & Paper & Code & \xmark & \xmark & \xmark & \xmark & \xmark \\
+Paper2Poster~\cite{pang2025paper2poster} & Paper & Poster & \xmark & \xmark & \xmark & \xmark & \xmark \\
+PPTAgent~\cite{zheng2025pptagent} & Doc.\&Template & Slide & \xmark & \textcolor{citecolor}{\cmark} & \xmark & \xmark & \xmark \\
+PresentAgent~\cite{shi2025presentagent} & Doc.\&Template & Audio\&Long Vid. & \textcolor{citecolor}{\cmark} & \textcolor{citecolor}{\cmark} & \xmark & \xmark & \xmark \\
+\bench~(Ours) & Paper\&Image\&Audio & Audio\&Long Vid. & \textcolor{citecolor}{\cmark} & \textcolor{citecolor}{\cmark} & \textcolor{citecolor}{\cmark} & \textcolor{citecolor}{\cmark} & \textcolor{citecolor}{\cmark} \\
+\bottomrule
+\end{tabular}
+\endgroup
+\end{table}
+
+\subsection{Video Generation}
+\vspace{-0.2\baselineskip} 
+% video gen development
+% 1. natural short video -- <10 sec; diffusion model
+% 2. natural long video -- movieagent, agent colloration + diffusion model
+% 3. professional acamide video -- agent colloration + \textbf{code gen.} as academic video require accurate / serious layout, control such as distance, timestamp, so we found code gen (usually bug-free)
+Recent advances in video diffusion models~\cite{sd_video,wan,vbench,vbench++} have substantially improved \textit{natural} video generation in terms of length, quality, and controllability. However, these \textbf{end-to-end} diffusion models still struggle to produce long videos~\cite{deepmind2025veo3,fantasytalking} (\textit{e.g.}, several minutes), handle multiple shots, and support conditioning on multiple images~\cite{ma2025controllable}. 
+Moreover, most existing approaches generate only video without aligned audio, leaving a gap for real-world applications. To address these limitations, recent works leverage \textbf{multi-agent} collaboration to generate multi-shot, long video–audio pairs and enable multi-image conditioning. 
+Specifically, for natural videos, MovieAgent~\cite{wu2025automated} adopts a hierarchical CoT planning strategy and leverages LLMs to simulate the roles of a director, screenwriter, storyboard artist, and location manager, thereby enabling long-form movie generation. Alternatively, PresentAgent~\cite{shi2025presentagent} targets presentation video generation but merely combines PPTAgent~\cite{zheng2025pptagent} with text-to-speech to produce narrated slides. 
+% \textit{academic videos}
+However, it lacks personalization (\textit{e.g.}, mechanical speech and absence of a presenter) and fails to generate academic-style slides (\textit{e.g.}, missing opening and outline slides), thereby limiting its applicability in academic contexts. Our work addresses these limitations and enables ready-to-use academic presentation video generation.
+
+% \kevin{Our work}
+
+% \subsection{Agent for Research}
+\vspace{-0.2\baselineskip} 
+\subsection{AI for Research}
+\vspace{-0.2\baselineskip} 
+% https://arxiv.org/abs/2507.01903
+% \kevin{more richer}
+Many useful tasks have been explored under the umbrella of AI for Research (AI4Research)~\cite{ai4research}, which aims to support the full scholarly workflow spanning text~\cite{dasigi-etal}, static visuals~\cite{pang2025paper2poster}, and dynamic video~\cite{shi2025presentagent}. With the breakthrough of LLMs in text generation and the Internet search ability, extensive efforts have been devoted to academic writing~\cite{writing_ass} and literature surveying~\cite{sci_lit,deyoung2021ms2,multi-xscience,goldsack2022making}, substantially improving research efficiency. Besides, some works~\cite{paperbench,scireplicate} benchmark AI agents’ end-to-end ability to replicate top-performing ML papers, while others leverage agents to enable idea proposal~\cite{Llm-srbench} and data-driven scientific inspiration~\cite{scienceagentbench,bixbench}. 
+To further enhance productivity, a growing number of work focuses on the automatic visual design of figures~\cite{IconShop}, slides~\cite{zheng2025pptagent}, posters~\cite{pang2025paper2poster}, and charts~\cite{hu2024novachart}. More recently, Paper2Agent~\cite{paper2agent} has reimagined research papers as interactive and reliable AI agents, designed to assist readers in understanding scientific works. However, very few studies have investigated video generation for scientific purposes, leaving this area relatively underexplored. Our work belongs to one of the pioneering efforts in this direction, initiating a systematic study on academic presentation video generation.
+
+
+% 1. LLM:
+% agent for writing assistance, agent for survey
+
+% 2. Visual static, image
+% slide gen, poster gen, chart bar gen
+
+% 3. Visual dynamic, video
+% auto. instructional video, our work belong a pironner work in this category.
+

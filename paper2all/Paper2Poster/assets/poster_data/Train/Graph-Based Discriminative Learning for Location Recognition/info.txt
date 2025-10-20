@@ -1,0 +1,76 @@
+<Poster Width="1734" Height="1041">
+	<Panel left="3" right="125" width="563" height="469">
+		<Text>Introduction</Text>
+		<Text>IGoal: Recognize the an image’s location by matching to a database</Text>
+		<Text>IChallenges: matching is time consuming; image retrieval is noisy</Text>
+		<Text>IPrevious Approaches: image retrieval based & direct matching</Text>
+		<Text>IOur Approach:</Text>
+		<Text>I Use an image graph to learn local similarity functions</Text>
+		<Text>I Encourage diversity in top ranked results</Text>
+		<Figure left="95" right="302" width="386" height="280" no="1" OriWidth="0.351211" OriHeight="0.194296
+" />
+	</Panel>
+
+	<Panel left="2" right="601" width="561" height="398">
+		<Text>Image Graphs</Text>
+		<Text>INodes are images</Text>
+		<Text>IOnly geometrically</Text>
+		<Text>consistent images</Text>
+		<Text>are connected</Text>
+		<Text>IEdge weights defined</Text>
+		<Text>by Jaccard Index</Text>
+		<Text>N(a,b)J(a,b): </Text>
+		<Text>N(a)+N(b)−N(a,b),</Text>
+		<Text>and thresholded to</Text>
+		<Text>improve robustness</Text>
+		<Text>IOn the right: an</Text>
+		<Text>example image graph</Text>
+		<Text>on Dubrovnik dataset</Text>
+		<Text>(red nodes are center</Text>
+		<Text>images selected)</Text>
+		<Figure left="197" right="629" width="352" height="362" no="2" OriWidth="0.351788" OriHeight="0.287879
+" />
+	</Panel>
+
+	<Panel left="572" right="125" width="578" height="229">
+		<Text>Overview of Approach</Text>
+		<Text>ITraining:</Text>
+		<Text>I 1. Compute a covering of the graph with a set of subgraphs (select center images</Text>
+		<Text>or neighborhoods in the image graph).</Text>
+		<Text>I2. Learn and calibrate an SVM-based distance metric for each subgraph.</Text>
+		<Text>ITesting:</Text>
+		<Text>I 3. Use the models in step 2 to compute the distance from a query image to each</Text>
+		<Text>database image, and generate a ranked shortlist of possible image matches.</Text>
+		<Text>4. Perform geometric verification sequentially with the top database images in the</Text>
+		<Text>shortlist.I</Text>
+	</Panel>
+
+	<Panel left="572" right="361" width="578" height="635">
+		<Text>Generating Ranking Results</Text>
+		<Text>IRanked neighborhoods are concatenated to form a ranking list of all DB images</Text>
+		<Text>IOrder within each neighborhood determined by BoW similarity</Text>
+		<Text>IGoal: to have the first true match appear in ranked shortlist as early as possible.</Text>
+		<Text>IComparison of BoW image retrieval ranking and our learned ranking:</Text>
+		<Figure left="600" right="493" width="516" height="269" no="3" OriWidth="0.387543" OriHeight="0.154635
+" />
+		<Text>IRanking can be further improved by enforcing diversity in top results: pick the next</Text>
+		<Text>image conditioned on previous one failing to match</Text>
+		<Figure left="601" right="820" width="520" height="158" no="4" OriWidth="0.374856" OriHeight="0.0882353
+" />
+	</Panel>
+
+	<Panel left="1158" right="125" width="557" height="763">
+		<Text>Experiments</Text>
+		<Figure left="1233" right="160" width="410" height="71" no="5" OriWidth="0.378316" OriHeight="0.0432264
+" />
+	</Panel>
+
+	<Panel left="1159" right="891" width="561" height="112">
+		<Text>Reference</Text>
+		<Text>[1] Y. Li, N. Snavely, and D. Huttenlocher. Location recognition using prioritized</Text>
+		<Text>feature matching. In ECCV, 2010.</Text>
+		<Text>[2] T. Sattler, T. Weyand, B. Leibe, and L. Kobbelt. Image retrieval for image-based</Text>
+		<Text>localization revisited. In BMVC, 2012.</Text>
+	</Panel>
+
+</Poster>

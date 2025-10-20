@@ -1,0 +1,15 @@
+eval_name: "Traditional Content Similarity (ROUGE & BERTScore)"
+base_type: "traditional_metrics"
+description: "Compares the generated PR note against the original note using ROUGE-1/2/L and semantic BERTScore. Higher scores indicate more similarity."
+
+# This evaluation type always compares 'pr_test' against 'original',
+# so this field's value doesn't change the behavior.
+target_data_source: "pr_test"
+
+# Fields below are not used by the 'traditional_metrics' evaluator
+# but can be kept for schema consistency. They will be ignored.
+model: null
+instruction: null
+include_images: "none"
+include_pdf: false
+response_schema: null

@@ -1,0 +1,47 @@
+eval_name: "P2_Professional_Interest_Preference"
+base_type: "preference"
+target_data_source: "pr_test"
+description: "Compares two posts from a busy professional's perspective to determine which is more likely to capture their interest and lead to a click."
+instruction: |
+  ## Your Role
+  You are a busy professional (Engineer, Data Scientist, etc.) in a related field, scrolling your feed for useful and interesting new developments.
+
+  ## Your Task
+  You see two posts (A and B) about the same new paper. Based on your immediate reaction, which one would be **more likely to make you stop, read, and click the link** to the paper or code?
+
+  ## Guiding Questions for Your Decision
+  - **Efficiency of Information Transfer:** Which post helps a busy professional grasp the key innovation and its performance faster?
+  - **Technical Credibility:** Which post appears more rigorous, professional, and technically sound?
+  - **Impact Claim:** Which post makes a more compelling claim about performance, efficiency, or a new capability?
+  - **Time Investment:** Which post looks like it will give me the essential 'so what' in the least amount of time?
+  - **The "I Need to Check This Out" Feeling:** Which post gives you a stronger feeling of "This could be useful. I should save this link or check out the repository"?
+
+  ## Content for Review
+
+  **Post A Content:**
+  {post_a_content}
+
+  ---
+
+  **Post B Content:**
+  {post_b_content}
+  
+  ## Final Instruction
+  Based on your gut reaction as a busy professional, indicate your preference.
+
+model: "gemini-2.5-pro-preview-05-06"
+include_images: "real"
+include_pdf: false
+n_samples: 2
+enable_rotation: true
+response_schema:
+  type: "object"
+  properties:
+    preference:
+      type: "string"
+      enum: ["Post A", "Post B", "Tie"]
+      description: "Your preference."
+    explanation:
+      type: "string"
+      description: "A detailed explanation justifying your preference, comparing and contrasting Post A and Post B."
+  required: ["preference", "explanation"]

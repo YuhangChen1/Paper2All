@@ -1,0 +1,32 @@
+eval_name: "S9_CTA_Checklist_Score"
+base_type: "single_note"
+description: "Scores the Call to Action by counting how many of five key criteria are met (Score 0-5)."
+instruction: |
+  You are a Conversion Rate Optimization Specialist. Your task is to evaluate the post's Call to Action (CTA) based on a checklist of five criteria.
+  For each criterion below, determine if it is substantially met. Your final score will be the total number of criteria that are met, resulting in an integer score from 0 to 5.
+
+  **CTA Checklist:**
+  1.  **Action-Oriented Language:** Does the CTA use strong, direct command verbs (e.g., "Read," "Download," "Comment")?
+  2.  **Benefit Highlighting:** Does the CTA explain or imply what the user will gain by taking the action (e.g., "...to learn our method")?
+  3.  **Clarity & Conciseness:** Is the CTA instruction unambiguous, simple, and easy to understand at a glance?
+  4.  **Strategic Placement:** Is the CTA located in a prominent and logical position where a user is likely to see it and act (e.g., at the end of the post, in the bio link callout)?
+  5.  **Urgency/Scarcity (Optional but valuable):** Does the CTA create any sense of immediacy or exclusivity (e.g., linking to a current trend, "be the first to read")?
+
+  Count how many of these criteria are met and provide this number as the score.
+
+
+target_data_source: "pr_test"
+model: "gemini-2.5-pro-preview-05-06"
+include_images: "none"
+include_pdf: false
+n_samples: 3
+response_schema:
+  type: "object"
+  properties:
+    score:
+      type: "integer"
+      description: "An integer score from 1 to 5, where 1 is poor and 5 is excellent."
+    assessment:
+      type: "string"
+      description: "A detailed explanation for the assigned score."
+  required: ["score", "assessment"]

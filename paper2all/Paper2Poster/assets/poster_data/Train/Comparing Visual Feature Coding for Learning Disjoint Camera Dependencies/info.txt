@@ -1,0 +1,110 @@
+<Poster Width="1734" Height="2452">
+	<Panel left="8" right="298" width="825" height="474">
+		<Text>Problem</Text>
+		<Figure left="117" right="357" width="302" height="250" no="1" OriWidth="0.159931" OriHeight="0.0874714
+" />
+		<Figure left="433" right="357" width="303" height="249" no="2" OriWidth="0.159931" OriHeight="0.0874714
+" />
+		<Text>Given two disjoint camera views, we wish to estimate:</Text>
+		<Text>(1) their inter-camera correlation,</Text>
+		<Text>(2) and their spatial-temporal dependencies.</Text>
+		<Text>Moreover, we aim to answer the question:</Text>
+		<Text>What visual representations are more effective?</Text>
+	</Panel>
+
+	<Panel left="8" right="781" width="824" height="268">
+		<Text>Motivation</Text>
+		<Text>Overcome the unreliability of manually selecting visual features</Text>
+		<Text>from specific datasets;</Text>
+		<Text>Explore high-level structural constraints in coding low-level</Text>
+		<Text>features for associating objects entities (supervised);</Text>
+		<Text>Employ co-occurrence statistics for constructing more reliable</Text>
+		<Text>representations (unsupervised).</Text>
+	</Panel>
+
+	<Panel left="10" right="1058" width="819" height="267">
+		<Text>Contributions</Text>
+		<Text>(1) A systematic investigation into the effectiveness of supervised</Text>
+		<Text>versus unsupervised feature coding methods for learning</Text>
+		<Text>inter-camera dependencies;</Text>
+		<Text>(2) Evaluation of the sensitivity of learning inter-camera time</Text>
+		<Text>correlation to the size of training data and the quality of scene</Text>
+		<Text>region decomposition.</Text>
+	</Panel>
+
+	<Panel left="8" right="1333" width="821" height="1048">
+		<Text>Methodology</Text>
+		<Text>(i) Supervised method: Random Forest (RF) [1] for supervised</Text>
+		<Text>feature coding;</Text>
+		<Text>(ii) Unsupervised method: Latent Dirichlet Allocation (LDA) [2]</Text>
+		<Text>for mapping low-level features to code-words that capture topic</Text>
+		<Text>distributions;</Text>
+		<Figure left="22" right="1566" width="800" height="470" no="3" OriWidth="0.773672" OriHeight="0.308251
+" />
+		<Text> Figure 1: An overview of feature coding comparison for learning inter-camera dependencies.</Text>
+		<Text>(iii) Time Delayed Dependency Inference: Time Delayed Mutual</Text>
+		<Text>Information (TDMI) [3] for learning inter-camera dependencies</Text>
+		<Text>with the aforementioned feature codes;</Text>
+		<Text>(iv) A new metrics called Mutual Information Margin(MIM)</Text>
+		<Text>proposed for evaluating different feature coding methods:</Text>
+		<Text>whereanddenote the TDMI function yielded by</Text>
+		<Text>the connected and unconnected pairs of regions.</Text>
+	</Panel>
+
+	<Panel left="843" right="299" width="878" height="1916">
+		<Text>Experiments</Text>
+		<Figure left="904" right="365" width="342" height="335" no="4" OriWidth="0.338915" OriHeight="0.234912
+" />
+		<Figure left="1262" right="363" width="416" height="337" no="5" OriWidth="0.432448" OriHeight="0.228419
+" />
+		<Text> Figure 2: The layout and example views of an Underground Station (US) dataset (left)</Text>
+		<Text>and the i-LIDS (right) dataset.</Text>
+		<Figure left="873" right="793" width="195" height="166" no="6" OriWidth="0.195727" OriHeight="0.10275
+" />
+		<Figure left="1076" right="795" width="194" height="162" no="7" OriWidth="0.193418" OriHeight="0.101986
+" />
+		<Figure left="1294" right="791" width="194" height="165" no="8" OriWidth="0.188799" OriHeight="0.102368
+" />
+		<Figure left="1497" right="793" width="195" height="164" no="9" OriWidth="0.188799" OriHeight="0.101986
+" />
+		<Text> Figure 3: Motion Saliency Maps obtained on the US and the i-LIDS datasets. The selected</Text>
+		<Text>regions are labelled by black digits.</Text>
+		<Figure left="1008" right="1050" width="591" height="147" no="10" OriWidth="0.748268" OriHeight="0.091673
+" />
+		<Text> Table 1: Sensitivity to the length of the training sequence: the average improvement</Text>
+		<Text>in MIM of different feature coding methods over the k-means vector quantisation based</Text>
+		<Text>representation. Mean improved MIM (MI-MIM) was computed by averaging individual</Text>
+		<Text>percentage of improvement over the testing range.</Text>
+		<Figure left="1000" right="1335" width="607" height="157" no="11" OriWidth="0.747691" OriHeight="0.091673
+" />
+		<Text> Table 2: Sensitivity to region decomposition: Mean Improved MIM was computed</Text>
+		<Text>following the same steps as explained in Table 1.</Text>
+		<Text>Experiment 1: sensitiveness to the size of training data</Text>
+		<Text>(1) Topic code gave the most favourable results (see Table 1);</Text>
+		<Text>(2) Suggest that feature coding methods can suppress noisy</Text>
+		<Text>dependencies between unconnected region pairs.</Text>
+		<Text>Experiment 2: sensitiveness to the quality of region decomposition</Text>
+		<Text>(1) Topic code shows the best performance for the US dataset while</Text>
+		<Text>RF pred for the i-LIDS dataset (see Table 2);</Text>
+		<Text>(2) Suggest that person count and topic clusters can be useful cues</Text>
+		<Text>for inter-camera dependency learning.</Text>
+		<Text>Conclusion:</Text>
+		<Text>(1) Investigate the effectiveness of supervised (RF) and</Text>
+		<Text>unsupervised (LDA) feature coding methods for learning</Text>
+		<Text>inter-camera correlations;</Text>
+		<Text>(2) RF and LDA coding schemes outperform the k-means vector</Text>
+		<Text>quantisation in robustness to small training data size;</Text>
+		<Text>(3) The coded features are more reliable to poor scene region</Text>
+		<Text>decomposition;</Text>
+		<Text>(4) Feature coding can suppress noisy dependencies while capture</Text>
+		<Text>inherent correlations between camera views.</Text>
+	</Panel>
+
+	<Panel left="841" right="2226" width="881" height="156">
+		<Text>References</Text>
+		<Text>[1] Breiman. Machine Learning, 45(1):5–32, 2001.</Text>
+		<Text>[2] Blei, Ng, Jordan. J. Machine Learning Research, 3:993–1022, 2003.</Text>
+		<Text>[3] Loy, Xiang, Gong. IEEE Trans PAMI, 34(9):1799-1813, 2012.</Text>
+	</Panel>
+
+</Poster>

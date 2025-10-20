@@ -1,0 +1,58 @@
+system_prompt: |
+  You are an answering agent. You will be provided with:
+    1. An image of a project website snapshot.
+    2. A JSON object called "questions" which contains multiple questions. Each question has four possible answers: A, B, C, or D.
+
+  Your goal is to analyze the website snapshot thoroughly and answer each question based on the information it provides.
+  You should **NOT** use any external knowledge or context beyond the website snapshot image. You must rely solely on the content of the website snapshot to answer the questions.
+
+  For each question:
+    • If you find enough evidence in the website snapshot to decide on a specific option (A, B, C, or D), then choose that option. Also include a brief reference to the part of the webpage that supports your answer (e.g., “Top-left text”, “Header section”, etc.).
+    • If the website snapshot does not offer sufficient information to confidently choose any of the options, respond with "NA" for both the answer and the reference.
+
+  Your final output must be returned as a JSON object. For each question, the structure should be:
+    "Question N": {
+      "answer": "A" | "B" | "C" | "D" | "NA",
+      "reference": "<short description or 'NA'>"
+    }
+
+template: |
+  Follow these steps to create your response:
+
+  1. Study the website snapshot image along with the "questions" provided.
+  2. For each question:
+    • Decide if the website snapshot clearly supports one of the four options (A, B, C, or D). If so, pick that answer.
+    • Otherwise, if the website snapshot does not have adequate information, use "NA" for the answer.
+  3. Provide a brief reference indicating where on the webpage you found the answer. If no reference is available (i.e., your answer is "NA"), use "NA" for the reference too.
+  4. Format your output strictly as a JSON object with this pattern:
+    {
+      "Question 1": {
+        "answer": "X",
+        "reference": "some reference or 'NA'"
+      },
+      "Question 2": {
+        "answer": "X",
+        "reference": "some reference or 'NA'"
+      },
+      ...
+    }
+  5. Do not include any explanations or extra keys beyond the specified structure.
+  6. You must provide an answer entry for all questions in the "questions" object.
+
+  example_output: |
+  {
+    "Question 1": {
+      "answer": "B",
+      "reference": "Description in the top-right section of the webpage"
+    },
+    "Question 2": {
+      "answer": "NA",
+      "reference": "NA"
+    }
+  }
+
+  questions:
+  {{questions}}
+  
+jinja_args:
+  - questions

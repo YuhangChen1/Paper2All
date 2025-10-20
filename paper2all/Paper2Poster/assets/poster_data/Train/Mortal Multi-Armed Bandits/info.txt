@@ -1,0 +1,139 @@
+<Poster Width="1734" Height="1301">
+	<Panel left="38" right="161" width="507" height="311">
+		<Text>Abstract</Text>
+		<Text>We study a new variant of the k-armed bandit problem, motivated by</Text>
+		<Text>e-commerce applications. In our model, arms have a lifetime, after</Text>
+		<Text>which they expire.</Text>
+		<Text>• The search algorithm needs to continuously explore new arms,</Text>
+		<Text>Contrasts with standard k-armed bandit settings, where</Text>
+		<Text>exploration is reduced once search narrows to good arms.</Text>
+		<Text>• The algorithm needs to choose among a large collection of arms,</Text>
+		<Text>• More than can be fully explored within the typical arm lifetime.</Text>
+		<Text>We present:</Text>
+		<Text>• An optimal algorithm for the deterministic reward case,</Text>
+		<Text>• Obtain a number of algorithms for the stochastic reward case.</Text>
+		<Text>• Show that the proposed algorithms significantly outperform standard</Text>
+		<Text>multi-armed bandit approaches given various reward distributions.</Text>
+	</Panel>
+
+	<Panel left="36" right="473" width="509" height="783">
+		<Text>Introduction</Text>
+		<Text>• In online advertising, ad brokers select ads to display from a large</Text>
+		<Text>corpus, with the goal to generate the most ad clicks and revenue.</Text>
+		<Text>• Previous work has suggested considering this as a multi-armed bandit</Text>
+		<Text>problem. [Pandey et al, 2007].</Text>
+		<Text>Multi-Armed Bandits</Text>
+		<Text>• Models a casino with k slot machines (one-armed bandits).</Text>
+		<Text>• Each machine has an unknown expected payoff.</Text>
+		<Text>• The goal is to select the optimal sequence of slot machines to play to</Text>
+		<Text>maximize the expected total reward, or minimize regret: How much</Text>
+		<Text>we could have made but didn’t.</Text>
+		<Text>How is this like advertising?</Text>
+		<Text>• Show ads is like pulling arms: It has a cost, and a possible reward.</Text>
+		<Text>• We want an algorithm to select the best sequence of ads to show to</Text>
+		<Text>maximize the (expected) financial reward.</Text>
+		<Text>How is advertising harder?</Text>
+		<Text>• A standard assumption is that arms exists perpetually.</Text>
+		<Text>• The expect payoff is allowed to change, but only slowly.</Text>
+		<Text>• Ads, on the other hand, are constantly being created and removed</Text>
+		<Text>from circulation: budgets run out, seasons change, etc.</Text>
+		<Text>• There are too many ads to explore in a typical ad lifetime.</Text>
+		<Text>Arm with expected payoff μi provides a reward when pulled:</Text>
+		<Text>Deterministic setting: reward(μi) = μi</Text>
+		<Text>Stochastic setting: reward(μi) = 1 with prob. μi, 0 otherwise.</Text>
+		<Text>Two forms of death are studied:</Text>
+		<Text>Budgeted: lifetime Li of arms is known to alg., only pulls count.</Text>
+		<Text>Timed: each arm has probability p of dying each time step.</Text>
+		<Text>Related approaches</Text>
+		<Text>• Restless Bandits [e.g. Whittle; Bertsimas; Nino-Mora; Slivkins & Upfal]:</Text>
+		<Text>Arms rewards change over time.</Text>
+		<Text>• Sleeping bandits / experts [e.g. Freund et al.; Blum & Mansour;</Text>
+		<Text>Kleinberg et al]: A subset of arms is available at each time step.</Text>
+		<Text>•New arms appearing [e.g. Whittle]: There is an optimal index policy.</Text>
+		<Text>• Infinite arm supply [e.g. Berry et al.; Teytaud et al.; Kleinberg; Krause</Text>
+		<Text>& Guestrin]: Too many arms to explore completely.</Text>
+	</Panel>
+
+	<Panel left="596" right="160" width="571" height="436">
+		<Text>Upper Bound on Mortal Reward</Text>
+		<Text>Consider the deterministic reward, budgeted death case. Assume fresh arms</Text>
+		<Text>are always available.</Text>
+		<Text>Let  (t ) denote the maximum mean reward that any algorithm for this case</Text>
+		<Text>can obtain in t steps. Then lim</Text>
+		<Text>t   (t )  max () where</Text>
+		<Text>and L is the expected arm lifetime and F ( ) is the cumulative distribution of arm</Text>
+		<Text>payoffs.</Text>
+		<Text>In the stochastic reward, and timed death cases, we can do no better.</Text>
+		<Text>Example cases:</Text>
+		<Text>1. Say arm payoff is 1 with probability p<0.5, 1-δ otherwise. Say arms have</Text>
+		<Text>probability p of dying each time step. The mean reward per step is at most</Text>
+		<Text>1- δ+ δp, while maximum reward is 1. Hence regret per step is (1).</Text>
+		<Text>2. Suppose F(x) = x with x[0,1]. Suppose arms have probability p of dying each</Text>
+		<Text>time step. The mean reward per step is bounded by 1  p 1  p , expected</Text>
+		<Text>regret of any algorithm is ( p ) .</Text>
+	</Panel>
+
+	<Panel left="596" right="599" width="572" height="659">
+		<Text>Bandit Algorithms for Mortal Arms</Text>
+		<Text>DetOpt: Optimal for the deterministic reward case</Text>
+		<Text>In the deterministic case, we can try new arms once until we find a good one:</Text>
+		<Figure left="709" right="696" width="340" height="167" no="1" OriWidth="0.357555" OriHeight="0.143939
+" />
+		<Text>Let DEPOPT(t) denote the mean reward per turn obtained by DetOpt after</Text>
+		<Text>running for t steps with   arg max ( ) . Then lim</Text>
+		<Text>t  DEPOPT(t)  max ( )</Text>
+		<Text>DetOpt for stochastic reward case, with early stopping:</Text>
+		<Text>In the stochastic case, we can just try new arms up to n times before deciding if</Text>
+		<Text>to move on:</Text>
+		<Figure left="720" right="985" width="283" height="210" no="2" OriWidth="0.294118" OriHeight="0.182709
+" />
+		<Text>For n  O(logL /  2 ) , STOCHASTIC(without early stopping) gets an expected</Text>
+		<Text>reward per step of (   )</Text>
+	</Panel>
+
+	<Panel left="1219" right="250" width="479" height="454">
+		<Text>Subset Heuristics & Greedy</Text>
+		<Text>Standard Multi-Armed Bandit algorithms trade off exploration and</Text>
+		<Text>exploitation well. The problem with mortal arms is that there are</Text>
+		<Text>too many options. Can we avoid that?</Text>
+		<Figure left="1227" right="365" width="471" height="196" no="3" OriWidth="0.598616" OriHeight="0.195633
+" />
+		<Text>Picking the theoretically best subset size and epoch length is still</Text>
+		<Text>an open problem.</Text>
+		<Text>In many empirical studies, greedy algorithms also perform well on</Text>
+		<Text>average due to the lack of exploration that is needed for worst-</Text>
+		<Text>case performance guarantees. AdaptiveGreedy is one such</Text>
+		<Text>algorithm.</Text>
+	</Panel>
+
+	<Panel left="1220" right="707" width="478" height="552">
+		<Text>Empicial Evaluation</Text>
+		<Figure left="1225" right="751" width="269" height="191" no="4" OriWidth="0.243945" OriHeight="0.138146
+" />
+		<Text>Simulated with k=1000 arms,</Text>
+		<Text>for time duration 10 times</Text>
+		<Text>the expected lifetime of</Text>
+		<Text>each arm. Simulating</Text>
+		<Text>k=100,000 arms gives similar</Text>
+		<Text>results.</Text>
+		<Text>With F(x) = x (top):</Text>
+		<Text>•UCB1 performs poorly</Text>
+		<Text>• Subset heuristic helps</Text>
+		<Text>• Stochastic with early</Text>
+		<Text>stopping performs equally</Text>
+		<Text>best with Adaptive Greedy.</Text>
+		<Figure left="1222" right="942" width="266" height="189" no="5" OriWidth="0.244521" OriHeight="0.139929
+" />
+		<Text>We see a similar picture</Text>
+		<Text>with F(x) matching real</Text>
+		<Text>advertisements (bottom).</Text>
+		<Text>Similar performance is seen</Text>
+		<Text>whenF(X) is distributed as</Text>
+		<Text>beta(1,3).</Text>
+		<Text>Mortal Multi-Armed Bandits model the realistic case</Text>
+		<Text>when strategies are sometimes permanently removed.</Text>
+		<Text>• Sublinear regret is impossible.</Text>
+		<Text>• We presented algorithms and analysis for this setting.</Text>
+	</Panel>
+
+</Poster>

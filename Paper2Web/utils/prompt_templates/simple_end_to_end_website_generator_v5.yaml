@@ -1,0 +1,589 @@
+system_prompt: |
+  You are an expert full-stack web developer and UI/UX designer specializing in creating beautiful, modern, and interactive academic project websites. Your task is to generate a complete, production-ready website based on research paper content and visual asset allocations.
+
+  You will create a website that:
+  1. Is visually stunning and modern with a professional, clean, and academic design.
+  2. Has rich interactivity and smooth animations.
+  3. Effectively presents research content in an engaging way.
+  4. Integrates external links and resources strategically.
+  5. Is fully responsive and accessible.
+  6. Uses advanced CSS and JavaScript for enhanced user experience.
+  7. Important: Use a fluid and responsive approach (e.g., CSS `width: 100%`, `height: auto`, and `max-width` properties) to ensure the images perfectly fit their context without breaking the layout or appearing disproportionately large. The image should have a size that is visually balanced, neither dominating nor getting lost on the page.
+
+template: |
+  Instructions:
+  You are creating a complete, beautiful, and interactive website for an academic research project. This is NOT a simple static page - it should be a sophisticated, modern web application with rich interactivity.
+  
+  
+  * **Content Strategy:**
+    * **CRITICAL:** You are no longer required to preserve the original, full-length text. The goal is now to create a highly scannable and engaging user experience.
+    * You must now summarize and condense the academic content into digestible paragraphs.
+    * Based on UI/UX best practices,you should choose 100 to 200 words ,aim for 1-2 focused paragraphs per section to avoid text density and improve readability. Use your professional judgment to determine the optimal length for each section's content.
+  
+  * **Visual Asset Sizing:**
+    * **CRITICAL:** You are no longer required to  use `web_width` and `web_height` from `visual_assets`.
+    * You are now permitted to use images from **external sources** (e.g., Unsplash, Pexels) if no specific visual asset is allocated, to enhance the professional and modern aesthetic.
+    * You must adjust the size of each image dynamically based on its container size and the surrounding page content, ensuring the image is optimally integrated into the visual layout.
+    * Use a fluid and responsive approach (e.g., CSS `width: 100%`, `height: auto`, and `max-width` properties) to ensure the images perfectly fit their context without breaking the layout or appearing disproportionately large. The image should have a size that is visually balanced, neither dominating nor getting lost on the page.
+
+  RESEARCH CONTENT:
+  {{ research_content | tojson }}
+
+  VISUAL ASSET ALLOCATION:
+  {{ visual_assets | tojson }}
+
+  EXTERNAL LINKS AND RESOURCES:
+  {{ important_info | tojson }}
+
+  **CRITICAL DATA USAGE REQUIREMENTS:**
+  1. **META INFORMATION**: You MUST use the following information from visual_assets.meta:
+      - Title: {{ visual_assets.meta.title }}
+      - Authors: {{ visual_assets.meta.authors }}
+      - Affiliations: {{ visual_assets.meta.affiliations }}
+      - Project Name: {{ visual_assets.meta.project_name }}
+
+  2. **IMAGE SIZING AND LAYOUT**: You MUST use the web_width and web_height values from visual_assets.images for optimal layout:
+      - Each image in visual_assets.images has original_width/original_height AND web_width/web_height
+      - ALWAYS use web_width and web_height for HTML img tags and CSS sizing
+      - Set both width and height attributes AND CSS max-width/max-height to prevent layout shifts
+      - Use responsive design: images should fill their containers appropriately without excessive whitespace
+      - For better visual balance, consider using CSS Grid or Flexbox to create optimal image layouts
+      - Ensure images are properly centered and sized within their sections
+  
+  3. **URL INTEGRATION**: You MUST include ALL URLs from important_info:
+      - Create a dedicated "Resources & Links" section
+      - Integrate these links naturally throughout the content
+      - Each link should have clear descriptions and be clickable
+
+  VISUAL ASSET STRATEGY:
+  - Use the visual assets (images/tables) according to their allocation in each section.
+  - **CRITICAL: For images, ALWAYS use web_width and web_height values from visual_assets.images in HTML img tags and CSS.**
+  - **CRITICAL: Example: <img src="path" width="800" height="600" style="max-width: 100%; height: auto; object-fit: contain;">**
+  - Create engaging visual presentations with proper image galleries and table displays.
+  - Ensure visual content enhances the research narrative without overwhelming text.
+  - Balance text and visual content for optimal readability and engagement.
+  - **CRITICAL: Include ALL URLs from important_info in a dedicated Resources section.**
+  - **- Complex Layouts Handling**: Some sections might have a `layout_type` specified, such as "grid". If `visual_assets` for a section contains a list of `items` (each with an `image_path` and a `label`), you MUST generate a CSS Grid or Flexbox container. Iterate through the `items` list and create a card for each item, containing the image and its corresponding label styled as a visible overlay or caption. This is critical for presenting composite figures correctly.
+  -*you must ensure that the background color and font color are compatible. The background color should not obscure the font color, which would make the text unreadable.For example, you can use:Light Background + Dark Font: This is the most common combination, such as black text on a white background or dark blue text on a light gray background. This combination offers the highest readability and is the most comfortable for reading over long periods.Dark Background + Light Font: This is also very effective, such as white text on a black background or light yellow text on a dark blue background. It is suitable for interfaces that need to be highlighted or for reading in low-light environments (e.g., "Dark Mode").*
+
+  IMAGE LAYOUT OPTIMIZATION:
+  - Use CSS Grid or Flexbox for optimal image placement.
+  - Ensure images fill their containers appropriately (use object-fit: contain).
+  - Avoid excessive whitespace around images.
+  - Use responsive design: max-width: 100% for mobile compatibility.
+  - Center images within their sections for better visual balance.
+  - Consider using CSS aspect-ratio for consistent image proportions.
+
+  DESIGN REQUIREMENTS:
+  1. **Visual Design**: Modern, professional, academic aesthetic with:
+      - Sophisticated color scheme (dark/light themes with multiple color variations).
+      - Professional typography with proper hierarchy and multiple font weights.
+      - Smooth animations and transitions with multiple animation types.
+      - Interactive elements and hover effects with complex state changes.
+      - Professional spacing and layout with multiple breakpoints.
+      - Advanced visual effects (shadows, gradients, transforms).
+      - **NEW - Background Style**: Avoid using background images, especially in the hero section, unless an image is explicitly allocated for it. Prefer solid colors (e.g., `#2d3748` dark gray, `#ffffff` white) or subtle gradients for backgrounds to maintain a clean, professional, and academic look. DO NOT fetch images from external sources like Unsplash.
+
+  2. **Layout Structure**: 
+      - Hero section with project title, authors, key highlights.(*Important: The author layout should not be one author per line.*)
+      - Multi-level navigation with smooth scrolling and active state indicators.
+      - Content sections with dynamic layouts based on content importance.
+      - Interactive visualizations and image galleries with lightbox and carousel.
+      - External resources section with strategic link placement and categorization.
+      - Footer with additional information, social links, and contact details.
+      - Sidebar navigation with quick links and progress indicators.
+      - Multiple content columns and grid layouts.
+      -Add a BibTeX citation block to the page footer to allow visitors to easily copy and paste the paper's citation.
+
+
+  3. **Interactivity Features**:
+      - Smooth scrolling navigation with progress bars and scroll indicators.
+      - Interactive image galleries with lightbox, zoom, and slideshow.
+      - Animated counters and statistics with number animations.
+      - Hover effects and micro-interactions with complex animations.
+      - Responsive navigation menu with hamburger menu and dropdowns.
+      - Loading animations and transitions with skeleton screens.
+      - Interactive charts and data visualizations with tooltips.
+      - Modal dialogs and popup windows.
+      - Form validation and interactive feedback.
+      - Search functionality with autocomplete.
+      - Dark/light theme toggle with smooth transitions.
+      -Implement the interactive code using the example provided below as a reference.
+
+  4. **External Links Integration**:
+      - Place important_info links strategically throughout the content.
+      - Create dedicated "Resources & Tools" section with categorization.
+      - Integrate links naturally within relevant content sections.
+      - Use attractive button designs for external links with hover effects.
+      - Provide context for each external resource with descriptions.
+
+  TECHNICAL REQUIREMENTS:
+  1. **CSS Requirements**:
+      - Minimum 200+ lines of production-ready CSS.
+      - Advanced animations and transitions with multiple timing functions.
+      - Responsive design with multiple breakpoints (mobile, tablet, desktop).
+      - CSS Grid and Flexbox for modern layouts.
+      - CSS custom properties (variables) for theming.
+      - Advanced selectors and pseudo-elements.
+      - Image centering: single images centered, multiple images in centered rows (max 3 per row).
+      - Smooth scrolling and scroll animations.
+      - Hover effects and micro-interactions.
+      - Professional color schemes with multiple variations.
+      - Advanced typography with proper hierarchy.
+
+  2. **JavaScript Requirements**:
+      - Minimum 200+ lines of production-ready JavaScript.
+      - Modern ES6+ syntax with proper error handling.
+      - Interactive image galleries with lightbox functionality.
+      - Smooth scrolling navigation with progress indicators.
+      - Mobile menu functionality with animations.
+      - Intersection Observer for scroll animations.
+      - Local storage for user preferences.
+      - Form validation and user interaction.
+      - Performance optimization and error handling.
+      - Advanced image handling and gallery features.
+      - Form validation and user interaction.
+      - Performance optimization and error handling.
+      - **Intersection Observer for scroll animations**
+      - **Local storage for user preferences**
+
+  Remember: This is a professional academic website that should impress visitors with its design quality, interactivity, and content presentation. Make it beautiful, modern, and engaging while maintaining academic credibility.
+  
+
+
+  *- HTML TEMPLATE REFERENCE:**
+  The following HTML structure is  a reference for the complexity and quality expected. Your generated HTML can take it as this example:
+  ```html
+  <!DOCTYPE html>
+  <html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Title: An Innovative Method for...</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        .section-title {
+            @apply text-3xl font-bold text-center text-gray-800 mb-8;
+        }
+        .nav-link {
+            @apply px-4 py-2 text-gray-600 font-semibold hover:text-blue-600 transition-colors duration-300;
+        }
+        .nav-link.active {
+            @apply text-blue-600 border-b-2 border-blue-600;
+        }
+        /* Interactive Image Comparison Slider - Hover Scan Animation */
+        .comparison-slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer; /* Cue for user interaction */
+        }
+        .comparison-slider img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .comparison-slider .resize-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%; /* Start with 0 width for animation */
+            height: 100%;
+            overflow: hidden;
+            /* Smooth transition effect */
+            transition: width 1.5s ease-in-out;
+        }
+        .comparison-slider .divider {
+            position: absolute;
+            top: 0;
+            left: 0%; /* Start at the far left for animation */
+            width: 4px;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            transform: translateX(-50%);
+            /* Sync transition with image width change */
+            transition: left 1.5s ease-in-out;
+            pointer-events: none; /* Let mouse events pass through the divider */
+        }
+
+        /* Trigger transition on hover */
+        .comparison-slider:hover .resize-img {
+            width: 100%;
+        }
+        .comparison-slider:hover .divider {
+            left: 100%;
+        }
+    </style>
+    </head>
+    <body class="text-gray-700">
+
+    <!-- Header Section -->
+    <header class="bg-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                Paper Title: An Innovative Method for...
+            </h1>
+            <p class="mt-4 text-lg text-gray-600">
+                Published at: Top Conference/Journal 2025 (e.g., CVPR, NeurIPS, Nature)
+            </p>
+            <div class="mt-8 flex justify-center items-center flex-wrap gap-x-8 gap-y-4">
+                <div class="author-item">
+                    <p class="font-semibold text-lg text-gray-800">Author One</p>
+                    <p class="text-sm text-gray-500">University A</p>
+                </div>
+                <div class="author-item">
+                    <p class="font-semibold text-lg text-gray-800">Author Two</p>
+                    <p class="text-sm text-gray-500">Company B Research</p>
+                </div>
+                <div class="author-item">
+                    <p class="font-semibold text-lg text-gray-800">Author Three</p>
+                    <p class="text-sm text-gray-500">University A</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center items-center h-16">
+                <a href="#abstract" class="nav-link">Abstract</a>
+                <a href="#teaser" class="nav-link">Teaser</a>
+                <a href="#video" class="nav-link">Video</a>
+                <a href="#interactive-demo" class="nav-link">Interactive Demo</a>
+                <a href="#method" class="nav-link">Method</a>
+                <a href="#links" class="nav-link">Resources</a>
+                <a href="#citation" class="nav-link">Citation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Abstract Section -->
+        <section id="abstract" class="mb-20 scroll-mt-20">
+            <h2 class="section-title">Abstract</h2>
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                <p class="text-lg leading-relaxed text-justify">
+                    This is the abstract of the paper. We propose an innovative method to solve the... problem. Traditional approaches often face challenges such as... Our model, by introducing a novel... architecture and combining it with the... algorithm, can significantly improve... performance. Extensive experiments on multiple standard datasets show that our method achieves a...% improvement on the... metric compared to the current state-of-the-art. Our research opens up new possibilities in the... field, and the code and models will be publicly released to facilitate future research.
+                </p>
+            </div>
+        </section>
+
+        <!-- Teaser Section -->
+        <section id="teaser" class="mb-20 scroll-mt-20">
+             <h2 class="section-title">Teaser</h2>
+             <div class="bg-white p-6 rounded-lg shadow-lg">
+                <img src="https://placehold.co/1200x600/e2e8f0/334155?text=Core+Result+(Teaser+Image)" alt="Core result of the paper" class="w-full rounded-md">
+                <p class="mt-6 text-center text-lg max-w-4xl mx-auto">
+                    This figure briefly demonstrates the core idea of our method and the final effect. For example, the left side shows a noisy input, and the right side shows the high-quality output obtained after processing with our method, clearly demonstrating the superiority of our technique.
+                </p>
+             </div>
+        </section>
+
+        <!-- Video Section -->
+        <section id="video" class="mb-20 scroll-mt-20">
+            <h2 class="section-title">Video Explanation</h2>
+            <div class="max-w-4xl mx-auto aspect-w-16 aspect-h-9 bg-white p-4 rounded-lg shadow-lg">
+                <!-- Embed your video, replace the link with your own -->
+                <iframe class="w-full h-full rounded-md" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Interactive Demo Section -->
+        <section id="interactive-demo" class="mb-20 scroll-mt-20">
+            <h2 class="section-title">Interactive Demo: Comparison</h2>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-center mb-6">Hover over the image below to visually compare our method against the baseline.</p>
+                <div id="comparison-container" class="comparison-slider">
+                    <img src="https://placehold.co/1024x576/94a3b8/ffffff?text=Baseline+Method" alt="Baseline Method">
+                    <div class="resize-img">
+                        <img src="https://placehold.co/1024x576/3b82f6/ffffff?text=Our+Method" alt="Our Method">
+                    </div>
+                    <div class="divider"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Method Section -->
+        <section id="method" class="mb-20 scroll-mt-20">
+            <h2 class="section-title">Method Overview</h2>
+            <div class="max-w-5xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                <img src="https://placehold.co/1000x500/e2e8f0/334155?text=Methodology+Diagram" alt="Methodology Diagram" class="w-full rounded-md mb-8">
+                <div class="grid md:grid-cols-2 gap-8 text-lg">
+                    <div class="prose lg:prose-xl">
+                        <h4>Step 1: Data Preprocessing</h4>
+                        <p>We first normalize and augment the input data to enhance the model's robustness.</p>
+                    </div>
+                    <div class="prose lg:prose-xl">
+                        <h4>Step 2: Core Module</h4>
+                        <p>We designed an attention module named "X-Attn," which can effectively capture long-range dependencies.</p>
+                    </div>
+                    <div class="prose lg:prose-xl">
+                        <h4>Step 3: Loss Function</h4>
+                        <p>We employ a hybrid loss function that combines pixel-level loss and perceptual loss to generate more realistic results.</p>
+                    </div>
+                     <div class="prose lg:prose-xl">
+                        <h4>Step 4: Model Training</h4>
+                        <p>The model was trained for five days on four A100 GPUs, using the AdamW optimizer and a cosine annealing learning rate schedule.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Links Section -->
+        <section id="links" class="mb-20 scroll-mt-20 text-center">
+            <h2 class="section-title">Resources</h2>
+            <div class="flex justify-center items-center flex-wrap gap-4">
+                <a href="#" class="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-file-pdf mr-2"></i> Paper PDF
+                </a>
+                <a href="#" class="inline-block bg-gray-800 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-900 transition-transform transform hover:scale-105 shadow-lg">
+                    <i class="fab fa-github mr-2"></i> GitHub Code
+                </a>
+                <a href="#" class="inline-block bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-green-700 transition-transform transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-database mr-2"></i> Dataset
+                </a>
+                 <a href="#" class="inline-block bg-purple-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-purple-700 transition-transform transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-slideshare mr-2"></i> Slides
+                </a>
+            </div>
+        </section>
+
+        <!-- Citation Section -->
+        <section id="citation" class="scroll-mt-20">
+            <h2 class="section-title">How to Cite</h2>
+            <div class="max-w-4xl mx-auto bg-gray-800 text-white p-6 rounded-lg shadow-lg relative">
+                <pre><code id="bibtex-code" class="block whitespace-pre-wrap font-mono text-sm">
+    @inproceedings{authorone2025title,
+    title={Paper Title: An Innovative Method for...},
+    author={Author One and Author Two and Author Three},
+    booktitle={Top Conference/Journal Name},
+    year={2025}
+    }
+                </code></pre>
+                <button id="copy-btn" class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-md text-sm hover:bg-blue-600 transition-colors">
+                    <i class="fas fa-copy mr-1"></i> Copy
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-20 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Author One, Author Two, Author Three. All Rights Reserved.</p>
+            <p class="mt-2 text-sm text-gray-400">Web template designed and coded by Gemini.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Navigation Scroll-Spy ---
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 80) { // 80 is an offset for the navbar height
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Add shadow to navbar on scroll
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // --- Citation Copy Functionality ---
+        const copyBtn = document.getElementById('copy-btn');
+        const bibtexCode = document.getElementById('bibtex-code').innerText;
+
+        copyBtn.addEventListener('click', () => {
+            // Use a temporary textarea to execute the copy command
+            const textArea = document.createElement('textarea');
+            textArea.value = bibtexCode;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                copyBtn.innerHTML = '<i class="fas fa-check mr-1"></i> Copied!';
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="fas fa-copy mr-1"></i> Copy';
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy', err);
+                copyBtn.innerText = 'Copy Failed';
+            }
+            document.body.removeChild(textArea);
+        });
+
+    </script>
+  </body>
+  </html>
+
+
+  HERE ARE SOME AWESOME Interactivity Enhancement CSS YOU CAN REFERENCE:
+      HERE ARE SOME AWESOME Interactivity Enhancement CSS CODE SNIPPETS YOU CAN REFERENCE:
+
+    /* Effect 1: Hover Scanline */
+    .scan-hover .overlay { position: absolute; top: 0; left: 0; width: 0; height: 100%; overflow: hidden; transition: width 1.2s ease-in-out; }
+    .scan-hover .divider { position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: white; transition: left 1.2s ease-in-out; pointer-events: none; }
+    .scan-hover:hover .overlay { width: 100%; }
+    .scan-hover:hover .divider { left: 100%; }
+
+    /* Effect 2: Drag Slider */
+    .drag-slider .overlay { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; }
+    .drag-slider .divider { position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: white; cursor: ew-resize; transform: translateX(-50%); z-index: 10; }
+    .drag-slider .handle { position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; background: white; border-radius: 50%; transform: translate(-50%, -50%); display: flex; justify-content: center; align-items: center; color: #1f2937; font-size: 1.25rem; }
+
+    /* Effect 3: Circle Wipe */
+    .circle-wipe .overlay { clip-path: circle(0% at 50% 50%); transition: clip-path 0.8s ease-in-out; }
+    .circle-wipe:hover .overlay { clip-path: circle(75% at 50% 50%); }
+
+    /* Effect 4: Venetian Blinds */
+    .blinds-wipe .overlay-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; }
+    .blinds-wipe .blind { width: 10%; height: 100%; transform: scaleY(0); transition: transform 0.8s ease; background-size: cover; background-position: center; }
+    .blinds-wipe:hover .blind { transform: scaleY(1); }
+    .blinds-wipe .blind:nth-child(1) { transition-delay: 0.0s; }
+    .blinds-wipe .blind:nth-child(2) { transition-delay: 0.05s; }
+    .blinds-wipe .blind:nth-child(3) { transition-delay: 0.1s; }
+    .blinds-wipe .blind:nth-child(4) { transition-delay: 0.15s; }
+    .blinds-wipe .blind:nth-child(5) { transition-delay: 0.2s; }
+    .blinds-wipe .blind:nth-child(6) { transition-delay: 0.25s; }
+    .blinds-wipe .blind:nth-child(7) { transition-delay: 0.3s; }
+    .blinds-wipe .blind:nth-child(8) { transition-delay: 0.35s; }
+    .blinds-wipe .blind:nth-child(9) { transition-delay: 0.4s; }
+    .blinds-wipe .blind:nth-child(10) { transition-delay: 0.45s; }
+
+    /* Effect 5: Click Fade Toggle */
+    .fade-toggle .overlay { opacity: 0; transition: opacity 0.5s ease-in-out; }
+    .fade-toggle.toggled .overlay { opacity: 1; }
+
+    /* Effect 6: 3D Card Flip */
+    .flip-card .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; }
+    .flip-card:hover .card-inner { transform: rotateY(180deg); }
+    .flip-card .card-front, .flip-card .card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 0.5rem; overflow: hidden; }
+    .flip-card .card-back { transform: rotateY(180deg); }
+
+    /* Effect 7 Pixel Dissolve */
+    .pixel-dissolve .overlay-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: grid; grid-template-columns: repeat(20, 1fr); grid-template-rows: repeat(20, 1fr); }
+    .pixel-dissolve .pixel { background-size: cover; background-position: center; opacity: 0; transition: opacity 0.5s ease; }
+    .pixel-dissolve:hover .pixel { opacity: 1; }
+
+    /* Effect 8 Diagonal Wipe */
+    .diagonal-wipe .overlay { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); transition: clip-path 1s ease-in-out; }
+    .diagonal-wipe:hover .overlay { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+
+    /* Effect 9 Curtain Reveal */
+    .curtain-reveal .overlay-part { position: absolute; top: 0; height: 100%; overflow: hidden; transition: width 0.8s ease-in-out; }
+    .curtain-reveal .left-part { left: 0; width: 50%; }
+    .curtain-reveal .right-part { right: 0; width: 50%; }
+    .curtain-reveal .right-part img { right: 0; }
+    .curtain-reveal:hover .overlay-part { width: 0; }
+
+    /* Effect 10 Vertical Scan */
+    .vertical-scan .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 0; overflow: hidden; transition: height 1.2s ease-in-out; }
+    .vertical-scan .divider { position: absolute; left: 0; top: 0; width: 100%; height: 4px; background: white; transition: top 1.2s ease-in-out; pointer-events: none; }
+    .vertical-scan:hover .overlay { height: 100%; }
+    .vertical-scan:hover .divider { top: 100%; }
+        
+  **FINAL CHECKLIST - Before generating code, ensure:**
+  1. Website header includes Title, Authors, and Affiliations from visual_assets.meta
+  2. All images use web_width and web_height for proper sizing
+  3. Dedicated "Resources & External Links" section with ALL URLs from important_info
+  4. Each URL is clickable with clear descriptions
+  5. All original text content is preserved (no truncation)
+  6. Images fit properly within their HTML containers
+  7. If a section's asset is a list of items, it is rendered as a grid.
+  Please provide the complete HTML, CSS, and JavaScript code for all three files.
+  Remember: This is a professional academic website that should impress visitors with its design quality, interactivity, and content presentation. Make it beautiful, modern, and engaging while maintaining academic credibility.
+  
+
+  CRITICAL CHECKS: |
+   1. Overall Typography and Aesthetics
+      Instruction: You must ensure the entire page uses a consistent, professional, and aesthetically pleasing typography. Pay close attention to the font choice (e.g., Inter), as well as appropriate letter spacing (letter-spacing) and line height (line-height) to guarantee excellent readability.
+
+    2. Header: Author Prominence is CRITICAL
+       Location: Immediately below the main paper title, you MUST prominently display all authors and their corresponding affiliations. This is a standard academic convention and is mandatory.
+
+       Typography: Use a clean, professional sans-serif font (e.g., Inter or Manrope). Author names should be a larger font size and semi-bold (font-semibold), while affiliations should be a smaller font size (text-sm) and regular weight.
+
+      Spacing: Ensure proper horizontal spacing between author entries (gap-x-8) and tight vertical spacing between an author's name and their affiliation to create clear visual groups.
+
+    3. Footer: Citation Section is MANDATORY
+     Functionality: Before the footer, you MUST create a dedicated section titled "How to Cite".
+
+     Content: This section must contain a complete, pre-formatted BibTeX block for easy copying by researchers.
+
+     Interaction: The BibTeX block MUST be accompanied by a "Copy" button. This button must use JavaScript to implement one-click copying and provide instant user feedback (e.g., changing text to "Copied!").
+
+    4. THE GOLDEN RULE of Image Sizing (Highest Priority Warning)
+    Preamble: This is the most important directive and must not be violated under any circumstances. Incorrect image handling is the primary cause of layout failure.
+
+    STRICTLY FORBIDDEN:
+
+    NEVER use fixed width and height attributes directly in the <img> tag (e.g., <img src="..." width="1200" height="600">).
+
+    Reason: This creates a fixed-size image that will overflow its container and break the page layout on smaller screens.
+
+   ALWAYS DO:
+
+    You MUST ALWAYS control image sizes using responsive CSS. The simplest and most effective method is using Tailwind CSS's w-full class.
+
+    Correct Example: <img src="..." class="w-full rounded-md">
+
+    Principle: w-full translates to width: 100%;, making the image width equal to its parent container. The browser automatically sets height: auto; to maintain the aspect ratio, ensuring a perfect fit on all screen sizes.
+
+   5. Interactivity Enhancement Guide
+   To make the page more engaging, you SHOULD incorporate the following interactive effects in the appropriate sections:
+
+    Navigation Bar: Implement a JavaScript "Scroll-Spy" to automatically highlight the navigation link corresponding to the section currently in view.
+
+    Interactive Demo: For sections comparing results, you are strongly encouraged to reference and use a highly interactive animation template (like the ones provided previously) instead of static images to be more persuasive.
+
+    Resource Links: Add elegant hover effects to all buttons, such as a slight scale-up (hover:scale-105) and color transitions, to provide positive user feedback.
+  
+  
+  Your final, complete response must be a single JSON object that strictly adheres to the template provided below. Do not include any text or explanations outside of the JSON structure.
+  
+  OUTPUT_JSON_TEMPLATE:
+  ```json
+  {
+    "index.html": "",
+    "style.css": "/* Complete, production-ready, and well-organized CSS code (minimum 200+ lines) goes here. Ensure it implements the theming, layout, and animation requirements. */",
+    "script.js": "// Complete, production-ready, and well-commented JavaScript code (minimum 150+ lines) goes here. Ensure it implements all the interactivity and feature requirements. //"
+  }
+  ```
+
+jinja_args:
+  - research_content
+  - visual_assets
+  - important_info

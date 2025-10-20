@@ -1,0 +1,120 @@
+<Poster Width="671" Height="948">
+	<Panel left="6" right="73" width="330" height="173">
+		<Text>1. Overview</Text>
+		<Text></Text>
+		<Text>Goal: Obtain high quality image annotation with low cost (annotation effort)!</Text>
+		<Figure left="60" right="102" width="214" height="56" no="1" OriWidth="0.175034" OriHeight="0.0492662
+" />
+		<Text> low quality annotation</Text>
+		<Text> high quality annotation</Text>
+		<Text>Approach: Bayesian active learning!</Text>
+		<Text>Minimize uncertainty in the boundary of MAP prediction !</Text>
+		<Text>Tradeoff uncertainty reduction and cost of annotation !</Text>
+		<Text>Contributions!</Text>
+		<Text>Entropy bounds that measure the expected perturbation that change MAP prediction.!</Text>
+		<Text>Coarse to fine approach for pixel-accurate annotation that saves 33% in cost.!</Text>
+	</Panel>
+
+	<Panel left="7" right="249" width="330" height="95">
+		<Text>2. Active learning in structured spaces</Text>
+		<Text></Text>
+		<Text>Traditional Active learning!</Text>
+		<Text>Active learner picks which data points to label. Typically assume data is i.i.d.!</Text>
+		<Text>Bayesian active learning in structured spaces!</Text>
+		<Text>Deals with correlated labels, e.g. labels of a single image (non i.i.d. setting)!</Text>
+		<Text>Basic idea: Construct a probability function over the label space and reduce its</Text>
+		<Text>uncertainty with minimal annotation cost (clicks)!</Text>
+	</Panel>
+
+	<Panel left="7" right="348" width="328" height="279">
+		<Text>3. Active annotation framework</Text>
+		<Text></Text>
+		<Text>Approach!</Text>
+		<Text>be the set of labels for image x for n pixels!Let,</Text>
+		<Text>Let,be the set of annotations obtained till time t</Text>
+		<Text>Let, p(y) be the joint probability of the labels given the data x and annotations till time t!</Text>
+		<Text>Bayesian experimental design!</Text>
+		<Text>Given: !</Text>
+		<Text>a function that measures the uncertainty of the labels given the annotation, U(A) !</Text>
+		<Text>a function that measures the cost of annotation, C(a)!</Text>
+		<Text>Pick the annotation task the provides the highest uncertainty reduction/unit cost, i.e.,:!</Text>
+		<Text>Uncertainty, U(A) = H (p), is defined as the entropy!</Text>
+		<Text>Computing entropy is exponential in the size of the patch. for many useful cases,•</Text>
+		<Text>however MAP estimation is tractable for some of these (e.g., via Graph-cuts, MPLP)!</Text>
+	</Panel>
+
+	<Panel left="8" right="631" width="323" height="133">
+		<Text>4. Markov Random Fields (MRFs) for image labeling</Text>
+		<Text></Text>
+		<Text>Popular for image segmentation (e.g. Grabcut model, Blake et al., 2004) !</Text>
+		<Text>Let an annotation of an n pixel image be described as a n-tuple!</Text>
+		<Text>The overall score of the pixel label is given by:!</Text>
+		<Text>The MAP estimate can be obtained via. Graph cuts (Boykov et al., 2001)The</Text>
+	</Panel>
+
+	<Panel left="6" right="767" width="329" height="161">
+		<Text>5. MAP perturbations</Text>
+		<Text></Text>
+		<Text>The Perturb MAX model (Papandreou and Yuille, 2011, Tarlow 2012, Gane 2014)!</Text>
+		<Text>Random functions</Text>
+		<Figure left="196" right="802" width="137" height="44" no="2" OriWidth="0.367707" OriHeight="0.0870021
+" />
+		<Text> </Text>
+		<Text> </Text>
+		<Text>MAP perturbations upper bound the partition function (Hazan & Jaakkola 2012)</Text>
+		<Text>Let { i (yi )} be i.i.d. Gumbel random variables with zero mean</Text>
+	</Panel>
+
+	<Panel left="335" right="73" width="333" height="243">
+		<Text>6. Measuring uncertainty in the boundary of MAP prediction</Text>
+		<Text>For Perturb MAX models with Gumbel random variables!</Text>
+		<Text>Where,!</Text>
+		<Text>Proof idea: !</Text>
+		<Text>Conjugate duality:</Text>
+		<Text>Use MAP perturb. upper bounds.!</Text>
+		<Text>The optimal theta attains the perturb-max model p(y).</Text>
+		<Text>The linear term cancels out.</Text>
+		<Text>!Uncertainty measure!</Text>
+		<Text>Nonnegative (upper bounds the entropy).!</Text>
+		<Text>Attains its minimal value for the zero-one distribution (zero mean perturbations).!</Text>
+		<Text>Attains its maximal value for the uniform distribution (symmetry).</Text>
+	</Panel>
+
+	<Panel left="336" right="320" width="336" height="185">
+		<Text>7. Active boundary annotation</Text>
+		<Text></Text>
+		<Figure left="362" right="338" width="278" height="102" no="3" OriWidth="0.378562" OriHeight="0.0995807
+" />
+		<Text>Coarse-to-fine boundary refinement!</Text>
+		<Text>We start from a coarse boundary and repeatedly the!</Text>
+		<Text>regions are picked by the algorithm, refinement is done by the user!</Text>
+		<Text>Cost of refinement = number of points in the polygons (boundary complexity)!</Text>
+		<Text>We don’t know the truth, so we can compute expectations of cost and uncertainty!</Text>
+	</Panel>
+
+	<Panel left="336" right="506" width="335" height="239">
+		<Text>8. Experimental evaluation</Text>
+		<Text></Text>
+		<Text>An example coarse-to-fine refinement (sampled regions for various strategies)!</Text>
+		<Figure left="352" right="544" width="300" height="50" no="4" OriWidth="0.738128" OriHeight="0.091195
+" />
+		<Text>Active annotation results!</Text>
+		<Figure left="345" right="624" width="314" height="115" no="5" OriWidth="0.791045" OriHeight="0.138365
+" />
+	</Panel>
+
+	<Panel left="336" right="749" width="329" height="183">
+		<Text>9. Conclusions and future work</Text>
+		<Text></Text>
+		<Text>We proposed a new uncertainty measure!</Text>
+		<Text>Avoids expensive MCMC sampling by randomly perturbing the model and using a MAPsolver as a black box tool.</Text>
+		<Text>Applications for parameter estimation and active learning in a number of areas such asmatchings, parse trees, and other combinatorial structures.!</Text>
+		<Text>Active learning in structured spaces!</Text>
+		<Text>Sampling based approach allows us to consider non-decomposable cost functions. Forthe boundary annotation task we used boundary complexity, which is not possible tocompute with marginal estimates.!</Text>
+		<Text>This led to 33% savings in annotation time for pixel-accurate boundary annotations.!</Text>
+		<Text>Challenges!</Text>
+		<Text>MAP perturbation based entropy bounds for higher dimensional perturbations.!</Text>
+		<Text>Beyond super-modular functions in the context of active learning.!</Text>
+	</Panel>
+
+</Poster>

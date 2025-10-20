@@ -1,0 +1,91 @@
+<Poster Width="1003" Height="1420">
+	<Panel left="19" right="260" width="472" height="383">
+		<Text>Multimedia Event Detection</Text>
+		<Figure left="32" right="311" width="158" height="106" no="1" OriWidth="0" OriHeight="0
+" />
+		<Figure left="206" right="312" width="136" height="105" no="2" OriWidth="0" OriHeight="0
+" />
+		<Figure left="357" right="312" width="121" height="98" no="3" OriWidth="0" OriHeight="0
+" />
+		<Text>Birthday Party</Text>
+		<Text>vsWedding Ceremony</Text>
+		<Figure left="32" right="461" width="169" height="106" no="4" OriWidth="0" OriHeight="0
+" />
+		<Figure left="209" right="461" width="107" height="104" no="5" OriWidth="0" OriHeight="0
+" />
+		<Figure left="323" right="459" width="156" height="108" no="6" OriWidth="0" OriHeight="0
+" />
+		<Text>Look for: Balloon, Candle, Birthday Cake vs.</Text>
+		<Text>Bride, Groom, Wedding Gown, Wedding Cake</Text>
+	</Panel>
+
+	<Panel left="16" right="674" width="474" height="465">
+		<Text>Previous Work</Text>
+		<Text>Spatial Pyramid Match (SPM)</Text>
+		<Figure left="308" right="719" width="165" height="143" no="7" OriWidth="0" OriHeight="0
+" />
+		<Text>Object Bank (OB)</Text>
+		<Figure left="79" right="874" width="372" height="123" no="8" OriWidth="0" OriHeight="0
+" />
+		<Text>Problem</Text>
+		<Text>Scene-level descriptors cannot capture fine-</Text>
+		<Text>grained phenoma that discriminate between events.</Text>
+		<Text>Object Bank lacks immediate sense of whether or</Text>
+		<Text>not there are objects present in the image and if so</Text>
+		<Text>how many.</Text>
+	</Panel>
+
+	<Panel left="514" right="261" width="467" height="658">
+		<Text>Idea</Text>
+		<Text>ObjectBank omits the following steps that are</Text>
+		<Text>standard in a detection pipeline:●</Text>
+		<Text>●Thresholding of score maps</Text>
+		<Text>●Non-maximum suppression</Text>
+		<Text>●Pooling across all scales</Text>
+		<Text>●We compute different detection count statistics to</Text>
+		<Text>capture e.g. max number of detections, sum of</Text>
+		<Text>detection scores, probablity of detection based on</Text>
+		<Text>the detection images from a large number of</Text>
+		<Text>windowed object detectors.</Text>
+		<Text>Detection Count Statistics</Text>
+		<Text>Illustration</Text>
+		<Figure left="533" right="679" width="245" height="228" no="9" OriWidth="0.335838" OriHeight="0.219044
+" />
+		<Figure left="792" right="705" width="185" height="168" no="10" OriWidth="0.290173" OriHeight="0.18962
+" />
+	</Panel>
+
+	<Panel left="513" right="939" width="472" height="469">
+		<Text>Experiments</Text>
+		<Text>Classification Accuracy</Text>
+		<Text>on TRECVID MEDDET Curves for</Text>
+		<Text>all 15 Events</Text>
+		<Figure left="522" right="1019" width="264" height="251" no="11" OriWidth="0.378613" OriHeight="0.24765
+" />
+		<Text>Conclusion</Text>
+		<Text>●Significant performance increase in Multimedia</Text>
+		<Text>Event Classification Task</Text>
+		<Text>●Provides complementary discriminative information</Text>
+		<Text>to current state-of-the-art image representations</Text>
+		<Text>such as Spatial Pyramid Matching and Object Bank</Text>
+	</Panel>
+
+	<Panel left="19" right="1171" width="471" height="236">
+		<Text>References</Text>
+		<Text>S. Lazebnik, C. Schmid, and J. Ponce. Beyond bags of features: Spatial pyramid</Text>
+		<Text>matching for recognizing natural scene categories. CVPR, 2006.</Text>
+		<Text>L.-J. Li, H. Su, E. P. Xing, and L. Fei-Fei. Object bank: A high-level image</Text>
+		<Text>representation for scene classification & semantic feature sparsification. NIPS,</Text>
+		<Text>2010.</Text>
+		<Text>Acknowledgments</Text>
+		<Text>Supported by the Intelligence Advanced Research Projects Activity (IARPA) via Department of Interior</Text>
+		<Text>National Business Center contract number D11PC20066. The U.S. Government is authorized to</Text>
+		<Text>reproduce and distribute reprints for Governmental purposes notwithstanding any copyright annotation</Text>
+		<Text>thereon.</Text>
+		<Text>Disclaimer: The views and conclusion contained herein are those of the authors and should not be</Text>
+		<Text>interpreted as necessarily representing the official policies or endorsement, either expressed or</Text>
+		<Text>implied, of IARPA, DOI/NBC, or the U.S. Government.</Text>
+		<Text>H. Song was supported by Samsung Scholarship Foundation.</Text>
+	</Panel>
+
+</Poster>

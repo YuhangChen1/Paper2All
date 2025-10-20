@@ -1,0 +1,45 @@
+Please generate a complete English PPT introduction based on the given TeX source of a research paper, using LaTeX Beamer.
+The specific requirements are as follows.
+
+Content structure
+The PPT must contain the following chapters (arranged in order), and each chapter must have a clear title and content:
+·Open slide (title, author, instructions​​)
+·Motivation (research background and problem statement and how differentiation from existing work)
+·Related work (current status and challenges in the field)
+·Method (core technical framework) [The content of the method needs to be introduced in detail, and each part of the method should be introduced on a separate page]
+·Experimental method (experimental design and process)
+·Experimental setting (dataset, parameters, environment, etc.)
+·Experimental results (main experimental results and comparative analysis)
+·Ablation experiment (validation of the role of key modules)
+·Deficiencies (limitations of current methods)
+·Future research (improvement direction or potential application)
+·End slide (Thank you)
+
+Format requirements
+·Use Beamer's theme suitable for academic presentations. If given a theme you should use it (could be refer to local path)
+·The content of each page should be concise, avoid long paragraphs, and use itemize or block environment to present points.
+·The title page contains the paper title, author, institution, and date.
+·Key terms or mathematical symbols are highlighted with \alert{}.
+·You must use as many figures as possible since it is more expressive.
+
+​​Image and table processing
+·All image relative paths are given, the picture names must "be consistent with the name in tex file" when using 'ref{}'.
+·Images should automatically adapt to width (for example, \includegraphics[width=0.8\textwidth]{...}), and add titles and labels (\caption and \label).
+·Experimental result tables should be extracted from the source text, formatted using tabular or booktabs environments, and marked with reference sources (for example, "as shown in table \ref{tab:results}").
+
+​​Code generation requirements
+·The generated LaTeX code must be complete and can be compiled directly (including necessary structures such as \documentclass, \begin{document}).
+·Mark the source text location corresponding to each section in the code comments (for example, % corresponds to the source text Section 3.2).
+·If there are mathematical formulas in the source text, they must be retained and correctly converted to LaTeX syntax (such as $y=f(x)$).
+
+​​Other instructions​​
+·Image content should be read from the tex file, and the source name should be used directly without arbitrary modification. Image references should use real image names and should not be forged;
+·Table content should first extract real data from the source document.
+·All content should be in English.
+·If the source text is long, it is allowed to summarize the content, but the core methods, experimental data and conclusions must be retained.
+·Perfer more images than heavy text. **The number of slides should be around 10.** 
+·Must begin as \documentclass{beamer} and end as \end{document}.
+**Don't use "\usepackage{resizebox}" in the code which is not right in grammer.**
+**& in title is not allowed which will cause error "Misplaced alignment tab character &"**
+**Pay attention to this "error: !File ended while scanning use of \frame"**
+Only output *complete* latex code which should be ready to compile using tectonic(simple verson of TeX Live). Before output check if the code is grammatically correct.

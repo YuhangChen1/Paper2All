@@ -1,0 +1,95 @@
+<Poster Width="1734" Height="1156">
+	<Panel left="17" right="186" width="413" height="308">
+		<Text>Highlight</Text>
+		<Text>- Pose video summarization</Text>
+		<Text>as a supervised learning problem</Text>
+		<Text>for subset selection</Text>
+		<Text>- Propose sequential determinantal</Text>
+		<Text>point process (seqDPP) as the</Text>
+		<Text>underlying probabilistic model</Text>
+		<Text>- Evaluate on three video</Text>
+		<Text>summarization tasks and obtain</Text>
+		<Text>state-of-the-art performance</Text>
+	</Panel>
+
+	<Panel left="18" right="503" width="411" height="635">
+		<Text>Introduction</Text>
+		<Text>Video summarization: pressing need</Text>
+		<Text>- 100 hours of new Youtube video per min</Text>
+		<Text>- 422,000 CCTV cameras in London 24/7</Text>
+		<Text>Summaries by three users</Text>
+		<Figure left="25" right="650" width="395" height="118" no="1" OriWidth="0" OriHeight="0
+" />
+		<Text>Challenges</Text>
+		<Text>- Heterogeneous subjects/categories</Text>
+		<Text>- Various temporal changing rates</Text>
+		<Text>- Subjective, disparate, and noisy labels</Text>
+		<Text>Previous work</Text>
+		<Text>- Criteria: representativeness vs. diversity</Text>
+		<Text>- Largely unsupervised, frame clustering</Text>
+		<Text>- Require sophisticated handcrafting</Text>
+		<Text>Our main idea</Text>
+		<Text>- Supervised learning from human</Text>
+		<Text>supplied annotations</Text>
+		<Text>- Summarization as subset selection</Text>
+		<Text>- Modeling temporal cue & diversity</Text>
+	</Panel>
+
+	<Panel left="446" right="187" width="413" height="948">
+		<Text>Approach</Text>
+		<Text>Sequential DPP (seqDPP)</Text>
+		<Text>1. Partition video into T disjoint segments</Text>
+		<Text>2. Introduce subset selection (of frames)</Text>
+		<Text>variable Yt for each segment</Text>
+		<Text>3. Condition Yt on Yt-1 = yt-1 by DPP</Text>
+		<Figure left="452" right="386" width="403" height="287" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>Parameterization of DPP kernel</Text>
+		<Text>- Linear embedding (L):</Text>
+		<Text>- Neural networks (NN)</Text>
+		<Text>Inference</Text>
+		<Text>Learning via MLE</Text>
+		<Text>- through gradient descent</Text>
+		<Text>In contrast, bag DPPs:</Text>
+		<Text>Model permutable items (no temporal info)</Text>
+		<Text>Often use quality-diversity kernel (limited)</Text>
+		<Text>Inference NP hard</Text>
+	</Panel>
+
+	<Panel left="874" right="189" width="841" height="252">
+		<Text>Generating target summaries</Text>
+		<Text>User study on inter-annotator agreement</Text>
+		<Text>- Data: 100 videos from Open Video Project and Youtube</Text>
+		<Text>- Annotation: 5 user summaries per video</Text>
+		<Text>- Observation: high inter-annotator agreement</Text>
+		<Text>Generate target summaries by greedy search</Text>
+		<Figure left="1449" right="226" width="263" height="210" no="3" OriWidth="0.182238" OriHeight="0.110071
+" />
+	</Panel>
+
+	<Panel left="876" right="456" width="838" height="577">
+		<Text>Experiments</Text>
+		<Text>Setup</Text>
+		<Text>- Data: OVP (50), Youtube (39), Kodak (18)</Text>
+		<Text>- Feature: Fisher vector, saliency, context</Text>
+		<Text>- Evaluation: Precision, Recall, F-score</Text>
+		<Text>- Comparison: bag DPP and previous</Text>
+		<Text>(unsupervised) DT, STIMO, VSUMM</Text>
+		<Text> Results on Youtube and Kodak</Text>
+		<Figure left="898" right="702" width="454" height="116" no="4" OriWidth="0.605536" OriHeight="0.0490196
+" />
+		<Text> Results on OVP</Text>
+		<Figure left="1397" right="540" width="293" height="282" no="5" OriWidth="0.287774" OriHeight="0.189394
+" />
+		<Figure left="887" right="830" width="816" height="198" no="6" OriWidth="0.609573" OriHeight="0.104724
+" />
+	</Panel>
+
+	<Panel left="876" right="1049" width="839" height="87">
+		<Text>[1] S. Avila, A. Lopes, A. Luz Jr, A. Araujo. “VSUMM: A mechanism designed to produce static video summaries and</Text>
+		<Text>a novel evaluation method”. Pattern Recognition Letters, 32(1):56–68, 2011.</Text>
+		<Text>[2] A. Kulesza and B. Taskar. “Determinantal point processes for machine learning”. Foundations and Trends® in</Text>
+		<Text>Machine Learning, 5(2-3):123–286, 2012.</Text>
+	</Panel>
+
+</Poster>

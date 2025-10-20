@@ -1,0 +1,70 @@
+<Poster Width="1734" Height="1012">
+	<Panel left="13" right="78" width="727" height="529">
+		<Text>Overview</Text>
+		<Text>We present a system for image parsing aimed at achieving broad coverage across hundreds of object categories, many of them sparsely</Text>
+		<Text>sampled. The system combines region-level features with per-exemplar sliding window detectors. Region-level features are highly</Text>
+		<Text>effective in identifying “stuff" categories (sky, road, building, etc.) but are quite bad at localizing “things" (car, person, sign, etc.).</Text>
+		<Text>Conversely, sliding window detectors can reliably localize “things" but have a hard time with “stuff."</Text>
+		<Figure left="20" right="180" width="705" height="420" no="1" OriWidth="0.810265" OriHeight="0.266488
+" />
+	</Panel>
+
+	<Panel left="12" right="617" width="727" height="383">
+		<Text>System Description</Text>
+		<Text>At training time, we train HOG based per-exemplar detectors (Mal-</Text>
+		<Text>isiewicz et al. 2011), and compute the necessary features for our</Text>
+		<Text>Superparsing system (Tighe and Lazebnik 2010).</Text>
+		<Text>Parsing pipeline:</Text>
+		<Text>• Obtain a retrieval set of globally similar training images</Text>
+		<Text>• Region based data term (ER ) is computed using our Super-</Text>
+		<Text>parsing system</Text>
+		<Text>• Detector based data term (ED ) :</Text>
+		<Text>– Run per-exemplar detectors for exemplars in the re-</Text>
+		<Text>trieval set</Text>
+		<Text>– Transfer masks from all detections above a set detection</Text>
+		<Text>threshold to test image</Text>
+		<Text>– Detector data term is computed as the sum of these</Text>
+		<Text>masks scaled by their detection score</Text>
+		<Text>• Combine these two data terms by training a SVM on the con-</Text>
+		<Text>catenation of ED and ER</Text>
+		<Text>• Smooth the SVM output (ESVM ) using a MRF:</Text>
+		<Figure left="376" right="647" width="356" height="329" no="2" OriWidth="0.301038" OriHeight="0.144831
+" />
+		<Text> An illustration of the generation of our detector based data term.</Text>
+	</Panel>
+
+	<Panel left="749" right="79" width="481" height="269">
+		<Figure left="756" right="107" width="470" height="239" no="3" OriWidth="0.567474" OriHeight="0.141266
+" />
+	</Panel>
+
+	<Panel left="749" right="361" width="480" height="244">
+		<Text>SIFT Flow Dataset</Text>
+		<Figure left="846" right="391" width="289" height="119" no="4" OriWidth="0.284314" OriHeight="0.0958111
+" />
+		<Figure left="757" right="516" width="465" height="73" no="5" OriWidth="0.7797" OriHeight="0.0931373
+" />
+		<Text> Per-class breakdown of the classification rate on the SIFT Flow dataset.</Text>
+	</Panel>
+
+	<Panel left="747" right="617" width="480" height="383">
+		<Figure left="754" right="647" width="468" height="224" no="6" OriWidth="0.780277" OriHeight="0.286096
+" />
+		<Figure left="755" right="873" width="469" height="122" no="7" OriWidth="0.683968" OriHeight="0.129679
+" />
+	</Panel>
+
+	<Panel left="1241" right="78" width="479" height="922">
+		<Text>LM+Sun Dataset</Text>
+		<Figure left="1253" right="109" width="463" height="80" no="8" OriWidth="0.777393" OriHeight="0.105169
+" />
+		<Text> Breakdown of the classification rate on the most common classes in the LM+SUN dataset.</Text>
+		<Figure left="1246" right="220" width="471" height="194" no="9" OriWidth="0.784314" OriHeight="0.25
+" />
+		<Text> Examples of “thing” classes on LM+SUN. The caption for each class shows: (# of training</Text>
+		<Text>instances of that class) / (# of test instances) (per-pixel rate on the test set)%</Text>
+		<Figure left="1244" right="459" width="471" height="537" no="10" OriWidth="0.782007" OriHeight="0.695187
+" />
+	</Panel>
+
+</Poster>

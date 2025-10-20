@@ -1,0 +1,103 @@
+<Poster Width="1734" Height="2301">
+	<Panel left="33" right="228" width="684" height="509">
+		<Text>1. Motivation & Contribution</Text>
+		<Text>Motivation</Text>
+		<Text>Limitations of existing methods proposed for obtaining the globally</Text>
+		<Text>optimal landmarks configuration from all possible shapes:</Text>
+		<Text>For Viola et al.’s cascaded AdaBoost framework, each landmark is</Text>
+		<Text>individually detected, which causes ambiguous detections.</Text>
+		<Text>The ASMs and AAMs are often prone to locally optimal solution. A</Text>
+		<Text>good initialization is needed.</Text>
+		<Text>For the promising regression-based method, it is still challenging to</Text>
+		<Text>directly predict an accurate shape from the complex image</Text>
+		<Text>appearances [Saragih et al. CVPR2011].</Text>
+		<Text>Contribution</Text>
+		<Text>A discriminative structure classifier is presented to jointly</Text>
+		<Text>assess the configurations of landmarks.</Text>
+		<Text>A novel coarse-to-fine shape space pruning algorithm is</Text>
+		<Text>proposed to progressively filter out the incorrect candidate</Text>
+		<Text>shapes.</Text>
+	</Panel>
+
+	<Panel left="733" right="229" width="963" height="511">
+		<Text>2. Method Overview</Text>
+		<Figure left="747" right="304" width="944" height="373" no="1" OriWidth="0.791908" OriHeight="0.247542
+" />
+		<Text> Fig.1 Overview of the proposed cascaded shape space pruning algorithm</Text>
+	</Panel>
+
+	<Panel left="34" right="761" width="681" height="1424">
+		<Text>3. Cascaded Shape Space Pruning</Text>
+		<Text>Step (a): Shape space pruning by individually removing</Text>
+		<Text>landmark candidates</Text>
+		<Text>The candidate shape space is firstly pruned by individually</Text>
+		<Text>removing impossible positions of each landmark with separate</Text>
+		<Text>landmark detector. [Viola et al. CVPR2001].</Text>
+		<Text>Step (b): Shape space pruning by jointly removing</Text>
+		<Text>candidate landmark positions</Text>
+		<Text>Face shape assessment via discriminative structure classifier</Text>
+		<Figure left="77" right="1037" width="561" height="100" no="2" OriWidth="0" OriHeight="0
+" />
+		<Figure left="58" right="1152" width="172" height="193" no="3" OriWidth="0.144509" OriHeight="0.105898
+" />
+		<Text>Learning of discriminative structure classifier</Text>
+		<Text> The Structured Output SVM is exploited to learn the model</Text>
+		<Text>parameters w, where the learned model should satisfy that:</Text>
+		<Figure left="53" right="1464" width="660" height="136" no="4" OriWidth="0" OriHeight="0
+" />
+		<Text>Efficient cascaded shape space pruning</Text>
+		<Text> The landmarks configuration with the highest score can be</Text>
+		<Text>fast computed by dynamic programming.</Text>
+		<Text> We quickly remove the most unconfident ones by the distance</Text>
+		<Text>between them and.</Text>
+		<Text> We do not use the time-consuming one-by-one assessment</Text>
+		<Text>scheme.</Text>
+		<Figure left="113" right="1767" width="498" height="341" no="5" OriWidth="0.293064" OriHeight="0.178284
+" />
+		<Text> Fig.2 Score distribution of a real F(I, s) on a face image.</Text>
+		<Text> More and more accurate shapes are predicted in the pruned</Text>
+		<Text>shape space with finer and finer appearance features.</Text>
+	</Panel>
+
+	<Panel left="731" right="760" width="964" height="1244">
+		<Text>4. Experiments</Text>
+		<Text>Setup</Text>
+		<Text>Setup</Text>
+		<Text>Datasets</Text>
+		<Text> The BioID and LFW face databases</Text>
+		<Text>Evaluation metric</Text>
+		<Text> NRMSE (Normalized Root-Mean-Squared Error) is adopted as the error measure</Text>
+		<Text> CDF (Cumulative Distribution Function) of NRMSE</Text>
+		<Text>num(NRMSE  x)</Text>
+		<Text>CDF( x) </Text>
+		<Text>N</Text>
+		<Text>Resultsx is the specified error, N is the number of test images.</Text>
+		<Text>Results</Text>
+		<Text>Analysis of cascaded shape space pruning</Text>
+		<Figure left="773" right="1086" width="891" height="280" no="6" OriWidth="0.680347" OriHeight="0.17471
+" />
+		<Figure left="775" right="1389" width="304" height="232" no="7" OriWidth="0.234104" OriHeight="0.13807
+" />
+		<Text> Fig.3 Localization performances in</Text>
+		<Text>different stages on the LFW face database</Text>
+		<Figure left="1117" right="1376" width="549" height="252" no="8" OriWidth="0.390173" OriHeight="0.15639
+" />
+		<Text> Fig.4 Localization results in different stages (S1&S3)</Text>
+		<Figure left="739" right="1757" width="532" height="206" no="9" OriWidth="0.241618" OriHeight="0.140751
+" />
+		<Text> Fig.5 Results on the LFW database</Text>
+		<Text> Fig.6 Results on the BioID database</Text>
+		<Figure left="1270" right="1684" width="423" height="281" no="10" OriWidth="0" OriHeight="0
+" />
+		<Text> Fig.7 Localization results on some challenging images</Text>
+	</Panel>
+
+	<Panel left="730" right="2015" width="968" height="171">
+		<Text>5. Summary</Text>
+		<Text>The positions of landmarks are not only individually evaluated by the local detectors but also jointly</Text>
+		<Text>evaluated by the discriminative structure classifier.</Text>
+		<Text>The globally optimal configuration is progressively approximated by gradually filtering out the incorrect</Text>
+		<Text>candidate configurations.</Text>
+	</Panel>
+
+</Poster>

@@ -1,0 +1,51 @@
+You have been given an image of a poster. Your task is to analyze the poster’s visual and textual design elements and generate a JSON object describing the styles. Follow these steps carefully:
+
+1. Observe the poster’s background:
+   • Does the background have a color? If so, note it as an RGB value. For example, 'color': '(255, 255, 255)'.
+
+2. Observe the poster title:
+   • Determine the font style (bold, italic, normal).  
+   • Determine the font color (in RGB).
+   • Determine the font size (small, medium, large).  
+   • Check if the title has a filled color behind it; if so, specify it in RGB.
+   • Check if the title has a border (color, thickness, line type).
+
+3. Observe each section title:
+   • Determine the font style (bold, italic, normal).  
+   • Determine the font color (in RGB).  
+   • Determine the font size (small, medium, large).  
+   • Check if the section title has a filled color behind it; if so, specify it in RGB.
+
+4. Observe the main section text (the bulk of the poster):
+   • Determine the font style (bold, italic, normal).
+   • Determine the font color (in RGB).
+   • Determine the font size (small, medium, large).
+   • Check if the section or its container has a border (color, thickness, line type).
+
+5. Look for any additional elements:
+   • Are there any other graphics or important design components (e.g., logos, icons, illustrations)?
+   • If so, include any relevant style information (color in RGB, border details, etc.).
+
+Output Requirements:
+• Provide your answer as a JSON object with descriptive keys for each poster element (e.g., 'poster_background', 'poster_title', 'section_title', 'section_text', 'section_border', etc.).  
+• The values should be objects containing the style properties you observed (e.g., 'color': '(R,G,B)', 'font_style': 'bold', 'font_size': 'large', 'border_color': '(R,G,B)', 'border_thickness': '1px', 'border_type': 'solid').
+
+IMPORTANT: Your output should be strictly in JSON format, with no explanatory text outside the JSON. For example:
+
+{
+  "poster_background": {
+    "color": "(R,G,B)"
+  },
+  "poster_title": {
+    "font_style": "bold",
+    "font_color": "(R,G,B)",
+    "font_size": "large",
+    ...
+  },
+  "section_title": {
+    ...
+  },
+  ...
+}
+
+Please analyze the poster and then output exactly one JSON object with all details. No additional text or explanation should be provided outside the JSON response.

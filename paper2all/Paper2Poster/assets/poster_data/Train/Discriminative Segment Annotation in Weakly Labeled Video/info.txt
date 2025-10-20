@@ -1,0 +1,57 @@
+<Poster Width="1734" Height="1301">
+	<Panel left="20" right="177" width="473" height="574">
+		<Text>Introduction</Text>
+		<Text>• Goal</Text>
+		<Text>- Automatically annotate segments in weakly</Text>
+		<Text>labeled video taken from YouTube</Text>
+		<Figure left="48" right="295" width="415" height="298" no="1" OriWidth="0.386967" OriHeight="0.213904
+" />
+		<Text>• Challenges</Text>
+		<Text>- Learning from weakly labeled data</Text>
+		<Text>- Handling label noise in YouTube tags</Text>
+		<Text>- Parallelize to deploy over large amounts of</Text>
+		<Text>YouTube data</Text>
+	</Panel>
+
+	<Panel left="510" right="178" width="475" height="573">
+		<Text>Our Problem Setup</Text>
+		<Figure left="540" right="217" width="416" height="524" no="2" OriWidth="0.375433" OriHeight="0.36631
+" />
+	</Panel>
+
+	<Panel left="1000" right="177" width="707" height="574">
+		<Text>Our Algorithm: CRANE</Text>
+		<Text>• Input: uncertain positive segments, large set of negative segments</Text>
+		<Text>• Output: ranked positive segments by probability of belonging to our concept</Text>
+		<Figure left="1165" right="275" width="355" height="291" no="3" OriWidth="0.351211" OriHeight="0.168449
+" />
+		<Text>Intuition: Positive segments are less likely to belong to our concept if they are</Text>
+		<Text>near many negative segments.</Text>
+	</Panel>
+
+	<Panel left="21" right="761" width="860" height="533">
+		<Text>Sample Object Segmentations</Text>
+		<Figure left="31" right="800" width="553" height="349" no="4" OriWidth="0" OriHeight="0
+" />
+		<Text> Inductive Segment Annotation [top two rows]</Text>
+		<Text>Transductive Segment Annotation [bottom two rows]</Text>
+		<Figure left="596" right="800" width="276" height="350" no="5" OriWidth="0" OriHeight="0
+" />
+		<Text> Common Failure Cases</Text>
+		<Text>[1] P. Siva, C. Russell, and T. Xiang. In defence of negative mining for annotating weakly labelled data. ECCV 2012.</Text>
+		<Text>[2] M. Grundmann, V. Kwatra, M. Han, and I. Essa. Efficient hierarchical graph-based video segmentation. CVPR 2010.</Text>
+		<Text>[3] G. Hartmann et al. Weakly supervised learning of object segmentations from web-scale video. ECCV 2012 Workshop.</Text>
+		<Text>[4] A. Prest et al. Learning object class detectors from weakly annotated video. CVPR 2012.</Text>
+	</Panel>
+
+	<Panel left="892" right="763" width="816" height="530">
+		<Text>Quantitative Results</Text>
+		<Text>Transductive Segment Annotation (annotating a dataset)</Text>
+		<Figure left="905" right="824" width="780" height="221" no="6" OriWidth="0.803345" OriHeight="0.173351
+" />
+		<Text>• Inductive Segment Annotation (novel object segmentation)</Text>
+		<Figure left="963" right="1069" width="662" height="221" no="7" OriWidth="0.78143" OriHeight="0.200535
+" />
+	</Panel>
+
+</Poster>

@@ -1,0 +1,45 @@
+You are an evaluator. You will be given two presentation videos of the same talk:
+(1) a human-presented version and (2) an AI-generated version.
+Evaluate ONLY the slides and subtitles. Ignore the presenter’s face, voice quality, background music, camera motion, and any non-slide visuals.
+
+INPUTS YOU MAY RECEIVE
+- Human video (and optionally its slide images and subtitles/transcript)
+- AI video (and optionally its slide images and subtitles/transcript)
+
+EVALUATION SCOPE (focus strictly on slides + subtitles)
+1) Slide Content Matching
+   • Do the AI-generated slides convey the same key points and include comparable layout/visual elements (titles, bullets, diagrams, tables, axes annotations) as the human version?
+
+2) Slide Sequence Alignment
+   • Is the slide order in the AI version consistent with the human version?
+   • Are any sections missing, added, or rearranged?
+
+3) Subtitle Wording Similarity
+   • Does the AI subtitle text reflect similar phrasing, terminology, and information to the human version’s speech/subtitles?
+   • Focus on semantic equivalence and terminology; spelling and minor stylistic differences don’t matter.
+
+4) Slide–Subtitle Synchronization
+   • Within the AI video, does the narration/subtitle content match the on-screen slide content at the same time?
+   • Also, does this correspondence broadly align with what the human presenter says during each slide?
+
+EVIDENCE-ONLY RULES
+- Base your judgment solely on the provided materials (videos, slides, subtitles). Do NOT use outside knowledge about the paper or topic.
+- If some inputs are missing (e.g., no subtitles), judge from what is available and briefly note the missing piece in the Reasons.
+
+RELAXED SCORING RUBRIC (0–5)
+(Adopt a lenient mapping: if your judgment is borderline between two adjacent levels, choose the higher score. If you compute subscores, take their average and ROUND UP to the nearest integer, capped to [0,5].)
+• 5 — Nearly identical: Slides and subtitles closely match the human version in content, layout, sequence, and timing; wording is near-paraphrase level.
+• 4 — Highly similar: Only minor differences in layout or phrasing; overall content, order, and on-screen alignment clearly match.
+• 3 — Moderate differences yet same core content: Several layout/wording/sequence deviations but the main sections and key points are preserved. 
+       (Relaxation: cases that previously felt like “2” because of noticeable structure or language differences can be scored as “3” if the key points largely align.)
+• 2 — Partial overlap: Some key points match, but there are substantial omissions/rearrangements or subtitle paraphrasing that drifts; multiple slide mismatches or sync issues.
+• 1 — Minimal overlap: Only a few matching fragments; most slides/subtitles diverge markedly.
+• 0 — No meaningful match: Slides and subtitles in the AI version do not correspond to the human version.
+
+OUTPUT FORMAT (STRICT)
+Return exactly one line:
+Content Similarity: X/5; Reasons
+
+WHERE:
+- X is an integer 0–5 selected using the relaxed rubric above.
+- Reasons is a concise justification (1–3 short sentences) referencing the four aspects (content, sequence, wording, synchronization) as relevant.

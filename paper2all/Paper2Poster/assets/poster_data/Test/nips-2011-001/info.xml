@@ -1,0 +1,51 @@
+<Poster Width="886" Height="1146">
+	<Panel left="68" right="187" width="366" height="455">
+		<Text>Introduction</Text>
+		<Text>This paper proposes a parsing algorithm for indoor scene understanding which includes four aspects: computing 3D scene layout, detecting 3D objects (e.g. furniture), detecting 2D faces (windows, doors etc.), and segmenting the background. The algorithm parse an image into a hierarchical structure, namely a parse tree. With the parse tree, we reconstruct the original image by the appearance of line segments, and we further recover the 3D scene by the geometry of 3D background and foreground objects.</Text>
+		<Figure left="77" right="301" width="348" height="232" no="1" OriWidth="0.659432" OriHeight="0.334624
+" />
+		<Figure left="78" right="535" width="346" height="94" no="2" OriWidth="0.585977" OriHeight="0.105376
+" />
+	</Panel>
+
+	<Panel left="66" right="658" width="369" height="412">
+		<Text>Results</Text>
+		<Figure left="73" right="666" width="358" height="130" no="3" OriWidth="0.632165" OriHeight="0.153548
+" />
+		<Figure left="75" right="800" width="357" height="258" no="4" OriWidth="0.632721" OriHeight="0.176774
+" />
+	</Panel>
+
+	<Panel left="447" right="188" width="367" height="310">
+		<Text>Stochastic Scene Grammar</Text>
+		<Text>The grammar represents compositional structures of visual entities, which includes three types of production rules and two types of contextual relations:</Text>
+		<Text>Production rules: (i) AND rules represent the decomposition of an entity into sub-parts; (ii) SET rules represent an ensemble of visual entities; (iii) OR rules represent the switching among sub-types of an entity.</Text>
+		<Text>Contextual relations: (a) Cooperative “+” relations represent positive links between binding entities, such as hinged faces of a object or aligned boxes; (b) Competitive “-” relations represents negative links between competing entities, such as mutually exclusive boxes.</Text>
+		<Figure left="457" right="319" width="351" height="174" no="5" OriWidth="0.632165" OriHeight="0.350538
+" />
+	</Panel>
+
+	<Panel left="447" right="497" width="368" height="164">
+		<Text>Bayesian Formulation</Text>
+		<Text>We define a posterior distribution for a solution (a parse tree) pt conditioned on an image I. This distribution is specified in terms of the statistics defined over the derivation of production rules. \begin{equation} P(pt|I)\propto P(pt)P(I|pt)=P(S)\prod_{v \in V^n}P(Ch_v|v)\prod_{v \in V^T}P(I|v) \end{equation} The probability is defined on the Gibbs distribution: and the energy term is decomposed as three potentials: \begin{equation} E(pt|I)=\sum_{v \in V^{OR}}E^{OR}(Ar(Ch_v))+\sum_{v \in V^AND}E^{AND (A_G(Ch_v))+\sum_{\Lambda_v \in \Lambda_I, v \in V^T}E^T(I(\Lambda_v))  \end{equation}</Text>
+	</Panel>
+
+	<Panel left="447" right="662" width="369" height="194">
+		<Text>Inference by Hierarchical Cluster Sampling We design an efficient MCMC inference algorithm, namely Hierarchical cluster sampling, to search in the large solution space of scene configurations. The algorithm has two stages:</Text>
+		<Text>Clustering: It forms all possible higher-level structures (clusters) from lower-level entities by production rules and contextual relations. \begin{equation} P_+(Cl|I)=\prod_{v \in Cl^{OR}}P^{OR}(Ar(v))\prod_{u,v \in Cl^{AND}}P_+^{AND}(A_G(u), A_G(v))\prod_{v \in Cl^T}P^T(I(A_v)) \end{equation}</Text>
+		<Text>Sampling: It jumps between alternative structures (clusters) in each layer of the hierarchy to find the most probable configuration (represented by a parse tree). \begin{equation} Q(pt^*|pt,I)=P_+(Cl^*|I)\prod_{u \in Cl^{AND}, v \in pt^{AND}} P_-^{AND}(A_G(u)|A_G(v)). \end{equation}</Text>
+	</Panel>
+
+	<Panel left="447" right="854" width="367" height="214">
+		<Text>Experiment and Conclusion</Text>
+		<Text>Segmentation precision compared with Hoiem et al. 2007 [1], Hedau et al. 2009 [2], Wang et al. 2010 [3] and Lee et al. 2010 [4] in the UIUC dataset [2].</Text>
+		<Figure left="480" right="906" width="305" height="56" no="6" OriWidth="0.537563" OriHeight="0.0726882
+" />
+		<Text>Compared with other algorithms, our contributions are</Text>
+		<Text>A Stochastic Scene Grammar (SSG) to represent the hierarchical structure of visual entities;</Text>
+		<Text>A Hierarchical Cluster Sampling algorithm to perform fast inference in the SSG model;</Text>
+		<Text>Richer structures obtained by exploring richer contextual relations.</Text>
+		<Text>Website: http://www.stat.ucla.edu/~ybzhao/research/sceneparsing</Text>
+	</Panel>
+
+</Poster>

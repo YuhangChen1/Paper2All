@@ -1,0 +1,90 @@
+<Poster Width="1734" Height="1966">
+	<Panel left="39" right="207" width="822" height="389">
+		<Text>Expression-invariant face recognition</Text>
+		<Text>1. Facial expression affects the performance of a face recognition</Text>
+		<Text>2. Expression changes face geometry, but texture is stable.</Text>
+		<Text>3. We conduct recognition based on texture /geometry separately.</Text>
+		<Text>Related works</Text>
+		<Text>Related works</Text>
+		<Text>Separately modeling texture and geometry information in</Text>
+		<Text>different eigenspaces has been applied in ASM and AAM (by</Text>
+		<Text>Cootes et al.), however our eigenspaces aim at distinguishing</Text>
+		<Text>individuals and expressions.</Text>
+	</Panel>
+
+	<Panel left="37" right="597" width="823" height="795">
+		<Text>Feature spaces and recognition methods</Text>
+		<Text>Space1: Texture space V</Text>
+		<Text>tex : eigenspace of warped face textures.</Text>
+		<Text>Space2: Angle space V</Text>
+		<Text>ang : eigenspace of the weighted inner angles</Text>
+		<Text>of masks. Angle weight is the inverse of the angle variance in</Text>
+		<Text>natural warpings of training faces.</Text>
+		<Text>Face recognition: the projection of testing face into V</Text>
+		<Text>tex and V</Text>
+		<Text>ang</Text>
+		<Text>are used as two attributes in face recognition by distinguishing</Text>
+		<Text>natural warpings from artificial warpings. A testing face is</Text>
+		<Text>recognized as the same individual in a reference face if both</Text>
+		<Text>attributes are similar.</Text>
+		<Text>Space3: Angle residual space V</Text>
+		<Text>res : eigenspace of the angle</Text>
+		<Text>changes during natural warping.</Text>
+		<Figure left="228" right="1072" width="364" height="185" no="1" OriWidth="0.301615" OriHeight="0.11943
+" />
+		<Text> Warping from “surprise” to “normal”</Text>
+		<Text>Expression classification: compare the geometry of a testing</Text>
+		<Text>face with that of the recognized reference face in V</Text>
+		<Text>res.</Text>
+	</Panel>
+
+	<Panel left="874" right="205" width="823" height="391">
+		<Text>Mask fitting and warping</Text>
+		<Figure left="947" right="284" width="152" height="140" no="2" OriWidth="0.247405" OriHeight="0.177362
+" />
+		<Text> 34 vertexes and</Text>
+		<Text>51 triangles</Text>
+		<Text> Normal</Text>
+		<Text>faces</Text>
+		<Text> Expressioned faces</Text>
+		<Figure left="1177" right="316" width="357" height="193" no="3" OriWidth="0.374856" OriHeight="0.194742
+" />
+		<Text> Natural</Text>
+		<Text>warpings</Text>
+		<Text>VS</Text>
+		<Text>Artificial</Text>
+		<Text>warpings</Text>
+		<Text>Natural warping: warping from test face to the reference face of the same individual.</Text>
+		<Text>Artificial warping: warping from test face to the reference face of a different individual.</Text>
+	</Panel>
+
+	<Panel left="874" right="600" width="825" height="792">
+		<Text>Results of face recognition</Text>
+		<Figure left="1037" right="658" width="496" height="296" no="4" OriWidth="0.328143" OriHeight="0.14795
+" />
+		<Text>Results of expression classification: 84%</Text>
+		<Figure left="1040" right="1026" width="491" height="343" no="5" OriWidth="0.357555" OriHeight="0.203209
+" />
+	</Panel>
+
+	<Panel left="34" right="1394" width="1666" height="481">
+		<Text>Extension: face recognition on noisy 3D face scan:</Text>
+		<Text>1. Expression affects 3D face recognition</Text>
+		<Text>more seriously, since most geometric</Text>
+		<Text>features will be mis-aligned.</Text>
+		<Text>2. 3D face mask carries face shape</Text>
+		<Text>information. The displacement from </Text>
+		<Text>mask to its original face carries face</Text>
+		<Text>surface feature.</Text>
+		<Text>3. In a natural warping, an expressioned</Text>
+		<Text>face will approach its reference face, by</Text>
+		<Text>removing expression. In an artificial</Text>
+		<Text>warping, however, face surface features</Text>
+		<Text>of testing face will be distorted.</Text>
+		<Figure left="617" right="1463" width="506" height="396" no="6" OriWidth="0" OriHeight="0
+" />
+		<Figure left="1178" right="1407" width="519" height="463" no="7" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+</Poster>

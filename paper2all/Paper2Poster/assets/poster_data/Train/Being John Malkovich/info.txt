@@ -1,0 +1,365 @@
+<Poster Width="1734" Height="1340">
+	<Panel left="85" right="348" width="782" height="370">
+		<Text>Our	</Text>
+		<Text>  contribution:	</Text>
+		<Text>  </Text>
+		<Text>Use	</Text>
+		<Text>  your	</Text>
+		<Text>  face	</Text>
+		<Text>  to	</Text>
+		<Text>  drive	</Text>
+		<Text>  someone	</Text>
+		<Text>  else.	</Text>
+		<Text>  </Text>
+		<Text>• 	</Text>
+		<Text>  A	</Text>
+		<Text>  fully	</Text>
+		<Text>  automatic	</Text>
+		<Text>  real-­‐time	</Text>
+		<Text>  framework	</Text>
+		<Text>  that	</Text>
+		<Text>  </Text>
+		<Text>combines	</Text>
+		<Text>  a	</Text>
+		<Text>  number	</Text>
+		<Text>  of	</Text>
+		<Text>  face	</Text>
+		<Text>  processing	</Text>
+		<Text>  </Text>
+		<Text>components	</Text>
+		<Text>  in	</Text>
+		<Text>  a	</Text>
+		<Text>  novel	</Text>
+		<Text>  way	</Text>
+		<Text>  </Text>
+		<Text>• 	</Text>
+		<Text>  Works	</Text>
+		<Text>  with	</Text>
+		<Text>  any	</Text>
+		<Text>  unstructured	</Text>
+		<Text>  photo	</Text>
+		<Text>  collection	</Text>
+		<Text>  </Text>
+		<Text>and/or	</Text>
+		<Text>  video	</Text>
+		<Text>  sequence	</Text>
+		<Text>  </Text>
+		<Text>• 	</Text>
+		<Text>  No	</Text>
+		<Text>  training,	</Text>
+		<Text>  or	</Text>
+		<Text>  labeling	</Text>
+		<Text>  </Text>
+		<Figure left="417" right="359" width="445" height="169" no="1" OriWidth="0.575406" OriHeight="0.125458
+" />
+		<Figure left="200" right="570" width="621" height="138" no="2" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="87" right="719" width="779" height="396">
+		<Text>Results:	</Text>
+		<Text>  </Text>
+		<Text>Puppeteering	</Text>
+		<Text>  evaluation	</Text>
+		<Text>  (full	</Text>
+		<Text>  measure):	</Text>
+		<Text>  </Text>
+		<Figure left="123" right="779" width="322" height="115" no="3" OriWidth="0.589861" OriHeight="0.149490
+" />
+		<Text>Without	</Text>
+		<Text>  mouth	</Text>
+		<Text>  similarity:	</Text>
+		<Text>  </Text>
+		<Figure left="124" right="916" width="323" height="57" no="4" OriWidth="0.586981" OriHeight="0.073727
+" />
+		<Text>Without	</Text>
+		<Text>  eyes	</Text>
+		<Text>  similarity:	</Text>
+		<Text>  </Text>
+		<Figure left="122" right="997" width="322" height="113" no="5" OriWidth="0.586981" OriHeight="0.149898
+" />
+		<Text>Cameron	</Text>
+		<Text>  Diaz	</Text>
+		<Text>  drives	</Text>
+		<Text>  John	</Text>
+		<Text>  Malkovich:	</Text>
+		<Text>  	</Text>
+		<Text>  </Text>
+		<Figure left="472" right="783" width="351" height="126" no="6" OriWidth="0.586981" OriHeight="0.151527
+" />
+		<Text>User	</Text>
+		<Text>  drives	</Text>
+		<Text>  George	</Text>
+		<Text>  W.	</Text>
+		<Text>  Bush:	</Text>
+		<Text>  </Text>
+		<Text>(870	</Text>
+		<Text>  photos	</Text>
+		<Text>  in	</Text>
+		<Text>  Bush’s	</Text>
+		<Text>  dataset)	</Text>
+		<Text>  	</Text>
+		<Text>  </Text>
+		<Figure left="473" right="984" width="350" height="127" no="7" OriWidth="0.586405" OriHeight="0.149898
+" />
+	</Panel>
+
+	<Panel left="868" right="350" width="777" height="764">
+		<Text>The	</Text>
+		<Text>  method:	</Text>
+		<Text>  </Text>
+		<Text>Image	</Text>
+		<Text>  alignment	</Text>
+		<Text>  to	</Text>
+		<Text>  canonical	</Text>
+		<Text>  pose:	</Text>
+		<Text>  </Text>
+		<Text>Photo	</Text>
+		<Text>  collections:	</Text>
+		<Text>  </Text>
+		<Text>Face	</Text>
+		<Text>  and	</Text>
+		<Text>  ﬁducial	</Text>
+		<Text>  </Text>
+		<Text>points	</Text>
+		<Text>  detection	</Text>
+		<Text>  </Text>
+		<Text>(Everingham	</Text>
+		<Text>  et	</Text>
+		<Text>  al	</Text>
+		<Text>  06)	</Text>
+		<Text>  </Text>
+		<Figure left="1030" right="428" width="78" height="81" no="8" OriWidth="0" OriHeight="0
+" />
+		<Text># I: 1108 508 0 0 /media/yuxiao/资料/Paper2Poster/论文与海报/Being John Malkovich-Poster-Poster/image8.png</Text>
+		<Text>Webcam/Video	</Text>
+		<Text>  seq.:	</Text>
+		<Text>  </Text>
+		<Text>Real-­‐time	</Text>
+		<Text>  tracking	</Text>
+		<Text>  </Text>
+		<Text>(Saragih	</Text>
+		<Text>  et	</Text>
+		<Text>  al	</Text>
+		<Text>  09)	</Text>
+		<Text>  </Text>
+		<Figure left="1027" right="522" width="80" height="71" no="9" OriWidth="0.195852" OriHeight="0.116089
+" />
+		<Figure left="1137" right="448" width="109" height="98" no="10" OriWidth="0" OriHeight="0
+" />
+		<Text>2D	</Text>
+		<Text>  aligned:	</Text>
+		<Text>  </Text>
+		<Figure left="1277" right="440" width="323" height="64" no="11" OriWidth="0.591013" OriHeight="0.07454
+" />
+		<Text>Warped	</Text>
+		<Text>  to	</Text>
+		<Text>  frontal	</Text>
+		<Text>  pose:	</Text>
+		<Text>  	</Text>
+		<Text>  </Text>
+		<Figure left="1280" right="528" width="319" height="65" no="12" OriWidth="0.446428" OriHeight="0.063951
+" />
+		<Text># I: 1335 716 0 0 /media/yuxiao/资料/Paper2Poster/论文与海报/Being John Malkovich-Poster-Poster/image13.png</Text>
+		<Text>Appearance	</Text>
+		<Text>  representation:	</Text>
+		<Text>  </Text>
+		<Text>• 	</Text>
+		<Text>  LBP	</Text>
+		<Text>  (Local	</Text>
+		<Text>  Binary	</Text>
+		<Text>  Pattern)	</Text>
+		<Text>  histograms	</Text>
+		<Text>  (Ahonen	</Text>
+		<Text>  et	</Text>
+		<Text>  al	</Text>
+		<Text>  06)	</Text>
+		<Text>  </Text>
+		<Text>• 	</Text>
+		<Text>  Applied	</Text>
+		<Text>  on	</Text>
+		<Text>  warped	</Text>
+		<Text>  images	</Text>
+		<Text>  </Text>
+		<Text>• 	</Text>
+		<Text>  Only	</Text>
+		<Text>  for	</Text>
+		<Text>  mouth	</Text>
+		<Text>  &	</Text>
+		<Text>  eyes	</Text>
+		<Text>  regions	</Text>
+		<Text>  </Text>
+		<Text>• 	</Text>
+		<Text>  Mouth	</Text>
+		<Text>  region	</Text>
+		<Text>  divided	</Text>
+		<Text>  to	</Text>
+		<Text>  3x5	</Text>
+		<Text>  blocks	</Text>
+		<Text>  </Text>
+		<Text>• 	</Text>
+		<Text>  Eye	</Text>
+		<Text>  region	</Text>
+		<Text>  divided	</Text>
+		<Text>  to	</Text>
+		<Text>  3x2	</Text>
+		<Text>  blocks	</Text>
+		<Text>  </Text>
+		<Figure left="1278" right="646" width="140" height="98" no="13" OriWidth="0.210253" OriHeight="0.103462
+" />
+		<Text>Distance	</Text>
+		<Text>  measure:	</Text>
+		<Text>  </Text>
+		<Text>distance	</Text>
+		<Text>  between	</Text>
+		<Text>  input	</Text>
+		<Text>  frame	</Text>
+		<Text>  i	</Text>
+		<Text>  and	</Text>
+		<Text>  target	</Text>
+		<Text>  frame	</Text>
+		<Text>  j	</Text>
+		<Text>  is :	</Text>
+		<Text>  The	</Text>
+		<Text>  	</Text>
+		<Text>  </Text>
+		<Text>Appearance:	</Text>
+		<Text>  </Text>
+		<Text>€</Text>
+		<Text>mmeed</Text>
+		<Text>appear (i, j) = α d (i, j) + α d (i, j)</Text>
+		<Text>d {m,e} -­‐ 	</Text>
+		<Text>  LBP	</Text>
+		<Text>  histogram	</Text>
+		<Text>  χ 2 	</Text>
+		<Text>  distances	</Text>
+		<Text>  </Text>
+		<Text>	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  	</Text>
+		<Text>  restricted	</Text>
+		<Text>  to	</Text>
+		<Text>  the	</Text>
+		<Text>  mouth	</Text>
+		<Text>  and	</Text>
+		<Text>  eyes	</Text>
+		<Text>  regions</Text>
+		<Text>{m.e}-­‐ 	</Text>
+		<Text>  corresponding	</Text>
+		<Text>  weights	</Text>
+		<Text>  α	</Text>
+		<Text>  </Text>
+		<Text>Pose:	</Text>
+		<Text>  </Text>
+		<Text>d </Text>
+		<Text>pose (i, j) = L(|Y</Text>
+		<Text>i − Y </Text>
+		<Text>j |) + L(| P</Text>
+		<Text>i − P </Text>
+		<Text>j |) + L(| R</Text>
+		<Text>i − R </Text>
+		<Text>j |)</Text>
+		<Text>Y − 	</Text>
+		<Text>  yaw,	</Text>
+		<Text>  P − 	</Text>
+		<Text>  pitch,	</Text>
+		<Text>  R − 	</Text>
+		<Text>  roll</Text>
+		<Text>− robust	</Text>
+		<Text>  logistic	</Text>
+		<Text>  normalization	</Text>
+		<Text>  function	</Text>
+		<Text>  L(d)	</Text>
+		<Text>  </Text>
+		<Text>Temporal	</Text>
+		<Text>  continuity:	</Text>
+		<Text>  </Text>
+		<Text>€j	</Text>
+		<Text>  appearance	</Text>
+		<Text>  dist.	</Text>
+		<Text>  between	</Text>
+		<Text>  frame	</Text>
+		<Text>  i -­‐1	</Text>
+		<Text>  and	</Text>
+		<Text>  	</Text>
+		<Text>  </Text>
+		<Text>Acknowledgments€ :	</Text>
+		<Text>  This	</Text>
+		<Text>  work	</Text>
+		<Text>  was	</Text>
+		<Text>  supported	</Text>
+		<Text>  in	</Text>
+		<Text>  part	</Text>
+		<Text>  by	</Text>
+		<Text>  Adobe	</Text>
+		<Text>  and	</Text>
+		<Text>  the	</Text>
+		<Text>  University	</Text>
+		<Text>  of	</Text>
+		<Text>  Washington	</Text>
+		<Text>  Animation	</Text>
+		<Text>  Research	</Text>
+		<Text>  </Text>
+		<Text>Labs.	</Text>
+		<Text>  We	</Text>
+		<Text>  gratefully	</Text>
+		<Text>  acknowledge	</Text>
+		<Text>  Jason	</Text>
+		<Text>  Saragih	</Text>
+		<Text>  for	</Text>
+		<Text>  providing	</Text>
+		<Text>  the	</Text>
+		<Text>  face	</Text>
+		<Text>  tracking	</Text>
+		<Text>  software.	</Text>
+		<Text>  Also,	</Text>
+		<Text>  in	</Text>
+		<Text>  our	</Text>
+		<Text>  experiments	</Text>
+		<Text>  we	</Text>
+		<Text>  used:	</Text>
+		<Text>  </Text>
+		<Text>-­‐ 	</Text>
+		<Text>  videos	</Text>
+		<Text>  of	</Text>
+		<Text>  Cameron	</Text>
+		<Text>  Diaz,	</Text>
+		<Text>  George	</Text>
+		<Text>  Clooney	</Text>
+		<Text>  and	</Text>
+		<Text>  John	</Text>
+		<Text>  Malkovich	</Text>
+		<Text>  downloaded	</Text>
+		<Text>  from	</Text>
+		<Text>  YouTube	</Text>
+		<Text>  and	</Text>
+		<Text>  mefeedia.com	</Text>
+		<Text>  </Text>
+		<Text>-­‐ 	</Text>
+		<Text>  a	</Text>
+		<Text>  collection	</Text>
+		<Text>  of	</Text>
+		<Text>  photos	</Text>
+		<Text>  of	</Text>
+		<Text>  George	</Text>
+		<Text>  W.	</Text>
+		<Text>  Bush	</Text>
+		<Text>  from	</Text>
+		<Text>  the	</Text>
+		<Text>  LFW	</Text>
+		<Text>  face	</Text>
+		<Text>  database.	</Text>
+		<Text>  	</Text>
+		<Text>  </Text>
+	</Panel>
+
+</Poster>

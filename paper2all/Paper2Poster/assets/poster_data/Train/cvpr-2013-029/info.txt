@@ -1,0 +1,101 @@
+<Poster Width="1734" Height="1115">
+	<Panel left="19" right="135" width="489" height="280">
+		<Text>Motivation</Text>
+		<Text>Realistic unlabeled videos are “untrimmed” to temporal regions of</Text>
+		<Text>interest, and each video contains multiple actions.</Text>
+		<Text>This yields unlabeled feature distribution where useful and</Text>
+		<Text>redundant candidates are hard to distinguish for active learning.</Text>
+		<Figure left="77" right="260" width="382" height="152" no="1" OriWidth="0.390751" OriHeight="0.129133
+" />
+	</Panel>
+
+	<Panel left="18" right="427" width="490" height="148">
+		<Text>Main Idea</Text>
+		<Text>• We introduce a detection-based active learning approach to select</Text>
+		<Text>videos for annotation, while accounting for their untrimmed nature.</Text>
+		<Text>Voting-based detector is robust to partial evidence and supports fast</Text>
+		<Text>incremental updates during active learning.</Text>
+		<Text>• Learn accurate action recognition models with fewer annotations.</Text>
+	</Panel>
+
+	<Panel left="17" right="585" width="491" height="525">
+		<Text>Hough-based Action Detector</Text>
+		<Text>Building the Detector</Text>
+		<Text>• Extract HoG/HoF features at STIPs detected in training videos and</Text>
+		<Text>build Hough tables, and sort words by discriminative power.</Text>
+		<Figure left="23" right="699" width="485" height="142" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>Applying the Detector to a Novel Video</Text>
+		<Text>• Use the Hough table entries to vote on the probable action centers</Text>
+		<Text>• Reduces number of candidate intervals per video for active selection</Text>
+		<Figure left="22" right="919" width="484" height="167" no="3" OriWidth="0" OriHeight="0
+" />
+		<Text> [Similar to detectors of Willems et al., BMVC 2009; Yao et al., CVPR 2010]</Text>
+	</Panel>
+
+	<Panel left="523" right="133" width="610" height="599">
+		<Text>Active Selection of Untrimmed Videos</Text>
+		<Text>We seek the unlabeled video that, if used to augment the action detector, will more</Text>
+		<Text>confidently localize actions in all unlabeled videos.</Text>
+		<Text>where is the training set, = {+1,−1} is the set of possible labels, and</Text>
+		<Text>unlabeled video has been given label .denotes that the</Text>
+		<Text>• Treating the unlabeled video as positive, we score the value of probable action intervals</Text>
+		<Text>in the video to the current detector :</Text>
+		<Text>• Treating as negative,</Text>
+		<Figure left="712" right="388" width="280" height="34" no="4" OriWidth="0" OriHeight="0
+" />
+		<Text>where VALUE is our novel entropy-based detector confidence defined below.</Text>
+		<Figure left="550" right="469" width="565" height="251" no="5" OriWidth="0.387283" OriHeight="0.151921
+" />
+	</Panel>
+
+	<Panel left="520" right="735" width="611" height="367">
+		<Text>Estimating Detector Confidence with Space-Time Entropy</Text>
+		<Text>•Quantize unlabeled video’s 3D vote space and compute normalized entropy</Text>
+		<Text>•A vote space with good cluster(s) indicates consensus on the location(s) of the action</Text>
+		<Figure left="631" right="830" width="198" height="154" no="6" OriWidth="0.178035" OriHeight="0.107685
+" />
+		<Figure left="829" right="833" width="223" height="155" no="7" OriWidth="0.176879" OriHeight="0.106792
+" />
+		<Text>Using this entropy-based uncertainty metric , we define the confidence of a detector</Text>
+		<Text>in localizing actions on the entire unlabeled set :•</Text>
+	</Panel>
+
+	<Panel left="1143" right="134" width="565" height="165">
+		<Text>Annotations</Text>
+		<Text>Our interface that</Text>
+		<Text>annotators use to</Text>
+		<Text>label action intervals</Text>
+		<Text>in the actively</Text>
+		<Text>requested videos.</Text>
+		<Text>Available on the</Text>
+		<Text>project webpage.</Text>
+		<Figure left="1301" right="141" width="408" height="154" no="8" OriWidth="0.380347" OriHeight="0.119303
+" />
+	</Panel>
+
+	<Panel left="1143" right="307" width="563" height="795">
+		<Text>Results</Text>
+		<Text>Hollywood (8 classes)</Text>
+		<Figure left="1181" right="372" width="504" height="159" no="9" OriWidth="0.37341" OriHeight="0.077748
+" />
+		<Text>UT Interaction (6 classes)</Text>
+		<Figure left="1148" right="582" width="263" height="138" no="10" OriWidth="0.259538" OriHeight="0.077748
+" />
+		<Text>MSR Actions 1 (3 classes)</Text>
+		<Figure left="1410" right="574" width="300" height="150" no="11" OriWidth="0.263584" OriHeight="0.0795353
+" />
+		<Text>• Passive < Active: Annotation effort saved by intelligent label requests.</Text>
+		<Text>• Active Classifier < Ours: Accounting for untrimmed nature of video is critical.</Text>
+		<Text>Active Entropy < Ours: Simply estimating individual video uncertainty is insufficient.</Text>
+		<Text>• Active GT-Ints > Active Pred-Ints: Room for improvement in interval estimates.</Text>
+		<Figure left="1177" right="827" width="515" height="85" no="12" OriWidth="0.368786" OriHeight="0.0397676
+" />
+		<Text> UT Interaction</Text>
+		<Figure left="1264" right="935" width="340" height="82" no="13" OriWidth="0.224855" OriHeight="0.038874
+" />
+		<Text> MSR Actions 1</Text>
+		<Text>Our active method achieves good accuracy using much less annotations.</Text>
+	</Panel>
+
+</Poster>

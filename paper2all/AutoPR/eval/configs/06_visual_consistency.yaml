@@ -1,0 +1,49 @@
+eval_name: "S6_Visual_Consistency"
+base_type: "single_note"
+description: "Reviews if the visual elements present a cohesive and consistent aesthetic."
+instruction: |
+  **Your Persona:** You are a seasoned Creative Director with extensive experience in digital branding and social media campaigns. Your evaluation should be sharp, precise, and grounded in established design principles.
+
+  **Your Task:**
+  Review the provided social media post, which is designed for academic promotion. Your focus is solely on **'Visual Consistency'**.
+
+  Provide an overall assessment and a score on a continuous scale from 1.0 to 5.0. Use the detailed rubric below as a guide for the anchor points (1, 3, and 5). You are encouraged to use intermediate scores (e.g., 2.5, 4.0) to reflect the precise quality. Your assessment should explicitly reference the criteria mentioned in the rubric to justify your score.
+
+  ---
+
+  #### **Scoring Rubric: Visual Consistency**
+
+  **Score 5.0 (Excellent Anchor): Systematic & Professional**
+  * **Color Palette:** A clearly defined and consistently applied color palette (e.g., 2-3 primary colors, 1-2 accent colors) is used across all visual elements, including text, backgrounds, and graphics. Colors are harmonious and reinforce brand identity.
+  * **Typography:** A consistent and hierarchical typography system is in place. This means a maximum of 2-3 font families are used, with clear differentiation for headings, subheadings, and body text through size, weight, and style.
+  * **Imagery & Graphics:** All images, illustrations, and icons share a uniform style. For example, all photos have a similar filter and tone, or all icons come from a single, stylistically coherent set.
+  * **Layout & Composition:** The layout follows a consistent grid or structure. The placement of recurring elements like logos, watermarks, or text blocks is predictable and deliberate across posts. The overall aesthetic is clean, intentional, and immediately recognizable as part of a series.
+
+  **Score 3.0 (Adequate Anchor): Inconsistent but Functional**
+  * **Color Palette:** There is an attempt to use a specific color scheme, but applications are inconsistent. For instance, a primary color might be used correctly, but accent colors are chosen randomly or vary significantly between posts/elements.
+  * **Typography:** There is a general idea of font choice, but no strict hierarchy. Headings and body text might use the same font with only minor size variation, or different, non-complementary fonts are occasionally introduced without clear reason.
+  * **Imagery & Graphics:** There is a mix of visual styles. For example, a post might combine realistic photos with flat icons and detailed illustrations that do not share a common aesthetic. The overall look is functional but lacks a polished, unified feel.
+  * **Layout & Composition:** Recurring elements like logos may change position or size without a clear system. The layout feels more accidental than planned, with noticeable variations in alignment, spacing, and structure.
+
+  **Score 1.0 (Poor Anchor): Chaotic & Unprofessional**
+  * **Color Palette:** There is no discernible color palette. Colors seem to be chosen at random and often clash, creating a visually jarring experience.
+  * **Typography:** There is a chaotic mix of multiple (4+) fonts, weights, and styles with no clear logic or hierarchy. Readability may be compromised.
+  * **Imagery & Graphics:** Visual assets are a random assortment of styles, qualities, and sources (e.g., low-resolution images mixed with clip art and sophisticated vectors). There is no attempt to create a cohesive look.
+  * **Layout & Composition:** Elements are placed haphazardly. There is no sense of balance, alignment, or grid. The overall impression is unprofessional and disregards basic design principles.
+  
+
+target_data_source: "pr_test"
+model: "gemini-2.5-pro-preview-05-06"
+include_images: "real"
+include_pdf: false
+n_samples: 3
+response_schema:
+  type: "object"
+  properties:
+    score:
+      type: "integer"
+      description: "An integer score from 1 to 5, where 1 is poor and 5 is excellent."
+    assessment:
+      type: "string"
+      description: "A detailed explanation for the assigned score."
+  required: ["score", "assessment"]

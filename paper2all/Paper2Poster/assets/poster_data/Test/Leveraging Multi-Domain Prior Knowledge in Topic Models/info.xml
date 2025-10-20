@@ -1,0 +1,46 @@
+<Poster Width="886" Height="1253">
+	<Panel left="3" right="171" width="430" height="317">
+		<Text>Problem Definition: Given prior knowledge from multiple domains, improve topic modeling in the new domain.</Text>
+		<Text>Knowledge in the form of s-set containing words sharing the same semantic meaning, e.g., \{Light, Heavy, Weight\}.</Text>
+		<Text>A novel technique to transfer knowledge to improve topic models.</Text>
+		<Text>Existing Knowledge-based models.</Text>
+		<Text>DF-LDA [Andrzejewski et al., 2009], Seeded Model (e.g., [Mukherjee and Liu, 2012]).</Text>
+		<Text>Two shortcomings: 1) Incapable of handling multiple senses, and Collapsed Gibbs Sampling and 2) Adverse effect of Knowledge.</Text>
+	</Panel>
+
+	<Panel left="2" right="509" width="431" height="727">
+		<Text>MDK-LDA</Text>
+		<Text>Generative Process For each topic $t \in \{1,...,T\}$ \\ i. Draw a per topic distribution over s-sets, $\varphi_t \sim \text{Dir}(\beta)$ \\ ii. For each s-set $t \in\{1,...,T\}$ \\ a) Draw a per topic, per s-set distribution over words, $\eta_{t,s} \sim \text{Dir}(\gamma)$ \\ For each document $m \in {1,...,M}$ \\ i. Draw $\theta_m \sim \text{Dir}(\alpha)$ \\ ii. For each word $w_{m,n}$ , where $n \in {1,..., N_m }$ \\ a) Draw a topic $z_{m,n} \sim \text{Mult}(θ_m)$ \\ b) Draw an s-set $s_{m,n} \sim \text{Mult}(\varphi_{z_{m,n}})$ \\ c) Emit $w_{m,n} \sim \text{Mult (\eta_{z_{m,n},s_{m,n}} )$ \\</Text>
+		<Text>Plate Notation</Text>
+		<Figure left="34" right="819" width="367" height="238" no="1" OriWidth="0.304396" OriHeight="0.165161
+" />
+		<Text>Collapsed Gibbs Sampling</Text>
+		<Text>Blocked Gibbs Sampler Sample topic $z$ and s-set $s$ for word $w$ \begin{equation} \begin{split} P(z_i=t,s_i=s | \textbf{z}^{-i} \textbf{s}^{-i},\alpha,\beta,\gamma) \propto & \\ \frac{n_{m,t}^{-i}+\alpha}{\sum_{t^{'}=1}^T(n_{t,s}^{-i}+\alpha) }\times \frac{n_{t,s}^-i+\beta }{\sum_{s^{'}=1}^S(n_{t,s}^{-i}+\beta)}\times & \frac{n_{t,s,w_i}^{-i}+\gamma_s}{\sum_{v^{'}=1}^V(n_{t,s,v^{'}}^{ i}+\gamma_s)} \end{split} \end{equation} }</Text>
+	</Panel>
+
+	<Panel left="450" right="171" width="431" height="387">
+		<Text>Generalized Pólya Urn Model</Text>
+		<Text>Generalized Pólya urn model [Mahmoud, 2008]</Text>
+		<Text>When a ball is drawn, that ball is put back along with a certain number of balls of similar colors.</Text>
+		<Text>Promoting s-set as a whole</Text>
+		<Text>If a ball of color w is drawn, we put back $A_{s,w^{'},w}$ balls of each color $w^{'} \in {1,...,V}$ where w and $w^{'}$ share s-set $s$. \begin{equation} A_{s,w^{'},w}=\left\{ \begin{array}{ll} 1 & w=w^{'}\\ \sigma & w \in s, w^{'} \in s, w \neq w^{'}\\ 0 & \text{otherwise} \end{array} \right. \end{equation}</Text>
+		<Text>Collapsed Gibbs Sampling \begin{equation} \begin{split} P(z_i=t,s_i=s | \textbf{z}^{-i},\textbf{s}^{-i},\alpha,\beta,\gamma, A) \propto \frac{n_{m,t}^{-i}+\alpha}{\sum_{t^{'}=1}^T(n_{t,s}^{ i}+\alpha) } & \\ \times\frac{\sum_{w_{'}=1}^V \sum_{v_{'}=1}^V A_{s,v_{'},w_{'}}*n_{t,s,v^{'}}^{-i}+\beta {\sum_{s^{'}=1}^S(n_{t,s}^{-i}+\beta)}\times\frac{n_{t,s,w_i}^{ i}+\gamma_s}{\sum_{v^{'}=1}^V(n_{t,s,v^{'}}^{-i}+\gamma_s)} & \end{split} \end{equation}</Text>
+	</Panel>
+
+	<Panel left="450" right="573" width="429" height="661">
+		<Text>Experiments</Text>
+		<Text>Datasets: reviews from six domains from Amazon.com.</Text>
+		<Text>Baseline Models</Text>
+		<Text>LDA [Blei et al., 2003], LDA\_GPU [Mimno et al., 2011], and DF-LDA [Andrzejewski et al., 2009].</Text>
+		<Text>Topic Discovery Results</Text>
+		<Text>Evaluation measure: Precision @ n (p @ n).</Text>
+		<Text>Quantitative results in Table 1, Qualitative results in Table </Text>
+		<Text>Objective Evaluation</Text>
+		<Text>Topic Coherence [Mimno et al., 2011].</Text>
+		<Figure left="454" right="866" width="425" height="94" no="2" OriWidth="0.2532" OriHeight="0.0782796
+" />
+		<Figure left="451" right="989" width="430" height="203" no="3" OriWidth="0.375626" OriHeight="0.132043
+" />
+	</Panel>
+
+</Poster>

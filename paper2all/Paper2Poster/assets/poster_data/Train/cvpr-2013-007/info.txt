@@ -1,0 +1,84 @@
+<Poster Width="1896" Height="883">
+	<Panel left="9" right="126" width="595" height="742">
+		<Figure left="57" right="138" width="45" height="323" no="1" OriWidth="0" OriHeight="0
+" />
+		<Figure left="121" right="135" width="46" height="324" no="2" OriWidth="0" OriHeight="0
+" />
+		<Figure left="192" right="132" width="397" height="335" no="3" OriWidth="0.399422" OriHeight="0.281055
+" />
+		<Text>Motivation:</Text>
+		<Text>We can recognize persons across camera views from their local</Text>
+		<Text>distinctive regions</Text>
+		<Text>Human salience</Text>
+		<Text>can identify important local features</Text>
+		<Text>is robust to the change of view points</Text>
+		<Text>itself is a useful descriptor for pedestrian matching</Text>
+		<Text>Distinct patches are considered as salient only when they are</Text>
+		<Text>matched and distinct in both camera views</Text>
+		<Text>These regions are discarded as outliers by existing methods or</Text>
+		<Text>have little effect on person matching because of small sizes</Text>
+		<Text>Contribution:</Text>
+		<Text>An unsupervised framework to extract distinctive features for person</Text>
+		<Text>re-identiﬁcation.</Text>
+		<Text>Patch matching is utilized with adjacency constraint for handling the</Text>
+		<Text>misalignment problem caused by viewpoint change and pose variation.</Text>
+		<Text>Human salience is learned in an unsupervised way.</Text>
+		<Text>Code is available at</Text>
+		<Text>http://mmlab.ie.cuhk.edu.hk/projects/project_salience_reid/index.html</Text>
+	</Panel>
+
+	<Panel left="615" right="126" width="607" height="741">
+		<Figure left="671" right="140" width="167" height="166" no="4" OriWidth="0.146821" OriHeight="0.12109
+" />
+		<Figure left="917" right="144" width="281" height="159" no="5" OriWidth="0.247399" OriHeight="0.106792
+" />
+		<Text>Dense Correspondence:</Text>
+		<Text> Features: dense color histogram + dense SIFT</Text>
+		<Text> Adjacency constrained search: simple patch matching</Text>
+		<Text>Unsupervised Salience Learning:</Text>
+		<Text> Definition: Salient regions are discriminative in making a person standing</Text>
+		<Text>out from their companions, and reliable in finding the same person across</Text>
+		<Text>camera views.</Text>
+		<Text> Assumption: fewer than half of the persons in a reference set share</Text>
+		<Text>similar appearance if a region is salient. Hence, we set k = Nr/2. Nr is the</Text>
+		<Text>number of images in reference set.</Text>
+		<Text>• K-Nearest Neighbor Salience:</Text>
+		<Text>• One-Class SVM Salience:</Text>
+		<Figure left="912" right="621" width="306" height="233" no="6" OriWidth="0.312139" OriHeight="0.175156
+" />
+	</Panel>
+
+	<Panel left="1235" right="125" width="637" height="743">
+		<Text>Matching for Re-identification</Text>
+		<Text> Bi-directional Weighted Matching</Text>
+		<Text> Complementary Combination</Text>
+		<Figure left="1650" right="137" width="225" height="128" no="7" OriWidth="0.282081" OriHeight="0.12109
+" />
+		<Text>Experimental Results:</Text>
+		<Figure left="1275" right="350" width="304" height="108" no="8" OriWidth="0.265318" OriHeight="0.075067
+" />
+		<Figure left="1600" right="349" width="226" height="108" no="9" OriWidth="0.265318" OriHeight="0.0978552
+" />
+		<Text>• VIPeR Dataset</Text>
+		<Figure left="1257" right="496" width="187" height="144" no="10" OriWidth="0.254335" OriHeight="0.093387
+" />
+		<Figure left="1448" right="466" width="233" height="181" no="11" OriWidth="0.360116" OriHeight="0.203307
+" />
+		<Figure left="1682" right="477" width="193" height="155" no="12" OriWidth="0.298266" OriHeight="0.182306
+" />
+		<Text>ETHZ Dataset</Text>
+		<Figure left="1422" right="649" width="149" height="51" no="13" OriWidth="0" OriHeight="0
+" />
+		<Figure left="1576" right="652" width="147" height="49" no="14" OriWidth="0" OriHeight="0
+" />
+		<Figure left="1728" right="650" width="149" height="51" no="15" OriWidth="0" OriHeight="0
+" />
+		<Figure left="1270" right="711" width="192" height="146" no="16" OriWidth="0.26474" OriHeight="0.135836
+" />
+		<Figure left="1472" right="707" width="191" height="165" no="17" OriWidth="0.264162" OriHeight="0.150581
+" />
+		<Figure left="1664" right="708" width="202" height="164" no="18" OriWidth="0.269364" OriHeight="0.148347
+" />
+	</Panel>
+
+</Poster>

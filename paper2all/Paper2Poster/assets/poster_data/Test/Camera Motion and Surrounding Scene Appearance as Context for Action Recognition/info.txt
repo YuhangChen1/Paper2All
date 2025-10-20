@@ -1,0 +1,119 @@
+<Poster Width="686" Height="1033">
+	<Panel left="24" right="158" width="314" height="204">
+		<Text>SUMMARY!</Text>
+		<Text>This work introduces a framework for recognizing human actions by</Text>
+		<Text>incorporating a new set of visual cues that represent the context of the</Text>
+		<Text>action:!</Text>
+		<Figure left="45" right="224" width="269" height="135" no="1" OriWidth="0.534104" OriHeight="0.204647
+" />
+	</Panel>
+
+	<Panel left="24" right="362" width="315" height="58">
+		<Text>CONTRIBUTIONS!</Text>
+		<Text>Weak foreground-background segmentation approach. </Text>
+		<Text>• Study of the global camera motion as a cue for action recognition.</Text>
+		<Text>Incorporating appearance from static background.</Text>
+	</Panel>
+
+	<Panel left="23" right="422" width="317" height="553">
+		<Text>METHODOLOGY!</Text>
+		<Text>This work follows the conventional action recognition pipeline. Given a set of</Text>
+		<Text>labeled videos, a set of features is extracted from each video, represented</Text>
+		<Text>using visual descriptors, and combined into a single video descriptor used to</Text>
+		<Text>train a multi-class classifier for action recognition.!</Text>
+		<Figure left="26" right="495" width="307" height="116" no="2" OriWidth="0.53815" OriHeight="0.15773
+" />
+		<Text>• Foreground-background separation: Assuming that a background</Text>
+		<Text>trajectory produces a small frame-to-frame displacement, we associate a</Text>
+		<Text>trajectory with the background if the overall displacement is more than three</Text>
+		<Text>pixels.!</Text>
+		<Figure left="36" right="667" width="292" height="106" no="3" OriWidth="0.53526" OriHeight="0.147453
+" />
+		<Text>• Global camera motion: We argue and show that the relationship between</Text>
+		<Text>an estimated camera motion and underlying action can be a useful cue for</Text>
+		<Text>discriminating certain action classes. As illustrated in the figure below, there</Text>
+		<Text>is a correlation between how the camera moves and the actor.!</Text>
+		<Figure left="53" right="836" width="252" height="135" no="4" OriWidth="0.534104" OriHeight="0.220286
+" />
+	</Panel>
+
+	<Panel left="346" right="159" width="316" height="299">
+		<Text>• Background-context appearance: Beyond local motion and appearance</Text>
+		<Text>properties, the surrounding in which an action is performed is a critical</Text>
+		<Text>component to recognize actions. As Figure below illustrates, the background</Text>
+		<Text>appearance plays an important role to discriminate the action Drumming in</Text>
+		<Text>the sense that the drummer needs a drum set to perform the action.!</Text>
+		<Figure left="375" right="232" width="256" height="117" no="5" OriWidth="0.531792" OriHeight="0.18588
+" />
+		<Text>• Implementation details: We follow two different Bag Of Feature</Text>
+		<Text>implementations as described in the Table below.!</Text>
+		<Figure left="363" right="388" width="275" height="75" no="6" OriWidth="0.42948" OriHeight="0.0437891
+" />
+	</Panel>
+
+	<Panel left="350" right="459" width="309" height="325">
+		<Text>EXPERIMENTAL RESULTS!</Text>
+		<Text>• Datasets: We use state-of-the-art human action datasets and their</Text>
+		<Text>corresponding protocols.!</Text>
+		<Text>• Impact of contextual features: We note that using Fisher vectors</Text>
+		<Text>consistently boost the performance of our contextual features. Also, our</Text>
+		<Text>experiments provide evidence that action recognition performance can be</Text>
+		<Text>improved when static background appearance and global camera motion is</Text>
+		<Text>incorporated with foreground features.!</Text>
+		<Text>Comparison with the state-of-the-art: We	</Text>
+		<Text>  set	</Text>
+		<Text>  side	</Text>
+		<Text>  by	</Text>
+		<Text>  side	</Text>
+		<Text>  our	</Text>
+		<Text>  method	</Text>
+		<Text>  with	</Text>
+		<Text>  recent	</Text>
+		<Text>  methods	</Text>
+		<Text>  that	</Text>
+		<Text>  address	</Text>
+		<Text>  the	</Text>
+		<Text>  same	</Text>
+		<Text>  applica5on	</Text>
+		<Text>  using	</Text>
+		<Text>  similar	</Text>
+		<Text>  representa5ons,	</Text>
+		<Text>  i.e.	</Text>
+		<Text>  methods	</Text>
+		<Text>  that	</Text>
+		<Text>  use	</Text>
+		<Text>  dense	</Text>
+		<Text>  trajectory	</Text>
+		<Text>  points	</Text>
+		<Text>  to	</Text>
+		<Text>  represent	</Text>
+		<Text>  video	</Text>
+		<Text>  sequences	</Text>
+		<Text>  [2,3,4]	</Text>
+		<Text>  in	</Text>
+		<Text>  the	</Text>
+		<Text>  Table	</Text>
+		<Text>  below.	</Text>
+		<Text>  	</Text>
+		<Text>  </Text>
+		<Figure left="351" right="647" width="302" height="135" no="7" OriWidth="0.479769" OriHeight="0.122431
+" />
+	</Panel>
+
+	<Panel left="347" right="789" width="314" height="187">
+		<Text>DISCUSSIONS!</Text>
+		<Text>• Contextual features: When combined with foreground trajectories, we show</Text>
+		<Text>that these features, can improve state-of-the-art recognition on challenging</Text>
+		<Text>action datasets.!</Text>
+		<Text>• Project page: http://www.cabaf.net/actioncue!</Text>
+		<Text>References:!</Text>
+		<Text>[1] Fabian Caba Heilbron, Ali Thabet, Juan Carlos Niebles, Bernard Ghanem. Camera Motion</Text>
+		<Text>and Surrounding Scene Appearance as Context for Action Recognition. ACCV, Singapore</Text>
+		<Text>2014.!</Text>
+		<Text>[2] Wang, H., Schmid, C. Action recognition with improved trajectories. ICCV, Sydney 2013.!</Text>
+		<Text>[3] Jiang, Y.G., Dai, Q., Xue, X., Liu, W., Ngo, C.W. Trajectory-based modeling of human</Text>
+		<Text>actions with motion reference points. ECCV, 2012.!</Text>
+		<Text>[4] Jain, M., J egou, H., Bouthemy, P.: Better exploiting motion for better action recognition. !</Text>
+	</Panel>
+
+</Poster>

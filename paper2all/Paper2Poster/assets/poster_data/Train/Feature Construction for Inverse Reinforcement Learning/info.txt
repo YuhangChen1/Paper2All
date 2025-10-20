@@ -1,0 +1,97 @@
+<Poster Width="1734" Height="1156">
+	<Panel left="17" right="234" width="542" height="370">
+		<Text>1. Introduction</Text>
+		<Text>Goal: given Markov Decision Process (MDP) M without its re-</Text>
+		<Text>ward function R, as well as example traces D from its optimal</Text>
+		<Text>policy, ﬁnd R.</Text>
+		<Text>Motivations: learning policies from examples, inferring goals,</Text>
+		<Text>specifying tasks by demonstration.</Text>
+		<Text>Challenge: many functions R ﬁt the examples, but many will not</Text>
+		<Text>generalize to unobserved states. Selecting compact set of features</Text>
+		<Text>that represent R is diﬃcult.</Text>
+		<Text>Solution: construct features to represent R from exhaustive list</Text>
+		<Text>of component features, using logical conjunctions of component</Text>
+		<Text>features represented as a regression tree.</Text>
+	</Panel>
+
+	<Panel left="16" right="623" width="542" height="514">
+		<Text>2. Background</Text>
+		<Text>Markov Decision Process: M = {S, A, θ, γ, R}</Text>
+		<Text>S – set of statesA – set of actions</Text>
+		<Text>γ – discount factorR – reward function</Text>
+		<Text>θ – state transition probabilities: θsas = P (s |s, a)</Text>
+		<Text>Optimal Policy: denotedmaximizes Et∗γR(s,a)|π,θttt=0∗π ,∞</Text>
+		<Text>Example Traces: D = {(s1,1 , a1,1 ), ..., (sn,T , an,T )}, where si,t is</Text>
+		<Text>thththe t state in the i trace, and ai,t is the optimal action in si,t .</Text>
+		<Text>Previous Work: most existing algorithms require a set of fea-</Text>
+		<Text>tures Φ to be provided, and ﬁnd a reward function that is a linear</Text>
+		<Text>combination of the features [1, 2, 3, 4]. Finding features that are</Text>
+		<Text>relevant and suﬃcient is diﬃcult. Furthermore, a linear combina-</Text>
+		<Text>tion is not always a good estimate for the reward.</Text>
+		<Text>Component Features: instead of a complete set of relevant fea-</Text>
+		<Text>tures, our method accepts an exhaustive list of component features</Text>
+		<Text>δ : S → Z. The algorithm ﬁnds a regression tree, with relevant</Text>
+		<Text>component features acting as tests, to represent the reward.</Text>
+	</Panel>
+
+	<Panel left="595" right="235" width="541" height="515">
+		<Text>3. Algorithm</Text>
+		<Text>Overview: Iteratively construct feature set Φ and reward R, al-</Text>
+		<Text>ternating between an optimization phase that determines a re-</Text>
+		<Text>ward, and a ﬁtting phase that determines the features.</Text>
+		<Text>Optimization Phase: Find reward R “close” to current features</Text>
+		<Text>Φ, under which examples D are part of the optimal policy. Letting</Text>
+		<Text>P rojΦ R denote the closest reward to R that is a linear combination</Text>
+		<Text>of features Φ, we ﬁnd R as:</Text>
+		<Text>Note that R can “step outside” of the current features to satisfy</Text>
+		<Text>the examples, if the current features Φ are insuﬃcient.</Text>
+		<Text>Fitting Phase: Fit a regression tree to R, with component</Text>
+		<Text>features δ acting as tests at tree nodes. Indicators for leaves of</Text>
+		<Text>the tree are the new features Φ. Only component features that are</Text>
+		<Text>relevant to the structure of R are selected, and leaves correspond</Text>
+		<Text>to their logical conjunctions.</Text>
+	</Panel>
+
+	<Panel left="594" right="765" width="545" height="374">
+		<Text>4. Illustrated Example</Text>
+		<Figure left="599" right="837" width="527" height="288" no="1" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="1174" right="236" width="542" height="640">
+		<Text>5. Experimental Results</Text>
+		<Text>Gridworld transfer comparison: 64×64 gridworld with colored objects placed at</Text>
+		<Text>random. Component features give distance to object of speciﬁc color. Many</Text>
+		<Text>colors are irrelevant. Transfer performance corresponds to learning reward</Text>
+		<Text>on one random gridworld, and evaluating on 10 others (with random object</Text>
+		<Text>placement). Comparing FIRL (proposed algorithm), Abbeel & Ng [1], MMP</Text>
+		<Text>[3], LPAL [4]. FIRL outperforms prior methods, which cannot distinguish</Text>
+		<Text>relevant objects from irrelevant ones.</Text>
+		<Figure left="1181" right="592" width="516" height="143" no="2" OriWidth="0.632065" OriHeight="0.100713
+" />
+		<Text>Highway driving: “lawful” policy avoids going fast in right lane, “outlaw”</Text>
+		<Text>policy drives fast, but slows down near police. Features indicate presence</Text>
+		<Text>of police, current lane, speed, distance to cars, etc. Logical connection be-</Text>
+		<Text>tween speed and lanes/police cars cannot be captured by linear combina-</Text>
+		<Text>tions, and prior methods cannot match the expert’s speed while also match-</Text>
+		<Text>ing feature expectations. Videos of the learned policies can be found at:</Text>
+		<Text>http://graphics.stanford.edu/projects/firl/index.htm.</Text>
+	</Panel>
+
+	<Panel left="1173" right="895" width="545" height="243">
+		<Text>6. References</Text>
+		<Text>[1] P. Abbeel and A. Y. Ng. Apprenticeship learning via inverse reinforcement learn-</Text>
+		<Text>ing. In ICML ’04: Proceedings of the 21st International Conference on Machine</Text>
+		<Text>Learning. ACM, 2004.</Text>
+		<Text>[2] A. Y. Ng and S. J. Russell. Algorithms for inverse reinforcement learning. In</Text>
+		<Text>ICML ’00: Proceedings of the 17th International Conference on Machine Learn-</Text>
+		<Text>ing, pages 663–670. Morgan Kaufmann Publishers Inc., 2000.</Text>
+		<Text>[3] N. D. Ratliﬀ, J. A. Bagnell, and M. A. Zinkevich. Maximum margin planning. In</Text>
+		<Text>ICML ’06: Proceedings of the 23rd International Conference on Machine Learn-</Text>
+		<Text>ing, pages 729–736. ACM, 2006.</Text>
+		<Text>[4] U. Syed, M. Bowling, and R. E. Schapire. Apprenticeship learning using linear</Text>
+		<Text>programming. In ICML ’08: Proceedings of the 25th International Conference</Text>
+		<Text>on Machine Learning, pages 1032–1039. ACM, 2008.</Text>
+	</Panel>
+
+</Poster>

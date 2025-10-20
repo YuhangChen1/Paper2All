@@ -1,0 +1,61 @@
+<Poster Width="1734" Height="2452">
+	<Panel left="3" right="285" width="862" height="234">
+		<Text>Motivation</Text>
+		<Text>Aim: Visualize tree-structured statistical data</Text>
+		<Text>Question: What color palettes to use?</Text>
+	</Panel>
+
+	<Panel left="2" right="521" width="861" height="1877">
+		<Text>Method</Text>
+		<Text>Color space: Hue - Chroma- Luminance (HCL)</Text>
+		<Text>Designed to control human perception. [1, 2]</Text>
+		<Text>Branch in tree: controlled by Hue values</Text>
+		<Text>Hue range recursively assigned, starting with the root node:</Text>
+		<Figure left="44" right="879" width="801" height="820" no="1" OriWidth="0.403691" OriHeight="0.328431
+" />
+		<Text> Figure 1. Assignment of Hue values</Text>
+		<Text>- Assigned hue ranges of siblings are permuted to prevent perceptual order.</Text>
+		<Text>Permutation order is based on [1, 3, 5, 2, 4] permutation.</Text>
+		<Text>- Middle fractions f are kept to discriminate different branches.</Text>
+		<Text>Choice of f trade-off between:</Text>
+		<Text>1) discrimination of main branches (low f) or</Text>
+		<Text>2) discrimination of leaf nodes (high f).</Text>
+		<Text>Tree depth: controlled by Chroma and Luminance values</Text>
+		<Text>- Luminance decreases with tree depth</Text>
+		<Text>- Chroma increases with tree depth</Text>
+		<Text>(More intense colors helps in</Text>
+		<Text>discriminating leaf nodes)</Text>
+		<Figure left="514" right="2108" width="304" height="169" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text> Figure 2. Analogous to ocean water</Text>
+	</Panel>
+
+	<Panel left="868" right="284" width="863" height="803">
+		<Text>Example tree structure</Text>
+		<Text>European classification system of economic activity (NACE).</Text>
+		<Text>Section F (Construction)</Text>
+		<Figure left="1028" right="485" width="505" height="488" no="3" OriWidth="0.359285" OriHeight="0.272727
+" />
+		<Text> Figure 2. Tree structure of economic sector F of NACE</Text>
+	</Panel>
+
+	<Panel left="867" right="1091" width="862" height="1075">
+		<Text>Applications</Text>
+		<Figure left="919" right="1187" width="746" height="424" no="4" OriWidth="0.385236" OriHeight="0.16934
+" />
+		<Text> Figure 3. Treemap of fictious turnover values per economic sector</Text>
+		<Figure left="892" right="1709" width="792" height="367" no="5" OriWidth="0.371972" OriHeight="0.143048
+" />
+		<Text> Figure 4. Stacked area chart and bar chart of fictious turnover values</Text>
+	</Panel>
+
+	<Panel left="868" right="2165" width="862" height="262">
+		<Text>References</Text>
+		<Text>[1] R. Ihaka. Colour for presentation graphics. In Proceedings of the 3rd</Text>
+		<Text>International Workshop on Distributed Statistical Computing, Vienna</Text>
+		<Text>Austria, 2003.</Text>
+		<Text>[2] A. Zeileis, K. Hornik, and P. Murrell. Escaping rgbland: Selectingcolors for</Text>
+		<Text>statistical graphics. Comput. Stat. Data Anal., 53(9):3259–3270, July 2009.</Text>
+	</Panel>
+
+</Poster>

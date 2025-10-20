@@ -1,0 +1,11 @@
+\begin{abstract}
+Diffusion large language models (dLLMs) present a promising alternative to dominant autoregressive models (ARMs) by the ability of parallel decoding at the expense of substantial computation and memory costs. 
+Specifically, the cache mechanism for bidirectional attention in dLLMs demands large memory footprint, restricting their ability to handle long contexts under resource-limited settings. 
+Existing cache eviction strategies are designed for ARMs and ignore the unique characteristics of dLLMs, thus leading to unsatisfactory performance.
+To address these challenges, we introduce \emph{MaskKV}, a training-free cache eviction framework tailored to dLLMs,  focusing on the effect of mask tokens in dLLMs. 
+\emph{MaskKV} is built on two key innovations: 
+(1) a mask-query guided scoring mechanism that leverages attention weights to identify and evict less critical prompt tokens for each head; 
+(2) an adaptive cache budgeting strategy that improves efficiency by reducing allocation in intermediate layers and concentrating resources on prompt-preferring heads. 
+On LLaDA with \emph{MaskKV}, compressing the KV cache to only 256 pairs (less than 5\% of tokens) retains 94\% of the full-cache performance on LongBench and achieves up to 31 $\times$ acceleration at 32k prompt length. 
+\emph{The code is publicly available as an open-source project.}\footnote{\url{https://github.com/jianuo-huang/MaskKV}}
+\end{abstract}

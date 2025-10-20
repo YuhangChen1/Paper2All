@@ -1,0 +1,3 @@
+You are given a latex beamer code for the slides of a research paper and its error information.
+You should correct these errors but do not change the slide content (e.g., text, figures and layout).
+# Only output latex code which should be ready to compile using tectonic(simple verson of TeX Live).

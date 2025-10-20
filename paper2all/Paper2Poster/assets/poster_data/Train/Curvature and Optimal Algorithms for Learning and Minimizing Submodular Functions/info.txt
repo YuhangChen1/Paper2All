@@ -1,0 +1,136 @@
+<Poster Width="1003" Height="1337">
+	<Panel left="3" right="117" width="491" height="175">
+		<Text>Overview</Text>
+		<Text>Introduce the notion of curvature, to provide better connections between theory</Text>
+		<Text>and practice.</Text>
+		<Text>Study the role of curvature in:I</Text>
+		<Text>I Study the role of curvature in:</Text>
+		<Text>Approximating submodular functions everywhere</Text>
+		<Text>Learning Submodular functions</Text>
+		<Text>Constrained Minimization of submodular functions.</Text>
+		<Text>I Provide improved curvature-dependent worst case approximation guarantees</Text>
+		<Text>and matching hardness results</Text>
+	</Panel>
+
+	<Panel left="3" right="297" width="491" height="209">
+		<Text>Curvature of a Submodular function</Text>
+		<Text>Define three variants of curvature of a monotone submodular functionas:I</Text>
+		<Text>Proposition: κˆf (S) ≤ κf (S) ≤ κf .I</Text>
+		<Text>I Captures the linearity of a submodular function.</Text>
+		<Text>I A more gradual characterization of the hardness of</Text>
+		<Text>various problems.</Text>
+		<Text>I Investigated for submodular maximization</Text>
+		<Text>(Conforti & Cornuejols, 1984).</Text>
+		<Figure left="353" right="387" width="100" height="86" no="1" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="3" right="714" width="490" height="596">
+		<Text>Approximating Submodular functions Everywhere</Text>
+		<Text>Problem:Given a submodular function f in form of a value oracle,</Text>
+		<Text>find an approximation ˆf (within polynomial time and space), such that</Text>
+		<Text>ˆf (X ) ≤ f (X ) ≤ α1(n)ˆf (X ), ∀X ⊆ V for a polynomial α1(n).</Text>
+		<Text>We provide a blackbox technique to transform bounds into curvature dependent</Text>
+		<Text>ones.I</Text>
+		<Text>κ</Text>
+		<Text>I Main technique: Approximate the curve-normalized version f as ˆf κ, such that</Text>
+		<Text>ˆf κ(X ) ≤ f κ(X ) ≤ α(n)ˆf κ(X ).</Text>
+		<Figure left="38" right="897" width="438" height="61" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>Ellipsoidal Approximation:I</Text>
+		<Text>I The Ellipsoidal Approximation algorithm of Goemans et al, provides a function</Text>
+		<Text>p√</Text>
+		<Text>of the form w f (X ) with an approximation factor of α1(n) = O( n log n)).</Text>
+		<Text>I Corollary: There exists a function of the form,</Text>
+		<Text>Lower bound: Given a submodular function f with curvature κf , there does not</Text>
+		<Text>exist any polynomial-time algorithm that approximates f within a factor of</Text>
+		<Text>n1/2−</Text>
+		<Text>, for any  > 0.</Text>
+		<Text>1+(n1/2−−1)(1−κ )fI</Text>
+		<Text>Modular Upper Bound:I</Text>
+		<Text>Pmˆ (X ) =I A simplest approximation (and upper bound) is f</Text>
+		<Text>j∈X f (j).</Text>
+		<Text>j∈X </Text>
+		<Text>I Lemma: Given a monotone submodular function f , it holds that,</Text>
+		<Text>This bound is tight for the class of modularapproximations.I</Text>
+		<Text>Pka</Text>
+		<Text>I Corollary: The class of functions, f (X ) =λ[w(X)],λ≥0,satisfiesiiii=1</Text>
+		<Text>Pf (X ) ≤ </Text>
+		<Text>j∈X f (j) ≤ |X |1−af (X ).</Text>
+	</Panel>
+
+	<Panel left="500" right="116" width="491" height="394">
+		<Text>Learning Submodular Functions</Text>
+		<Text>Problem: Given i.i.d training samples {(Xi , f (Xi )}m</Text>
+		<Text>i=1 from a distribution D, learn</Text>
+		<Text>an approximation ˆf (X ) that is, with probability 1 − δ, within a multiplicative factor of</Text>
+		<Text>α2(n) from f .</Text>
+		<Text>Balcan & Harvey proposeanalgorithmwhichPMAClearnsanysubmodular√</Text>
+		<Text>function upto a factor of n + 1.</Text>
+		<Text>We improve this bound to a curvature dependent one.</Text>
+		<Text>Lemma: Let f be a monotone submodular function for which we know an upper</Text>
+		<Text>bound on its curvature κf and the singleton weights f (j) for all j ∈ V</Text>
+		<Text>√ . There is</Text>
+		<Text>n+1.an poly-time algorithm which PMAC-learns f within a factor of </Text>
+		<Text>1+(√</Text>
+		<Text>n+1−1)(1−κ)</Text>
+		<Text>We also provide an algorithm which does not need the singleton weights.</Text>
+		<Text>Lemma: If f is a monotone submodular function with known curvature (or a</Text>
+		<Text>known upper bound) κˆf (X ), ∀X ⊆ V , then for every , δ > 0 there is an algorithm</Text>
+		<Text>|X |which PMAC learns f (X ) within a factor of 1 + </Text>
+		<Text>1+(|X |−1)(1−κˆf (X )) .</Text>
+		<Text>Pka</Text>
+		<Text>I Corollary: The class of functions f (X ) =λ[w(X)], λi ≥ 0, can be learnt toii=1 i</Text>
+		<Text>a factor of |X |1−a.</Text>
+		<Text>I Lower bound: Given a class of submodular functions with curvature κf , there</Text>
+		<Text>does not exist a polynomial-time algorithm that is guaranteed to PMAC-learn f</Text>
+		<Text>1/3−0</Text>
+		<Text>n0within a factor of </Text>
+		<Text>1+(n1/3−,forany>0.0−1)(1−κ )</Text>
+	</Panel>
+
+	<Panel left="500" right="515" width="493" height="666">
+		<Text>Constrained Submodular Minimization</Text>
+		<Text>Problem: Minimize a submodular function f over a family C of feasible sets, i.e.,</Text>
+		<Text>minX ∈C f (X ). C could be constraints of the form cardinality (knapsack) constraints,</Text>
+		<Text>cuts, paths, matchings, trees etc.</Text>
+		<Text>Main framework is to choose a surrogate function ˆf , and optimize it instead of f .I</Text>
+		<Text>I Ellipsoidal Approximation based (EA):</Text>
+		<Text>I Use the curvature based Ellipsoidal Approximation as the surrogate function.</Text>
+		<Text>Lemma: For a submodular function with curvature κf < 1, algorithm EA will</Text>
+		<Text>b that satisfiesreturn a solution X</Text>
+		<Text>Modular Upper bound based:</Text>
+		<Text>Use the simple modular upper bound as a surrogate.</Text>
+		<Text>P</Text>
+		<Text>bI Lemma: Let X ∈ C be the solution for minimizing</Text>
+		<Text>j∈X f (j) over C. Then</Text>
+		<Text>Pka</Text>
+		<Text>I Corollary: The class of functions, f (X ) =λ[w(X)], λi ≥ 0, can beii=1 i</Text>
+		<Text>minimized upto a factor of |X ∗|1−a.</Text>
+		<Figure left="555" right="864" width="396" height="106" no="3" OriWidth="0.639884" OriHeight="0.118856
+" />
+		<Text>Effect of Curvature: Polynomial change in the bounds!I</Text>
+		<Text>I Experiments:</Text>
+		<Text>¯</Text>
+		<Text>I Define a function fR (X ) = κ min{|X ∩ R| + β, |X |, α} + (1 − κ)|X |.</Text>
+		<Text>1/2+</Text>
+		<Text>I Choose α = nand β = n2, and C = {X : |X | ≥ α}.</Text>
+		<Figure left="523" right="1062" width="138" height="110" no="4" OriWidth="0.14104" OriHeight="0.0808758
+" />
+		<Figure left="673" right="1062" width="137" height="108" no="5" OriWidth="0.14104" OriHeight="0.0822163
+" />
+		<Figure left="822" right="1067" width="140" height="103" no="6" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="501" right="1187" width="492" height="118">
+		<Text>Acknowledgements</Text>
+		<Text>Based upon work supported by National Science Foundation Grant No. IIS-1162606,</Text>
+		<Text>and by a Google, a Microsoft, and an Intel research award. This was also funded in part</Text>
+		<Text>by Office of Naval Research under grant no. N00014-11-1-0688, NSF CISE Expeditions award</Text>
+		<Text>CCF-1139158, DARPA XData Award FA8750-12-2-0331, and gifts from Amazon Web Services,</Text>
+		<Text>Google, SAP, Blue Goji, Cisco, Clearstory Data, Cloudera, Ericsson, Facebook, General</Text>
+		<Text>Electric, Hortonworks, Intel, Microsoft, NetApp, Oracle, Samsung, Splunk, VMware and Yahoo!</Text>
+	</Panel>
+
+</Poster>

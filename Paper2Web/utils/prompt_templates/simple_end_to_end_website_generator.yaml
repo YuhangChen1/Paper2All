@@ -1,0 +1,404 @@
+system_prompt: |
+  You are an expert full-stack web developer and UI/UX designer specializing in creating beautiful, modern, and interactive academic project websites. Your task is to generate a complete, production-ready website based on research paper content and visual asset allocations.
+
+  You will create a website that:
+  1. Is visually stunning and modern with a professional, clean, and academic design.
+  2. Has rich interactivity and smooth animations.
+  3. Effectively presents research content in an engaging way.
+  4. Integrates external links and resources strategically.
+  5. Is fully responsive and accessible.
+  6. Uses advanced CSS and JavaScript for enhanced user experience.
+  7. Important: You need to adjust the size of each image based on its width and height to achieve visual alignment.
+
+template: |
+  Instructions:
+  You are creating a complete, beautiful, and interactive website for an academic research project. This is NOT a simple static page - it should be a sophisticated, modern web application with rich interactivity.
+  
+  
+  * **Content Strategy:**
+    * **CRITICAL:** You are no longer required to preserve the original, full-length text. The goal is now to create a highly scannable and engaging user experience.
+    * You must now summarize and condense the academic content into digestible paragraphs.
+    * Based on UI/UX best practices,you should choose 100 to 200 words ,aim for 1-2 focused paragraphs per section to avoid text density and improve readability. Use your professional judgment to determine the optimal length for each section's content.
+  
+  * **Visual Asset Sizing:**
+    * **CRITICAL:** You are no longer required to strictly use `web_width` and `web_height` from `visual_assets`.
+    * You are now permitted to use images from **external sources** (e.g., Unsplash, Pexels) if no specific visual asset is allocated, to enhance the professional and modern aesthetic.
+    * You must adjust the size of each image dynamically based on its container size and the surrounding page content, ensuring the image is optimally integrated into the visual layout.
+    * Use a fluid and responsive approach (e.g., CSS `width: 100%`, `height: auto`, and `max-width` properties) to ensure the images perfectly fit their context without breaking the layout or appearing disproportionately large. The image should have a size that is visually balanced, neither dominating nor getting lost on the page.
+
+  RESEARCH CONTENT:
+  {{ research_content | tojson }}
+
+  VISUAL ASSET ALLOCATION:
+  {{ visual_assets | tojson }}
+
+  EXTERNAL LINKS AND RESOURCES:
+  {{ important_info | tojson }}
+
+  **CRITICAL DATA USAGE REQUIREMENTS:**
+  1. **META INFORMATION**: You MUST use the following information from visual_assets.meta:
+      - Title: {{ visual_assets.meta.title }}
+      - Authors: {{ visual_assets.meta.authors }}
+      - Affiliations: {{ visual_assets.meta.affiliations }}
+      - Project Name: {{ visual_assets.meta.project_name }}
+
+  2. **IMAGE SIZING AND LAYOUT**: You MUST use the web_width and web_height values from visual_assets.images for optimal layout:
+      - Each image in visual_assets.images has original_width/original_height AND web_width/web_height
+      - ALWAYS use web_width and web_height for HTML img tags and CSS sizing
+      - Set both width and height attributes AND CSS max-width/max-height to prevent layout shifts
+      - Use responsive design: images should fill their containers appropriately without excessive whitespace
+      - For better visual balance, consider using CSS Grid or Flexbox to create optimal image layouts
+      - Ensure images are properly centered and sized within their sections
+  
+  3. **URL INTEGRATION**: You MUST include ALL URLs from important_info:
+      - Create a dedicated "Resources & Links" section
+      - Integrate these links naturally throughout the content
+      - Each link should have clear descriptions and be clickable
+
+  VISUAL ASSET STRATEGY:
+  - Use the visual assets (images/tables) according to their allocation in each section.
+  - **CRITICAL: For images, ALWAYS use web_width and web_height values from visual_assets.images in HTML img tags and CSS.**
+  - **CRITICAL: Example: <img src="path" width="800" height="600" style="max-width: 100%; height: auto; object-fit: contain;">**
+  - Create engaging visual presentations with proper image galleries and table displays.
+  - Ensure visual content enhances the research narrative without overwhelming text.
+  - Balance text and visual content for optimal readability and engagement.
+  - **CRITICAL: Include ALL URLs from important_info in a dedicated Resources section.**
+  - **NEW - Complex Layouts Handling**: Some sections might have a `layout_type` specified, such as "grid". If `visual_assets` for a section contains a list of `items` (each with an `image_path` and a `label`), you MUST generate a CSS Grid or Flexbox container. Iterate through the `items` list and create a card for each item, containing the image and its corresponding label styled as a visible overlay or caption. This is critical for presenting composite figures correctly.
+
+
+  IMAGE LAYOUT OPTIMIZATION:
+  - Use CSS Grid or Flexbox for optimal image placement.
+  - Ensure images fill their containers appropriately (use object-fit: contain).
+  - Avoid excessive whitespace around images.
+  - Use responsive design: max-width: 100% for mobile compatibility.
+  - Center images within their sections for better visual balance.
+  - Consider using CSS aspect-ratio for consistent image proportions.
+
+  DESIGN REQUIREMENTS:
+  1. **Visual Design**: Modern, professional, academic aesthetic with:
+      - Sophisticated color scheme (dark/light themes with multiple color variations).
+      - Professional typography with proper hierarchy and multiple font weights.
+      - Smooth animations and transitions with multiple animation types.
+      - Interactive elements and hover effects with complex state changes.
+      - Professional spacing and layout with multiple breakpoints.
+      - Advanced visual effects (shadows, gradients, transforms).
+      - **NEW - Background Style**: Avoid using background images, especially in the hero section, unless an image is explicitly allocated for it. Prefer solid colors (e.g., `#2d3748` dark gray, `#ffffff` white) or subtle gradients for backgrounds to maintain a clean, professional, and academic look. DO NOT fetch images from external sources like Unsplash.
+
+  2. **Layout Structure**: 
+      - Hero section with project title, authors, key highlights.
+      - Multi-level navigation with smooth scrolling and active state indicators.
+      - Content sections with dynamic layouts based on content importance.
+      - Interactive visualizations and image galleries with lightbox and carousel.
+      - External resources section with strategic link placement and categorization.
+      - Footer with additional information, social links, and contact details.
+      - Sidebar navigation with quick links and progress indicators.
+      - Multiple content columns and grid layouts.
+      - Advanced card-based content presentation.
+
+  3. **Interactivity Features**:
+      - Smooth scrolling navigation with progress bars and scroll indicators.
+      - Interactive image galleries with lightbox, zoom, and slideshow.
+      - Animated counters and statistics with number animations.
+      - Hover effects and micro-interactions with complex animations.
+      - Responsive navigation menu with hamburger menu and dropdowns.
+      - Loading animations and transitions with skeleton screens.
+      - Interactive charts and data visualizations with tooltips.
+      - Modal dialogs and popup windows.
+      - Form validation and interactive feedback.
+      - Search functionality with autocomplete.
+      - Dark/light theme toggle with smooth transitions.
+
+  4. **External Links Integration**:
+      - Place important_info links strategically throughout the content.
+      - Create dedicated "Resources & Tools" section with categorization.
+      - Integrate links naturally within relevant content sections.
+      - Use attractive button designs for external links with hover effects.
+      - Provide context for each external resource with descriptions.
+
+  TECHNICAL REQUIREMENTS:
+  1. **CSS Requirements**:
+      - Minimum 200+ lines of production-ready CSS.
+      - Advanced animations and transitions with multiple timing functions.
+      - Responsive design with multiple breakpoints (mobile, tablet, desktop).
+      - CSS Grid and Flexbox for modern layouts.
+      - CSS custom properties (variables) for theming.
+      - Advanced selectors and pseudo-elements.
+      - Image centering: single images centered, multiple images in centered rows (max 3 per row).
+      - Smooth scrolling and scroll animations.
+      - Hover effects and micro-interactions.
+      - Professional color schemes with multiple variations.
+      - Advanced typography with proper hierarchy.
+
+  2. **JavaScript Requirements**:
+      - Minimum 150+ lines of production-ready JavaScript.
+      - Modern ES6+ syntax with proper error handling.
+      - Interactive image galleries with lightbox functionality.
+      - Smooth scrolling navigation with progress indicators.
+      - Mobile menu functionality with animations.
+      - Intersection Observer for scroll animations.
+      - Local storage for user preferences.
+      - Form validation and user interaction.
+      - Performance optimization and error handling.
+      - Advanced image handling and gallery features.
+      - Form validation and user interaction.
+      - Performance optimization and error handling.
+      - **Intersection Observer for scroll animations**
+      - **Local storage for user preferences**
+
+  Remember: This is a professional academic website that should impress visitors with its design quality, interactivity, and content presentation. Make it beautiful, modern, and engaging while maintaining academic credibility.
+
+
+  *- HTML TEMPLATE REFERENCE:**
+  The following HTML structure is from a paper named "UrbanScene3D Dataset". Use it as a reference for the complexity and quality expected. Your generated HTML should be at least as sophisticated as this example:
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>UrbanScene3D Dataset Project Homepage</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+      <style>
+          body {
+              font-family: 'Inter', sans-serif;
+          }
+          .hero-section {
+              background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('hero-background.jpg');
+              background-size: cover;
+              background-position: center;
+          }
+          /* Fallback for the hero background image */
+          .hero-section[style*="url('')"] {
+              background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1920x1080/334155/e2e8f0?text=Urban+Scene+Panorama');
+          }
+      </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+
+      <!-- Header -->
+      <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+          <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+              <a href="#" class="text-2xl font-bold text-gray-900">UrbanScene3D</a>
+              <div class="hidden md:flex space-x-8 items-center">
+                  <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300">About</a>
+                  <a href="#dataset" class="text-gray-600 hover:text-blue-600 transition duration-300">Dataset</a>
+                  <a href="#benchmark" class="text-gray-600 hover:text-blue-600 transition duration-300">Benchmark</a>
+                  <a href="#simulator" class="text-gray-600 hover:text-blue-600 transition duration-300">Simulator</a>
+                  <a href="https://vcc.tech/UrbanScene3D" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 shadow-md">Get Dataset</a>
+              </div>
+              <button id="mobile-menu-button" class="md:hidden text-gray-900">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+              </button>
+          </nav>
+          <!-- Mobile Menu -->
+          <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+              <a href="#about" class="block text-gray-600 hover:text-blue-600 transition duration-300">About</a>
+              <a href="#dataset" class="block text-gray-600 hover:text-blue-600 transition duration-300">Dataset</a>
+              <a href="#benchmark" class="block text-gray-600 hover:text-blue-600 transition duration-300">Benchmark</a>
+              <a href="#simulator" class="block text-gray-600 hover:text-blue-600 transition duration-300">Simulator</a>
+              <a href="https://vcc.tech/UrbanScene3D" target="_blank" class="block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 text-center">Get Dataset</a>
+          </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero-section text-white py-20 md:py-32">
+          <div class="container mx-auto px-6 text-center">
+              <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">UrbanScene3D: Capturing, Reconstructing, and Simulating</h1>
+              <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8">
+                  A large-scale data platform for urban scene perception and reconstruction research, containing over 128k high-resolution images, high-precision LiDAR scans, and a powerful simulator.
+              </p>
+              <div class="flex justify-center space-x-4">
+                  <a href="https://vcc.tech/UrbanScene3D" target="_blank" class="bg-white text-blue-600 font-semibold px-8 py-3 rounded-md hover:bg-gray-200 transition duration-300 text-lg">Download Dataset</a>
+                  <a href="paper.pdf" target="_blank" class="bg-transparent border-2 border-white text-white font-semibold px-8 py-3 rounded-md hover:bg-white hover:text-blue-600 transition duration-300 text-lg">Read the Paper</a>
+              </div>
+          </div>
+      </section>
+
+      <main class="container mx-auto px-6 py-16">
+
+          <!-- About Section -->
+          <section id="about" class="mb-20 scroll-mt-20">
+              <div class="text-center mb-12">
+                  <h2 class="text-3xl md:text-4xl font-bold text-gray-900">About UrbanScene3D</h2>
+                  <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                      With the development of digital photography and 3D scanning technologies, we have witnessed explosive data growth. However, outdoor scene research faces challenges due to equipment limitations, large scales, and variable environmental conditions. UrbanScene3D aims to address these issues.
+                  </p>
+              </div>
+              <div class="grid md:grid-cols-3 gap-8 text-center">
+                  <div class="bg-white p-8 rounded-lg shadow-lg">
+                      <div class="text-blue-600 mb-4">
+                          <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 1v4m0 0h-4m4 0l-5-5"></path></svg>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-2">Large-Scale Dataset</h3>
+                      <p class="text-gray-600">Provides large-scale real and synthetic urban scenes covering 136 km², facilitating research in 3D vision, graphics, and robotics.</p>
+                  </div>
+                  <div class="bg-white p-8 rounded-lg shadow-lg">
+                      <div class="text-blue-600 mb-4">
+                          <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V4m0 16v-2M12 12l-2-2-2 2 2 2 2-2z"></path></svg>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-2">Comprehensive Benchmark</h3>
+                      <p class="text-gray-600">Offers a comprehensive benchmark for designing and evaluating aerial path planning and 3D reconstruction algorithms, including various observation patterns and high-precision ground truth.</p>
+                  </div>
+                  <div class="bg-white p-8 rounded-lg shadow-lg">
+                      <div class="text-blue-600 mb-4">
+                          <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2 1M4 7l2-1M4 7v2.5M12 21l-2-1m0 0l-2 1m2-1v-2.5"></path></svg>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-2">High-Fidelity Simulator</h3>
+                      <p class="text-gray-600">Based on Unreal Engine and AirSim, it supports generating various data like depth maps and bounding boxes, and simulates vehicle or drone operations in urban scenes.</p>
+                  </div>
+              </div>
+          </section>
+
+          <!-- Dataset Section -->
+          <section id="dataset" class="mb-20 scroll-mt-20">
+              <div class="text-center mb-12">
+                  <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Dataset Highlights</h2>
+                  <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                      UrbanScene3D includes a rich collection of synthetic and real-world scenes, providing unprecedented scale and diversity for various research areas.
+                  </p>
+              </div>
+              <div class="bg-white p-8 rounded-lg shadow-lg">
+                  <img src="scenes-overview.jpg" alt="UrbanScene3D Scene Overview" class="rounded-lg mb-6 w-full" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/e2e8f0/334155?text=Figure 1: Scene Overview';">
+                  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-gray-700">
+                      <div><strong class="text-gray-900">Number of Scenes:</strong> 16 (10 synthetic, 6 real)</div>
+                      <div><strong class="text-gray-900">Total Area Covered:</strong> 136 km²</div>
+                      <div><strong class="text-gray-900">Number of Images:</strong> Over 128,000</div>
+                      <div><strong class="text-gray-900">Largest City Scene:</strong> 55 km² (San Francisco)</div>
+                  </div>
+                   <p class="mt-6 text-gray-600">The dataset includes digital models of several famous cities such as New York, Chicago, and Shenzhen, as well as reconstructions of real scenes like campuses, hospitals, and squares. Each scene is meticulously constructed or rebuilt using drone-based multi-view stereo techniques, ensuring high-quality geometric structures and realistic texture details.</p>
+              </div>
+          </section>
+
+          <!-- Benchmark Section -->
+          <section id="benchmark" class="mb-20 scroll-mt-20">
+              <div class="text-center mb-12">
+                  <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Path Planning & Reconstruction Benchmark</h2>
+                   <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                      We evaluated four different aerial path planning algorithms on various proxy models, providing an in-depth analysis of 3D reconstruction quality and efficiency.
+                  </p>
+              </div>
+              <div class="grid md:grid-cols-2 gap-8 items-center">
+                  <div class="bg-white p-8 rounded-lg shadow-lg">
+                      <h3 class="text-2xl font-bold mb-4">Path Planning Methods</h3>
+                      <ul class="list-disc list-inside space-y-2 text-gray-600">
+                          <li><strong>Oblique Photography:</strong> A common industrial solution, used as a baseline.</li>
+                          <li><strong>Smith et al. [2018]:</strong> Optimizes viewpoints based on a heuristic function for reconstruction quality.</li>
+                          <li><strong>Zhou et al. [2020]:</strong> Optimizes the path by eliminating redundant viewpoints.</li>
+                          <li><strong>Zhang et al. [2021]:</strong> Introduces path smoothness to balance quality and efficiency.</li>
+                      </ul>
+                      <h3 class="text-2xl font-bold mt-6 mb-4">Geometric Proxies</h3>
+                      <p class="text-gray-600">We provide various proxy models from coarse to fine (Box, Coarse, Inter, Fine) to analyze the impact of proxy accuracy on path planning and final reconstruction quality.</p>
+                  </div>
+                  <div class="space-y-6">
+                      <img src="path-planning.jpg" alt="Paths from different planning methods" class="rounded-lg shadow-lg w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x300/e2e8f0/334155?text=Figure 2: Path Planning';">
+                      <img src="proxies.jpg" alt="Proxy models with different levels of detail" class="rounded-lg shadow-lg w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x300/e2e8f0/334155?text=Figure 3: Proxy Models';">
+                  </div>
+              </div>
+               <div class="mt-8 bg-white p-8 rounded-lg shadow-lg">
+                  <h3 class="text-2xl font-bold mb-4 text-center">Reconstruction Results Comparison</h3>
+                  <p class="text-gray-600 text-center mb-6">By comparing with high-precision LiDAR scan data, we quantitatively evaluated the accuracy and completeness of the reconstructed models.</p>
+                  <img src="reconstruction-results.jpg" alt="Reconstruction results comparison" class="rounded-lg w-full" onerror="this.onerror=null;this.src='https://placehold.co/1200x400/e2e8f0/334155?text=Figure 8: Reconstruction Results';">
+                  <p class="text-sm text-gray-500 mt-2 text-center">The figure above shows the reconstructed models produced by different methods and their corresponding accuracy and completeness heatmaps.</p>
+              </div>
+          </section>
+
+          <!-- Simulator Section -->
+          <section id="simulator" class="mb-20 scroll-mt-20">
+              <div class="text-center mb-12">
+                  <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Simulator and Applications</h2>
+                  <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                      The simulator, built on Unreal Engine and AirSim, provides a powerful testing platform for robotics and embodied AI research, effectively shortening the sim-to-real gap.
+                  </p>
+              </div>
+              <div class="grid md:grid-cols-2 gap-8 items-center">
+                   <img src="simulator-view.jpg" alt="Simulator View" class="rounded-lg shadow-lg w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x450/e2e8f0/334155?text=Figure 9: Simulator View';">
+                  <div class="bg-white p-8 rounded-lg shadow-lg">
+                      <h3 class="text-2xl font-bold mb-4">Core Features</h3>
+                      <ul class="list-disc list-inside space-y-3 text-gray-600">
+                          <li><strong>Rich Data Generation:</strong> Can generate instance segmentation maps, depth maps of arbitrary resolution, 2D/3D bounding boxes, point cloud/mesh segmentations, etc.</li>
+                          <li><strong>Physics Engine:</strong> Supports gravity, inertia, and collision detection for testing various autonomous tasks.</li>
+                          <li><strong>Environmental Control:</strong> Users can freely manipulate lighting and weather conditions, such as simulating a rainy night or a foggy morning on campus.</li>
+                          <li><strong>Real-World Scene Import:</strong> Allows direct import of real-world reconstructed scenes for simulation, greatly reducing the sim-to-real gap.</li>
+                          <li><strong>Instance Segmentation Labels:</strong> Provides unique instance labels for each building in the scene, supporting 3D building instance segmentation research.</li>
+                      </ul>
+                  </div>
+              </div>
+          </section>
+          
+          <!-- Citation Section -->
+          <section id="citation" class="text-center bg-white p-10 rounded-lg shadow-lg">
+              <h2 class="text-3xl font-bold mb-4">How to Cite</h2>
+              <p class="text-gray-600 mb-6">If you use the UrbanScene3D dataset in your research, please cite our paper.</p>
+              <div class="bg-gray-100 p-6 rounded-md text-left text-sm font-mono text-gray-700 overflow-x-auto">
+                  <pre><code>@inproceedings{lin2022urbanscene3d,
+  title={Capturing, Reconstructing, and Simulating: the UrbanScene3D Dataset},
+  author={Lin, Liqiang and Liu, Yilin and Hu, Yue and Yan, Xingguang and Xie, Ke and Huang, Hui},
+  booktitle={ECCV Workshops},
+  year={2022}}</code></pre>
+              </div>
+              <a href="#" class="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-md hover:bg-blue-700 transition duration-300 mt-8">Download BibTeX</a>
+          </section>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-800 text-white">
+          <div class="container mx-auto px-6 py-8">
+              <div class="flex flex-col md:flex-row justify-between items-center">
+                  <div class="text-center md:text-left mb-4 md:mb-0">
+                      <h3 class="text-xl font-bold">UrbanScene3D</h3>
+                      <p class="text-gray-400">A large-scale data platform for urban scene research</p>
+                  </div>
+                  <div class="flex space-x-6">
+                      <a href="https://vcc.tech/" target="_blank" class="text-gray-400 hover:text-white transition">VCC Homepage</a>
+                      <a href="paper.pdf" target="_blank" class="text-gray-400 hover:text-white transition">Paper</a>
+                      <a href="#" class="text-gray-400 hover:text-white transition">Contact Us</a>
+                  </div>
+              </div>
+              <div class="mt-8 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
+                  <p>&copy; 2022 Shenzhen University. All Rights Reserved.</p>
+                  <p class="mt-1">Supported by the Visual Computing Research Center (VCC), Shenzhen University.</p>
+              </div>
+          </div>
+      </footer>
+
+      <script>
+          // Mobile menu toggle
+          const mobileMenuButton = document.getElementById('mobile-menu-button');
+          const mobileMenu = document.getElementById('mobile-menu');
+          mobileMenuButton.addEventListener('click', () => {
+              mobileMenu.classList.toggle('hidden');
+          });
+      </script>
+
+  </body>
+  </html>
+  ```
+
+  **FINAL CHECKLIST - Before generating code, ensure:**
+  1. Website header includes Title, Authors, and Affiliations from visual_assets.meta
+  2. All images use web_width and web_height for proper sizing
+  3. Dedicated "Resources & External Links" section with ALL URLs from important_info
+  4. Each URL is clickable with clear descriptions
+  5. All original text content is preserved (no truncation)
+  6. Images fit properly within their HTML containers
+  7. If a section's asset is a list of items, it is rendered as a grid.
+  Please provide the complete HTML, CSS, and JavaScript code for all three files.
+  Remember: This is a professional academic website that should impress visitors with its design quality, interactivity, and content presentation. Make it beautiful, modern, and engaging while maintaining academic credibility.
+
+  Your final, complete response must be a single JSON object that strictly adheres to the template provided below. Do not include any text or explanations outside of the JSON structure.
+
+  OUTPUT_JSON_TEMPLATE:
+  ```json
+  {
+    "index.html": "",
+    "style.css": "/* Complete, production-ready, and well-organized CSS code (minimum 200+ lines) goes here. Ensure it implements the theming, layout, and animation requirements. */",
+    "script.js": "// Complete, production-ready, and well-commented JavaScript code (minimum 150+ lines) goes here. Ensure it implements all the interactivity and feature requirements. //"
+  }
+  ```
+
+jinja_args:
+  - research_content
+  - visual_assets
+  - important_info

@@ -1,0 +1,105 @@
+<Poster Width="1734" Height="1053">
+	<Panel left="18" right="156" width="517" height="417">
+		<Text>Problem</Text>
+		<Text>o Existing methods assume monolithic attributes are sufficient</Text>
+		<Text>[Lampert et al. CVPR 2009, Farhadi et al. CVPR 2009, Branson et al. ECCV 2010,</Text>
+		<Text>Kumar et al. PAMI 2011, Scheirer et al. CVPR 2012, Parikh & Grauman ICCV 2011, …]</Text>
+		<Text>o However, there are real perceptual differences between annotators</Text>
+		<Figure left="75" right="306" width="165" height="75" no="1" OriWidth="0.138728" OriHeight="0.0612154
+" />
+		<Figure left="255" right="304" width="224" height="81" no="2" OriWidth="0.24104" OriHeight="0.0607685
+" />
+		<Text>o Further, attribute terms can be imprecise</Text>
+		<Figure left="29" right="417" width="159" height="151" no="3" OriWidth="0" OriHeight="0
+" />
+		<Figure left="190" right="417" width="202" height="146" no="4" OriWidth="0" OriHeight="0
+" />
+		<Figure left="393" right="419" width="130" height="147" no="5" OriWidth="0.0017341" OriHeight="0.000446828
+" />
+	</Panel>
+
+	<Panel left="17" right="586" width="519" height="451">
+		<Text>Our Idea</Text>
+		<Text>1) Treat learning of perceived attributes as an adaptation problem.</Text>
+		<Figure left="27" right="678" width="487" height="204" no="6" OriWidth="0" OriHeight="0
+" />
+		<Text>We adapt a generic attribute predictor trained with a large amount of</Text>
+		<Text>majority-voted data with a small amount of user-labeled data.</Text>
+		<Text>2) Obtain labels implicitly from user’s search history.</Text>
+		<Text>Impact: Capture user’s perception with minimal annotation effort.</Text>
+		<Text>Personalization makes attribute-based image search more accurate.</Text>
+	</Panel>
+
+	<Panel left="544" right="157" width="445" height="282">
+		<Text>Learning Adapted Attributes</Text>
+		<Text>Training data</Text>
+		<Text>Learning</Text>
+		<Text>Prediction</Text>
+		<Text>B. Geng, L. Yang, C. Xu, and X.-S. Hua. “Ranking Model Adaptation</Text>
+		<Text>for Domain-Specific Search.” IEEE TKDE, March 2010.</Text>
+		<Text>o Similar formulation for binary classifiers (Yang et al. 2007)</Text>
+	</Panel>
+
+	<Panel left="546" right="451" width="444" height="402">
+		<Text>Inferring Implicit User-Specific Labels</Text>
+		<Text>o Transitivity</Text>
+		<Text>o Contradictions</Text>
+		<Figure left="559" right="581" width="260" height="133" no="7" OriWidth="0.352601" OriHeight="0.134048
+" />
+		<Text>Feedback implies no</Text>
+		<Text>images satisfy all</Text>
+		<Text>constraints.</Text>
+		<Text>Contradiction implies</Text>
+		<Text>attribute models are</Text>
+		<Text>inaccurate.</Text>
+		<Figure left="550" right="717" width="262" height="133" no="8" OriWidth="0.362428" OriHeight="0.137176
+" />
+		<Text>Relax conditions for</Text>
+		<Text>contradiction.</Text>
+		<Text>Adjust models using</Text>
+		<Text>new ordering on</Text>
+		<Text>some image pairs.</Text>
+	</Panel>
+
+	<Panel left="544" right="861" width="448" height="176">
+		<Text>Datasets</Text>
+		<Text>Shoes[Berg10, Kovashka12] attributes:pointy, open, bright, shiny,</Text>
+		<Text>ornamented, high-heeled, long, formal, sporty, feminine</Text>
+		<Text>SUN[Patterson12] attributes: sailing, vacationing, hiking,</Text>
+		<Text>camping, socializing, shopping, vegetation, clouds,</Text>
+		<Text>natural light, cold, open area, far-away horizon</Text>
+		<Text>Size: 14k images each; Features: GIST, color, HOG, SSIM</Text>
+	</Panel>
+
+	<Panel left="998" right="158" width="721" height="384">
+		<Text>Visualization of Learned Attribute Spectra</Text>
+		<Figure left="1412" right="165" width="295" height="23" no="9" OriWidth="0" OriHeight="0
+" />
+		<Figure left="1001" right="198" width="10" height="344" no="10" OriWidth="0.384393" OriHeight="0.242627
+" />
+	</Panel>
+
+	<Panel left="998" right="555" width="718" height="202">
+		<Text>Adapted Attribute Accuracy</Text>
+		<Text>o Generic: status quo of learning from majority-voted data</Text>
+		<Text>o Generic+: like above, but uses more generic data</Text>
+		<Text>o User-exclusive: learns a user-specific model from scratch</Text>
+		<Figure left="1010" right="672" width="457" height="81" no="11" OriWidth="0.348555" OriHeight="0.0822163
+" />
+		<Figure left="1473" right="563" width="243" height="189" no="12" OriWidth="0.314450" OriHeight="0.0987489
+" />
+	</Panel>
+
+	<Panel left="999" right="764" width="717" height="272">
+		<Text>Impact of Adapted Attributes for Personalized Search</Text>
+		<Figure left="1016" right="810" width="274" height="171" no="13" OriWidth="0" OriHeight="0
+" />
+		<Figure left="1329" right="815" width="191" height="166" no="14" OriWidth="0" OriHeight="0
+" />
+		<Figure left="1536" right="812" width="165" height="177" no="15" OriWidth="0" OriHeight="0
+" />
+		<Text>The personalized attribute models allow the user to more quickly find his/her search target.</Text>
+		<Text>Implicitly gathering labels for personalization saves the user time, while producing similar results.</Text>
+	</Panel>
+
+</Poster>

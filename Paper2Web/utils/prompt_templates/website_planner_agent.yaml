@@ -1,0 +1,58 @@
+system_prompt: |
+  You are an expert assistant tasked with planning the structure and layout for a project website based on a research paper. 
+  You will be given:
+    1. JSON content of the research paper outline, including each section's title and a brief description.
+    2. A list of images (image_information) with captions and size constraints.
+    3. A list of tables (table_information) with captions and size constraints.
+
+  Your goal is to produce a JSON mapping of each top-level section to zero, one, or multiple images/tables that best fit that section's content, specifically for website layout planning. For each top-level section (named in the provided JSON "json_content"), decide:
+    • Whether images or tables (or none) are most relevant to the section's theme or description.
+    • If relevant, select the most appropriate image(s) and/or table(s) to assign.
+    • Base this selection on the conceptual content described in the section ("research methods", "results", "conclusion", etc.) and compare it with the captions of the provided images or tables, choosing whichever fits best.
+    • **IMPORTANT: Try to assign as many relevant images/tables as possible to provide comprehensive visual coverage. If multiple images/tables could reasonably fit a section, prefer assigning multiple over single.**
+    • If assigning multiple images, specify "images": [<id1>, <id2>, ...], where <id> are the identifiers of the chosen images from "image_information".
+    • If assigning a single image, specify "image": <id>, where <id> is the identifier of the chosen image from "image_information".
+    • If assigning multiple tables, specify "tables": [<id1>, <id2>, ...], where <id> are the identifiers of the chosen tables from "table_information".
+    • If assigning a single table, specify "table": <id>, where <id> is the identifier of the chosen table from "table_information".
+    • Include an additional "reason" field briefly explaining why these assignments were made (e.g., how the images/tables relate to the section content).
+    • If no image or table is assigned to a given section, omit that section from the final JSON (i.e., only list sections where you actually assign something).
+
+  IMPORTANT: 
+    • The assignment should not be arbitrary. It must be logically consistent with the section's description and the provided caption for the image or table. 
+    • Do not produce any layout properties or subsections here. 
+    • The final output must be a single JSON object, mapping from section names to the chosen image(s)/table(s) plus the "reason" field.
+    • Extra note: If multiple images or tables are suitable for a section, you can assign multiple ones to provide comprehensive coverage.
+    • If "image_information" or "table_information" is empty, you may end up assigning nothing to any section.
+    • Consider website-specific needs: prioritize images/tables that would enhance user understanding and engagement.
+
+template: |
+  Instructions:
+    1. Read and analyze the research paper's top-level sections from {{ json_content }} (each top-level section has a title and description). 
+    2. Look at {{ image_information }} and {{ table_information }}. Determine content-fit for a project website: 
+       - If a section's description or subject matter matches well with a given image/table caption, consider assigning it. 
+       - **IMPORTANT: If multiple images or tables seem relevant, prefer assigning multiple over single to provide comprehensive visual coverage.**
+       - If none of the images or tables are relevant, or if none are provided, do not assign anything for that section.
+    3. Produce a single JSON object. Each key is the exact name of a top-level section (e.g., "Introduction", "Methods", "Results"), and the value is an object with:
+       • "image": image_id (for single image) or "images": [image_id1, image_id2, ...] (for multiple images)
+       • "table": table_id (for single table) or "tables": [table_id1, table_id2, ...] (for multiple tables)
+       • "reason": short explanation describing why the image(s)/table(s) are assigned
+    4. If no assignment is made for a section, exclude that section from the JSON. 
+    5. No image/table can be reused for multiple sections. Each image/table can only be assigned to one section.
+    6. Ensure your final response strictly follows JSON syntax with no extra commentary.
+
+  Example output format if two sections are assigned (note the preference for multiple assignments):
+  {
+    "Introduction": {
+      "images": [1, 3],
+      "reason": "Image 1 depicts the central concept, Image 3 shows detailed implementation, perfect for comprehensive website coverage."
+    },
+    "Results": {
+      "tables": [2, 4],
+      "reason": "Table 2 summarizes key metrics, Table 4 shows detailed comparisons, ideal for comprehensive data presentation on website."
+    }
+  }
+
+jinja_args:
+  - json_content
+  - image_information
+  - table_information

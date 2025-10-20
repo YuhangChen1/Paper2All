@@ -1,0 +1,58 @@
+<Poster Width="1734" Height="1387">
+	<Panel left="27" right="215" width="525" height="240">
+		<Text>Overview</Text>
+		<Text>FaceTracer is the first face search engine</Text>
+		<Text>• Built using over 3 million face images</Text>
+		<Text>• “Real-world” images collected from the internet</Text>
+		<Text>• Simple attribute-based text queries</Text>
+		<Text>• Automatic selection of best features for each attribute</Text>
+	</Panel>
+
+	<Panel left="26" right="482" width="528" height="875">
+		<Text>Database Creation</Text>
+		<Figure left="36" right="544" width="511" height="147" no="1" OriWidth="0.78316" OriHeight="0.0987979
+" />
+		<Figure left="38" right="716" width="503" height="351" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>Our Database: 3,131,075 Faces</Text>
+		<Text>17,454 Labeled Faces</Text>
+		<Figure left="41" right="1152" width="501" height="192" no="3" OriWidth="0.517878" OriHeight="0.110819
+" />
+	</Panel>
+
+	<Panel left="576" right="216" width="634" height="1140">
+		<Text>Training</Text>
+		<Text>Face Regions</Text>
+		<Figure left="586" right="309" width="618" height="375" no="4" OriWidth="0.732411" OriHeight="0.169046
+" />
+		<Text>Feature Types</Text>
+		<Figure left="670" right="734" width="465" height="136" no="5" OriWidth="0.570934" OriHeight="0.101803
+" />
+		<Text>Training Process</Text>
+		<Text>1. Train local SVMs for each region/feature type combination</Text>
+		<Text>2. Use Adaboost to select best features</Text>
+		<Text>3. Train global SVM on union of selected features</Text>
+		<Figure left="625" right="1016" width="568" height="330" no="6" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="1235" right="215" width="480" height="1142">
+		<Text>Results</Text>
+		<Text>Classification Performance</Text>
+		<Figure left="1257" right="310" width="438" height="155" no="7" OriWidth="0.612456" OriHeight="0.198535
+" />
+		<Figure left="1305" right="951" width="279" height="19" no="8" OriWidth="0" OriHeight="0
+" />
+		<Text>Automatically Selected Features</Text>
+		<Figure left="1248" right="525" width="458" height="245" no="9" OriWidth="0.362168" OriHeight="0.131856
+" />
+		<Text> Smiling</Text>
+		<Figure left="1240" right="799" width="470" height="242" no="10" OriWidth="0.386967" OriHeight="0.129602
+" />
+		<Text> Hair Color</Text>
+		<Text>Comparison to State-of-the-Art</Text>
+		<Figure left="1255" right="1126" width="442" height="218" no="11" OriWidth="0.765283" OriHeight="0.0867769
+" />
+	</Panel>
+
+</Poster>

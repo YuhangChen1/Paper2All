@@ -1,0 +1,127 @@
+<Poster Width="1734" Height="1041">
+	<Panel left="20" right="144" width="441" height="550">
+		<Text>Introduction</Text>
+		<Text>IFine-grained Recognition</Text>
+		<Text>anna’s hummingbird</Text>
+		<Figure left="38" right="215" width="188" height="91" no="1" OriWidth="0" OriHeight="0
+" />
+		<Text>ruby-throated hummingbird</Text>
+		<Figure left="258" right="215" width="187" height="94" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>Human Attribute PredictionI</Text>
+		<Figure left="30" right="332" width="427" height="141" no="3" OriWidth="0" OriHeight="0
+" />
+		<Text>Pose-normalized representations [1]I</Text>
+		<Figure left="49" right="498" width="384" height="183" no="4" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="19" right="699" width="442" height="298">
+		<Text>Deformable Part Model (DPM)</Text>
+		<Text>Weakly supervised DPMI</Text>
+		<Text>I Fix-sized part filters initialized by</Text>
+		<Text>heuristics.</Text>
+		<Text>I Components initialized by clustering</Text>
+		<Text>aspect ratio.</Text>
+		<Text>I Strongly supervised DPM [2]</Text>
+		<Text>I Semantic part filters initialized by</Text>
+		<Text>part annotations.</Text>
+		<Text>I Clusters pose information to initialize</Text>
+		<Text>the components.</Text>
+		<Text>Computational efficient DPM detections [3].I</Text>
+		<Text>I Strong DPM provides semantic part localizations for</Text>
+		<Text>pose-normalized representations.</Text>
+		<Text>I What about simpler weak DPM without pose annotations?</Text>
+		<Figure left="295" right="747" width="147" height="163" no="5" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="487" right="144" width="750" height="467">
+		<Text>Method</Text>
+		<Text>Deformable part descriptors (DPD)</Text>
+		<Text>Test Image</Text>
+		<Text>Part Localization</Text>
+		<Text>Pose-normalization</Text>
+		<Text>Classification</Text>
+		<Figure left="492" right="250" width="743" height="271" no="6" OriWidth="0.802768" OriHeight="0.256239
+" />
+		<Text>The first descriptor (top row) applies a strong DPM for part localization then pool features from these inherently</Text>
+		<Text>semantic parts.I</Text>
+		<Text>I The second descriptor employs a weakly supervised DPM for part localization and then used a learned semantic</Text>
+		<Text>correspondence weights to pool features from the latent parts into semantic regions.</Text>
+	</Panel>
+
+	<Panel left="483" right="618" width="510" height="205">
+		<Text>How Weights Get Computed</Text>
+		<Text>(j)</Text>
+		<Text>Iw</Text>
+		<Text>il∈ W of size |P| × |R| × |C|.</Text>
+		<Text>part of component c (j). rl : semantic region.</Text>
+		<Text>keypoints or other semantic labels.</Text>
+		<Text>I ρkl ∈ [0, 1]: relevance of ak to region rl .</Text>
+		<Text>I Ijk : training images with ak and component c (j).(j)</Text>
+		<Text>I p : i-th</Text>
+		<Text>i</Text>
+		<Text>I ak ∈ A:</Text>
+		<Figure left="762" right="663" width="231" height="142" no="7" OriWidth="0.532872" OriHeight="0.24153267
+" />
+	</Panel>
+
+	<Panel left="1003" right="619" width="234" height="207">
+		<Text>Pooling/Classification</Text>
+		<Text>1Pose-normalized representationI</Text>
+		<Text>36Pooled image feature for</Text>
+		<Text>semantic region Ψ(l, rl ).8</Text>
+		<Text>1 vs all linear SVM using Ψpn for</Text>
+		<Text>final classification.</Text>
+	</Panel>
+
+	<Panel left="487" right="831" width="749" height="166">
+		<Text>Example Results and Failure</Text>
+		<Text>TORSOCases</Text>
+		<Text>Top scored people with long hair.</Text>
+		<Figure left="505" right="887" width="224" height="92" no="8" OriWidth="0" OriHeight="0
+" />
+		<Text>LEGS0.0%0.2%32.1%0.2%10.6%18.7%8.2%29.9%Top scored people wearing long sleeves.</Text>
+		<Figure left="763" right="886" width="222" height="92" no="9" OriWidth="0" OriHeight="0
+" />
+		<Text>Most confused failure case of males.</Text>
+		<Figure left="1015" right="887" width="202" height="85" no="10" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="1262" right="143" width="442" height="404">
+		<Text>Experimental Results</Text>
+		<Text>Fine-grained Recognition</Text>
+		<Figure left="1286" right="211" width="177" height="116" no="11" OriWidth="0.317762" OriHeight="0.137255
+" />
+		<Text> Results on CUB200-2010 dataset .</Text>
+		<Figure left="1493" right="210" width="200" height="104" no="12" OriWidth="0.310265" OriHeight="0.118984
+" />
+		<Text> Results on CUB200-2011 dataset.</Text>
+		<Text>Human Attribute Prediction</Text>
+		<Figure left="1296" right="372" width="377" height="143" no="13" OriWidth="0.687428" OriHeight="0.162656
+" />
+		<Text> Results on the Human Attributes dataset.</Text>
+	</Panel>
+
+	<Panel left="1262" right="551" width="442" height="368">
+		<Text>Localization Results of strong DPM</Text>
+		<Text> Samples of correct part localizations.</Text>
+		<Figure left="1269" right="593" width="428" height="154" no="14" OriWidth="0" OriHeight="0
+" />
+		<Text> Failure cases of part localizations.</Text>
+		<Figure left="1269" right="762" width="431" height="145" no="15" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="1262" right="924" width="440" height="78">
+		<Text>References</Text>
+		<Text>[1] Ning Zhang, Ryan Farrell and Trevor Darrell. Pose Pooling Kernels for Sub-Category Recognition. In CVPR 2012.</Text>
+		<Text>[2] Hossein Azizpour and Ivan Laptev. Object Detection Using Strongly-Supervised Deformable Part Models. In ECCV 2012.</Text>
+		<Text>[3] Charles Dubout and Franc¸ois Fleuret. Exact Acceleration of Linear Object Detectors. In ECCV 2012.</Text>
+		<Text>[4] Jeff Donahue, Yangqing Jia, Oriol Vinyals, Judy Hoffman, Ning Zhang, Eric Tzeng and Trevor Darrell. DeCAF: A Deep Convolutional</Text>
+		<Text>Activation Feature for Generic Visual Recognition. On Arxiv.</Text>
+	</Panel>
+
+</Poster>

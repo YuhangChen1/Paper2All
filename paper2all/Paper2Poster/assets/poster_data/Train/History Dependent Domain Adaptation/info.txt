@@ -1,0 +1,84 @@
+<Poster Width="1734" Height="2448">
+	<Panel left="21" right="427" width="1696" height="583">
+		<Text>Problem</Text>
+		<Text>How do we learn when our loss function depends on previous</Text>
+		<Text>classifications, or on the correctness of previous classifications?</Text>
+		<Text>When humans manually correct misclassifications, there is a low cost</Text>
+		<Text>associated with repeating errors; we can simply remember the human's</Text>
+		<Text>label. However, human corrections take time, and reviewing every</Text>
+		<Text>classification can be too expensive. Our aim is to learn while minimizing</Text>
+		<Text>new errors, even if we don't know which classifications are errors.</Text>
+		<Text>In many large scale machine learning deployments, classification or</Text>
+		<Text>regression is a service. These systems have an expectation of</Text>
+		<Text>consistency and adaptability. Current machine learning research focuses</Text>
+		<Text>on the latter: how well can we classify now? This work makes the trade-off</Text>
+		<Text>explicit, and shows that major gains in consistency are possible without</Text>
+		<Text>sacrificing adaptability.</Text>
+		<Figure left="877" right="466" width="823" height="466" no="1" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="18" right="1012" width="1694" height="453">
+		<Text>Solutions</Text>
+		<Text>Averaging</Text>
+		<Text>Average weights or model</Text>
+		<Text>outputs (equivalent in the linear</Text>
+		<Text>case). A linear combination of</Text>
+		<Text>previous hypotheses gives us a</Text>
+		<Text>simple baseline for comparison.</Text>
+		<Text>Exponential averaging is</Text>
+		<Text>extremely easy to implement.</Text>
+		<Text>Warm start</Text>
+		<Text>Reduce divergence from</Text>
+		<Text>previous hypotheses by</Text>
+		<Text>using a small step size,</Text>
+		<Text>or by taking fewer steps.</Text>
+		<Text>In general, we might use</Text>
+		<Text>an online learning</Text>
+		<Text>algorithm.</Text>
+		<Text>Weight nearness constraint</Text>
+		<Text>Full optimization, with a hard constraint.</Text>
+		<Figure left="830" right="1234" width="247" height="224" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>Prediction regularization</Text>
+		<Text>Add a regularization term which</Text>
+		<Text>penalizes the model for differing</Text>
+		<Text>from the previous model. The</Text>
+		<Text>hinge loss term is equivalent to</Text>
+		<Text>adding extra weighted examples</Text>
+		<Text>to the data set.</Text>
+	</Panel>
+
+	<Panel left="20" right="1469" width="1701" height="949">
+		<Text>Evaluation</Text>
+		<Text>Metrics</Text>
+		<Text>Area under the ROC curve (AUC)</Text>
+		<Text>● Instantaneous performance</Text>
+		<Text>● We want to avoid decreasing this too much</Text>
+		<Text>● Cumulative Unique False Positives (CUFP)</Text>
+		<Text>● Overall performance</Text>
+		<Text>● Number of examples misclassified at least</Text>
+		<Text>once●</Text>
+		<Text>Data</Text>
+		<Text>Adversarial advertisements (Sculley 2011)</Text>
+		<Text>● Adversarial (positive) or non-adversarial</Text>
+		<Text>(negative)</Text>
+		<Text>● Sparse, high-dimensional</Text>
+		<Text>● Malicious URL Identification (Ma 2009)</Text>
+		<Text>● Malicious (positive) or non-malicious</Text>
+		<Text>(negative)</Text>
+		<Text>● Qualitatively similar, public●</Text>
+		<Text>Results</Text>
+		<Text>We see up to a 50% reduction in CUFP, with</Text>
+		<Text>only a very minor reduction in AUC (0.04%)!</Text>
+		<Text>Warm start, the weight nearness constraint,</Text>
+		<Text>and averaging all performed quite well.</Text>
+		<Text>Relatively simple methods can drastically</Text>
+		<Text>improve consistency. Can we do better? Why</Text>
+		<Text>do some methods work better than others?</Text>
+		<Text>Can we make use of unlabeled data?</Text>
+		<Figure left="560" right="1472" width="1158" height="912" no="3" OriWidth="0.625721" OriHeight="0.286879
+" />
+	</Panel>
+
+</Poster>

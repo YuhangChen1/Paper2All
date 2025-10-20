@@ -1,0 +1,90 @@
+<Poster Width="1734" Height="1301">
+	<Panel left="27" right="172" width="494" height="792">
+		<Text>Motivation</Text>
+		<Figure left="37" right="225" width="189" height="129" no="1" OriWidth="0.34104" OriHeight="0.168007
+" />
+		<Figure left="258" right="239" width="251" height="136" no="2" OriWidth="0" OriHeight="0
+" />
+		<Figure left="43" right="370" width="185" height="139" no="3" OriWidth="0" OriHeight="0
+" />
+		<Text>Most previous methods on</Text>
+		<Text>material classification use a head-</Text>
+		<Text>on camera.</Text>
+		<Text>Since, Isotropic BRDFs</Text>
+		<Text>can be approximated by</Text>
+		<Text>a 2D BRDF (θd, θh)</Text>
+		<Figure left="279" right="519" width="244" height="163" no="4" OriWidth="0.336416" OriHeight="0.168454
+" />
+		<Figure left="27" right="706" width="270" height="161" no="5" OriWidth="0.326012" OriHeight="0.167113
+" />
+		<Text>Conventional camera captures</Text>
+		<Text>only a 1D slice of the 2D BRDF</Text>
+		<Figure left="274" right="700" width="249" height="260" no="6" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="29" right="964" width="490" height="304">
+		<Figure left="24" right="1031" width="274" height="166" no="7" OriWidth="0.339884" OriHeight="0.171582
+" />
+		<Text>A slanted camera captures a larger</Text>
+		<Text>portion of the 2D BRDF space.</Text>
+		<Figure left="279" right="1014" width="240" height="252" no="8" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="542" right="170" width="495" height="519">
+		<Text>Experiments on Ink Database</Text>
+		<Figure left="548" right="218" width="482" height="435" no="9" OriWidth="0.365896" OriHeight="0.356568
+" />
+		<Text>We observe improved classification accuracy !</Text>
+	</Panel>
+
+	<Panel left="543" right="694" width="493" height="577">
+		<Text>Application : Ink Identification</Text>
+		<Text> To simplify the setup, we bring the camera</Text>
+		<Text>and light together</Text>
+		<Text>Although accuracy is a bit compromised,</Text>
+		<Text>we capture important discriminative</Text>
+		<Text>information (retro reflectance, specular</Text>
+		<Text>highlights )</Text>
+		<Figure left="920" right="740" width="116" height="174" no="10" OriWidth="0" OriHeight="0
+" />
+		<Figure left="571" right="925" width="452" height="339" no="11" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="1066" right="174" width="634" height="572">
+		<Text>Results</Text>
+		<Text>Sample Image</Text>
+		<Figure left="1072" right="244" width="207" height="478" no="12" OriWidth="0" OriHeight="0
+" />
+		<Text>Our Result</Text>
+		<Figure left="1287" right="241" width="205" height="486" no="13" OriWidth="0" OriHeight="0
+" />
+		<Text>Ground Truth</Text>
+		<Figure left="1498" right="243" width="205" height="480" no="14" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="1061" right="749" width="641" height="215">
+		<Text>Conclusions</Text>
+		<Text>1. A slanted camera increases the sampling region of the 2D BRDF space.</Text>
+		<Text>2. This enhances the performance of BRDF-based material classification.</Text>
+		<Text>3. The first work to analyse BRDF for ink identification, an important</Text>
+		<Text>problem in forensics.</Text>
+		<Text>4. A simple handheld camera-flashlight device for data capture.</Text>
+	</Panel>
+
+	<Panel left="1060" right="968" width="643" height="304">
+		<Text>References</Text>
+		<Text>1. G. Jinwei and C. Liu, “Discriminative illumination: Per-pixel classification of raw</Text>
+		<Text>materials based on optimal projections of spectral BRDF,” in Proc. CVPR, 2012.</Text>
+		<Text>2. O. Wang, P. Gunawardane, S. Scher, and J. Davis, “Material classification using</Text>
+		<Text>BRDF slices,” in Proc. CVPR, pp. 2805 –2811, 2009.</Text>
+		<Text>3. S. Rusinkiewicz, “A New Change of Variables for Efficient BRDF Representation,” in</Text>
+		<Text>Eurographics Rendering Workshop, pp. 11 – 22, 1998.</Text>
+		<Text>This material is based upon work supported by the National Science Foundation under Grant No.</Text>
+		<Text>IIS-1008285. Ping Tan is partially supported by the ASTAR PSF project R-263-000-698-305.</Text>
+	</Panel>
+
+</Poster>

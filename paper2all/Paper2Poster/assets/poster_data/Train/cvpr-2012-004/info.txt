@@ -1,0 +1,98 @@
+<Poster Width="1766" Height="883">
+	<Panel left="21" right="103" width="447" height="346">
+		<Text>Mo'va'on	  </Text>
+		<Text>How	  would	  we	  understand	  an	  image?	  </Text>
+		<Text>Scene?	  </Text>
+		<Figure left="28" right="195" width="130" height="83" no="1" OriWidth="0.167052" OriHeight="0.093387
+" />
+		<Text> Outdoor	  	  </Text>
+		<Text>Restaurant	  </Text>
+		<Text>Objects?	  </Text>
+		<Figure left="160" right="194" width="128" height="91" no="2" OriWidth="0.169942" OriHeight="0.0947274
+" />
+		<Text> 3	  Picnic-­‐umbrellas,	  </Text>
+		<Text>3	  Tables,6	  Chairs	  </Text>
+		<Text>Group	  of	  Objects!	  </Text>
+		<Figure left="319" right="195" width="121" height="90" no="3" OriWidth="0.165896" OriHeight="0.0924933
+" />
+		<Text> 3	  Sets	  of	  picnic-­‐umbrella,	  </Text>
+		<Text>table	  &	  chairs	  </Text>
+		<Text>Groups	  of	  objects:	  composites	  of	  two	  or	  more	  objects	  which	  have	  </Text>
+		<Text>mutually	  consistent	  spaDal,	  scale,	  and	  view	  point	  relaDonships.	  	  </Text>
+		<Text>possible	  groups	  with	  arbitrary	  number	  of	  parDcipaDng	  objects!	  Problem:	  It	  is	  NOT	  feasible	  to	  manually	  compile	  a	  list	  of	  all	  </Text>
+	</Panel>
+
+	<Panel left="474" right="106" width="385" height="345">
+		<Text>Contribu'ons	  </Text>
+		<Text> 	  Modeling	  a	  full	  spectrum	  of	  arbitrary	  high-­‐order	  object	  </Text>
+		<Text>interacDons	  for	  deeper	  scene	  understanding	  </Text>
+		<Text> Pair-wise</Text>
+		<Figure left="486" right="209" width="116" height="84" no="4" OriWidth="0.178035" OriHeight="0.0942806
+" />
+		<Text> Third-order</Text>
+		<Figure left="616" right="211" width="115" height="81" no="5" OriWidth="0.171098" OriHeight="0.0942806
+" />
+		<Text> Higher-order</Text>
+		<Figure left="744" right="209" width="110" height="84" no="6" OriWidth="0.161272" OriHeight="0.0920465
+" />
+		<Text> 	  Automa'cally	  discovering	  groups	  from	  images	  </Text>
+		<Text>annotated	  only	  with	  object	  labels	  </Text>
+		<Text> 	  Improving	  object	  detec'on	  and	  scene	  recogni'on	  </Text>
+		<Text>performance	  on	  a	  variety	  of	  datasets:	  UIUC	  phrasal,	  </Text>
+		<Text>PASCAL	  VOC07,	  SUN09,	  MIT	  indoor	  </Text>
+	</Panel>
+
+	<Panel left="21" right="458" width="836" height="411">
+		<Text>Approach	  Results:	  Discovered	  Groups	  </Text>
+		<Text>Manual	  labeling	  [Sadeghi	  &	  Farhadi	  CVPR	  2011]:	  </Text>
+		<Text>12	  pair-­‐wise	  phrases	  </Text>
+		<Figure left="28" right="546" width="265" height="312" no="7" OriWidth="0.376879" OriHeight="0.0857909
+" />
+		<Text>High-­‐order	  groups	  are	  discovered	  on	  mul'ple	  datasets!	  </Text>
+		<Figure left="308" right="548" width="545" height="308" no="8" OriWidth="0.771676" OriHeight="0.310098
+" />
+	</Panel>
+
+	<Panel left="865" right="104" width="868" height="437">
+		<Text>Approach:	  Group	  Discovery	  </Text>
+		<Text>Step1:	  Find	  common	  object	  paTerns	  between	  every	  </Text>
+		<Text>image-­‐pair	  through	  a	  4-­‐dimensional	  transform	  space.	  	  </Text>
+		<Figure left="929" right="183" width="280" height="235" no="9" OriWidth="0.375723" OriHeight="0.21403
+" />
+		<Text>• 	  SoV	  voDng:	  alleviate	  the	  eﬀect	  of	  hard	  quanDzaDon	  </Text>
+		<Text>s</Text>
+		<Figure left="933" right="434" width="263" height="108" no="10" OriWidth="0.371098" OriHeight="0.125559
+" />
+		<Text>Step2:	  Clustering	  paTerns	  into	  groups.	  </Text>
+		<Text>• 	  Assume	  transiDvity	  between	  paTerns	  </Text>
+		<Text>• 	  Allow	  missing	  parDcipaDng	  objects:	  lower-­‐order	  </Text>
+		<Text>groups	  instanDaDons	  are	  merged	  with	  </Text>
+		<Text>corresponding	  higher-­‐order	  group	  instanDaDons	  	  </Text>
+		<Figure left="1540" right="148" width="195" height="82" no="11" OriWidth="0.19711" OriHeight="0.0540661
+" />
+		<Figure left="1542" right="238" width="192" height="157" no="12" OriWidth="0.199422" OriHeight="0.115728
+" />
+		<Text>Step3:	  Training	  group	  detectors.	  </Text>
+		<Text>• 	  Generate	  a	  bounding	  box	  for	  each	  instanDaDon	  of	  the	  group:	  the	  smallest	  box	  that	  </Text>
+		<Text>encompasses	  all	  parDcipaDng	  objects	  including	  the	  hallucinated	  missing	  object.	  </Text>
+		<Text>• 	  UDlize	  any	  oﬀ-­‐the-­‐shelf	  object	  detecDon	  method	  to	  train	  group	  detectors.	  We	  used	  </Text>
+		<Text>the	  deformable	  part-­‐based	  model.	  </Text>
+	</Panel>
+
+	<Panel left="865" right="550" width="870" height="320">
+		<Text>Results:	  Improved	  Scene	  Understanding	  </Text>
+		<Text>Contextual	  </Text>
+		<Text>reasoning	  </Text>
+		<Figure left="895" right="600" width="384" height="268" no="13" OriWidth="0" OriHeight="0
+" />
+		<Figure left="1303" right="601" width="179" height="266" no="14" OriWidth="0" OriHeight="0
+" />
+		<Text>Higher-­‐order	  groups	  provide	  	  useful	  </Text>
+		<Text>contextual	  informa'on!	  	  </Text>
+		<Figure left="1509" right="651" width="218" height="169" no="15" OriWidth="0.234682" OriHeight="0.113047
+" />
+		<Text>For	  more	  details,	  please	  visit:	  </Text>
+		<Text>hTp://chenlab.ece.cornell.edu/projects/objectgroup	  </Text>
+	</Panel>
+
+</Poster>

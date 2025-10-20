@@ -1,0 +1,111 @@
+<Poster Width="1734" Height="1301">
+	<Panel left="53" right="197" width="531" height="559">
+		<Text>Background:The use of UV imagery in combat</Text>
+		<Text>has become essential for mission success. Factors that</Text>
+		<Text>may affect the UV video feeds’ utilization are color and</Text>
+		<Text>quality of the feed. Specifically, the use of black and white</Text>
+		<Text>feeds or colored ones is considered both from technical</Text>
+		<Text>aspects and cognitive aspects. Operationally, B/W is often</Text>
+		<Text>used due to band width limitations, or payload selection.</Text>
+		<Text>Previously (Oron-Gilad, Redden & Minkov, 2011) we have</Text>
+		<Text>shown task dependent differences among display types</Text>
+		<Text>with regard to soldiers’ performances on intelligence</Text>
+		<Text>gathering type tasks.</Text>
+		<Figure left="116" right="501" width="417" height="223" no="1" OriWidth="0" OriHeight="0
+" />
+		<Text> A typical scenario for the passive dismounted soldier</Text>
+	</Panel>
+
+	<Panel left="49" right="755" width="536" height="517">
+		<Text>Method:16 former infantry soldiers with MOUT</Text>
+		<Text>experience but no prior experience using UV video feed</Text>
+		<Text>participated. Three displays were examined in two feed</Text>
+		<Text>variations (color and B/W) in three Intelligence gathering</Text>
+		<Text>task types (orientation, identification and response to a</Text>
+		<Text>movement), all using simulated UAV and UGV video</Text>
+		<Text>images. Performance, workload and subjective data were</Text>
+		<Text>collected.</Text>
+		<Figure left="135" right="963" width="367" height="191" no="2" OriWidth="0.407728" OriHeight="0.157754
+" />
+		<Text> Example of scenario elements and tasks. Participants were</Text>
+		<Text>asked to (left) navigate between waypoints using a</Text>
+		<Text>predefined route, (center) identify static parked vehicles or</Text>
+		<Text>(right) detect movements of soldiers from the UAV (top) or</Text>
+		<Text>UGV (bottom) feeds.</Text>
+	</Panel>
+
+	<Panel left="602" right="197" width="533" height="691">
+		<Text>Results: Accuracy – only main effects UV type and</Text>
+		<Text>task type were statistically significant (Wald 21=14.5;</Text>
+		<Text>p<0.001, and Wald 22=325.5; p<0.001 ). Accuracy with</Text>
+		<Text>the UGV feed was higher than with the UAV feed</Text>
+		<Text>(Mean=3.6, SE=.07 and Mean=3.3, SE=.07, respectively).</Text>
+		<Text>The movement detection scores were highest (Mean=3.8,</Text>
+		<Text>SE=.08) followed by vehicle identification Mean=3.5,</Text>
+		<Text>SE=.09) and orientation (Mean=3.0, SE=.08).</Text>
+		<Text>Response time - The three-way interaction display type by</Text>
+		<Text>UV by feed color was significant (F2, 307=11.5, p<.0001).</Text>
+		<Text>The combination of B/W feed with the HHMD generated</Text>
+		<Text>longer response times than the colored feed. An inverse</Text>
+		<Text>trend was seen with the 7" HHD.</Text>
+		<Figure left="648" right="546" width="451" height="204" no="3" OriWidth="0.359285" OriHeight="0.202763
+" />
+		<Text> Three-way interaction for response time among Display type, UV</Text>
+		<Text>type and feed color.</Text>
+		<Text> Vertical bars denote 0.95 confidence intervals</Text>
+		<Text>Workload estimates were moderate. Workload was higher</Text>
+		<Text>when colored feed was presented on the 12“ and HHMD</Text>
+		<Text>than B/W feed. The 7“display generated the opposite.</Text>
+	</Panel>
+
+	<Panel left="600" right="889" width="535" height="380">
+		<Text>Discussion:Results showed superiority for the</Text>
+		<Text>UGV feed. Although consistent with our previous study, in</Text>
+		<Text>operational contexts generally, aerial vertical views are</Text>
+		<Text>considered more informative and easy to understand than</Text>
+		<Text>ground horizontal ones, due to their holistic view and</Text>
+		<Text>similarity to aerial maps.</Text>
+		<Text>The experimental scenarios may have contributed to the</Text>
+		<Text>superiority of the UGV. If the task can be conducted from</Text>
+		<Text>both ground and aerial perspective feeds then it is</Text>
+		<Text>reasonable to assume that the ground view (which is more</Text>
+		<Text>compatible with the soldier's point of view) will be preferred.</Text>
+		<Text>• Nevertheless, one should keep in mind that oftentimes in</Text>
+		<Text>operational settings the UGV is not capable of viewing the</Text>
+		<Text>same information as the UAV and the two sources provide</Text>
+		<Text>complementary feed (see Ophir-Arbelle, Oron-Gilad,</Text>
+		<Text>Borowsky and Parmet, in press).</Text>
+	</Panel>
+
+	<Panel left="1149" right="196" width="531" height="517">
+		<Figure left="1165" right="204" width="508" height="447" no="4" OriWidth="0.400231" OriHeight="0.209893
+" />
+		<Text> The experimental system interface. (Right) video feed. (Left)</Text>
+		<Text>topographic image of the area, from a (top) UAV B/W</Text>
+		<Text>perspective Vs. UGV colored one</Text>
+	</Panel>
+
+	<Panel left="1146" right="717" width="533" height="554">
+		<Text>Conclusions and future work:</Text>
+		<Text>Evidence had shown that for video and map based</Text>
+		<Text>missions a larger display has its superiority, and that B/W</Text>
+		<Text>feeds may be good enough to perform certain tasks in</Text>
+		<Text>larger displays. Experimental design considerations may</Text>
+		<Text>have influenced the results, e.g., the simulation conditions,</Text>
+		<Text>the (high) quality of the simulated feeds, the lack of role for</Text>
+		<Text>color in the operational tasks and scenarios, and the</Text>
+		<Text>partial-balance of the experimental design. Amongst other</Text>
+		<Text>factors, future studies should focus on how the cognitive</Text>
+		<Text>state of the operator e.g., mental or physical fatigue and</Text>
+		<Text>extreme stress affect performance.</Text>
+		<Text>Acknowledgments. This work was supported by the US Army Research Laboratory through the Micro-</Text>
+		<Text>Analysis and Design CTA Grant DAAD19-01C0065, Michael Barnes, Technical Monitor. The views</Text>
+		<Text>expressed in this work are those of the authors and do not necessarily reflect official Army policy.</Text>
+		<Figure left="1188" right="1062" width="429" height="135" no="5" OriWidth="0.381776" OriHeight="0.0864528
+" />
+		<Text> Operator station with (from left to right) 7” display, Tablet</Text>
+		<Text>and HHMD. Participants were free to hold the display to</Text>
+		<Text>their own comfort</Text>
+	</Panel>
+
+</Poster>

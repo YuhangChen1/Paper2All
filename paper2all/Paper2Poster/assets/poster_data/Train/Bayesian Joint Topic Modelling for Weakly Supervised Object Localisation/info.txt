@@ -1,0 +1,158 @@
+<Poster Width="1734" Height="1214">
+	<Panel left="36" right="192" width="398" height="289">
+		<Text>Task</Text>
+		<Text></Text>
+		<Figure left="100" right="244" width="91" height="89" no="1" OriWidth="0" OriHeight="0
+" />
+		<Text> Fully annotated</Text>
+		<Figure left="264" right="243" width="94" height="91" no="2" OriWidth="0" OriHeight="0" />
+		<Text> Weakly annotated</Text>
+		<Text> Many computer vision tasks require fully annotated data, but</Text>
+		<Text> Time-consuming, Laborious, Human various</Text>
+		<Text> More and more online media sharing websites (e.g. Flickr) provide</Text>
+		<Text>weakly annotated data, However,</Text>
+		<Text> Weaker supervision, Ambiguity (background clutter, occlusion…)</Text>
+		<Text> Challenge: Weakly Supervised Object Localisation (WSOL).</Text>
+	</Panel>
+
+	<Panel left="36" right="482" width="397" height="696">
+		<Text>Existing Approaches vs. Ours</Text>
+		<Text>Three types of cues are exploited in existing WSOL:</Text>
+		<Text> Object-saliency: A region containing the object should look different</Text>
+		<Text>from background in general.</Text>
+		<Text> Intra-class: The region should look similar to other regions containing</Text>
+		<Text>the object of interest in other training images.</Text>
+		<Text> Inter-class: The region should look dissimilar to any regions that are</Text>
+		<Text>known to not contain the object of interest.</Text>
+		<Text>However, they are independently trained:</Text>
+		<Figure left="39" right="671" width="396" height="273" no="3" OriWidth="0.390751" OriHeight="0.189455
+" />
+		<Text>Independent learning ignores the fact that:</Text>
+		<Text> The knowledge that multiple objects co-exist within each image is</Text>
+		<Text>not exploited.</Text>
+		<Text> The background is relevant to different foreground object classes.</Text>
+		<Text>Our contributions:</Text>
+		<Text> We propose the novel concept of joint modelling of all object</Text>
+		<Text>classes and backgrounds for weakly supervised object localisation.</Text>
+		<Text> We formulate a novel Bayesian topic model suitable for localization</Text>
+		<Text>of objects and utilizing various types of prior knowledge available.</Text>
+		<Text> We provide a solution for exploiting unlabeled data for semi+weakly</Text>
+		<Text>supervised learning of object localisation.</Text>
+	</Panel>
+
+	<Panel left="455" right="194" width="820" height="407">
+		<Text>Methodology</Text>
+		<Text>Preprocessing and Representation:</Text>
+		<Text> Regular Grid SIFT Descriptors. Sampled every 5 pixels.</Text>
+		<Text> Quantising using 𝑁𝑣 = 2000 word codebook.</Text>
+		<Text> Words and corresponding locations:</Text>
+		<Text>Our Model:</Text>
+		<Figure left="460" right="354" width="401" height="239" no="4" OriWidth="0.363584" OriHeight="0.146113
+" />
+		<Text>Observed variables:</Text>
+		<Text>𝐽 Ο = {𝑥𝑗 , 𝑙𝑗 }</Text>
+		<Text>𝑗=1Low-level feature words and corresponding location</Text>
+		<Text>Latent variables:</Text>
+		<Text> H=For each topic k and image j𝐾,𝐽{{𝜋𝑘 }𝐾</Text>
+		<Text>𝑘=1 , {𝑦𝑗 , 𝜇𝑘𝑗 , Λ 𝑘𝑗 , 𝜃𝑗 }</Text>
+		<Text>𝑘=1,𝑗=1 }</Text>
+		<Text>Given parameters:</Text>
+		<Text>Label information and prior𝐽, {𝛼𝑗 }</Text>
+		<Text>𝑗=1𝑘=1𝐾</Text>
+		<Text>𝜋𝑘0 , 𝜇𝑘0 , Λ0</Text>
+		<Text>𝑘 , 𝛽𝑘0 , 𝜈𝑘0 Π=</Text>
+		<Text>Joint distribution:</Text>
+		<Text>𝑝 𝑥𝑖𝑗 𝑦𝑖𝑗 , 𝜃𝑗 𝑝 𝑦𝑖𝑗 𝜃𝑗</Text>
+		<Text>𝑘𝑝(𝜋𝑘 |𝜋𝑘0 )</Text>
+		<Text>𝑖𝑗𝑗</Text>
+		<Text>𝑝 𝜇𝑗𝑘 , Λ𝑗𝑘 𝜇𝑘0 , Λ0</Text>
+		<Text>𝑘 , 𝛽𝑘0 , 𝜈𝑘0 )𝑝(𝜃𝑗 |𝛼𝑗 )𝑝 𝑂, 𝐻 Π =𝑝 𝑥𝑖𝑗 𝑦𝑖𝑗 , 𝜃𝑗 𝑝 𝑦𝑖𝑗 𝜃𝑗</Text>
+		<Text>𝑘𝑝(𝜋𝑘 |𝜋𝑘0 )</Text>
+		<Text>𝑖𝑗𝑁𝑗</Text>
+		<Text>𝑝 𝜇𝑗𝑘 , Λ𝑗𝑘 𝜇𝑘0 , Λ0</Text>
+		<Text>𝑘 , 𝛽𝑘0 , 𝜈𝑘0 )𝑝(𝜃𝑗 |𝛼𝑗 )𝑝 𝑂, 𝐻 Π =𝐾𝐽</Text>
+		<Text>Prior Knowledge:</Text>
+		<Text> Human knowledge objects and their relationships with backgrounds</Text>
+		<Text> Objects are compact whilst background spread across the image.</Text>
+		<Text> Objects stand out against background.</Text>
+		<Text> Transferred knowledge</Text>
+		<Text> Appearance and Geometry information from existing dataset.</Text>
+		<Text>Object Localisation:</Text>
+		<Text> Our-Gaussian Aligning a window to the ellipse obtained from q 𝜇, Λ</Text>
+		<Text> Our-Sampling Non-maximum suppression sampling over heat-map</Text>
+	</Panel>
+
+	<Panel left="455" right="602" width="818" height="203">
+		<Text>Results</Text>
+		<Text>Dataset: PASCAL VOC 2007. Three variants are used:</Text>
+		<Text> VOC07-6×2 : 6 classes with Left and Right poses, 12 classes in total.</Text>
+		<Text> VOC07-14: 14 classes, other 6 were used as annotated auxiliary data</Text>
+		<Text> VOC07-20: all 20 classes, each class contain all pose data.</Text>
+		<Text>PASCAL criterion:</Text>
+		<Text> intersection-over-union > 0.5 between Ground-Truth and predicted box</Text>
+		<Text>Comparison with state-of-the-art</Text>
+		<Text> Initialisation: Localising object of interest in weakly labelled images.</Text>
+		<Text> Refined by detector: A conventional object detector can be trained</Text>
+		<Text>using initial annotation. Then it can be used to refine object location.</Text>
+		<Figure left="874" right="634" width="403" height="175" no="5" OriWidth="0.375145" OriHeight="0.152368
+" />
+	</Panel>
+
+	<Panel left="455" right="805" width="819" height="372">
+		<Text>Example: Foreground Topics</Text>
+		<Text></Text>
+		<Figure left="458" right="840" width="818" height="212" no="6" OriWidth="0.775145" OriHeight="0.16622
+" />
+		<Text>Figs. (c) and (d) illustrate that the object of interest “explain away”</Text>
+		<Text>other objects of no interest.</Text>
+		<Text> A car is successfully located in Fig. (c) using the heat map of car topic.</Text>
+		<Text>Fig. (d) shows that the motorbike heat map is quite accurately</Text>
+		<Text>selective, with minimal response obtained on the other vehicular clutter.</Text>
+		<Text>Fig. (e) indicates how the Gaussian can sometimes give a better location.</Text>
+		<Text>Fig. (f) shows that the single Gaussian assumption is not ideal when the</Text>
+		<Text>foreground topic has a less compact response.</Text>
+		<Text>A failure case is shown in Fig. (g), where a bridge structure resembles</Text>
+		<Text>the boat in Fig (a) resulting strong response from the foreground topic,</Text>
+		<Text>whilst the actual boat topic is small and overwhelmed.</Text>
+	</Panel>
+
+	<Panel left="1294" right="193" width="400" height="512">
+		<Text>Example: Background Topics</Text>
+		<Text></Text>
+		<Figure left="1308" right="229" width="378" height="336" no="7" OriWidth="0.327168" OriHeight="0.257373
+" />
+		<Text>Background non-annotated data has been modelled in our framework.</Text>
+		<Text>Irrelevant pixels will be explained to reduce confusion with object.</Text>
+		<Text>Automatically learned background topics have clear semantic meanings,</Text>
+		<Text>corresponding to common components as shown in the Figure.</Text>
+		<Text> Some background components are mixed, e.g. the water topic gives</Text>
+		<Text>strong response to both water and sky. But this is understandable</Text>
+		<Text>since water and sky are almost visually indistinguishable in the image.</Text>
+	</Panel>
+
+	<Panel left="1295" right="705" width="399" height="292">
+		<Text>Example: Semi-supervised Learning</Text>
+		<Figure left="1303" right="745" width="396" height="139" no="8" OriWidth="0.37341" OriHeight="0.101877
+" />
+		<Text>𝑓𝑔 Unknown image can set as 𝛼</Text>
+		<Text>𝑗 =0.1. (soft constraint)</Text>
+		<Text> 10% labelled data + 90% unlabeled data (relevant) or unrelated data</Text>
+		<Text> Evaluating on (1) initially annotated 10% data (standard WSOL).</Text>
+		<Text>(2) testing part dataset (localize objects in new images</Text>
+		<Text> The figure clearly shows unlabeled data helps to learn a better object</Text>
+		<Text>model.</Text>
+	</Panel>
+
+	<Panel left="1296" right="998" width="397" height="180">
+		<Text>References</Text>
+		<Text>[1] T. Deselaers, B. Alexe, and V. Ferrari. Weakly supervised localization</Text>
+		<Text>and learning with generic knowledge. IJCV. 2012.</Text>
+		<Text>[2] M. Pandey and S. Lazebnik. Scene recognition and weakly supervised</Text>
+		<Text>object localization with deformable part-based models. In ICCV, 2011</Text>
+		<Text>[3] P. Siva and T. Xiang. Weakly supervised object detector learning with</Text>
+		<Text>model drift detection. In ICCV, 2011.</Text>
+		<Text>[4] P. Siva, C. Russell, and T. Xiang. In defence of negative mining for</Text>
+		<Text>annotating weakly labelled data. In ECCV, 2012.</Text>
+	</Panel>
+
+</Poster>

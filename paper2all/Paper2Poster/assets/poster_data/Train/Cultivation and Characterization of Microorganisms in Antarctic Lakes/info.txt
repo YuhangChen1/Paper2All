@@ -1,0 +1,71 @@
+<Poster Width="1003" Height="1382">
+	<Panel left="23" right="212" width="592" height="115">
+		<Text>INTRODUCTION</Text>
+		<Text>Antarctic Lakes harbor pristine biotopes and include freshwater and saline systems that are subject to long</Text>
+		<Text>periods of ice and snow-cover, low temperatures and low levels of photosynthetically active radiation.</Text>
+		<Text>Unfortunately, the recovery of cultivable organisms from Antarctica is very difficult, and the development of new</Text>
+		<Text>methods to resuscitation and cultivability of Antarctic microorganisms is very important. In order to understand</Text>
+		<Text>the diversity, survival, and activity of microorganisms in Antarctic zone, we cultivated and characterized</Text>
+		<Text>bacterial isolates from Antarctic lakes.</Text>
+	</Panel>
+
+	<Panel left="25" right="329" width="588" height="272">
+		<Text>Sampling site</Text>
+		<Text>Water samples were collected from Antarctic Lakes in Skavrvsnes near Syowa Station area (A-6 Ike 0m,</Text>
+		<Text>Jan.19, 2005; A-7 Ike 0m, Jan.29, 2005; B-1 Ike 0m, Jan.21, 2005; B-3 Ike 0m, Jan.21, 2005; Hunazoko Ike 4m,</Text>
+		<Text>Jan.22, 2005; Tokkuri Ike 4m, Jan.22, 2005; Suribati Ike 10m, Jan.24, 2005 in Fig.1).</Text>
+		<Figure left="133" right="399" width="384" height="173" no="1" OriWidth="0.77667" OriHeight="0.291755
+" />
+		<Text>Fig.1. a. The location of Skavrvsnes; b. Lakes in Skavrvsnes. 1. Hunazoko, 4. Tokkuri, 9.B1,11.B3, 20.</Text>
+		<Text>A6, 21. A7, 30. Suribati.</Text>
+	</Panel>
+
+	<Panel left="7" right="610" width="605" height="756">
+		<Text>RESULT AND DISCUSSION</Text>
+		<Text>The results of the homology analysis of 16s rRNA gene sequences showed that the isolates represented a</Text>
+		<Text>wide diversity of both gram-positive and gram-negative heterotrophic bacteria belonging to five major classes:</Text>
+		<Text>Gamma-proteobacteria, Actinobacteria, Alpha-proteobacteria, Bacilli, Flavobacteria class. Isolates related to</Text>
+		<Text>Flavobacteria formed the largest cluster in terms of diversity, with 9 pylogenetically distinct organisms.</Text>
+		<Figure left="19" right="726" width="585" height="606" no="2" OriWidth="0.789631" OriHeight="0.353066
+" />
+	</Panel>
+
+	<Panel left="618" right="219" width="366" height="655">
+		<Text>METHOD</Text>
+		<Figure left="632" right="241" width="339" height="627" no="3" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="624" right="874" width="364" height="127">
+		<Text>Microorganism description</Text>
+		<Figure left="650" right="899" width="305" height="62" no="4" OriWidth="0" OriHeight="0
+" />
+		<Text>Fig.2. Photo of cultivated bacteria from Antarctica lake sample.</Text>
+		<Text>a. Isolate 41; b. Isolate 15; c. Isolate 32; d. Isolate 23.</Text>
+	</Panel>
+
+	<Panel left="620" right="1002" width="372" height="361">
+		<Text>CONCLUSION</Text>
+		<Text>1. While there were only two strains isolated from</Text>
+		<Text>incubation at 20ºC by spreading the Antarctica lake samples</Text>
+		<Text>directly onto agar-media plates, twenty strains were isolated</Text>
+		<Text>at 4ºC by filtration Antarctica lake samples. It was thought</Text>
+		<Text>that microorganisms in Antarctica lakes had been subjected</Text>
+		<Text>to low temperature and limiting nutrient for long time, and</Text>
+		<Text>high incubation temperature and rich nutrient medium might</Text>
+		<Text>be stressor for Antarctic microorganisms. Therefore,</Text>
+		<Text>incubation at low temperature with media not containing</Text>
+		<Text>rich nutrition were more suitable for Antarctica lake</Text>
+		<Text>microorganisms because the isolated microorganisms were</Text>
+		<Text>likely to be adapted to the oligotrophic conditions of many</Text>
+		<Text>cold habitats.</Text>
+		<Text>2. 16S rDNA sequencing results suggested that three of the</Text>
+		<Text>isolates might represent new species. Strain No. 15, 41, and</Text>
+		<Text>27 (28, 32, and 44) showed 93%, 97%, and 97% similarity</Text>
+		<Text>with the GenBank database respectively. Strain No. 15, 41,</Text>
+		<Text>and 27 (28, 32, and 44) are likely novel species in the genus</Text>
+		<Text>Gillisia, Psychroflexus, and Flavobacterium which belong to</Text>
+		<Text>the Flavobacteria group.</Text>
+	</Panel>
+
+</Poster>

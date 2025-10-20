@@ -1,0 +1,61 @@
+<Poster Width="685" Height="913">
+	<Panel left="4" right="143" width="297" height="212">
+		<Text>Introduction</Text>
+		<Text>Scientific methodology in the database field can</Text>
+		<Text>provide a deep understanding of DBMS query</Text>
+		<Text>optimizers, for better engineered designs.</Text>
+		<Text>Few DBMS-centric labs are available for scientific</Text>
+		<Text>investigation; prior labs have focused on networks</Text>
+		<Text>and smartphones.</Text>
+	</Panel>
+
+	<Panel left="5" right="368" width="297" height="273">
+		<Text>AZDBLAB (AriZona DataBase Laboratory)</Text>
+		<Text>Has been in development for seven years.</Text>
+		<Text>Assists database researchers to conduct large-</Text>
+		<Text>scale empirical studies across multiple DBMSes.</Text>
+		<Text>Runs massive experiments with thousands or</Text>
+		<Text>millions of queries on multiple DBMSes.</Text>
+		<Text>Supports as experiment subjects seven relational</Text>
+		<Text>DBMSes supporting SQL and JDBC.</Text>
+		<Text>Provides robustness to collect data over 8,277</Text>
+		<Text>hours running about 2.4 million query executions.</Text>
+		<Text>Conducts automated analyses on multiple query</Text>
+		<Text>execution runs.</Text>
+	</Panel>
+
+	<Panel left="6" right="653" width="296" height="204">
+		<Text>Contributions</Text>
+		<Text>Novel research infrastructure, dedicated for large-</Text>
+		<Text>scale empirical DBMS studies</Text>
+		<Text>Seamless data provenance support</Text>
+		<Text>Several decentralized monitoring schemes: phone</Text>
+		<Text>apps, web apps, and watcher</Text>
+		<Text>Reusable GUI</Text>
+		<Text>Extensibility through a variety of plugins: labshelf,</Text>
+		<Text>analysis, experiment subject, and scenario</Text>
+	</Panel>
+
+	<Panel left="316" right="145" width="354" height="285">
+		<Text>AZDBLAB Architecture</Text>
+		<Figure left="320" right="182" width="346" height="243" no="1" OriWidth="0.383237" OriHeight="0.208222
+" />
+	</Panel>
+
+	<Panel left="315" right="439" width="355" height="419">
+		<Text>Demonstration</Text>
+		<Text>Step 1: Choose a labshelf, add a user, and create a notebook,</Text>
+		<Text>a paper, and a study in the paper on the Observer GUI.</Text>
+		<Text>Step 2: Load an experiment specification into the notebook.</Text>
+		<Text>Step 3: Schedule an experiment run on a particular DBMS.</Text>
+		<Text>Step 4: Monitor the run status via Observer, a web app, and a</Text>
+		<Text>mobile app, and wait for the experiment to be done.</Text>
+		<Text>Step 5: Add the completed experiment run to the study and</Text>
+		<Text>conduct a timing protocol analysis for the study.</Text>
+		<Text>Step 6: Produce LaTeX/PDF documents containing the analysis</Text>
+		<Text>results.</Text>
+		<Figure left="321" right="639" width="345" height="212" no="2" OriWidth="0.791329" OriHeight="0.365952
+" />
+	</Panel>
+
+</Poster>

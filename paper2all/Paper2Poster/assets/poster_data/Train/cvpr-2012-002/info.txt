@@ -1,0 +1,119 @@
+<Poster Width="1734" Height="1301">
+	<Panel left="9" right="224" width="565" height="127">
+		<Text>Objective: The basic position of this paper is that supervoxels</Text>
+		<Text>have great potential in advancing video analysis methods, as super-</Text>
+		<Text>pixels have for image analysis. To that end, we perform a thorough</Text>
+		<Text>comparative evaluation of five supervoxel methods. We have also</Text>
+		<Text>released the underlying methods’ code and the benchmark.</Text>
+	</Panel>
+
+	<Panel left="10" right="361" width="563" height="306">
+		<Text>What Makes a Good Supervoxel Method?</Text>
+		<Text>Why supervoxels?</Text>
+		<Text>Images have many pixels; videos have more. Supervoxels have strong prom-</Text>
+		<Text>ise for early video processing: voxels are an artifact of the digital sampling pro-</Text>
+		<Text>cess and not a natural representation, and there are many voxels in a video</Text>
+		<Text>making sophisticated computational methods intractable.</Text>
+		<Text>Traits of a good supervoxel method.</Text>
+		<Text>- Spatiotemporal uniformity, or conservatism, prefers compact and uni-</Text>
+		<Text>formly shaped supervoxels in space and time.</Text>
+		<Text>- Spatiotemporal boundary and preservation: supervoxels should follow</Text>
+		<Text>object and scene boundaries when they are present and should be stable when</Text>
+		<Text>they are not present.</Text>
+		<Text>- Computation and performance: computing supervoxels should reduce the</Text>
+		<Text>overall amount of computation required and not decrease task performance.</Text>
+		<Text>- Parsimony: the above properties should be maintained with as few super-</Text>
+		<Text>- Parsimony: the above properties should be maintained with as few super-</Text>
+		<Text>voxels as possible.</Text>
+	</Panel>
+
+	<Panel left="8" right="675" width="565" height="613">
+		<Text>Supervoxel Methods Evaluated:</Text>
+		<Text>We broadly sample the methodology-space, and intentionally select the methods</Text>
+		<Text>with differing qualities for supervoxel segmentation in our analysis.</Text>
+		<Figure left="20" right="772" width="544" height="89" no="1" OriWidth="0.379191" OriHeight="0.0728329
+" />
+		<Text>- Segmentation by Weighted Aggregation (SWA) solves the well-known nor-</Text>
+		<Text>malized cut criterion approximately by sequentially computing a hierarchy of</Text>
+		<Text>coarser segmentations. It applies algebraic multigrid techniques and recom-</Text>
+		<Text>putes affinity between regions at multiple scales in the hierarchy. The method</Text>
+		<Text>was originally proposed by Sharon et al. CVPR 2000.</Text>
+		<Text>- Graph-based (GB) is a spatiotemporal extension of the Felzenszwalb and</Text>
+		<Text>Huttenlocher (IJCV 2004) segmentation method, which iteratively computes a</Text>
+		<Text>minimum spanning forest over the pixel lattice by merging similar regions.</Text>
+		<Text>- Graph-based Hierarchical (GBH) extends the GB method to sequentially</Text>
+		<Text>compute a hierarchy of minimum spanning forests: the input graph at a level is</Text>
+		<Text>the minimum spanning forest at the next finer level down. The method was pro-</Text>
+		<Text>posed by Grundmann et al. CVPR 2010.</Text>
+		<Text>- Meanshift is a nonparametric mode-seeking method; we use Paris and</Text>
+		<Text>Durand’s (CVPR 2007) implementation that takes a Morse theory interpretation</Text>
+		<Text>of the mean shift as a topological decomposition of the feature space.</Text>
+		<Text>- Nyström approximately solves the normalized cut eigenproblem; each voxel</Text>
+		<Text>is embedded into a low-dimensional eigenspace and then k-means clustering</Text>
+		<Text>computes the final partitioning (Fowlkes et al. PAMI 2004).</Text>
+	</Panel>
+
+	<Panel left="585" right="226" width="564" height="1062">
+		<Text>The Supervoxel Benchmark and Quantitative Results:</Text>
+		<Text>We propose a novel supervoxel benchmark that is not tied to any particular appli-</Text>
+		<Text>cation but rather evaluates the desiderata described earlier. We evaluate the</Text>
+		<Text>benchmark on three data sets:</Text>
+		<Text>- GaTech: unlabeled videos.</Text>
+		<Text>- SegTrack: labeled with a single foreground object.</Text>
+		<Text>- Chen Xiph.org: fully labeled with region segmentations.</Text>
+		<Text>- 3D Undersegmentation Error measures what fraction of voxels exceed the</Text>
+		<Text>volume boundary of the ground-truth segment when mapping the supervoxels</Text>
+		<Text>onto it.</Text>
+		<Figure left="661" right="429" width="198" height="160" no="2" OriWidth="0.181503" OriHeight="0.100983
+" />
+		<Figure left="876" right="430" width="204" height="158" no="3" OriWidth="0.183815" OriHeight="0.0991957
+" />
+		<Text>- 3D Boundary Recall measures the spatiotemporal boundary detection: for</Text>
+		<Text>each segment in the ground-truth and supervoxel segmentations, we extract the</Text>
+		<Text>within-frame and between-frame boundaries and measure recall.</Text>
+		<Figure left="660" right="656" width="204" height="163" no="4" OriWidth="0.189017" OriHeight="0.105004
+" />
+		<Figure left="881" right="660" width="192" height="156" no="5" OriWidth="0.185549" OriHeight="0.104111
+" />
+		<Text>Chen Xiph.orgSegTrack- 3D Segmentation Accuracy measures what fraction of a ground-truth seg-</Text>
+		<Text>ment is correctly classified by the supervoxels: each supervoxel should overlap</Text>
+		<Text>with only one object/segment.</Text>
+		<Figure left="663" right="876" width="205" height="169" no="6" OriWidth="0.184971" OriHeight="0.106792
+" />
+		<Figure left="877" right="883" width="196" height="167" no="7" OriWidth="0.183237" OriHeight="0.104558
+" />
+		<Text>- Explained Variation, a human-independent metric, measures the difference</Text>
+		<Text>between the image intensities and the mean-statistics of each supervoxel region;</Text>
+		<Text>i.e., how well the original video is “compressed” by the supervoxel regions.</Text>
+		<Figure left="592" right="1114" width="188" height="159" no="8" OriWidth="0.228902" OriHeight="0.131367
+" />
+		<Figure left="785" right="1116" width="179" height="157" no="9" OriWidth="0.237572" OriHeight="0.129133
+" />
+		<Figure left="963" right="1114" width="186" height="157" no="10" OriWidth="0.235838" OriHeight="0.126899
+" />
+	</Panel>
+
+	<Panel left="1162" right="225" width="558" height="983">
+		<Text>Take Away Message and Visual Examples:</Text>
+		<Text>Overall, the two best-performing methods are GBH and SWA. The common dis-</Text>
+		<Text>tinction setting these two methods apart is that they reevaluate region similarity</Text>
+		<Text>at varying levels during hierarchical segmentation.</Text>
+		<Figure left="1166" right="317" width="280" height="219" no="11" OriWidth="0.387283" OriHeight="0.236372
+" />
+		<Figure left="1443" right="316" width="259" height="219" no="12" OriWidth="0.382659" OriHeight="0.236819
+" />
+		<Figure left="1167" right="542" width="275" height="218" no="13" OriWidth="0.385549" OriHeight="0.237712
+" />
+		<Figure left="1444" right="544" width="278" height="215" no="14" OriWidth="0.377457" OriHeight="0.236819
+" />
+		<Figure left="1166" right="765" width="267" height="222" no="15" OriWidth="0.387283" OriHeight="0.236372
+" />
+		<Figure left="1445" right="764" width="279" height="222" no="16" OriWidth="0.382659" OriHeight="0.236819
+" />
+		<Figure left="1166" right="989" width="277" height="222" no="17" OriWidth="0.385549" OriHeight="0.237712
+" />
+		<Figure left="1444" right="992" width="278" height="217" no="18" OriWidth="0.377457" OriHeight="0.236819
+" />
+	</Panel>
+
+</Poster>

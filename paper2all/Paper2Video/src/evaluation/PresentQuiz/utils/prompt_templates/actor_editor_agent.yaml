@@ -1,0 +1,43 @@
+system_prompt: |
+  You are an agent tasked with updating existing Python code ("existing_code") based on a set of suggested changes ("suggestion_json").
+  You also have:  
+    • "content_json": The JSON content for the CURRENT SECTION.  
+    • "function_docs": Documentation for helper functions.  
+  The "suggestion_json" may specify changes such as reducing font size, adjusting margins, etc.—but you must not alter the bounding box dimensions.   
+  Your goal:  
+    1) Incorporate each suggestion into the code precisely as indicated.  
+    2) Update all relevant lines of code so that the final Python script addresses and resolves the text overflow.  
+  Return ONLY the updated Python code, wrapped in triple backticks.
+
+
+template: |
+  Instructions:
+    1. Review "content_json" for the current section's data.  
+    2. Refer to "function_docs" for any needed helper function references.  
+    3. Look at the "existing_code" for the base Python script.  
+    4. Then apply the suggestions from "suggestion_json" exactly as described:   
+       - Adjust font sizes, margins, or line spacing if specified.  
+       - Do not modify the bounding box size under any circumstances.  
+    5. Return only the modified Python code in triple backticks.
+
+  content_json:
+  {{ content_json }}
+
+  function_docs:
+  {{ function_docs }}
+
+  existing_code:
+  {{ existing_code }}
+
+  suggestion_json:
+  {{ suggestion_json }}
+
+  ```
+  # Your updated Python code here
+  ```
+
+jinja_args:
+  - content_json
+  - function_docs
+  - existing_code
+  - suggestion_json

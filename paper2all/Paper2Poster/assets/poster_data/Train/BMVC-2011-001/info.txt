@@ -1,0 +1,134 @@
+<Poster Width="1735" Height="1227">
+	<Panel left="20" right="186" width="333" height="181">
+		<Text>PROBLEM STATEMENT</Text>
+		<Text>Given partial 2D or 3D trajectories of the</Text>
+		<Text>motion of a uniformly colored bouncing</Text>
+		<Text>ball, that is viewed by a single or multi-</Text>
+		<Text>ple cameras, estimate its full 3D state,</Text>
+		<Text>over time, i.e. location, orientation, an-</Text>
+		<Text>gular and linear velocities.</Text>
+	</Panel>
+
+	<Panel left="22" right="373" width="330" height="138">
+		<Text>MOTIVATION</Text>
+		<Text>Scene understanding can benefit from</Text>
+		<Text>exploiting the fact that a dynamic scene</Text>
+		<Text>and its visual observations are invariably</Text>
+		<Text>determined by the laws of physics.</Text>
+	</Panel>
+
+	<Panel left="23" right="512" width="328" height="233">
+		<Text>MAIN IDEA</Text>
+		<Text>• Model the physics of the scene using</Text>
+		<Text>physics-based simulation</Text>
+		<Text>• Acquire visual observations</Text>
+		<Text>• Define an objective function that con-</Text>
+		<Text>nects the model to the observations</Text>
+		<Text>• Produce physically plausible interpre-</Text>
+		<Text>tations of the scene by performing</Text>
+		<Text>black-box optimization</Text>
+	</Panel>
+
+	<Panel left="359" right="188" width="673" height="552">
+		<Text>PHYSICS BASED SIMULATION</Text>
+		<Text>(A) Dynamics of a bouncing ball</Text>
+		<Text>The bouncing ball is affected by gravity</Text>
+		<Text>and air resistance while in flight and fric-</Text>
+		<Text>tion while in bounce with a surface.</Text>
+		<Figure left="374" right="344" width="293" height="133" no="1" OriWidth="0.516744" OriHeight="0.144003
+" />
+		<Text>(B) Equations of motion</Text>
+		<Text>We assume standard equations of mo-</Text>
+		<Text>tion for the flight phase and add air re-</Text>
+		<Text>sistance. We derive equations for the</Text>
+		<Text>bounce phase by extending [1].</Text>
+		<Text>(C) Simulation of a bouncing ball</Text>
+		<Text>We define a parameterized ball throwing simulation process S that:</Text>
+		<Text>• receives a 21-D vector of scene properties and initial conditions</Text>
+		<Text>• at each point in time, produces a 12-D vector of location, orientation, linear and</Text>
+		<Text>angular velocities</Text>
+		<Text>• is implemented by augmenting the Newton Game Dynamics simulator with our</Text>
+		<Text>physics modeling</Text>
+		<Text>• performs at 500fps, but is sub-sampled to real acquisition rate (30fps), in order to</Text>
+		<Text>account for aliasing effects</Text>
+	</Panel>
+
+	<Panel left="1040" right="188" width="669" height="314">
+		<Text>PHYSICALLY PLAUSIBLE SCENE INTERPRETATION</Text>
+		<Text>We estimate the physically plausible explanation e of the observed scene by formu-</Text>
+		<Text>lating an optimization problem, where:</Text>
+		<Text>• the hypothesis space of x is defined over the domain of simulation process S</Text>
+		<Text>• the observation data o are trajectories of a bouncing ball</Text>
+		<Text>(potentially partial, 3D or 2D, from single or multiple cameras)</Text>
+		<Text>• the objective function quantifies the discrepancy between the result of an invocation</Text>
+		<Text>to S and the observations</Text>
+		<Text>• the objective function is optimized by means of Differential Evolution [5]</Text>
+	</Panel>
+
+	<Panel left="1040" right="507" width="668" height="229">
+		<Text>CONTRIBUTIONS</Text>
+		<Text>• First method to consider attributes of state that can only be estimated through</Text>
+		<Text>physics-based simulation</Text>
+		<Text>• Extension to existing work [2–4] in exploiting physics based simulation in vision</Text>
+		<Text>• Proposal of an effective method that is clear, generic, top-down, simulation based</Text>
+		<Text>• Incorporation of realistic physics</Text>
+		<Text>• Selected generic and modular components allow for extension to other broader or</Text>
+		<Text>different contexts</Text>
+	</Panel>
+
+	<Panel left="20" right="752" width="1348" height="376">
+		<Text>EXPERIMENTAL RESULTS</Text>
+		<Text>(A) Multiview estimation of 3D trajectories</Text>
+		<Text>(synthetic/real)</Text>
+		<Figure left="29" right="859" width="385" height="255" no="2" OriWidth="0.605658" OriHeight="0.156226
+" />
+		<Text>(B) Single view estimation of 3D trajectories</Text>
+		<Text>Finding ball throwing simulations that optimally repro-</Text>
+		<Text>duce 2D observations.</Text>
+		<Figure left="492" right="895" width="204" height="154" no="3" OriWidth="0.251155" OriHeight="0.124905
+" />
+		<Figure left="701" right="876" width="199" height="173" no="4" OriWidth="0.277136" OriHeight="0.166921
+" />
+		<Text>(C) Seeing the “invisible”</Text>
+		<Text>Implicit information, like the state of the ball while</Text>
+		<Text>occluded (left) and the angular components of its 3D</Text>
+		<Text>state (right), are computer based on a single camera.</Text>
+		<Figure left="955" right="921" width="199" height="151" no="5" OriWidth="0.256351" OriHeight="0.127578
+" />
+		<Figure left="1161" right="929" width="202" height="142" no="6" OriWidth="0.301963" OriHeight="0.139801
+" />
+	</Panel>
+
+	<Panel left="1377" right="753" width="333" height="369">
+		<Text>KEY REFERENCES</Text>
+		<Text>[1] P.J. Aston and R. Shail. The Dynamics of a Bouncing</Text>
+		<Text>Superball with Spin. Dynamical Systems, 22(3):291–</Text>
+		<Text>322, 2007.</Text>
+		<Text>[2] K. Bhat, S. Seitz, J. Popovi´c, and P. Khosla. Com-</Text>
+		<Text>puting the Physical Parameters of Rigid-body Motion</Text>
+		<Text>from Video. In ECCV 2002, pages 551–565. Springer,</Text>
+		<Text>2002.</Text>
+		<Text>[3] D.J. Duff, J. Wyatt, and R. Stolkin. Motion Estimation</Text>
+		<Text>using Physical Simulation. In IEEE International Con-</Text>
+		<Text>ference on Robotics and Automation (ICRA), pages</Text>
+		<Text>1511–1517. IEEE, 2010.</Text>
+		<Text>[4] D. Metaxas and D. Terzopoulos. Shape and Nonrigid</Text>
+		<Text>Motion Estimation through Physics-based Synthesis.</Text>
+		<Text>IEEE Transactions on Pattern Analysis and Machine</Text>
+		<Text>Intelligence, 15(6):580–591, 1993.</Text>
+		<Text>[5] R. Storn and K. Price. Differential Evolution–A Sim-</Text>
+		<Text>ple and Efficient Heuristic for Global Optimization over</Text>
+		<Text>Continuous Spaces. Journal of Global Optimization,</Text>
+		<Text>11(4):341–359, 1997.</Text>
+	</Panel>
+
+	<Panel left="22" right="1129" width="1686" height="86">
+		<Text>MORE INFORMATION</Text>
+		<Text>For more information, visit http://www.ics.forth.gr/ kyriazis/?e=1 or contact {kyriazis,oikonom,argyros}@ics.forth.gr</Text>
+		<Text>This work was partially supported by the</Text>
+		<Text>IST-FP7-IP-215821 project GRASP</Text>
+		<Figure left="1602" right="1172" width="78" height="44" no="7" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+</Poster>

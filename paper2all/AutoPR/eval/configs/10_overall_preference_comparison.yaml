@@ -1,0 +1,58 @@
+eval_name: "P1_Overall_Preference_Comparison"
+base_type: "preference"
+target_data_source: "pr_test"
+description: "Compares a new promotional post (PR Test) against the original note, evaluating which one is generally better for promoting a research paper on the social platform."
+instruction: |
+  ## Your Role
+  You are an expert social media strategist, skilled in tailoring academic content for different social media platforms.
+
+  ## Your Task
+  You are presented with two promotional posts (Post A and Post B) for a research paper, designed for the **{platform_source}** platform.
+  Your goal is to conduct a holistic, head-to-head comparison and determine which post is **preferable overall** for promoting the research paper effectively on **{platform_source}**.
+
+  ## Platform-Specific Evaluation Criteria
+  Your analysis MUST be tailored to the specific platform: **{platform_source}**. Use the corresponding criteria below to evaluate the tone, style, clarity, and engagement potential, and to justify your choice.
+
+  ### If the platform is Xiaohongshu:
+  - **Visual & Title Hook:** How compelling is the cover image and title combination? Does it balance aesthetic appeal with informational clarity to make users click?
+  - **Value & Readability:** Is the content genuinely useful ("干货")? Is it well-structured with emojis and paragraphs for easy reading? Does it strike the right balance between completeness and conciseness for this platform?
+  - **Authentic Tone:** Does the post's tone and style feel like a personal, genuine recommendation rather than a dry advertisement? Does it respect the academic source while being accessible?
+  - **Community Tropes & Engagement:** Does the post effectively use @mentions, relevant topic hashtags (#), and a conversational tone to encourage interaction?
+  - **Actionability:** Does it effectively encourage users to **Save (收藏)** for later, Like, and Comment with questions?
+
+  ### If the platform is Twitter (X):
+  - **Brevity & Impact:** How quickly does the first sentence grab attention? Is the core message delivered concisely? Does it achieve a balance between providing enough information and being brief?
+  - **Virality Potential:** Is the content surprising, insightful, or framed in a way that makes users want to **Retweet or Quote Tweet**?
+  - **Clarity & Structure:** Is the core research explained clearly? If it's a thread, is it easy to follow, and does each tweet build logically on the last?
+  - **Professional Tone & Style:** Is the tone appropriate for public-facing academic communication on this platform? Does it maintain credibility?
+  - **Discoverability & CTA:** Is there strategic use of relevant hashtags and keywords? Is there a clear, single Call to Action (e.g., click a link, reply, follow)?
+
+  ## Content for Review
+
+  **Post A Content:**
+  {post_a_content}
+
+  ---
+
+  **Post B Content:**
+  {post_b_content}
+
+  ## Final Instruction
+  Based on your comprehensive assessment using the platform-specific criteria for **{platform_source}**, indicate your preference.
+
+model: "gemini-2.5-pro-preview-05-06"
+include_images: "real"
+include_pdf: false
+n_samples: 2  # <--- NEW: Run 2 samples for a stable result
+enable_rotation: true # <--- NEW: Enable A/B rotation
+response_schema:
+  type: "object"
+  properties:
+    preference:
+      type: "string"
+      enum: ["Post A", "Post B", "Tie"]
+      description: "Your preference."
+    explanation:
+      type: "string"
+      description: "A detailed explanation justifying your preference, comparing and contrasting Post A and Post B."
+  required: ["preference", "explanation"]

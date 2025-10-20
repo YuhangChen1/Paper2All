@@ -1,0 +1,115 @@
+<Poster Width="1734" Height="2452">
+	<Panel left="58" right="253" width="1625" height="482">
+		<Text> Introduction</Text>
+		<Text>Creating KBs based on the crowd-sourced wikis has attracted significant</Text>
+		<Text>research interest in the field of intelligent Web.</Text>
+		<Text>However, the user-generated subsumption relations in the wikis and the</Text>
+		<Text>semantic taxonomic relations in the KBs are not exactly the same.</Text>
+		<Text>Current taxonomy derivation approaches include:</Text>
+		<Text> The heuristic-based methods</Text>
+		<Text> The corpus-based methods</Text>
+		<Text>Here, we systematically study the problem of cross-lingual knowledge</Text>
+		<Text>validation based taxonomy derivation from heterogeneous online wikis.</Text>
+		<Text>The problem of cross-lingual taxonomic relation prediction is at the heart</Text>
+		<Text>of our work.</Text>
+		<Figure left="1032" right="302" width="621" height="386" no="1" OriWidth="0.353179" OriHeight="0.190795
+" />
+		<Text> Example of Mistaken Derived Facts</Text>
+	</Panel>
+
+	<Panel left="58" right="735" width="1630" height="865">
+		<Text> Approach</Text>
+		<Text>Given two wikis 𝑊1 , 𝑊2 in different languages</Text>
+		<Text>(English and Chinese here) and the set of cross-</Text>
+		<Text>lingual links 𝐶𝐿, Cross-lingual Taxonomy</Text>
+		<Text>Derivation is a cross-lingual knowledge</Text>
+		<Text>validation based boosting process, by simultane-</Text>
+		<Text>ously learning four taxonomic prediction</Text>
+		<Text>𝑒𝑛𝑧ℎ𝑒𝑛𝑧ℎfunctions 𝑓 , 𝑓 , 𝑔 and 𝑔 in 𝑇 iterations.</Text>
+		<Figure left="60" right="1040" width="539" height="229" no="2" OriWidth="0.342775" OriHeight="0.122431
+" />
+		<Text> Framework</Text>
+		<Text>where 𝑓 𝑒𝑛 , 𝑓 𝑧ℎ , 𝑔𝑒𝑛 and 𝑔 𝑧ℎ denote the English</Text>
+		<Text>subClassOf, the Chinese subClassOf, the English</Text>
+		<Text>instanceOf, and the Chinese instanceOf prediction</Text>
+		<Text>functions respectively.</Text>
+		<Text>Dynamic Adaptive Boosting (DAB) model is</Text>
+		<Text>to maintain a dynamic changed training set to</Text>
+		<Text>achieve a better generalization ability via</Text>
+		<Text>knowledge validation with cross-lingual links.</Text>
+		<Text>1. Weak Classifier</Text>
+		<Text>We utilize the binary classifier for the basic</Text>
+		<Text>learner and use the Decision Tree as our</Text>
+		<Text>implementation.</Text>
+		<Text>Linguistic Heuristic Features</Text>
+		<Text>Feature 1: English Features.</Text>
+		<Text>Whether the head words of label are plural or</Text>
+		<Text>singular.</Text>
+		<Text>Feature 2: Chinese Features.</Text>
+		<Text>Whether the super-category’s label is the</Text>
+		<Text>prefix/suffix of the sub-category’s label. Or,</Text>
+		<Text>whether the category’s label is the</Text>
+		<Text>prefix/suffix of the article’s label.</Text>
+		<Text>Feature 3: Common Features for instanceOf.</Text>
+		<Text>Whether the comment contains the label or</Text>
+		<Text>not.</Text>
+		<Text>Structural Features</Text>
+		<Text>Six Normalized Google Distance based</Text>
+		<Text>structural features are defined on articles,</Text>
+		<Text>properties and categories.</Text>
+		<Text>2. Boosting Model</Text>
+		<Text>Active Set A: the set of training data.</Text>
+		<Text>Pool P: the set of all labeled data.</Text>
+		<Text>Unknown Data Set U: the set of unlabeled</Text>
+		<Text>data.</Text>
+		<Figure left="1215" right="967" width="419" height="375" no="3" OriWidth="0.291329" OriHeight="0.203753
+" />
+		<Text>Learning Process.</Text>
+		<Text> Train a hypothesis on current active set.</Text>
+		<Text> Re-weight the weight vector.</Text>
+		<Text> Predict U using current classifier and</Text>
+		<Text>validate the results using CL.</Text>
+		<Text> Expand P and update U.</Text>
+		<Text> Resample A with the constant size.</Text>
+	</Panel>
+
+	<Panel left="55" right="1601" width="1630" height="533">
+		<Text> Experiments</Text>
+		<Text>Comparison Methods</Text>
+		<Text> Heuristic Linking (HL): only uses the</Text>
+		<Text>linguistic heuristic features, and trains the</Text>
+		<Text>taxonomic relation prediction functions</Text>
+		<Text>separately using the decision tree model.</Text>
+		<Text> Decision Tree (DT): uses both the linguistic</Text>
+		<Text>heuristic features and the structural features,</Text>
+		<Text>and trains the taxonomic relation prediction</Text>
+		<Text>functions separately using the decision tree</Text>
+		<Text>model.</Text>
+		<Text> Adaptive Boosting (AdaBoost): uses the</Text>
+		<Text>same basic learner, and iteratively trains the</Text>
+		<Text>taxonomic relation prediction functions using</Text>
+		<Text>the real AdaBoost model.</Text>
+		<Text> Performance of Cross-lingual Taxonomy Derivation with Different Methods (%)</Text>
+		<Figure left="720" right="1707" width="902" height="144" no="4" OriWidth="0.62948" OriHeight="0.093387
+" />
+		<Figure left="665" right="1894" width="487" height="183" no="5" OriWidth="0.34104" OriHeight="0.102324
+" />
+		<Figure left="1182" right="1893" width="495" height="185" no="6" OriWidth="0.342775" OriHeight="0.103664
+" />
+		<Text> Boosting Contribution Comparison</Text>
+	</Panel>
+
+	<Panel left="58" right="2138" width="1628" height="122">
+		<Text> Conclusion and Future Work</Text>
+		<Text>DAB gives a new way for language processing tasks using cross-language resources.</Text>
+		<Text>The future work contains automatically learning more cross-lingual validation rules and conducting more experiments in other languages.</Text>
+	</Panel>
+
+	<Panel left="60" right="2263" width="1621" height="149">
+		<Text> References</Text>
+		<Text>de Melo, G., and Weikum, G. 2010. Menta: Inducing multilingual taxonomies from Wikipedia. In CIKM’10.</Text>
+		<Text>Potthast, M., Stein, B., and Anderka, M. 2008. A Wikipedia-based multilingual retrieval model. In ECIR’08.</Text>
+		<Text>Wang, Z.; Li, J.; Wang, Z.; and Tang, J. 2012. Cross-lingual knowledge linking across wiki knowledge bases. In WWW’12.</Text>
+	</Panel>
+
+</Poster>

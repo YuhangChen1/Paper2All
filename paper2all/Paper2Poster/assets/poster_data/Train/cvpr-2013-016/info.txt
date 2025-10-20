@@ -1,0 +1,116 @@
+<Poster Width="1766" Height="883">
+	<Panel left="6" right="121" width="381" height="288">
+		<Text>Motivation</Text>
+		<Text> Photometric stereo with mixture of Ward’s BRDFs [1]</Text>
+		<Figure left="33" right="191" width="332" height="80" no="1" OriWidth="0" OriHeight="0
+" />
+		<Figure left="11" right="268" width="229" height="104" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text> Multi-view photometric stereo</Text>
+		<Text>[2] with Lambert’s BRDF</Text>
+		<Figure left="270" right="274" width="81" height="95" no="3" OriWidth="0" OriHeight="0
+" />
+		<Text> Iso-depth contours for</Text>
+		<Text>arbitrary isotropic BRDFs [3].</Text>
+	</Panel>
+
+	<Panel left="3" right="409" width="382" height="189">
+		<Text>Features of Our Method</Text>
+		<Text> Arbitrary isotropic materials;</Text>
+		<Text> Full 360-degree reconstruction of shape and BRDF;</Text>
+		<Text> Simple & inexpensive capture setup;</Text>
+		<Text> Simple optimization;</Text>
+		<Text> High accuracy: shape error ~0.3mm,</Text>
+		<Text>BRDF error: ~9% relative RMSE,</Text>
+		<Text>(re-rendered image error ~6-8 intensity levels).</Text>
+	</Panel>
+
+	<Panel left="2" right="601" width="389" height="269">
+		<Text>References</Text>
+		<Text>[1] D. B. Goldman, B. Curless, A. Hertzmann, and S. M. Seitz.</Text>
+		<Text>Shape and spatially-varying brdfs from photometric stereo.</Text>
+		<Text>ICCV2005</Text>
+		<Text>[2] C. Hernandez, G. Vogiatzis, and R. Cipolla. Multiview</Text>
+		<Text>photometric stereo. TPAMI 2008</Text>
+		<Text>[3] N. Alldrin and D. Kriegman. Toward reconstructing surfaces</Text>
+		<Text>with arbitrary isotropic reflectance: a stratified photometric</Text>
+		<Text>stereo approach. ICCV2007</Text>
+		<Text>[4] J. Lawrence, A. Ben-Artzi, C. DeCoro, W. Matusik, H. Pfister,</Text>
+		<Text>R. Ramamoorthi, and S. Rusinkiewtz. Inverse shade trees for</Text>
+		<Text>non-parametric material representation and editing.</Text>
+		<Text>SIGGRAPH2006</Text>
+		<Text>[5] D. Nehab, S. Rusinkiewicz, J. Davis, and R. Ramamoorthi.</Text>
+		<Text>Efficiently combining positions and normals for precise 3d</Text>
+		<Text>geometry. SIGGRAPH2005IEEE</Text>
+	</Panel>
+
+	<Panel left="402" right="123" width="725" height="274">
+		<Text>Overview</Text>
+		<Figure left="494" right="169" width="510" height="231" no="4" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="399" right="398" width="731" height="445">
+		<Text>Technical Details</Text>
+		<Text>Iso-depth contour estimation</Text>
+		<Text>o The symmetry axis of an intensity profile provides</Text>
+		<Text>the azimuth angle [3];</Text>
+		<Text>o An intensity profile can be fit to a truncated Fourier</Text>
+		<Text>series (to be robust to shadow, inter-reflection, etc):</Text>
+		<Text>o Recover iso-depth contours from azimuth angles.</Text>
+		<Figure left="737" right="464" width="263" height="142" no="5" OriWidth="0.22659" OriHeight="0.0951743
+" />
+		<Figure left="1010" right="455" width="114" height="141" no="6" OriWidth="0" OriHeight="0
+" />
+		<Text>Shape capture</Text>
+		<Text>Depth propagation</Text>
+		<Text>1. Begin with sparse SfM points.</Text>
+		<Text>2. Project a 3D point to one view;</Text>
+		<Text>3. Assign its depth to the iso-depth contour passing</Text>
+		<Text>through its projection to generate new 3D points;</Text>
+		<Text>4. Iterate 1-3 with a different 3D point and view.</Text>
+		<Text>Shape refinement</Text>
+		<Text>Jointly optimize normals and 3D positions[5].</Text>
+		<Figure left="729" right="631" width="196" height="173" no="7" OriWidth="0.30578" OriHeight="0.201519
+" />
+		<Figure left="928" right="633" width="202" height="170" no="8" OriWidth="0" OriHeight="0
+" />
+		<Text>Reflectance capture</Text>
+		<Text>Fix the shape, and apply the ACLS algorithm [4] to estimate BRDFs.</Text>
+	</Panel>
+
+	<Panel left="1143" right="124" width="588" height="731">
+		<Text>Experiments (more in the paper)</Text>
+		<Figure left="1152" right="172" width="347" height="272" no="9" OriWidth="0" OriHeight="0
+" />
+		<Text>Two Capture systems</Text>
+		<Figure left="1504" right="193" width="93" height="123" no="10" OriWidth="0.114451" OriHeight="0.116175
+" />
+		<Text> Ringlight system</Text>
+		<Figure left="1606" right="193" width="125" height="123" no="11" OriWidth="0" OriHeight="0
+" />
+		<Text> Handheld system</Text>
+		<Text>Shape Errors</Text>
+		<Figure left="1507" right="359" width="224" height="105" no="12" OriWidth="0" OriHeight="0
+" />
+		<Figure left="1156" right="455" width="570" height="373" no="13" OriWidth="0.929478" OriHeight="0.393655
+" />
+		<Text> An input</Text>
+		<Text>image</Text>
+		<Text># I: 1259 464 99 366 /media/yuxiao/资料/Paper2Poster/论文与海报/cvpr-2013-016-Poster-Poster/image13.png</Text>
+		<Text> Final shape</Text>
+		<Text># I: 1354 464 92 365 /media/yuxiao/资料/Paper2Poster/论文与海报/cvpr-2013-016-Poster-Poster/image14.png</Text>
+		<Text> Shape</Text>
+		<Text>Error (mm)</Text>
+		<Text># I: 1447 462 114 364 /media/yuxiao/资料/Paper2Poster/论文与海报/cvpr-2013-016-Poster-Poster/image15.png</Text>
+		<Text> Basis BRDFs</Text>
+		<Text>& weights</Text>
+		<Text># I: 1576 464 82 361 /media/yuxiao/资料/Paper2Poster/论文与海报/cvpr-2013-016-Poster-Poster/image16.png</Text>
+		<Text> A reference</Text>
+		<Text>photograph</Text>
+		<Text># I: 1660 461 86 365 /media/yuxiao/资料/Paper2Poster/论文与海报/cvpr-2013-016-Poster-Poster/image17.png</Text>
+		<Text> A rendered</Text>
+		<Text>image</Text>
+	</Panel>
+
+</Poster>

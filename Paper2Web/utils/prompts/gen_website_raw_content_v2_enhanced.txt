@@ -1,0 +1,58 @@
+You are the author of the paper, and you will create a comprehensive content summary for a project website. Your task is to extract and expand the key information from the research paper to create detailed, informative content for each section.
+
+**IMPORTANT REQUIREMENTS:**
+1.  **Dual Constraint Adherence**: Each section must strictly meet **BOTH** of the following constraints: be between **5-8 sentences** long, AND have a total length of **250-600 characters AT MAX**.
+2.  **Content Richness**: On the premise of ensuring the character and sentence counts are not exceeded, please adhere to the following guidelines as much as possible:Each section must be rich with substantial detail.
+3.  **Information Completeness**:  On the premise of ensuring the character and sentence counts are not exceeded, please adhere to the following guidelines as much as possible:Include comprehensive coverage of all paper content, not just summaries.
+4.  **Website Depth**:  On the premise of ensuring the character and sentence counts are not exceeded, please adhere to the following guidelines as much as possible::Provide enough detail for website visitors to fully understand the research without reading the paper.
+5.  **Technical Thoroughness**: On the premise of ensuring the character and sentence counts are not exceeded, please adhere to the following guidelines as much as possible: Explain technical concepts, methods, and results in detail.
+
+**CONTENT STRUCTURE FOR EACH SECTION:**
+The constraints below apply to every section (Introduction, Related Work, etc.).
+
+- **Introduction**: Write 5-8 sentences (AND totaling 250-400 characters) covering the research background, core motivation, challenges, main contributions, and a general overview.
+- **Related Work**: Write 5-8 sentences (AND totaling 250-500 characters) covering existing approaches, their detailed limitations, and the specific gaps in current research.
+- **Dataset Overview**: Write 5-8 sentences (AND totaling 250-600 characters) covering the dataset's composition, key features, core statistics, comparisons with other datasets, and its detailed characteristics.
+- **Methodology/Approach**: Write 5-8 sentences (AND totaling 250-600 characters) covering core technical details, key algorithms, the implementation process, and the specific methods used.
+- **Results/Evaluation**: Write 5-8 sentences (AND totaling 250-600 characters) covering the experimental setup, detailed core results, analysis of the results, and comprehensive performance comparisons.
+- **Applications**: Write 5-8 sentences (AND totaling 250-600 characters) covering specific use cases, benefits, practical application scenarios, and representative examples.
+- **Conclusion**: Write 5-8 sentences (AND totaling 250-600 characters) covering a summary of the research, reiterating the contributions, pointing out limitations, and providing a detailed outlook on future work.
+
+**OUTPUT FORMAT:**
+Generate a JSON object with the following structure:
+```json
+{
+  "meta": {
+    "website_title": "Full paper title",
+    "authors": "Author names separated by commas",
+    "affiliations": "Institution names"
+  },
+  "sections": [
+    {
+      "title": "Section title (e.g., 'Introduction', 'Dataset Overview')",
+      "content": "Comprehensive and detailed content. Ensure the text is strictly between 5-8 sentences AND 250-600 characters long. Include extensive information from the paper, covering all major aspects, technical details, specific numbers, examples, and explanations. Make the content thorough enough for website visitors to fully understand the research without reading the original paper."
+    }
+  ]
+}
+
+**CONTENT GUIDELINES:**
+On the premise of ensuring the character and sentence counts are not exceeded, please adhere to the following guidelines as much as possible:
+
+- **Expand information**: Provide comprehensive coverage of paper content
+- **Include specific numbers**: Use actual statistics, dimensions, and measurements from the paper
+- **Be thorough and detailed**: Explain concepts, methods, and results in depth
+- **Explain significance**: Why is this important? What problems does it solve?
+- **Compare and contrast**: How does this compare to existing approaches?
+- **Future implications**: What are the broader impacts and applications?
+- **Provide examples**: Include concrete examples and use cases
+- **Maintain technical depth**: Don't oversimplify technical concepts
+
+EXAMPLE CONTENT STYLE:
+Instead of: "The dataset includes synthetic and real scenes."
+Write: "UrbanScene3D is a comprehensive dataset with 10 synthetic and 6 real urban scenes for advancing 3D reconstruction. It offers rich data, including 128k+ images and LiDAR scans, plus a physics-based simulator, enabling robust algorithm validation in both idealized and challenging real-world scenarios."
+
+Remember: Each section should be comprehensive and detailed, providing extensive information in 8-15 sentences that allow website visitors to fully understand the research without reading the original paper. The goal is to create a website that serves as a complete substitute for reading the paper.
+**Condense the following text into an essential summary that captures all of its core information, allowing a reader to fully understand the subject's fundamental details without reading the original source**
+
+Paper content to analyze:
+{{ markdown_document }}

@@ -1,0 +1,73 @@
+<Poster Width="672" Height="950">
+	<Panel left="12" right="180" width="314" height="109">
+		<Text>Motivation</Text>
+		<Text>Transfer Learning aims to improve learning times on a newtarget task by reusing knowledge from previously learnedsource task(s). In transfer, the performance of anyalgorithm depends on the choice of the source and targettasks. Here, we present a data-driven similarity measureused to choose source task(s).</Text>
+	</Panel>
+
+	<Panel left="10" right="295" width="315" height="95">
+		<Text>Markov Decision Processes</Text>
+		<Text>Tasks are modelled as Markov Decision Processes (MDPs). An</Text>
+		<Text>MDP is a tuplewith:</Text>
+		<Text>: state space: transition probability</Text>
+		<Text>: action space</Text>
+		<Text>: discount factor: reward function</Text>
+	</Panel>
+
+	<Panel left="9" right="395" width="314" height="449">
+		<Text>RBDist Similarity Measure</Text>
+		<Text>Intuition: If two tasks are similar, then a restricted Boltzmann</Text>
+		<Text>Machine (RBM) trained on samples from the first task should</Text>
+		<Text>reconstruct samples from the other task. The distance is measured</Text>
+		<Text>using two phases:</Text>
+		<Text>Training Phase: Using source samples, train an RBM by</Text>
+		<Text>contrastive divergence.</Text>
+		<Text>Reconstruction Phase: Reconstruct target samples by</Text>
+		<Text>sampling the visible layer (having conditionally independent</Text>
+		<Text>visible units)</Text>
+		<Text>Measure similarity: using the Euclidean measure between</Text>
+		<Text>real samples and reconstructed ones</Text>
+		<Figure left="24" right="647" width="287" height="193" no="1" OriWidth="0.382834" OriHeight="0.213684
+" />
+	</Panel>
+
+	<Panel left="342" right="180" width="314" height="142">
+		<Text>Experimental Domains & Benchmarks</Text>
+		<Figure left="346" right="199" width="61" height="86" no="2" OriWidth="0.0762943" OriHeight="0.0842105
+" />
+		<Figure left="409" right="202" width="125" height="82" no="3" OriWidth="0.220708" OriHeight="0.111579
+" />
+		<Figure left="536" right="201" width="111" height="83" no="4" OriWidth="0.246594" OriHeight="0.0863158
+" />
+	</Panel>
+
+	<Panel left="339" right="328" width="316" height="219">
+		<Text>Dynamical Phase Discovery</Text>
+		<Figure left="346" right="357" width="143" height="118" no="5" OriWidth="0.339237" OriHeight="0.217895
+" />
+		<Figure left="506" right="354" width="143" height="121" no="6" OriWidth="0.337875" OriHeight="0.211579
+" />
+		<Text>RBDist can automatically discover tasks’ dynamical phases</Text>
+	</Panel>
+
+	<Panel left="338" right="553" width="316" height="218">
+		<Text>Transfer Correlation</Text>
+		<Figure left="344" right="580" width="144" height="112" no="7" OriWidth="0.347411" OriHeight="0.209474
+" />
+		<Figure left="500" right="579" width="149" height="111" no="8" OriWidth="0.340599" OriHeight="0.210526
+" />
+		<Text>Jump-Start correlation as a</Text>
+		<Text>function of RBDist on Cart</Text>
+		<Text>Pole systems</Text>
+		<Text>Jump-Start correlation as a</Text>
+		<Text>function of RBDist on</Text>
+		<Text>Mountain Car systems</Text>
+		<Text>RBDist correlates with initial performance on target tasks</Text>
+	</Panel>
+
+	<Panel left="339" right="778" width="315" height="68">
+		<Text>Future Work</Text>
+		<Text>Extend RBDist to support transfer between different domain tasks</Text>
+		<Text>Assess the effect of RBDist on other transfer criteria (e.g., asymptoticperformance, time to threshold, etc.)</Text>
+	</Panel>
+
+</Poster>

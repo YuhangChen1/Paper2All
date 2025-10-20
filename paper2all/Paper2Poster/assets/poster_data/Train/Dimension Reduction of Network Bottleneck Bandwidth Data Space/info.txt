@@ -1,0 +1,93 @@
+<Poster Width="1735" Height="2453">
+	<Panel left="38" right="535" width="631" height="480">
+		<Text>Motivation</Text>
+		<Text>For latency-aware applications, round-trip-time estimation has</Text>
+		<Text>been studied extensively. But there are also lots of bandwidth-</Text>
+		<Text>aware applications. Prediction of bottleneck bandwidth has</Text>
+		<Text>received much less attention.</Text>
+		<Text>Therefore, we attempt to design a new system to predict</Text>
+		<Text>bottleneck bandwidth, based on matrix factorization.</Text>
+		<Text>As a first step, we need to prove:</Text>
+		<Text>1) Low-rank nature</Text>
+		<Text>bandwidth matricesofbottleneck</Text>
+		<Text>2) Feasibility of reducing dimension of</Text>
+		<Text>bottleneck bandwidth data space</Text>
+	</Panel>
+
+	<Panel left="35" right="1031" width="635" height="444">
+		<Text>Matrix Factorization</Text>
+		<Text>The network bottleneck bandwidth data space can be modelled</Text>
+		<Text>as square matrix B. Apply Principle Component Analysis on B:</Text>
+		<Figure left="47" right="1185" width="616" height="253" no="1" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="40" right="1493" width="630" height="730">
+		<Text>Principle Component Analysis</Text>
+		<Text>We attempt to analyze the magnitude of singular values of B.</Text>
+		<Figure left="80" right="1630" width="537" height="436" no="2" OriWidth="0.239331" OriHeight="0.150178
+" />
+		<Text>It shows that singular values decrease very fast. Considering the</Text>
+		<Text>’Oct 26’ line, the 4th singular value (0.156) is the first one that is</Text>
+		<Text>smaller than 0.2.</Text>
+	</Panel>
+
+	<Panel left="37" right="2243" width="634" height="153">
+		<Text>Acknowledgement</Text>
+		<Text>This work is supported by National Science Foundation of China</Text>
+		<Text>(No.60850003).</Text>
+	</Panel>
+
+	<Panel left="688" right="533" width="1020" height="282">
+		<Text>Methodology</Text>
+		<Text>Based on HP Scalable Sensing Service (S3), 250 interconnected hosts are extracted out for our evaluation.</Text>
+		<Text>From September 23 to December 23 2009, we collect bottleneck bandwidth data every four hours. Finally we</Text>
+		<Text>have 491datasets across 3 months for evaluation.</Text>
+		<Text>We compare the approximated matrix with the original one for evaluation. Relative error is defined as follows:</Text>
+		<Text>If (i, j ) ∈ {(m, n) | b</Text>
+		<Text>mn ≠ −1}, relative error</Text>
+		<Text>ij =b</Text>
+		<Text>ij '−b</Text>
+		<Text>ij</Text>
+		<Text>b</Text>
+		<Text>ij</Text>
+	</Panel>
+
+	<Panel left="687" right="836" width="1023" height="1124">
+		<Text>Evaluation of Dimension Reduction</Text>
+		<Text>The figure right shows the median</Text>
+		<Text>relative error when the dimension of</Text>
+		<Text>all the 491 datasets are reduced to</Text>
+		<Text>2D, 5D, 10D and 20D.</Text>
+		<Text>The average of median relative error</Text>
+		<Text>for 10D approximation is only 8.65%</Text>
+		<Text>among all the 491 datasets.</Text>
+		<Figure left="1071" right="929" width="619" height="488" no="3" OriWidth="0.250288" OriHeight="0.152852
+" />
+		<Figure left="703" right="1411" width="601" height="522" no="4" OriWidth="0.238178" OriHeight="0.1582
+" />
+		<Text>Considering the tradeoff between</Text>
+		<Text>computation complexity and target</Text>
+		<Text>dimension of reduction, a 10D</Text>
+		<Text>approximation is carried out to show the</Text>
+		<Text>cumulative distribution function of</Text>
+		<Text>relative error in figure left.</Text>
+		<Text>The 90th percentile relative error is only</Text>
+		<Text>0.281, meaning that 90% of the data</Text>
+		<Text>have lower relative error than 0.281.</Text>
+	</Panel>
+
+	<Panel left="688" right="1980" width="1019" height="241">
+		<Text>Conclusion</Text>
+		<Text>1. Dimension of bottleneck bandwidth data space can be reduced from250D to 10D</Text>
+		<Text>2. The average of median relative error for approximation is only8.65% among 491 datasets.</Text>
+		<Text>3. The 90th percentile relative error of 10D approximation is only0.281</Text>
+	</Panel>
+
+	<Panel left="687" right="2240" width="1022" height="157">
+		<Text>Future work</Text>
+		<Text>We would design a scalable bottleneck bandwidth prediction system based on matrix factorization, utilizing</Text>
+		<Text>the low-rank nature and low relative error in dimension reduction.</Text>
+	</Panel>
+
+</Poster>

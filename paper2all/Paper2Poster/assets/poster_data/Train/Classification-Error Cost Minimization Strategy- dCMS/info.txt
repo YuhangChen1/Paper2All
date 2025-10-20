@@ -1,0 +1,106 @@
+<Poster Width="1734" Height="1340">
+	<Panel left="-1" right="195" width="870" height="231">
+		<Text>Motivation</Text>
+		<Text> Several applications have different costs associated with different classification-errors</Text>
+		<Text>Example: intrusion detection, biometric recognition, etc.</Text>
+		<Text> Most classification systems are geared towards minimizing the error rate and not cost</Text>
+		<Text>True objective function to be minimized is the cost of classification-error and not error-rate itself</Text>
+		<Text> Existing approaches can not handle multi-class problems or dynamically changing costs</Text>
+		<Text>ROC curves (multi-class? [1] ) ; cost-sensitive Adaboost [2] (dynamically changing costs? )</Text>
+	</Panel>
+
+	<Panel left="868" right="196" width="513" height="230">
+		<Text>Goal</Text>
+		<Text>Develop a classification-error cost minimization strategy that</Text>
+		<Text> Can deal with multiple classes in a principled manner</Text>
+		<Text> Is a simple post-training step</Text>
+		<Text>Does not require re-training of classifiers for changing costs</Text>
+		<Text> Is classifier type independent</Text>
+		<Text>Exploits statistical properties of the trained classifier</Text>
+	</Panel>
+
+	<Panel left="1382" right="197" width="347" height="228">
+		<Text>Contributions</Text>
+		<Text>costs incurred Statistically significant reduction in</Text>
+		<Text> Effective on</Text>
+		<Text> a variety of applications</Text>
+		<Text> data sets of varying dimensionalities</Text>
+		<Text> a variety of classifier types</Text>
+	</Panel>
+
+	<Panel left="0" right="425" width="1732" height="414">
+		<Text>Approach</Text>
+		<Figure left="26" right="473" width="227" height="148" no="1" OriWidth="0.183237" OriHeight="0.0808758
+" />
+		<Figure left="254" right="455" width="247" height="169" no="2" OriWidth="0.190751" OriHeight="0.0965147
+" />
+		<Text> Solution for a two-class, one-feature problem, known distributions</Text>
+		<Text> If unknown distribution</Text>
+		<Text>Estimate with a histogram</Text>
+		<Text> If multiple-features</Text>
+		<Text>Classification system: maps multiple-features to a single score/feature</Text>
+		<Text> If multiple-classes</Text>
+		<Text>High dimensional histogram is not feasible … so then?</Text>
+		<Text>Intuition: Convert C-class problem to C 2-class problems</Text>
+		<Text>We have a trained classification system</Text>
+		<Text>Probability of a misclassified instance classified as</Text>
+		<Text>class c actually belonging to class i:</Text>
+		<Text>Expected cost of false positives:</Text>
+		<Figure left="1045" right="489" width="449" height="307" no="3" OriWidth="0" OriHeight="0
+" />
+		<Text>(Iterate to get a new confusion matrix with new thresholds)</Text>
+		<Text>Final classification decision:</Text>
+		<Text>Pick the class corresponding</Text>
+		<Text>to the score furthest away</Text>
+		<Text>from it’s corresponding</Text>
+		<Text>optimum threshold</Text>
+	</Panel>
+
+	<Panel left="0" right="841" width="1380" height="404">
+		<Text>Results</Text>
+		<Text> Synthetic data: MLP neural network</Text>
+		<Figure left="32" right="920" width="237" height="144" no="4" OriWidth="0.268208" OriHeight="0.155496
+" />
+		<Figure left="17" right="1065" width="254" height="177" no="5" OriWidth="0.304624" OriHeight="0.182306
+" />
+		<Text> MIT-DARPA intrusion detection [3]</Text>
+		<Text>0.3 million data points</Text>
+		<Text>5 classes: DenialOfService,</Text>
+		<Text>Probe, UserToRoot, RootToLocal,</Text>
+		<Text>Normal</Text>
+		<Text>Ensemble of classifiers based</Text>
+		<Text>classification system: Learn++ [4]</Text>
+		<Text>(can perform data fusion)41 features</Text>
+		<Text>3 feature sets: traffic, content,</Text>
+		<Text>intrinsic features</Text>
+		<Figure left="645" right="885" width="261" height="158" no="6" OriWidth="0.371098" OriHeight="0.0969616
+" />
+		<Figure left="645" right="1061" width="242" height="174" no="7" OriWidth="0.334682" OriHeight="0.184987
+" />
+		<Text> PCA reduced intrusion detection</Text>
+		<Figure left="939" right="887" width="334" height="168" no="8" OriWidth="0.338728" OriHeight="0.0893655
+" />
+		<Text> Other applications [5]</Text>
+		<Figure left="922" right="1099" width="452" height="130" no="9" OriWidth="0.356069" OriHeight="0.0665773
+" />
+	</Panel>
+
+	<Panel left="1379" right="841" width="350" height="402">
+		<Text>References:</Text>
+		<Text>[1] N. Lachiche and P. Flach. Improving accuracy and cost</Text>
+		<Text>of two-class and multi-class probabilistic classifiers using</Text>
+		<Text>ROC curves. ICML, 2003.</Text>
+		<Text>[2] Y. Ma and X. Ding. Robust real-time face detection</Text>
+		<Text>based on cost-sensitive AdaBoost method. ICME, 2003</Text>
+		<Text>[3] The UCI KDD Archive, Information and Computer</Text>
+		<Text>Science, University of California, Irvine,</Text>
+		<Text>http://kdd.ics.uci.edu/ databases/kddcup99/kddcup99.html</Text>
+		<Text>[4] D. Parikh and R. Polikar. An Ensemble-Based</Text>
+		<Text>Incremental Learning Approach to Data Fusion. In IEEE</Text>
+		<Text>Transactions on Systems, Man and Cybernetics, 2007.</Text>
+		<Text>[5] C. Blake and C. Merz. UCI Repository of Machine</Text>
+		<Text>Learning Database at Irvine CA, 2005.</Text>
+		<Text>http://mlearn.ics.uci.edu/MLRepository.html</Text>
+	</Panel>
+
+</Poster>

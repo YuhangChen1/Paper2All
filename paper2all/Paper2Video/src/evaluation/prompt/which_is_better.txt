@@ -1,0 +1,25 @@
+You are an expert in evaluating academic presentation videos. You are given two videos (Video A and Video B) that present the same research topic.
+
+Your task is to evaluate each video independently, and then determine which video is better, or if they are basically the same(perferred if you are not confident).
+
+Evaluate both videos based on the following criteria:
+
+- Content Clarity: Are the key ideas and findings clearly explained?
+- Speaker Delivery: Is the speaker confident, fluent, and engaging?
+- Visual Aids: Are the slides or visuals clear, helpful, and well-integrated?
+- Structure and Pacing: Is the presentation logically organized and appropriately paced?
+- Audience Engagement: Does the speaker maintain interest and attention throughout?
+
+**Step 1**: Write a short (1-2 sentence) evaluation of **Video A** based on the criteria.
+
+**Step 2**: Write a short (1-2 sentence) evaluation of **Video B** based on the criteria.
+
+**Step 3**: Based on your evaluations, answer the following:
+
+Output Format(Strict):
+Final Judgment:  
+[A] or [B]
+
+Reason: [One concise sentence justifying your judgment based on the evaluations above.]
+
+Only respond with Step 1, Step 2, and Step 3 in the format shown.

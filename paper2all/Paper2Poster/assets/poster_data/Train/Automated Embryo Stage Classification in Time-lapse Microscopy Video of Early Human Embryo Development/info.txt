@@ -1,0 +1,50 @@
+<Poster Width="687" Height="972">
+	<Panel left="7" right="183" width="295" height="338">
+		<Text>Background and significance</Text>
+		<Text>The(Early Embryo Viability Assessment) Test –wasEevaTMdeveloped to automatically measure cell division timings andprovide quantitative information regarding embryo development.</Text>
+		<Figure left="32" right="253" width="253" height="139" no="1" OriWidth="0" OriHeight="0
+" />
+		<Text>We developed a multi-level classification method to identify theembryo stage (i.e. 1-cell, 2-cell, 3-cell, 4-or-more-cell) at every timepoint of a time-lapse microscopy video of early human embryodevelopment.</Text>
+		<Figure left="15" right="441" width="279" height="73" no="2" OriWidth="0.324277" OriHeight="0.0600736
+" />
+	</Panel>
+
+	<Panel left="307" right="183" width="374" height="171">
+		<Text>The Method</Text>
+		<Figure left="315" right="210" width="219" height="142" no="3" OriWidth="0.30578" OriHeight="0.117695
+" />
+		<Figure left="536" right="211" width="138" height="132" no="4" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="307" right="357" width="372" height="158">
+		<Text>Embryo Features</Text>
+		<Text>Based on Bhattacharyya distance of the BoF histograms of consecutive frames</Text>
+		<Text>Registration free, rotation and translation invariant</Text>
+		<Text>“Dips” in the plot are good indications of stage transitions</Text>
+		<Text>Used by the Viterbi algorithm to define state transitional probability</Text>
+		<Figure left="317" right="431" width="355" height="31" no="5" OriWidth="0.53237" OriHeight="0.0322844
+" />
+		<Figure left="308" right="466" width="370" height="42" no="6" OriWidth="0.557225" OriHeight="0.0465877
+" />
+	</Panel>
+
+	<Panel left="311" right="520" width="370" height="409">
+		<Text>Temporal Image Similarity</Text>
+		<Text>327 human embryo videos (500 frames, each with 151 x 151 pixels) for training, 389embryo videos for testing.</Text>
+		<Text>All the embryo videos were captured using the EevaTM system.</Text>
+		<Text>Two human experts annotated the embryo stages of each frame.</Text>
+		<Figure left="331" right="591" width="303" height="81" no="7" OriWidth="0.520809" OriHeight="0.0980793
+" />
+		<Text> Importance of different sets of features in trained level-1 (left) and level-2 (right)classification models</Text>
+		<Figure left="331" right="695" width="319" height="51" no="8" OriWidth="0.553757" OriHeight="0.0527176
+" />
+		<Text> Classification performance at different levels</Text>
+		<Figure left="324" right="761" width="169" height="135" no="9" OriWidth="0.266474" OriHeight="0.147119
+" />
+		<Figure left="498" right="764" width="171" height="133" no="10" OriWidth="0.267052" OriHeight="0.14671
+" />
+		<Text> Precision (left) and Recall (right) of cell division detection asfunctions of the offset tolerance</Text>
+	</Panel>
+
+</Poster>

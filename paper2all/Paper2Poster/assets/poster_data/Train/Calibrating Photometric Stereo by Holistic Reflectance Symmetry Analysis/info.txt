@@ -1,0 +1,85 @@
+<Poster Width="1734" Height="1058">
+	<Panel left="2" right="147" width="377" height="514">
+		<Text>Motivation</Text>
+		<Text> The generalized bas-relief(GBR) ambiguity [1]</Text>
+		<Figure left="31" right="228" width="110" height="130" no="1" OriWidth="0" OriHeight="0
+" />
+		<Figure left="162" right="227" width="182" height="124" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text> Resolve GBR by identifying special normals.</Text>
+		<Figure left="13" right="403" width="119" height="48" no="3" OriWidth="0" OriHeight="0
+" />
+		<Text> specular</Text>
+		<Text>spike [2]</Text>
+		<Figure left="141" right="385" width="107" height="84" no="4" OriWidth="0" OriHeight="0
+" />
+		<Text> isotropic &</Text>
+		<Text>reciprocal pairs [3]</Text>
+		<Figure left="262" right="382" width="99" height="91" no="5" OriWidth="0" OriHeight="0
+" />
+		<Text> diffuse</Text>
+		<Text>maxima[4]</Text>
+		<Text>Disadvantages of these methods:</Text>
+		<Text>• Rely on the identification of special points</Text>
+		<Text>• Do not use all available information</Text>
+		<Text>Solve GBR in a global approach?</Text>
+	</Panel>
+
+	<Panel left="0" right="661" width="383" height="362">
+		<Text>References</Text>
+		<Text>[1] P. Belhumeur, D. Kriegman, and A. Yuille. The</Text>
+		<Text>basrelief Ambiguity. IJCV, 1999</Text>
+		<Text>[2] O. Drbohlav and M. Chaniler. Can two specular</Text>
+		<Text>pixels calibrate photometric stereo? ICCV, 2005</Text>
+		<Text>[3] P. Tan, L. Quan, and T. Zickler. The geometry of</Text>
+		<Text>reflectance symmetries. TPAMI, 2011</Text>
+		<Text>[4] P. Favaro and T. Papadhimitri. A closed-form</Text>
+		<Text>solution to uncalibrated photometric stereo via</Text>
+		<Text>diffuse maxima. CVPR, 2012</Text>
+		<Text>[5 ] N. Alldrin, S. Mallick, and D. Kriegman. Resolving</Text>
+		<Text>the generalized bas-relief ambiguity by entropy</Text>
+		<Text>minimization. CVPR, 2007</Text>
+		<Text>[6] B. Shi, Y. Matsushita, Y. Wei, C. Xu, and P. Tan.</Text>
+		<Text>Selfcalibrating photometric stereo. CVPR, 2010</Text>
+	</Panel>
+
+	<Panel left="386" right="143" width="721" height="579">
+		<Text>Theory</Text>
+		<Figure left="411" right="201" width="218" height="125" no="6" OriWidth="0.204046" OriHeight="0.10143
+" />
+		<Text> parameterization of BRDF</Text>
+		<Text>Key Assumption (bi-variant BRDF)</Text>
+		<Figure left="415" right="338" width="634" height="321" no="7" OriWidth="0" OriHeight="0
+" />
+		<Text>The GBR ambiguity is uniquely determined by restoring the ‘low-rank’ structure of BRDF slices</Text>
+		<Text>estimated from at least two images! (see the paper for proofs)</Text>
+	</Panel>
+
+	<Panel left="385" right="723" width="722" height="296">
+		<Text>Auto-calibration Method</Text>
+		<Figure left="386" right="780" width="459" height="217" no="8" OriWidth="0" OriHeight="0
+" />
+		<Text>Optimization Problem:</Text>
+		<Text>Penalize the variation along each row</Text>
+		<Text>of BRDF slices.</Text>
+		<Text>Solve by coarse-to-fine search in a</Text>
+		<Text>bounded interval of GBR parameters.</Text>
+	</Panel>
+
+	<Panel left="1116" right="146" width="607" height="884">
+		<Text>Experimental Results</Text>
+		<Text>Synthetic data results on the MERL BRDF database</Text>
+		<Figure left="1175" right="226" width="462" height="161" no="9" OriWidth="0.691329" OriHeight="0.173369
+" />
+		<Text>Real datasets (more in the paper)</Text>
+		<Figure left="1120" right="401" width="607" height="356" no="10" OriWidth="0.701156" OriHeight="0.293566
+" />
+		<Text>Evaluation with known shape & BRDF</Text>
+		<Figure left="1126" right="786" width="275" height="210" no="11" OriWidth="0.330636" OriHeight="0.107685
+" />
+		<Text>Comparison on mean normal error (deg)</Text>
+		<Figure left="1415" right="791" width="305" height="235" no="12" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+</Poster>

@@ -1,0 +1,61 @@
+<Poster Width="1806" Height="883">
+	<Panel left="0" right="128" width="611" height="727">
+		<Text>Problem Statement:</Text>
+		<Text>Input: A sequence of temporally ordered videos comprising all plays from a</Text>
+		<Text>football game.</Text>
+		<Text>Output: A labeling of each play by one of the five play types (O, D, K, P, F).</Text>
+		<Figure left="7" right="266" width="581" height="84" no="1" OriWidth="0.76586" OriHeight="0.0819964
+" />
+		<Text>Offense/Defense(O/D): White team is trying to move the ball forward (O).</Text>
+		<Text>Black team is trying to prevent the other team from moving the ball forward (D).</Text>
+		<Figure left="9" right="422" width="578" height="81" no="2" OriWidth="0.754326" OriHeight="0.078877
+" />
+		<Text>Kickoff(K): White team lines up and kicks the ball down the field to the</Text>
+		<Text>receiving team.</Text>
+		<Figure left="11" right="571" width="578" height="82" no="3" OriWidth="0.72549" OriHeight="0.0779857
+" />
+		<Text>Punt(P): White team drop-kicks/punts the ball down the field to the opponent.</Text>
+		<Figure left="9" right="704" width="574" height="85" no="4" OriWidth="0" OriHeight="0
+" />
+		<Text>Field Goal(F): the ball is kicked at the goal posts in order to score points.</Text>
+	</Panel>
+
+	<Panel left="611" right="133" width="590" height="283">
+		<Text>Challenge:</Text>
+		<Text>Big dataset with lots of variations.</Text>
+		<Text>Big: There are 1463 test videos from 10 full games spanning 5.44 hrs.</Text>
+		<Text>Variations: Field, view point, uniform color, camera work quality</Text>
+		<Figure left="620" right="308" width="573" height="82" no="5" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="617" right="416" width="569" height="439">
+		<Text>System Overview:</Text>
+		<Text>Partial Rectification: Field lines are extracted, providing a partial frame of</Text>
+		<Text>reference for the football field.</Text>
+		<Text>Play-level recognition: Noisy play-type detectors are run for a subset of</Text>
+		<Text>the play types</Text>
+		<Text>Game-level reasoning: A temporal model of football games is used to</Text>
+		<Text>reason about the noisy detections across the full sequence.</Text>
+		<Figure left="633" right="587" width="546" height="263" no="6" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="1207" right="130" width="591" height="725">
+		<Text>Results:</Text>
+		<Figure left="1217" right="179" width="274" height="180" no="7" OriWidth="0.347751" OriHeight="0.170677
+" />
+		<Text>Acc for OD detector, * indicates</Text>
+		<Text>using ground truth MOS</Text>
+		<Figure left="1504" right="178" width="289" height="179" no="8" OriWidth="0.363322" OriHeight="0.172014
+" />
+		<Text>Result of Kick-off (ko) and Non-</Text>
+		<Text>punt (np) detectors</Text>
+		<Figure left="1277" right="457" width="437" height="249" no="9" OriWidth="0.385813" OriHeight="0.168895
+" />
+		<Text>Acc for each game. Subscript indicates the ground truth information used,</Text>
+		<Text>Second column shows the acc for the fully automatic system</Text>
+		<Text>Running Time: 2x game length</Text>
+	</Panel>
+
+</Poster>

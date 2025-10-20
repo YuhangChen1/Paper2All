@@ -1,0 +1,82 @@
+<Poster Width="1734" Height="2104">
+	<Panel left="30" right="199" width="817" height="1038">
+		<Text>Introduction</Text>
+		<Text>Problem: 2-D image-based facial verification or recognition system</Text>
+		<Text>can be spoofed with no difficulty (a person displays a photo of an</Text>
+		<Text>authorized subject either printed on a piece paper)</Text>
+		<Text>Idea: anti-spoofing solution based on a holistic representation of the</Text>
+		<Text>face region through a robust set of low-level feature descriptors,</Text>
+		<Text>exploiting spatial and temporal information</Text>
+		<Text>Advantages: PLS allows to use multiple features and avoids the</Text>
+		<Text>necessity of choosing before-hand a smaller set of features that may not</Text>
+		<Text>be suitable for the problem</Text>
+		<Text>Partial Least Squares</Text>
+		<Text> PLS deals with a large number of variables and a small number of</Text>
+		<Text>examples</Text>
+		<Text> Data matrix X and response matrix Y</Text>
+		<Figure left="281" right="777" width="273" height="103" no="1" OriWidth="0" OriHeight="0
+" />
+		<Text> Practical Solution: NIPALS algorithm</Text>
+		<Text>Iterative approach to calculate PLS factors</Text>
+		<Text> PLS weights the feature descriptors and estimates the location of the</Text>
+		<Text>most discriminative regions</Text>
+		<Figure left="178" right="1062" width="485" height="157" no="2" OriWidth="0.365052" OriHeight="0.114973
+" />
+	</Panel>
+
+	<Panel left="884" right="200" width="815" height="1036">
+		<Text>Anti-Spoofing Proposed Solution</Text>
+		<Text> A video sample is divided into m parts, feature extraction is applied</Text>
+		<Text>for every k-th frame. The resulting descriptors are concatenated to</Text>
+		<Text>compose the feature vector</Text>
+		<Figure left="908" right="365" width="779" height="210" no="3" OriWidth="0.752595" OriHeight="0.129234
+" />
+		<Text> PLS is employed to obtain the latent feature space, in which higher</Text>
+		<Text>weights are attributed to feature descriptors extracted from regions</Text>
+		<Text>containing discriminatory characteristics between the two classes</Text>
+		<Text> The test procedure evaluates if a novel sample belongs either to the</Text>
+		<Text>live or non-live class. When a sample video is presented to the system,</Text>
+		<Text>the face is detected and the frames are cropped and rescaled</Text>
+		<Figure left="922" right="809" width="742" height="423" no="4" OriWidth="0.6188" OriHeight="0.274064
+" />
+	</Panel>
+
+	<Panel left="29" right="1261" width="1673" height="787">
+		<Text>Experimental Results</Text>
+		<Text>Print-Attack Dataset</Text>
+		<Figure left="77" right="1362" width="745" height="145" no="5" OriWidth="0.72203" OriHeight="0.102496
+" />
+		<Text> Dataset: 200 real-access and 200 printed-photo attack videos [1]</Text>
+		<Text> Setup: face detection, rescale to 110 x 40 pixels, 10 frames are sampled</Text>
+		<Text>for feature extraction (HOG, intensity, color frequency (CF) [2],</Text>
+		<Text>histogram of shearlet coefficients (HSC) [3], GLCM)</Text>
+		<Text> Classifier evaluation: SVM type C with linear kernel achieved EER of</Text>
+		<Text>10%. PLS method achieved EER of 1.67%</Text>
+		<Figure left="49" right="1768" width="383" height="236" no="6" OriWidth="0.253172" OriHeight="0.114082
+" />
+		<Text> Feature combination</Text>
+		<Figure left="463" right="1769" width="383" height="234" no="7" OriWidth="0.338524" OriHeight="0.122103
+" />
+		<Text> Comparisons</Text>
+		<Text>NUAA Dataset</Text>
+		<Figure left="882" right="1367" width="797" height="108" no="8" OriWidth="0.775087" OriHeight="0.0628342
+" />
+		<Text> Dataset: 1743 live images and 1748 non-live images for training. 3362</Text>
+		<Text>live and 5761 non-live images for testing [4]</Text>
+		<Text> Setup: faces are detected and images are scaled to 64 x 64 pixels</Text>
+		<Text>Comparison: Tan et al. [4] achieved AUC of 0.95</Text>
+		<Figure left="886" right="1655" width="444" height="202" no="9" OriWidth="0.306228" OriHeight="0.100267
+" />
+		<Text> Feature combination</Text>
+		<Figure left="1348" right="1634" width="345" height="288" no="10" OriWidth="0.359862" OriHeight="0.227718
+" />
+		<Text>[1] https://www.idiap.ch/dataset/printattack</Text>
+		<Text>[2] W. R. Schwartz, A. Kembhavi, D. Harwood, and L. S. Davis. Human Detection Using Partial Least Squares Analysis.</Text>
+		<Text>In IEEE ICCV, pages 24–31, 2009.</Text>
+		<Text>[3] W. R. Schwartz, R. D. da Silva, and H. Pedrini. A Novel Feature Descriptor Based on the Shearlet Transform. In</Text>
+		<Text>IEEE ICIP, 2011.</Text>
+		<Text>[4] X. Tan, Y. Li, J. Liu, and L. Jiang. Face liveness detection from a single image with sparse low rank bilinear</Text>
+		<Text>discriminative model. In ECCV, pages 504–517, 2010.</Text>
+	</Panel>
+
+</Poster>

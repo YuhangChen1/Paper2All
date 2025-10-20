@@ -1,0 +1,107 @@
+<Poster Width="1766" Height="883">
+	<Panel left="28" right="146" width="400" height="288">
+		<Text>Motivation</Text>
+		<Text>This paper proposes a novel Multiple Instance Learning paradigm,</Text>
+		<Text>namely MILCUT, to segment the foreground object inside a user-</Text>
+		<Text>provided bounding box.</Text>
+		<Figure left="28" right="222" width="401" height="211" no="1" OriWidth="0.812717" OriHeight="0.327525
+" />
+	</Panel>
+
+	<Panel left="29" right="435" width="399" height="120">
+		<Text>Multiple Instance Learning</Text>
+		<Text>The Multiple Instance Learning (MIL) is a general formulation for</Text>
+		<Text>dealing with the hidden class labels in noisy input. In MIL, instances</Text>
+		<Text>(data samples) appear in the form of positive and negative bags:</Text>
+		<Text>Positive bag: there is at least one positive instance;</Text>
+		<Text>Negative bag: all instances are negatives.</Text>
+	</Panel>
+
+	<Panel left="27" right="553" width="401" height="304">
+		<Text>Overview of the Sweeping-Line Strategy</Text>
+		<Text>For the interactive segmentation problem, an unknown object of</Text>
+		<Text>interest is supposed to appear within the bounding box at an</Text>
+		<Text>unknown location; we also know that image pixels outside the</Text>
+		<Text>bounding box are background. Therefore, we view the image within</Text>
+		<Text>the bounding box as “noisy input”, and our task is to discover the</Text>
+		<Text>object under weak supervision with the data in company of outliers.</Text>
+		<Text>we provide a sweeping-line strategy to convert the interactive</Text>
+		<Text>image segmentation into a multiple instance learning problem:</Text>
+		<Text> Each horizontal or vertical sweeping line inside the bounding</Text>
+		<Text>box (a Positive bag) must contain at least one pixel from the</Text>
+		<Text>foreground object;</Text>
+		<Text> Each horizontal or vertical sweeping line outside the bounding</Text>
+		<Text>box (a Negative bag) does not contain any pixel from the</Text>
+		<Text>foreground object.</Text>
+		<Text>In this way, the sweeping-line strategy naturally corresponds to the</Text>
+		<Text>multiple instance constraints described above.</Text>
+	</Panel>
+
+	<Panel left="460" right="152" width="400" height="275">
+		<Text>Validity and Tightness of a Bounding Box</Text>
+		<Text>Definition 1. Validity:</Text>
+		<Text>For an image I, a bounding box B is valid if the foreground object O</Text>
+		<Text>completely lies inside the box.</Text>
+		<Text>Definition 2. Tightness:</Text>
+		<Text>For an image I, a bounding box B is tight if the foreground object O</Text>
+		<Text>intersects the left, right, top, and bottom border of the bounding box.</Text>
+		<Text>Assuming validity and tightness of the bounding box, we then convert</Text>
+		<Text>the image segmentation task into a MIL problem by considering the</Text>
+		<Text>horizontal and vertical slices in the bounding box as positive bags and</Text>
+		<Text>other slices outside the box as negative bags. Either pixels or</Text>
+		<Text>superpixels could be used as instances. And we proved the Lemma:</Text>
+		<Text>Lemma 1. If a bounding box B is valid and tight and the object O inside</Text>
+		<Text>the bounding box is connected, then the constructed positive and</Text>
+		<Text>negative bags satisfy multiple instance constraints.</Text>
+	</Panel>
+
+	<Panel left="886" right="150" width="404" height="275">
+		<Text>Multiple Instance Learning Formulation</Text>
+		<Text>We formulate the interactive image segmentation problem by a</Text>
+		<Text>structured prediction model named MILCut-Struct.</Text>
+		<Text>The log-likelihood function is defined as:</Text>
+		<Text>The appearance likelihood model distinguishes the foreground pixels</Text>
+		<Text>or superpixels from the clutter background:</Text>
+		<Text>The structural constraints model enforces the piecewise smoothness</Text>
+		<Text>in resulting segments:</Text>
+		<Text>An alternative way of incorporating structural information is applying</Text>
+		<Text>GraphCut as a post-processing step, which we named MILCut-Graph.</Text>
+	</Panel>
+
+	<Panel left="461" right="432" width="829" height="426">
+		<Text>Experiment Results on GrabCut dataset</Text>
+		<Figure left="475" right="462" width="811" height="396" no="2" OriWidth="0.780347" OriHeight="0.280161
+" />
+	</Panel>
+
+	<Panel left="1322" right="151" width="400" height="330">
+		<Text>Experiment Results on Berkeley dataset</Text>
+		<Figure left="1333" right="175" width="391" height="308" no="3" OriWidth="0.778613" OriHeight="0.438338
+" />
+	</Panel>
+
+	<Panel left="1321" right="482" width="398" height="376">
+		<Text>Experiments with Noisy Inputs on Weizmann dataset</Text>
+		<Text>In general, MILCut explicitly embeds the bounding box prior in the</Text>
+		<Text>model, and is able to stretch the foreground segment towards all sides</Text>
+		<Text>of the bounding box. Here shows F-scores on the Weizmann dataset:</Text>
+		<Figure left="1414" right="553" width="229" height="43" no="4" OriWidth="0.323699" OriHeight="0.0451296
+" />
+		<Text>In real cases, the assumptions we made for the MILCut may not always</Text>
+		<Text>be satisfied. In this experiment, we consider two distinct situations</Text>
+		<Text>where multiple instance constraints are not met:</Text>
+		<Text>• Case 1: The bounding box is not tight. Here shows F-scores on</Text>
+		<Text>the Weizmann single object dataset with noisy inputs:</Text>
+		<Figure left="1424" right="669" width="205" height="65" no="5" OriWidth="0.330636" OriHeight="0.0728329
+" />
+		<Text>• Case 2: The object is not connected. Here shows F-scores on </Text>
+		<Text>subset of Weizmann dataset, where each bounding box contains</Text>
+		<Text>two objects:</Text>
+		<Figure left="1436" right="764" width="190" height="41" no="6" OriWidth="0.327746" OriHeight="0.0464701
+" />
+		<Text>Experiments show that MILCut can still obtain better performance than</Text>
+		<Text>other approaches in these cases.</Text>
+		<Text>The first two authors contributed equally to this work.</Text>
+	</Panel>
+
+</Poster>

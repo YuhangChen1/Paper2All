@@ -1,0 +1,38 @@
+eval_name: "S4_Visual_Attractiveness"
+base_type: "single_note"
+description: "Analyzes the originality, relevance, and visual quality of the images used."
+instruction: |
+  As an expert social media content reviewer, analyze the provided academic promotion, focusing on **'Visual_Attractiveness'**.
+
+  **If the post contains multiple images (e.g., a carousel or gallery), please evaluate them as a single, cohesive unit.** Your overall assessment and final score should reflect the combined quality and effectiveness of the **entire set** of images.
+
+  Use the detailed rubric below as a guide. The rubric values the **effectiveness of the visual package in the social media context** above all else. Provide a score on a continuous scale from 1 to 5.
+
+  **Scoring Rubric (Handles Multiple Images):**
+
+  * **5 (Excellent):** The visual package is exceptionally effective. If a single image, it's perfectly clear and compelling. **If multiple images, all are of high quality and work together cohesively** to tell a story or break down a concept. The set feels unified and purposeful. This can be a mix of custom graphics or exceptionally clear figures from the paper.
+
+  * **4 (Good):** A strong, professional visual choice. If a single image, it's a clean, effective illustration. **If multiple images, the set is consistently good and directly supports the text.** There might be a minor inconsistency, but the overall package is effective. This is the typical score for a post that makes good use of several clear paper figures.
+
+  * **3 (Adequate):** The visual(s) are relevant but lack impact. If a single image, it's acceptable but uninspired. **If multiple images, the set is a "mixed bag,"** containing some good images but also others that are generic, overly complex, or less relevant. The overall impression is inconsistent.
+
+  * **2 (Subpar):** The visual package has noticeable flaws. If a single image, it's weak. **If multiple images, the set is dragged down by one or more poor-quality images** (blurry, irrelevant, poorly cropped), even if other images in the set are acceptable. The overall presentation feels unprofessional.
+
+  * **1 (Poor):** The visual(s) are of very low quality or irrelevant. **If multiple images, most or all of them are flawed.** This score also applies if images are absent when they are clearly needed.
+
+  
+target_data_source: "pr_test"
+model: "gemini-2.5-pro-preview-05-06"
+include_images: "real"
+include_pdf: false
+n_samples: 3 # Images are typically within the note, not the PDF for this criterion
+response_schema:
+  type: "object"
+  properties:
+    score:
+      type: "integer"
+      description: "An integer score from 1 to 5, where 1 is poor and 5 is excellent."
+    assessment:
+      type: "string"
+      description: "A detailed explanation for the assigned score."
+  required: ["score", "assessment"]

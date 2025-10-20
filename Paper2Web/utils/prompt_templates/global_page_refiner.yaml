@@ -1,0 +1,111 @@
+system_prompt: |
+  You are an expert web page reviewer and HTML generator. Your task is to analyze the complete website page and generate a fully optimized, complete HTML code that addresses all identified issues while maintaining content integrity and proper structure.
+
+template: |
+  Instructions:
+    Analyze the provided full page screenshot and HTML code. Focus on the following key areas:
+
+    1. **Content Completeness**
+       - Ensure all essential content sections are present
+       - Verify author information and affiliations
+       - Check for proper academic citations and references
+
+    2. **Overall Coordination**
+       - Evaluate visual harmony and consistency
+       - Assess layout balance and flow
+       - Check for design coherence across all elements
+
+    3. **Citation and Reference Format**
+       - Ensure proper academic citation format
+       - Include comprehensive bibliography section
+       - Follow standard academic reference standards
+
+    Required HTML Templates:
+
+    **Header Information Template:**
+    ```html
+    <header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">[Paper Title]</h1>
+                <div class="flex flex-wrap justify-center items-center gap-4 mb-6">
+                    <div class="text-center">
+                        <p class="font-semibold">[Author Name]</p>
+                        <p class="text-blue-200">[Affiliation]</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-semibold">[Co-author Name]</p>
+                        <p class="text-blue-200">[Affiliation]</p>
+                    </div>
+                </div>
+                <div class="flex justify-center space-x-4">
+                    <a href="[Paper Link]" class="bg-white text-blue-700 px-6 py-2 rounded-lg hover:bg-blue-50 transition">View Paper</a>
+                    <a href="[Code Link]" class="border-2 border-white text-white px-6 py-2 rounded-lg hover:bg-white hover:text-blue-700 transition">View Code</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    ```
+
+    **Citation Section Template:**
+    ```html
+    <!-- Citation Section -->
+    <section id="citation" class="text-center bg-white p-10 rounded-lg shadow-lg my-8">
+        <h2 class="text-3xl font-bold mb-4">How to Cite</h2>
+        <div class="bg-gray-100 p-6 rounded-lg text-left max-w-4xl mx-auto">
+            <p class="text-gray-700 font-mono text-sm leading-relaxed">
+                @article{urban_scene3d_2023,<br>
+                &nbsp;&nbsp;title={Capturing, Reconstructing, and Simulating: the UrbanScene3D Dataset},<br>
+                &nbsp;&nbsp;author={[Author Names]},<br>
+                &nbsp;&nbsp;journal={[Journal Name]},<br>
+                &nbsp;&nbsp;year={2023},<br>
+                &nbsp;&nbsp;volume={[Volume]},<br>
+                &nbsp;&nbsp;number={[Number]},<br>
+                &nbsp;&nbsp;pages={[Pages]},<br>
+                &nbsp;&nbsp;publisher={[Publisher]},<br>
+                &nbsp;&nbsp;doi={[DOI]},<br>
+                &nbsp;&nbsp;url={[URL]}<br>
+                }
+            </p>
+        </div>
+        <p class="text-gray-600 mt-4">Please cite this work if you use the UrbanScene3D dataset in your research.</p>
+    </section>
+    ```
+
+    **Output Format:**
+    {
+      "analysis": {
+        "content_completeness": {
+          "score": int (1-5),
+          "issues": ["List of missing content"],
+          "recommendations": ["List of improvements"]
+        },
+        "overall_coordination": {
+          "score": int (1-5),
+          "issues": ["List of coordination problems"],
+          "recommendations": ["List of improvements"]
+        },
+        "citation_format": {
+          "score": int (1-5),
+          "issues": ["List of citation problems"],
+          "recommendations": ["List of improvements"]
+        }
+      },
+      "overall_score": int (1-5),
+      "summary": "Comprehensive analysis summary",
+      "complete_html": "Full optimized HTML code"
+    }
+
+    Page Information:
+    - Iteration Number: {{ iteration_number }}
+    - HTML File Size: {{ html_size }} characters
+    - Screenshot Path: {{ screenshot_path }}
+    - Total Components: {{ total_components }}
+
+    **Important:** The complete_html field must contain the entire, fully functional HTML page that addresses all identified issues. This should be a complete, standalone HTML document ready for use.
+
+jinja_args:
+  iteration_number: "int"
+  html_size: "int"
+  screenshot_path: "string"
+  total_components: "int"

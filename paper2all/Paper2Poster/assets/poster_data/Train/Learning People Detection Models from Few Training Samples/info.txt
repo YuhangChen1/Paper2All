@@ -1,0 +1,112 @@
+<Poster Width="1734" Height="1226">
+	<Panel left="48" right="203" width="391" height="192">
+		<Text>Goal</Text>
+		<Text>• Propose a novel technique to train people detectors</Text>
+		<Text>from only a few observed training subjects</Text>
+		<Text>• Approach the lack-of-training-data problem by</Text>
+		<Text>automatically generating realistic training samples• Push the performance of current detection systems</Text>
+		<Text>trained on hundreds of manually annotated pedestrians</Text>
+	</Panel>
+
+	<Panel left="50" right="396" width="387" height="794">
+		<Text>Contributions</Text>
+		<Text>• Compare the results to prior work (e.g. [2, 7])• Explore the applicability of state-of-the-art 3D human</Text>
+		<Text>model to learn people detectors</Text>
+		<Figure left="59" right="504" width="380" height="316" no="1" OriWidth="0.381776" OriHeight="0.2453145
+" />
+		<Text>• Analyze various combinations of synthetic and real</Text>
+		<Text>training data</Text>
+		<Text>⇒ outperform current methods which use real training</Text>
+		<Text>data only</Text>
+		<Figure left="109" right="924" width="295" height="232" no="2" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="460" right="203" width="403" height="1001">
+		<Text>Proposed Approach</Text>
+		<Text>1. Generate realistic synthetic data by MovieReshape [6]</Text>
+		<Text>2. Combine reshaped humans with backgrounds</Text>
+		<Text>3. Automatically obtain 2D part annotations from known</Text>
+		<Text>3D joint positions</Text>
+		<Figure left="459" right="331" width="407" height="126" no="3" OriWidth="0.787197" OriHeight="0.192513
+" />
+		<Text>• Represent shape variations via PCA</Text>
+		<Text>• Embed kinematic skeleton with linear blend skinning• Learn shape from 3D laser scans of humansStatistical 3D human shape model [5]⇒ Realistic distributions of human appearance</Text>
+		<Text>and shape</Text>
+		<Figure left="534" right="604" width="285" height="101" no="4" OriWidth="0" OriHeight="0
+" />
+		<Text>⇒ particle filter-based estimator• Fit the parameters of 3D body model to silhouettesAutomatic model fitting</Text>
+		<Figure left="584" right="777" width="151" height="83" no="5" OriWidth="0" OriHeight="0
+" />
+		<Text>• Sample 3D shape parameters ±3σ from the mean shape</Text>
+		<Text>• Use 3D offset vectors to drive 2D image warpingImage deformation</Text>
+		<Figure left="574" right="928" width="162" height="86" no="6" OriWidth="0" OriHeight="0
+" />
+		<Text>Composition with background</Text>
+		<Text>• Adjust color distribution of pedestrian w.r.t. background</Text>
+		<Text>Sample output images with gradual height changes</Text>
+		<Figure left="460" right="1091" width="402" height="110" no="7" OriWidth="0.640138" OriHeight="0.105169
+" />
+	</Panel>
+
+	<Panel left="876" right="203" width="393" height="463">
+		<Text>People Detection Models</Text>
+		<Text>Pictorial structures (PS) [1, 4]</Text>
+		<Text>• Flexible configuration of body parts with pose prior</Text>
+		<Text>• AdaBoost part detectors learned from dense shape</Text>
+		<Text>context descriptor</Text>
+		<Text>• Inference by sum-product belief propagation</Text>
+		<Figure left="911" right="346" width="332" height="199" no="8" OriWidth="0" OriHeight="0
+" />
+		<Text>Histograms of oriented gradients (HOG) [3]</Text>
+		<Text>• Sliding window detection</Text>
+		<Text>• Monolithic template based on HOG features</Text>
+		<Text>• Histogram intersection kernel SVM</Text>
+	</Panel>
+
+	<Panel left="878" right="668" width="392" height="546">
+		<Text>Datasets</Text>
+		<Text>• Reshape data (our method): 11 persons, ∼ 2000</Text>
+		<Text>reshaped images per person</Text>
+		<Text>• CVC (virtual pedestrians) [7]: 3432 images total</Text>
+		<Text>• Multi-viewpoint real data [2]: 2972 train images, 248</Text>
+		<Text>test and 248 validation images</Text>
+		<Figure left="882" right="806" width="385" height="401" no="9" OriWidth="0.567474" OriHeight="0.46048667
+" />
+	</Panel>
+
+	<Panel left="1296" right="205" width="386" height="761">
+		<Text>Results</Text>
+		<Text>Using Reshape data (PS model)</Text>
+		<Figure left="1306" right="256" width="186" height="159" no="10" OriWidth="0.253172" OriHeight="0.168449
+" />
+		<Figure left="1495" right="256" width="189" height="160" no="11" OriWidth="0.250865" OriHeight="0.167112
+" />
+		<Text>Combining detectors (PS model)</Text>
+		<Figure left="1301" right="609" width="191" height="159" no="12" OriWidth="0.301038" OriHeight="0.171123
+" />
+		<Figure left="1493" right="606" width="192" height="160" no="13" OriWidth="0.299308" OriHeight="0.170232
+" />
+		<Text>Combining detectors (HOG model)</Text>
+		<Figure left="1393" right="803" width="202" height="157" no="14" OriWidth="0.288927" OriHeight="0.169786
+" />
+	</Panel>
+
+	<Panel left="1290" right="966" width="395" height="235">
+		<Text>References</Text>
+		<Text>[1] M. Andriluka, S. Roth, and B. Schiele. Pictorial structures revisited: People detection and</Text>
+		<Text>articulated pose estimation. In CVPR, pages 1014–1021, 2009.</Text>
+		<Text>[2] M. Andriluka, S. Roth, and B. Schiele. Monocular 3d pose estimation and tracking by detection.</Text>
+		<Text>In CVPR, pages 623–630, 2010.</Text>
+		<Text>[3] N. Dalal and B. Triggs. Histograms of oriented gradients for human detection. In CVPR, 2005.</Text>
+		<Text>[4] P. F. Felzenszwalb and D. P. Huttenlocher. Pictorial structures for object recognition. IJCV,</Text>
+		<Text>61:55–79, 2005.</Text>
+		<Text>[5] N. Hasler, C. Stoll, M. Sunkel, B. Rosenhahn, and H.-P. Seidel. A statistical model of human pose</Text>
+		<Text>and body shape. CGF (Proc. Eurographics 2008), 2(28), 2009.</Text>
+		<Text>[6] A. Jain, T. Thormählen, H.-P. Seidel, and C. Theobalt. Moviereshape: Tracking and reshaping of</Text>
+		<Text>humans in videos. ACM Trans. Graph. (Proc. SIGGRAPH Asia), 29(5), 2010.</Text>
+		<Text>[7] J. Marin, D. Vazquez, D. Geronimo, and A. Lopez. Learning appearance in virtual scenarios for</Text>
+		<Text>pedestrian detection. In CVPR, pages 137–144, 2010.</Text>
+	</Panel>
+
+</Poster>

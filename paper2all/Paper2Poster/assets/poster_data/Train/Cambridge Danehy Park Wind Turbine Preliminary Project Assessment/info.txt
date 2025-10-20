@@ -1,0 +1,103 @@
+<Poster Width="1734" Height="2602">
+	<Panel left="35" right="265" width="767" height="640">
+		<Text>Overview</Text>
+		<Text>Our team investigated the potential wind resource available at </Text>
+		<Text>Danehy Park in the City of Cambridge, to provide estimated power </Text>
+		<Text>generation figures, environmental and community impact analysis, </Text>
+		<Text>and rough financial estimates.</Text>
+		<Figure left="181" right="458" width="505" height="391" no="1" OriWidth="0.809827" OriHeight="0.430295
+" />
+		<Text>For the full report, please visit: http://web.mit.edu/wepa/reports/</Text>
+	</Panel>
+
+	<Panel left="41" right="916" width="792" height="1000">
+		<Text>Wind Resource Assessment</Text>
+		<Text>We collected wind speed data at the site over seven months using</Text>
+		<Text>sensors mounted to a light pole at two different heights. We then</Text>
+		<Text>correlated the data with historical data collected at Logan airport</Text>
+		<Text>from 1997 to 2010 to estimate the long‐term wind resource</Text>
+		<Text>available at Danehy Park. The method used to perform the</Text>
+		<Text>estimation is the binned linear regression Measure‐Correlate‐</Text>
+		<Text>Predict (MCP). Please see our written report for additional details.</Text>
+		<Figure left="36" right="1212" width="799" height="325" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>From these estimated wind speeds, we used an approximate wind</Text>
+		<Text>shear scaling formula to compute a synthetic hourly wind speed</Text>
+		<Text>time series at hub height for each of the turbines in our evaluation</Text>
+		<Text>set. From these time series and the turbines’ power curves, we</Text>
+		<Text>computed estimated annual energy production for each turbine.</Text>
+		<Figure left="38" right="1731" width="791" height="179" no="3" OriWidth="0.825434" OriHeight="0.125559
+" />
+	</Panel>
+
+	<Panel left="32" right="1926" width="797" height="566">
+		<Text>Financial Analysis</Text>
+		<Text>Using approximate values for purchase, installation, electricity</Text>
+		<Text>generation, insurance, and maintenance, we computed net present</Text>
+		<Text>values (NPVs) for each of the turbines in our evaluation set. These</Text>
+		<Text>figures are very rough, as there were many details left out, notably</Text>
+		<Text>the effects of clean energy incentives and potential complications</Text>
+		<Text>arising from the site being built on capped landfill.</Text>
+		<Figure left="37" right="2200" width="794" height="294" no="4" OriWidth="0.800578" OriHeight="0.274352
+" />
+	</Panel>
+
+	<Panel left="902" right="261" width="790" height="702">
+		<Text>Turbine Evaluation Set</Text>
+		<Figure left="925" right="315" width="747" height="435" no="5" OriWidth="0" OriHeight="0
+" />
+		<Text>The above turbines were chosen to provide broad representative</Text>
+		<Text>coverage of current small to medium scale turbines that would likely</Text>
+		<Text>be considered for installation at this site. Larger turbines would</Text>
+		<Text>have to contend with increasingly burdensome noise and shadow</Text>
+		<Text>flicker issues, greater financial risk, as well as the potential for</Text>
+		<Text>greater community resistance.</Text>
+	</Panel>
+
+	<Panel left="905" right="985" width="783" height="629">
+		<Text>Environmental Impact</Text>
+		<Text>Danehy Park is located within a mile of Fresh Pond, a large body of</Text>
+		<Text>water located in West Cambridge. Mass Audubon has indicated that</Text>
+		<Text>birds concentrate in the area in significant numbers in breeding</Text>
+		<Text>season, winter, and during migration.</Text>
+		<Text>Of the many bird species</Text>
+		<Text>observed living near or migrating</Text>
+		<Text>through the Fresh Pond area, the</Text>
+		<Text>few that are listed as endangered</Text>
+		<Text>or of special concern by the state</Text>
+		<Text>are infrequently observed in the</Text>
+		<Text>area. Also, several recent studies</Text>
+		<Text>examining birds and wind</Text>
+		<Text>turbines have observed that</Text>
+		<Text>most birds usually avoid turbine</Text>
+		<Text>blades. Please see our written</Text>
+		<Text>report for additional details.</Text>
+		<Figure left="1337" right="1199" width="341" height="412" no="6" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="905" right="1615" width="789" height="886">
+		<Text>Community Impact</Text>
+		<Text>The size of the area in which shadow flicker from spinning blades is</Text>
+		<Text>detectable by the human eye varies with turbine height and rotor</Text>
+		<Text>diameter. The map below shows the potential areas of effect for</Text>
+		<Text>the Polaris 20 (blue) and Northern Power 100 (yellow) in various</Text>
+		<Text>locations. The area of shadow flicker effect for the Aeronautica 29‐</Text>
+		<Text>225 and Polaris 500 overlapped with neighboring residential areas.</Text>
+		<Figure left="910" right="1874" width="392" height="272" no="7" OriWidth="0.801734" OriHeight="0.252904
+" />
+		<Figure left="1319" right="1874" width="380" height="275" no="8" OriWidth="0.73526" OriHeight="0.412869
+" />
+		<Text>Another community impact issue associated with wind turbine</Text>
+		<Text>development is noise level. Each turbine has a noise (sound</Text>
+		<Text>pressure) level that decreases as a function of distance from the</Text>
+		<Text>turbine, as shown in the above graph.</Text>
+		<Text>The noise level from a turbine decreases by approximately half (6</Text>
+		<Text>dB) for every doubling in distance from the turbine. The markers in</Text>
+		<Text>the graph above indicate the manufacturer‐published noise levels.</Text>
+		<Text>For reference, 55 dBA corresponds to the noise level of a busy</Text>
+		<Text>office. The diameter of the yellow shaded area in the map is</Text>
+		<Text>roughly 400 meters.</Text>
+	</Panel>
+
+</Poster>

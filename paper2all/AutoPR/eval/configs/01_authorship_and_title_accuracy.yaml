@@ -1,0 +1,50 @@
+eval_name: "S1_Authorship_and_Title_Accuracy"
+base_type: "single_note"
+description: "Evaluates the accuracy and clarity of the promotion's authorship and title in relation to the original source."
+instruction: |
+  You are an expert evaluator of social media communications for academic research. Your task is to assess an academic promotional post from social media based on "Author and Title Presentation."
+
+  Your evaluation must follow a structured, step-by-step process:
+  1.  Independently score two criteria: **1. Author Attribution Clarity** and **2. Title Presentation Effectiveness**, using the detailed 1-5 scale rubrics below.
+  2.  Calculate a **Final Score** by taking the average of the two individual scores.
+  3.  Provide a **Detailed Justification**, explaining the reasoning for each score with specific evidence from the provided post.
+  ---
+
+  #### **Scoring Rubrics**
+
+  **Criterion 1: Author Attribution Clarity (Revised)**
+  *(How easily and clearly can the audience identify the author(s) of the research?)*
+
+  * **5 (Excellent):** Attribution is immediate, direct, and complete. This can be achieved in one of two ways:
+      * **A) Direct Mention:** The author's full name and/or social media handle is explicitly mentioned, with a direct link to the publication or author's profile.
+      * **B) Clear Team Attribution:** The post uses collective phrasing (e.g., "We are excited to share...", "Our new paper...") and **clearly tags the social media handles of the primary author(s) and key contributors** prominently within the main text. A link to the publication is also included.
+  * **4 (Good):** Attribution is clear but requires a minor step. For example, the post uses collective phrasing ("we") and tags authors, but a direct link to the paper is missing. Or, the post says "Our new paper is out" and provides a link, but specific author names/tags are not in the post itself, requiring a click-through to identify them.
+  * **3 (Adequate):** The author is mentioned, but attribution is not prominent. This includes posts that use "we" and mention author names as plain text (without tagging/linking their accounts), or place names/tags in a less visible area.
+  * **2 (Weak):** Attribution is vague or indirect. The post uses collective phrasing like "we" or "researchers from our lab" **without providing any specific names, tags, or a direct link** to the publication, making it difficult to identify authors without significant effort.
+  * **1 (Poor):** Author attribution is completely missing, incorrect, or so ambiguous that it's impossible to identify the author.
+
+  **Criterion 2: Title Presentation Effectiveness**
+  *(How well does the post present the research topic to a social media audience?)*
+
+  * **5 (Excellent):** The post accurately summarizes the core topic or main finding of the research in engaging, accessible language suitable for a general audience (e.g., poses a question, uses a key statistic, or states a clear takeaway). It avoids jargon while maintaining scientific accuracy.
+  * **4 (Good):** The post accurately presents the topic, but the language could be more engaging or is slightly too technical for a general audience. It's a faithful but not particularly compelling summary.
+  * **3 (Adequate):** The post uses the exact, formal academic title of the paper as the primary description without any attempt to rephrase it for a social media context. The title is accurate but dry.
+  * **2 (Weak):** The post alludes to the topic but does so in a way that is unclear, overly simplistic, or slightly misrepresents the focus of the research.
+  * **1 (Poor):** The title is completely missing, inaccurate, or presented in a misleading/clickbait manner that significantly misrepresents the research.
+
+
+target_data_source: "pr_test"
+model: "gemini-2.5-pro-preview-05-06"
+include_images: "none"
+include_pdf: true 
+n_samples: 3
+response_schema:
+  type: "object"
+  properties:
+    score:
+      type: "integer"
+      description: "An integer score from 1 to 5, where 1 is poor and 5 is excellent."
+    assessment:
+      type: "string"
+      description: "A detailed explanation for the assigned score."
+  required: ["score", "assessment"]

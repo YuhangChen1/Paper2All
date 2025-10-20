@@ -1,0 +1,84 @@
+<Poster Width="1734" Height="2452">
+	<Panel left="57" right="465" width="784" height="646">
+		<Text>Overview</Text>
+		<Text>Ink mismatch detection provides important clues to</Text>
+		<Text>forensic document examiners [1]</Text>
+		<Text>•	identifying whether a particular handwritten note is written with a</Text>
+		<Text>specific ink</Text>
+		<Text>•	showing that some part (e.g. signature) is written with a different</Text>
+		<Text>ink as compared to the rest of the note [2].</Text>
+		<Text>Hyperspectral images capture fine spectral detail</Text>
+		<Text>•	non-destructive and efficient capture</Text>
+		<Text>•	automated, accurate identification</Text>
+		<Figure left="183" right="933" width="505" height="150" no="1" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="50" right="1109" width="808" height="1217">
+		<Text>Ink Mismatch Detection</Text>
+		<Text>Inks are distinguishable in visible and near infrared range</Text>
+		<Text>•	CCD camera with tunable filter captures hyperspectral images</Text>
+		<Text>•	spectral responses vary in different portions of the EM spectrum</Text>
+		<Text>•	non-uniform illumination modulates true spectral reflectances</Text>
+		<Figure left="50" right="1362" width="404" height="339" no="2" OriWidth="0.397347" OriHeight="0.213458
+" />
+		<Figure left="520" right="1417" width="309" height="239" no="3" OriWidth="0.198962" OriHeight="0.128342
+" />
+		<Text>Ink Segmentation and Clustering Algorithm</Text>
+		<Text>•	segment ink pixles using Sauvola’s algorithm [3]</Text>
+		<Text>•	normalize spectral responses to unit magnitude</Text>
+		<Text>•	k-means clustering of ink spectral responses (k=2)</Text>
+		<Figure left="220" right="1921" width="335" height="87" no="4" OriWidth="0" OriHeight="0
+" />
+		<Text>•	forward feature (band) selection. leave-1-ink-out cross validation</Text>
+		<Text>Database</Text>
+		<Text>•	 Handwritten note: ‘A quick brown fox jumps over the lazy dog’</Text>
+		<Text>•	 5 blue and 5 black inks by 7 subjects</Text>
+		<Text>•	 33 band hyperspectral image in 400-720nm range (10nm steps)</Text>
+		<Text>•	 3 channel RGB scan for comparison</Text>
+	</Panel>
+
+	<Panel left="893" right="463" width="797" height="1482">
+		<Text>Experiments</Text>
+		<Text>Evaluation Setup</Text>
+		<Text>•	mix 2 different ink images in equal proportions</Text>
+		<Text>•	5 inks, taken 2 at a time, results in 10 different mixed ink images</Text>
+		<Text>Segmentation Results</Text>
+		<Text>•	RGB versus HSI segmentation comparison</Text>
+		<Text>•	Sub-visual range comparative analysis</Text>
+		<Text>•	Segmentation with and without feature selection</Text>
+		<Figure left="890" right="1041" width="246" height="188" no="5" OriWidth="0.199539" OriHeight="0.127451
+" />
+		<Figure left="888" right="1245" width="244" height="191" no="6" OriWidth="0.201845" OriHeight="0.129679
+" />
+		<Figure left="1166" right="1040" width="227" height="191" no="7" OriWidth="0.198385" OriHeight="0.12344
+" />
+		<Figure left="1156" right="1241" width="248" height="194" no="8" OriWidth="0.194348" OriHeight="0.126114
+" />
+		<Figure left="1429" right="1035" width="231" height="193" no="9" OriWidth="0.196655" OriHeight="0.124777
+" />
+		<Figure left="1428" right="1243" width="235" height="193" no="10" OriWidth="0.194925" OriHeight="0.125223
+" />
+		<Text>Example: Discriminating Black Inks</Text>
+		<Text>•	mix black ink 4 and black ink 5</Text>
+		<Figure left="895" right="1596" width="788" height="299" no="11" OriWidth="0.464245" OriHeight="0.189394
+" />
+	</Panel>
+
+	<Panel left="895" right="1949" width="812" height="439">
+		<Text>Conclusion</Text>
+		<Text>Hyperspectral imaging is of critical value in supporting</Text>
+		<Text>ink examination.</Text>
+		<Text>•	1st database collected and made publicly available</Text>
+		<Text>•	overcome hardware limitations in future</Text>
+		<Text>References</Text>
+		<Text>[1] G. Edelman, E. Gaston, T. van Leeuwen, P. Cullen, and M. Aalders, “Hyperspectral imaging for</Text>
+		<Text>non-contact analysis of forensic traces,” Forensic Science International, vol. 223, pp. 28–39, 2012</Text>
+		<Text>[2] E. B. Brauns and R. B. Dyer, “Fourier transform hyperspectral visible imaging and the</Text>
+		<Text>nondestructive analysis of potentially fraudulent documents,” Applied spectroscopy, vol. 60, no. 8, pp.</Text>
+		<Text>833–840, 2006.</Text>
+		<Text>[3] F. Shafait, D. Keysers, and T. M. Breuel, “Efficient implementation of local adaptive thresholding</Text>
+		<Text>techniques using integral images,” Document Recog. and Retrieval XV, pp. 681510–681510–6, 2008</Text>
+	</Panel>
+
+</Poster>

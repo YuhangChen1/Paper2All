@@ -1,0 +1,99 @@
+<Poster Width="1735" Height="1227">
+	<Panel left="-1" right="186" width="483" height="1035">
+		<Text>Motivation:</Text>
+		<Text>Robots face two challenges in natural environments:</Text>
+		<Text>● Underspecified goals: no human to specify exact</Text>
+		<Text>goal configuration</Text>
+		<Text>● Uncertain dynamics: Effects of robot's actions on</Text>
+		<Text>novel objects is uncertain</Text>
+		<Text>Approach:</Text>
+		<Text>● For underspecified goals:</Text>
+		<Text>• Pose task as a constrained optimization problem</Text>
+		<Text>over a set of reward or cost terms.</Text>
+		<Text>• Can be defined manually or modeled from human</Text>
+		<Text>● For uncertain dynamics:</Text>
+		<Text>• Quickly approximate dynamics for a set of actions</Text>
+		<Text>• Plan efficiently using sampling-based techniques</Text>
+		<Text>Our algorithm:</Text>
+		<Text>● Searches in object configuration space using</Text>
+		<Text>Rapidly-exploring Random Trees (RRT)</Text>
+		<Text>● Adds leaves to search tree by forward-simulating</Text>
+		<Text>the learned dynamics for each object-action pair</Text>
+		<Text>● Uses directGD heuristic to quickly search</Text>
+		<Text>optimization landscape</Text>
+		<Text>● Returns a plan from the starting state to the</Text>
+		<Text>most optimal reachable state, given cost function</Text>
+		<Figure left="40" right="895" width="403" height="316" no="1" OriWidth="0.400578" OriHeight="0.244861
+" />
+	</Panel>
+
+	<Panel left="483" right="187" width="827" height="589">
+		<Text>Manipulation under uncertainty</Text>
+		<Text>Initial state</Text>
+		<Text>● Robot begins with a workspace containing </Text>
+		<Text>three unfamiliar objects</Text>
+		<Text>● Robot provided a cost function expressing </Text>
+		<Text>the following desiderata:</Text>
+		<Text>• Orthogonality</Text>
+		<Text>• Cicumscribed area</Text>
+		<Text>• Distance from edge of workspace</Text>
+		<Figure left="508" right="465" width="364" height="280" no="2" OriWidth="0.186127" OriHeight="0.181412
+" />
+		<Text>Solution</Text>
+		<Text>● All objects pushed to orthonormal</Text>
+		<Text>orientations in the center of the workspace</Text>
+		<Text>● All paths free of collisions and redundant</Text>
+		<Text>actions</Text>
+		<Text>● Robot monitored error and replanned as</Text>
+		<Text>necessary</Text>
+		<Figure left="888" right="412" width="413" height="332" no="3" OriWidth="0.380347" OriHeight="0.183199
+" />
+	</Panel>
+
+	<Panel left="486" right="778" width="828" height="441">
+		<Text>Generalization to other manipulation tasks</Text>
+		<Text>Appropriate for tasks naturally expressed as</Text>
+		<Text>optimization of a cost function:</Text>
+		<Text>● Arranging clutter on a surface</Text>
+		<Text>● Multiple object placement</Text>
+		<Text>● Table setting</Text>
+		<Figure left="520" right="995" width="328" height="216" no="4" OriWidth="0.176301" OriHeight="0.100536
+" />
+		<Figure left="873" right="866" width="428" height="343" no="5" OriWidth="0.383237" OriHeight="0.208222
+" />
+	</Panel>
+
+	<Panel left="1318" right="188" width="407" height="676">
+		<Text>Model Learning</Text>
+		<Text>Goal: discover the dynamics of each object</Text>
+		<Text>class over a set of action primitives</Text>
+		<Figure left="1342" right="296" width="366" height="191" no="6" OriWidth="0.30578" OriHeight="0.124218
+" />
+		<Figure left="1335" right="500" width="380" height="195" no="7" OriWidth="0.744509" OriHeight="0.181859
+" />
+		<Figure left="1366" right="709" width="315" height="143" no="8" OriWidth="0.406936" OriHeight="0.118409
+" />
+	</Panel>
+
+	<Panel left="1318" right="873" width="406" height="346">
+		<Text>Advantages</Text>
+		<Text>Appropriate for tasks naturally expressed as</Text>
+		<Text>optimization of a cost function:</Text>
+		<Text>• Unlike conventional single-shot methods,</Text>
+		<Text>doesn't require user specified goals</Text>
+		<Text>• Always guaranteed to return reachable solution</Text>
+		<Text>• Favorable anytime characteristics</Text>
+		<Text>• Feasible for real-time planning in high DOF problems</Text>
+		<Text>Similar to Reinforcement Learning formalism, but</Text>
+		<Text>trades path optimality for realtime feasibility</Text>
+		<Text>• RL can require many full-passes through</Text>
+		<Text>configuration space to converge to optimal policy</Text>
+		<Text>• Handling continuous features requires discretization,</Text>
+		<Text>tiling, or other appoaches</Text>
+		<Text>• RL better suited for problems with sparse reward</Text>
+		<Text>landscape, but optimizations offer a gradient (like</Text>
+		<Text>shaping reward) which allows fast heuristic search</Text>
+		<Text>with RRT</Text>
+	</Panel>
+
+</Poster>

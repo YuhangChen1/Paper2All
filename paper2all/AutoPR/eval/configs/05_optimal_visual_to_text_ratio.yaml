@@ -1,0 +1,51 @@
+eval_name: "S5_Optimal_Visual_to_Text_Ratio"
+base_type: "single_note"
+description: "Assesses the balance between visual elements and text for effective communication."
+instruction: |
+  As a visual communication expert, you are to evaluate an academic promotional post from a social media in **{platform_source}**. Your primary task is to assess its **'Visual-Text Integration'** by analyzing how effectively the visual elements and the text work together. Your evaluation should be holistic, beginning with foundational principles and building up to nuanced qualities.
+
+  Provide an overall assessment and a score on a continuous scale from 1 to 5. Use the detailed rubric below as a guide.
+
+  ---
+
+  **Foundational Principles of Visual Balance**
+
+  An effective social media post is built on a solid foundation. Before assessing finer details, consider these two fundamental principles of structure and layout:
+
+  * **Optimal Image Quantity:** A well-balanced post typically utilizes **3 to 7 visuals**. This range is the foundation for effective communication, providing sufficient detail without causing audience fatigue. Posts significantly outside this range often struggle to maintain a clear, compelling narrative.
+  * **Platform-Native Flow (Especially Twitter):** The foundation of a strong narrative is the strategic interplay of text and visuals. On platforms like Twitter (X), stacking multiple images together in a single tweet disrupts this flow and fundamentally weakens the post's structure, forcing the user to context-switch instead of being guided through the information.
+
+  ---
+
+  **Scoring Rubric: Visual-Text Integration**
+
+  * **5 (Excellent Anchor): Synergistic, engaging, and built on a strong foundation.**
+      * **Foundational Strength:** The post is built on a strong foundation, employing an optimal number of visuals (3-7) and exemplary, platform-native placement that enhances the narrative flow.
+      * **Interdependence:** The visual(s) and text are fully interdependent and synergistic. One is incomplete without the other, creating a message more powerful than the sum of its parts.
+      * **Clarity & Brevity:** The post is immediately understandable. The core message is grasped within seconds.
+
+  * **3 (Adequate Anchor): Functional but foundationally flawed.**
+      * **Foundational Weakness:** The post exhibits a fundamental weakness in its structure. This is typically due to an inappropriate number of visuals (e.g., fewer than 3 or more than 7) or poor, non-native layout (e.g., image stacking on Twitter). While some information is conveyed, **these foundational issues prevent it from being truly effective, limiting its overall quality to an adequate level.**
+      * **Partial Redundancy:** There may be some overlap between the visual and the text, or the visuals feel more like decoration than essential information.
+      * **Moderate Effort Required:** The core message is present but requires more cognitive effort to parse.
+
+  * **1 (Poor Anchor): Ineffective and structurally unsound.**
+      * **Lacks Foundation:** The post lacks any structural foundation. It severely disregards the basic principles of quantity and placement, resulting in a chaotic, confusing, or barren presentation.
+      * **Severe Imbalance:** The post is characterized by a "wall of text" with a non-existent or irrelevant visual, or vice-versa.
+      * **High Cognitive Load:** The message is buried and difficult to understand due to the chaotic layout and lack of clear connection between text and visuals.
+  
+target_data_source: "pr_test"
+model: "gemini-2.5-pro-preview-05-06"
+include_images: "real"
+include_pdf: false
+n_samples: 3
+response_schema:
+  type: "object"
+  properties:
+    score:
+      type: "integer"
+      description: "An integer score from 1 to 5, where 1 is poor and 5 is excellent."
+    assessment:
+      type: "string"
+      description: "A detailed explanation for the assigned score."
+  required: ["score", "assessment"]

@@ -1,0 +1,45 @@
+eval_name: "S7_Engagement_Hook_Strength"
+base_type: "single_note"
+description: "Evaluates the effectiveness of the opening hook (text and/or visual) in capturing audience attention."
+instruction: |
+  You are a social media growth expert. Your task is to analyze the 'Engagement Hook Strength' of an academic promotion post for social media. The "hook" is the first one or two sentences designed to capture audience attention.
+
+  Provide an overall assessment and a score on a continuous scale from 1 to 5. Use the detailed rubric below as a guide for the anchor points (1, 3, and 5). You are encouraged to use intermediate scores (e.g., 2, 4, or even decimals like 3.5) to reflect the precise quality.
+
+  **Scoring Rubric:**
+
+  * **5 (Excellent Anchor):** The hook is strategically designed for high engagement.
+      * **Criteria (must meet at least two):**
+          * **Sparks Curiosity:** Asks a provocative question, presents a surprising fact/statistic, or makes a bold, counter-intuitive claim. (e.g., "What if everything we know about X is wrong?")
+          * **Problem-Agitation:** Directly addresses a known pain point or question relevant to the target audience. (e.g., "Tired of struggling with data analysis? Our new study offers a solution.")
+          * **Direct & Personal:** Uses direct address ("You," "Your") to create an immediate connection with the reader.
+          * **Clear Value Proposition:** Immediately signals a clear benefit, solution, or fascinating insight for the reader.
+
+  * **3 (Adequate Anchor):** The hook is clear and functional but lacks a strong engagement strategy.
+      * **Criteria:**
+          * **Informative Statement:** Clearly and concisely states the topic of the research. (e.g., "A new study explores the impact of climate change on coastal erosion.")
+          * **Conventional Phrasing:** Uses standard, predictable language for academic announcements. (e.g., "We are excited to announce the publication of...")
+          * **Passive Consumption:** It informs the audience but does not actively invite interaction, curiosity, or emotional response. The value is implied rather than explicitly stated as a hook.
+
+  * **1 (Poor Anchor):** The hook is ineffective and likely to be ignored.
+      * **Criteria (meets at least one):**
+          * **Overly Technical/Jargon-laden:** Uses specialized terms not understandable to a general audience, making it inaccessible.
+          * **Vague or Abstract:** Fails to clearly state the topic or its relevance, leaving the reader confused. (e.g., "A new paper on methodological considerations is now available.")
+          * **No Hook Present:** The post begins with dense details, publication citations, or a generic, uninteresting opening.
+          * **Burying the Lead:** The interesting or relevant part of the research is hidden behind introductory fluff or boilerplate language.
+
+target_data_source: "pr_test"
+model: "gemini-2.5-pro-preview-05-06"
+include_images: "none"
+include_pdf: false
+n_samples: 3
+response_schema:
+  type: "object"
+  properties:
+    score:
+      type: "integer"
+      description: "An integer score from 1 to 5, where 1 is poor and 5 is excellent."
+    assessment:
+      type: "string"
+      description: "A detailed explanation for the assigned score."
+  required: ["score", "assessment"]

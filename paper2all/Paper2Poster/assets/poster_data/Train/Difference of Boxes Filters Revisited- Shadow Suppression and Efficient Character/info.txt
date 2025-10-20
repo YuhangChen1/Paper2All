@@ -1,0 +1,119 @@
+<Poster Width="655" Height="927">
+	<Panel left="10" right="175" width="316" height="133">
+		<Text>Introduction</Text>
+		<Text>Robust character recognition often relies on a good segmentation.</Text>
+		<Text>Difficulties: dirt, non-uniform illumination, shadow, . . .</Text>
+		<Text>Our method of character segmentation is simple, efficient and easy to implement.</Text>
+		<Text>Algorithm overview:</Text>
+		<Text>1. Shadow suppression using multiple difference of boxes filters</Text>
+		<Text>2. Ternary segmentation using locally estimated thresholds</Text>
+		<Text>Applications:</Text>
+		<Text>license plate recognition</Text>
+		<Text>ID card recognition</Text>
+		<Text>arbitrary document analysis systems</Text>
+	</Panel>
+
+	<Panel left="10" right="313" width="316" height="135">
+		<Text>Multiple Difference of Boxes</Text>
+		<Text>Base filter: Difference of Boxes Filter [2]</Text>
+		<Text>Simple interpretation of the idea of Vonikakis et al. [3] (hidden in their formulas)</Text>
+		<Text>Definition for an one-dimensional signal g (m < M)</Text>
+		<Text>Approximation of a Difference of Gaussians or Mexican-Hat filter</Text>
+		<Text>Runtime independent of filter sizes</Text>
+		<Text>Maximum of the result of several DoB filters with different sizes (mi , Mi ) leads to the final filter output</Text>
+		<Text>of a Multiple Difference of Boxes (MDoB) Filter</Text>
+	</Panel>
+
+	<Panel left="10" right="454" width="314" height="163">
+		<Text>Examples</Text>
+		<Figure left="37" right="469" width="260" height="123" no="1" OriWidth="0.322034" OriHeight="0.186441
+" />
+		<Text>Our character segmentation framework applied to ID cards and license plates</Text>
+	</Panel>
+
+	<Panel left="10" right="622" width="316" height="178">
+		<Text>Local Segmentation</Text>
+		<Text>Ternary segmentation instead of binary segmentation</Text>
+		<Text>Object</Text>
+		<Text>Background</Text>
+		<Text>Unknown</Text>
+		<Text>Local binary decision between object and background is not possible for all pixels (e.g. within homogenous regions)</Text>
+		<Text>Solution: definition of a third label “unknown”</Text>
+		<Text>Local decision depends on maximum and minimum in a neighborhood around each pixel: gmax (x), gmin (x)</Text>
+		<Figure left="81" right="712" width="62" height="61" no="2" OriWidth="0.323031" OriHeight="0.219569
+" />
+		<Figure left="205" right="713" width="61" height="60" no="3" OriWidth="0.172483" OriHeight="0.132512
+" />
+		<Text> Original image and ternary local segmentation (white: background, red: object, blue: unknown)</Text>
+	</Panel>
+
+	<Panel left="11" right="804" width="315" height="104">
+		<Text>Local Segmentation (Algorithm)</Text>
+		<Text>1 Calculate gmax and gmin</Text>
+		<Text>For each pixel x:</Text>
+		<Text>2.1 If gmax (x) − gmin (x) < γ then</Text>
+		<Text>2.2 label point as unknown</Text>
+		<Text>2.3 else</Text>
+		<Text>2.4 T = </Text>
+		<Text>21 gmax (x) + gmin (x)</Text>
+		<Text>min </Text>
+		<Text>2.5 If g(x) > T then label point as object</Text>
+		<Text></Text>
+		<Text>2.6 else label point as background</Text>
+	</Panel>
+
+	<Panel left="334" right="175" width="317" height="134">
+		<Text>Measuring the Quality of Character Segmentations</Text>
+		<Text>Simple measure of segmentation quality as the distance to a given ground truth segmentation</Text>
+		<Text>Base for parameter optimization and method evaluation</Text>
+		<Text>Distance between two components A and B of segmentations:</Text>
+		<Text>Distance between two segmentations S˜ (p components) and S (q components)</Text>
+		<Text>Optimization over all injective maps π : {1, . . . , q} → {1, . . . , p} can be carried out using the Hungarian method</Text>
+	</Panel>
+
+	<Panel left="334" right="312" width="316" height="135">
+		<Text>Optimal Parameters of the Segmentation Method</Text>
+		<Text>iGiven several ground truth segmentations S</Text>
+		<Text>G, one can search for optimal parameters maximizing segmentation quality</Text>
+		<Text>MDoB parameters θ = {m1 , M1 , . . .}</Text>
+		<Text>number of DoB filters used</Text>
+		<Text>sizes of inner boxes mj</Text>
+		<Text>• sizes of outer boxes Mj</Text>
+		<Text>Parameters of our local segmentation method: η = {γ, size(U(x))}</Text>
+		<Text>Optimization criteria using our segmentation quality measure:</Text>
+		<Text>Optimization performed by cyclic coordinate search [1]</Text>
+		<Text>By iteratively adding a new component to the MDoB filter an optimal number of different DoB filters can be estimated.</Text>
+	</Panel>
+
+	<Panel left="333" right="452" width="317" height="280">
+		<Text>Experiments</Text>
+		<Text>Evaluation within a license plate recognition system</Text>
+		<Text>6205 test images, fixed set of single letter training images</Text>
+		<Text>Segmentation framework used to segment an aligned license plate into character regions</Text>
+		<Text>Recognition performance measured for whole license plates using the complete license plate recognition system</Text>
+		<Figure left="434" right="508" width="115" height="13" no="4" OriWidth="0.17348" OriHeight="0.134823
+" />
+		<Text>Evaluation using synthetic input images</Text>
+		<Text>random noise simulating shadow influence parameterized with β</Text>
+		<Text>left image: analysis of segmentation error with respect to β</Text>
+		<Text>right image: example of a single synthetic image after applying noise operation</Text>
+		<Figure left="395" right="565" width="197" height="161" no="5" OriWidth="0.737787" OriHeight="0.399076
+" />
+		<Text>Conclusions</Text>
+		<Text>Simple but robust and efficient method for character segmentation</Text>
+		<Text>Fast computation: combination of basic filter operations</Text>
+		<Text>Proposed measure for segmentation quality can be used for evaluation and optimization</Text>
+		<Text>Optimal parameters of our method can be found with an optimization framework</Text>
+	</Panel>
+
+	<Panel left="334" right="803" width="316" height="106">
+		<Text>References</Text>
+		<Text>[1] Jorge Nocedal and Stephen J. Wright. Numerical Optimization. Springer, August 1999.</Text>
+		<Text>[2] A. Rosenfeld and M. Thurston. Edge and curve detection for visual scene analysis. IEEE Transaction on Computers, 20:562–569,1971.</Text>
+		<Text>[3] Vassilios Vonikakis, Ioannis Andreadis, Nikos Papamarkos, and Antonios Gasteratos. Adaptive document binarization -Vassilios Vonikakis, Ioannis Andreadis, Nikos Papamarkos, and Antonios Gasteratos. Adaptive document binarization -</Text>
+		<Text>a human vision approach. In Proceedings of the Second International Conference on Computer Vision Theory and Applications(VISAPP), Barcelona, Spain, March 8-11, 2007 - Volume 2, pages 104–109, 2007.</Text>
+		<Text> We would like to thank ROBOT Visual Systems GmbH for financial support</Text>
+		<Text>and for providing experimental data for large scale evaluation.</Text>
+	</Panel>
+
+</Poster>

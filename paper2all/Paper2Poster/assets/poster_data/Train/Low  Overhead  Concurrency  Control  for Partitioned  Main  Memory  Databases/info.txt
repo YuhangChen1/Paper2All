@@ -1,0 +1,56 @@
+<Poster Width="1734" Height="2628">
+	<Panel left="2" right="427" width="569" height="410">
+		<Text>Traditional Concurrency</Text>
+		<Text>Idle Resources:</Text>
+		<Text>• Wait for disk</Text>
+		<Text>• Wait for user</Text>
+		<Text>Physical Concurrency:</Text>
+		<Text>• Multiple CPUs, disks</Text>
+	</Panel>
+
+	<Panel left="585" right="427" width="565" height="410">
+		<Text>Our Approach: H‐Store</Text>
+		<Text>• Main memory</Text>
+		<Text>• Stored procedures</Text>
+		<Text>• Multiple partitions</Text>
+	</Panel>
+
+	<Panel left="1167" right="427" width="561" height="414">
+		<Text>% CPU Cycles (Shore)</Text>
+		<Figure left="1208" right="502" width="422" height="338" no="1" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="4" right="845" width="856" height="575">
+		<Text>Single Partition Transactions</Text>
+		<Text>No locks, no undo logging: no overhead</Text>
+		<Figure left="67" right="978" width="715" height="430" no="2" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="875" right="843" width="856" height="579">
+		<Text>Multi‐Partition Transactions</Text>
+		<Text>Two‐phase commit; network stall (bad)</Text>
+		<Figure left="949" right="986" width="745" height="426" no="3" OriWidth="0.381776" OriHeight="0.225045
+" />
+	</Panel>
+
+	<Panel left="1" right="1424" width="1731" height="350">
+		<Text>Low Overhead Concurrency Control: Do useful work during network stall</Text>
+		<Text>Speculation: Speculate next transactions during stall, after txn is prepared</Text>
+		<Text>• Best for simple multi‐partition transactions: one round of work on partitions</Text>
+		<Text>Locking: Don't acquire locks if only executing single partition transactions</Text>
+		<Text>• Best for workloads with complex transactions; inter‐partition communication</Text>
+	</Panel>
+
+	<Panel left="3" right="1775" width="1728" height="851">
+		<Text>Experimental Results</Text>
+		<Text>Microbenchmark: Two partitions; Change fraction of multi‐partition transactions</Text>
+		<Text>TPC‐C like: Two partitions varying the number of warehouses</Text>
+		<Figure left="18" right="1996" width="835" height="631" no="4" OriWidth="0.376586" OriHeight="0.198752
+" />
+		<Figure left="884" right="1996" width="837" height="631" no="5" OriWidth="0.370819" OriHeight="0.201872
+" />
+	</Panel>
+
+</Poster>

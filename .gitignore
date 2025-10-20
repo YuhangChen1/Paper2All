@@ -1,0 +1,6 @@
+.vscode/
+__pycache__/
+.env
+output
+list.txt
+pretrained_models 

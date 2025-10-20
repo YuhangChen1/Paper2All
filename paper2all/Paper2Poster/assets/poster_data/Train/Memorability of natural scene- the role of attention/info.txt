@@ -1,0 +1,105 @@
+<Poster Width="1734" Height="1227">
+	<Panel left="14" right="148" width="1701" height="160">
+		<Text>Motivation: Investigate the influence of saliency-related features on images memorability</Text>
+		<Text>Images memorability: What ?</Text>
+		<Text>Probability of correctly detecting a repeat after</Text>
+		<Text>a single view of an image in a long stream.</Text>
+		<Text>Images memorability: How ?</Text>
+		<Figure left="360" right="215" width="367" height="84" no="1" OriWidth="0" OriHeight="0
+" />
+		<Text>Memory game: 665 participants</Text>
+		<Text>on Amazon’s Mechanical Turk.</Text>
+		<Text>(Isola et al. 2011).</Text>
+		<Text>Images memorability: Isola database</Text>
+		<Text>2222 images from SUN database (Xiao et al. 2010)</Text>
+		<Text>with a memorability score from close to 0 (low</Text>
+		<Text>memorability) to close to 1 (high memorability)</Text>
+		<Text>Image memorability prediction</Text>
+		<Text>Isola et al. proposed several features and a classifier</Text>
+		<Text>to predict images memorability. The results are shown bellow:</Text>
+		<Figure left="1305" right="250" width="354" height="54" no="2" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="10" right="318" width="853" height="638">
+		<Text>Eye-tracking experiment</Text>
+		<Text>Proposed dataset:</Text>
+		<Text>We extracted 3 classes of 45 images each from Isola et al.</Text>
+		<Text>database. The first 45 (C1) are highly memorable images,</Text>
+		<Text>the last 45 (C3) are the least memorable and the remaining</Text>
+		<Text>45 (C2) have an average memorability. The characteristics</Text>
+		<Text>of C1, C2 and C3 are listed bellow:</Text>
+		<Figure left="25" right="489" width="367" height="106" no="3" OriWidth="0" OriHeight="0
+" />
+		<Figure left="23" right="635" width="371" height="182" no="4" OriWidth="0.311995" OriHeight="0.115865
+" />
+		<Text>The fixation duration for the three image classes are</Text>
+		<Text>shown for several viewing times: the 2 first fixations,</Text>
+		<Text>the 4 first, the 6 first and all the fixations. The difference</Text>
+		<Text>between C1 and C3 are every time statistically significant.</Text>
+		<Text>Example of eye-tracking results:</Text>
+		<Figure left="425" right="389" width="420" height="209" no="5" OriWidth="0.356401" OriHeight="0.1363636
+" />
+		<Text>First row: high memorability image; Second row: low memorability</Text>
+		<Text>image. First column: original pictures; Second column: fixation</Text>
+		<Text>map (a green circle represents the first fixation of observers);</Text>
+		<Text>Third column: Saliency map and Fourth column: heat map.</Text>
+		<Figure left="424" right="677" width="371" height="178" no="6" OriWidth="0.302768" OriHeight="0.111854
+" />
+		<Text>The congruency (agreement between viewers) is a second</Text>
+		<Text>feature which is statistically different between C1 and C3.</Text>
+	</Panel>
+
+	<Panel left="872" right="320" width="842" height="636">
+		<Text>Saliency-related memorability prediction</Text>
+		<Text>Two new saliency-related features for memorability prediction:</Text>
+		<Text>1/ Saliency maps coverage:</Text>
+		<Figure left="890" right="423" width="424" height="79" no="7" OriWidth="0.505767" OriHeight="0.0744207
+" />
+		<Text>Several saliency models were tested (above) and RARE 2012</Text>
+		<Text>was selected because the average coverage difference</Text>
+		<Text>on several sets of images with different memorability was visible</Text>
+		<Text>(Image (a) between left (high), middle (average) and right (high)).</Text>
+		<Text>A coverage factor was computed (Graph (b) on the left on the</Text>
+		<Text>2222 images of Isola database. Right graph shows the feature</Text>
+		<Text>after median filtering). The graph goes from low memorability</Text>
+		<Text>to high memorability Images.</Text>
+		<Text>2/ Visibility features:</Text>
+		<Figure left="889" right="686" width="423" height="70" no="8" OriWidth="0.387543" OriHeight="0.0441176
+" />
+		<Text>Low-pass filtering from I1 to I9 (pyramid-like): forgetting process.</Text>
+		<Text>Feature V1: the correlation between I1 and the others</Text>
+		<Text>Feature V2: the correlation between two successive filters</Text>
+		<Figure left="1329" right="426" width="366" height="243" no="9" OriWidth="0.394464" OriHeight="0.202763
+" />
+		<Text>Visibility feature vectors V1 and V2 computed for the</Text>
+		<Text>whole 2222 images database. As for the coverage feature,</Text>
+		<Text>the raw data both for V1 and V2 (left column) does</Text>
+		<Text>not exhibit obvious differences. After median filtering (right</Text>
+		<Text>column) differences between memorable (from the right)</Text>
+		<Text>and less memorable images (from the left) are noticeable.</Text>
+	</Panel>
+
+	<Panel left="12" right="976" width="1702" height="177">
+		<Text>Conclusion: attention can play a role in memorability analysis !</Text>
+		<Text>Conclusion 1:</Text>
+		<Text>The fixation duration is longer for the most memorable images</Text>
+		<Text>(especially for the very first fixations) which shows a higher</Text>
+		<Text>cognitive activity for memorable images.</Text>
+		<Text>Conclusion 2:</Text>
+		<Text>The observers’ congruency (agreement) is significantly higher for</Text>
+		<Text>the most memorable images. This shows that when there are areas</Text>
+		<Text>with high attraction on all viewers, this induces higher memorability.</Text>
+		<Text>Conclusion 3:</Text>
+		<Text>The use of coverage and visibility features (without any GIST)</Text>
+		<Text>provides slight improvement compared to Isola 2011.</Text>
+		<Figure left="921" right="1093" width="348" height="50" no="10" OriWidth="0.348328" OriHeight="0.0374332
+" />
+		<Text>Conclusion 4:</Text>
+		<Text>The use of coverage and visibility features let us eliminate</Text>
+		<Text>several other features, while keeping the same efficiency</Text>
+		<Figure left="1334" right="1090" width="373" height="52" no="11" OriWidth="0.351788" OriHeight="0.0356506
+" />
+	</Panel>
+
+</Poster>

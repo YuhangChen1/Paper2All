@@ -1,0 +1,139 @@
+<Poster Width="1734" Height="1301">
+	<Panel left="17" right="205" width="542" height="349">
+		<Text>Motivation</Text>
+		<Text>•  One of the main challenges for scaling up object recognition</Text>
+		<Text>systems is the lack of annotated images for real-world categories.</Text>
+		<Text>Typically there are few images available for training classifiers for</Text>
+		<Text>most of these categories; severe for fine-grained categorization.!</Text>
+		<Text>!</Text>
+		<Text>•  There are abundant of textual descriptions of these categories,</Text>
+		<Text>which comes in the form of dictionary entries, encyclopedia</Text>
+		<Text>articles, and various online resources. For example, it is possible</Text>
+		<Text>to find several good descriptions of a “bobolink” in encyclopedias</Text>
+		<Text>of birds, while there are only a few images available for that bird</Text>
+		<Text>online.!</Text>
+		<Text>!</Text>
+		<Text>•  Attributes based approaches for zero shot learning deals with</Text>
+		<Text>the dilemma of finding best set of visual attributes for object</Text>
+		<Text>description.!</Text>
+	</Panel>
+
+	<Panel left="16" right="556" width="541" height="423">
+		<Text>Problem Definition</Text>
+		<Text>!•  The main question we address in this paper is how to use purely</Text>
+		<Text>textual description of categories with no training images to learn</Text>
+		<Text>visual classifiers for these categories. !</Text>
+		<Text>•  We propose an approach for zero-shot learning of object</Text>
+		<Text>categories where the description of unseen categories comes in</Text>
+		<Text>the form of typical text such as an encyclopedia entry, without the</Text>
+		<Text>need to explicitly defined attributes.!</Text>
+		<Figure left="49" right="742" width="479" height="233" no="1" OriWidth="0.811995" OriHeight="0.209002
+" />
+	</Panel>
+
+	<Panel left="13" right="977" width="546" height="310">
+		<Text>Contributions</Text>
+		<Text>•  First approach that predicts explicit visual classifier parameters of</Text>
+		<Text>unseen classes from typical text, as encyclopedia entry. !</Text>
+		<Text>•  Two baselines were designed based on Regression and Domain</Text>
+		<Text>Adaptation (DA) functions.!</Text>
+		<Text>•  We proposed a quadratic program that involves both Regression</Text>
+		<Text>and DA functions.!</Text>
+		<Text>Project Website: https://sites.google.com/site/mhelhoseiny/</Text>
+		<Text>projects/computer-vision-projects/Write_a_Classifier!</Text>
+		<Text>Includes the data. The code will be available shortly on it.</Text>
+	</Panel>
+
+	<Panel left="573" right="205" width="576" height="1082">
+		<Text>Formulations</Text>
+		<Text>We denote textual features and visual features as t ∈ T (textual</Text>
+		<Text>domain) and x ∈ V (visual domain), respectively. In all of our</Text>
+		<Text>experiments, t is tf-idf features and x is classeme features.!</Text>
+		<Text>1) Regression (Reg) Baseline</Text>
+		<Text>•  The predicted classifier for textual feature vector t</Text>
+		<Text>* is obtained as!</Text>
+		<Text>c</Text>
+		<Text>reg (t</Text>
+		<Text>*) = arg max</Text>
+		<Text>c [p</Text>
+		<Text>reg (c|t</Text>
+		<Text>*)].•  A set of one-vs-all classifiers {c</Text>
+		<Text>k} are learned, one for each seen</Text>
+		<Text>class. Given {(t</Text>
+		<Text>k; c</Text>
+		<Text>k)}, a regressor is learned that can be used to give</Text>
+		<Text>a prior estimate for p</Text>
+		<Text>reg (c|t). In our experiments, we used Gaussian</Text>
+		<Text>Process Regression (GPR) and Twin Gaussian Processes (TGP). !</Text>
+		<Text>2) Domain Adaptation (DA) Baseline</Text>
+		<Text>•  A a linear (or nonlinear kernalized) transfer function W between T</Text>
+		<Text>and V . !</Text>
+		<Text>•  W can be learned by optimizing, with a suitable regularizer, over</Text>
+		<Text>constraints of the form tT W x > l if t and x belong to the same class,</Text>
+		<Text>and tT W x < u otherwise, where x is a visual feature vector amended</Text>
+		<Text>by 1, l and u are model parameters.!</Text>
+		<Text>•  It is not hard to see that this transfer function can act as a classifier.</Text>
+		<Text>Given a textual feature t and a test image, represented by x , a</Text>
+		<Text>classification decision can be obtained by tT W x > b, we set b to (l +</Text>
+		<Text>u)/2 . !</Text>
+		<Text>•  The predicted classifier is obtained as c</Text>
+		<Text>DA (t</Text>
+		<Text>*) = t</Text>
+		<Text>*T W.!</Text>
+		<Text>3) DA-Reg Quadratic Program (Better than 1 and 2)</Text>
+		<Figure left="598" right="861" width="531" height="241" no="2" OriWidth="0.769319" OriHeight="0.205437
+" />
+		<Text>Predicted Classifier !</Text>
+		<Text>•  {x</Text>
+		<Text>i , i=1:N} are the visual features</Text>
+		<Text>of the images of the seen classes.!</Text>
+		<Text>!</Text>
+		<Text>•  Given ln p</Text>
+		<Text>reg (c|t) from the TGP</Text>
+		<Text>and W , this equation reduces</Text>
+		<Text>to a quadratic program on c</Text>
+		<Text>with linear constraints!</Text>
+	</Panel>
+
+	<Panel left="1158" right="204" width="563" height="1081">
+		<Text>Experimental Results</Text>
+		<Text>•  We provide Text Augmentation of the CUB-Birds and Oxford-Flower</Text>
+		<Text>datasets.!</Text>
+		<Text>•  We computed the ROC</Text>
+		<Text>! curve and report the area</Text>
+		<Text>under that curve (AUC) as</Text>
+		<Text>a comparative measure of</Text>
+		<Text>different approaches.!!</Text>
+		<Figure left="1404" right="279" width="315" height="132" no="3" OriWidth="0.358708" OriHeight="0.10205
+" />
+		<Text>1) Flower Dataset</Text>
+		<Figure left="1177" right="428" width="255" height="132" no="4" OriWidth="0.377163" OriHeight="0.116756
+" />
+		<Figure left="1437" right="434" width="272" height="121" no="5" OriWidth="0.377739" OriHeight="0.117201
+" />
+		<Figure left="1201" right="560" width="216" height="162" no="6" OriWidth="0.226067" OriHeight="0.114973
+" />
+		<Text> Fig 1: ROC curves of best 10 predicted classes</Text>
+		<Text>(best seen in color) for Flower Dataset!</Text>
+		<Figure left="1473" right="561" width="217" height="157" no="7" OriWidth="0.217416" OriHeight="0.118093
+" />
+		<Text> Fig 2:AUC improvement over the three</Text>
+		<Text>baselines (GPR, TGP, DA) on Flower dataset.!</Text>
+		<Figure left="1234" right="745" width="379" height="134" no="8" OriWidth="0.378316" OriHeight="0.0748663
+" />
+		<Text> Fig 3: AUC of the predicated classifiers for all classes of Flower dataset!</Text>
+		<Text>2) Birds Dataset</Text>
+		<Figure left="1182" right="928" width="216" height="161" no="9" OriWidth="0.220877" OriHeight="0.114973
+" />
+		<Text> Fig 4: ROC curves of best 10 predicted</Text>
+		<Text>classes (best seen in color) for Bird dataset!</Text>
+		<Figure left="1456" right="926" width="214" height="167" no="10" OriWidth="0" OriHeight="0
+" />
+		<Text> Fig 5:AUC improvement over the three</Text>
+		<Text>baselines (GPR, TGP, DA) on Birds dataset.!</Text>
+		<Figure left="1229" right="1120" width="379" height="143" no="11" OriWidth="0" OriHeight="0
+" />
+		<Text> Fig 6: AUC of the predicated classifiers for all classes of Birds dataset!</Text>
+	</Panel>
+
+</Poster>

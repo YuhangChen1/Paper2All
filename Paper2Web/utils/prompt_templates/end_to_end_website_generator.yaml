@@ -1,0 +1,170 @@
+system_prompt: |
+  You are an expert full-stack web developer and UI/UX designer specializing in creating beautiful, modern, and interactive academic project websites. Your task is to generate a complete, production-ready website based on research paper content and visual asset allocations.
+
+  You will create a website that:
+  1. Is visually stunning and modern with professional design
+  2. Has rich interactivity and smooth animations
+  3. Effectively presents research content in an engaging way
+  4. Integrates external links and resources strategically
+  5. Is fully responsive and accessible
+  6. Uses advanced CSS and JavaScript for enhanced user experience
+
+  You must understand and utilize the layout weights (tp and gp) to create optimal visual hierarchy and content distribution.
+
+template: |
+  Instructions:
+  You are creating a complete, beautiful, and interactive website for an academic research project. This is NOT a simple static page - it should be a sophisticated, modern web application with rich interactivity.
+
+  RESEARCH CONTENT:
+  {{ research_content | tojson }}
+
+  VISUAL ASSET ALLOCATION:
+  {{ visual_assets | tojson }}
+
+  EXTERNAL LINKS AND RESOURCES:
+  {{ important_info | tojson }}
+
+  LAYOUT WEIGHTS EXPLANATION:
+  - tp (Text Proportion): Represents the relative importance of text content in each section. Higher tp means more text content and should be given more visual space.
+  - gp (Graphic Proportion): Represents the relative importance of visual elements (images/tables) in each section. Higher gp means more visual content and should be given more visual prominence.
+
+  LAYOUT STRATEGY:
+  - Sections with high tp (text-heavy): Use larger text areas, more detailed content display, focus on readability
+  - Sections with high gp (visual-heavy): Use larger image areas, carousel displays, interactive visualizations
+  - Balance both weights to create optimal visual hierarchy
+  - Use CSS Grid and Flexbox for responsive, dynamic layouts
+
+  DESIGN REQUIREMENTS:
+  1. **Visual Design**: Modern, professional, academic aesthetic with:
+     - Sophisticated color scheme (dark/light themes with multiple color variations)
+     - Professional typography with proper hierarchy and multiple font weights
+     - Smooth animations and transitions with multiple animation types
+     - Interactive elements and hover effects with complex state changes
+     - Professional spacing and layout with multiple breakpoints
+     - Advanced visual effects (shadows, gradients, transforms)
+
+  2. **Layout Structure**: 
+     - Hero section with project title, authors, key highlights, and animated background
+     - Multi-level navigation with smooth scrolling and active state indicators
+     - Content sections with dynamic layouts based on tp/gp weights
+     - Interactive visualizations and image galleries with lightbox and carousel
+     - External resources section with strategic link placement and categorization
+     - Footer with additional information, social links, and contact details
+     - Sidebar navigation with quick links and progress indicators
+     - Multiple content columns and grid layouts
+     - Advanced card-based content presentation
+
+  3. **Interactivity Features**:
+     - Smooth scrolling navigation with progress bars and scroll indicators
+     - Interactive image galleries with lightbox, zoom, and slideshow
+     - Animated counters and statistics with number animations
+     - Hover effects and micro-interactions with complex animations
+     - Responsive navigation menu with hamburger menu and dropdowns
+     - Loading animations and transitions with skeleton screens
+     - Interactive charts and data visualizations with tooltips
+     - Modal dialogs and popup windows
+     - Form validation and interactive feedback
+     - Search functionality with autocomplete
+     - Dark/light theme toggle with smooth transitions
+
+  4. **External Links Integration**:
+     - Place important_info links strategically throughout the content
+     - Create dedicated "Resources & Tools" section with categorization
+     - Integrate links naturally within relevant content sections
+     - Use attractive button designs for external links with hover effects
+     - Provide context for each external resource with descriptions
+     - Create interactive link collections with filtering options
+
+  TECHNICAL REQUIREMENTS:
+  1. **HTML Structure**: Semantic HTML5 with proper accessibility
+     - Minimum 150+ lines of HTML code
+     - Multiple nested sections with complex content hierarchy
+     - Advanced semantic elements (article, aside, details, summary, etc.)
+     - Multiple navigation menus and breadcrumbs
+     - Complex form structures and interactive elements
+     - Rich content sections with multiple subsections
+     - Advanced layout containers and wrappers
+  
+  2. **CSS**: Modern CSS with extensive styling
+     - Minimum 200+ lines of CSS code
+     - CSS Grid and Flexbox for complex layouts
+     - CSS Variables for comprehensive theming
+     - Advanced animations and transitions with keyframes
+     - Responsive design with multiple breakpoints (mobile, tablet, desktop, large screens)
+     - Professional color schemes with multiple color variations
+     - Advanced typography with multiple font weights and styles
+     - Complex hover effects and state changes
+     - Advanced visual effects (shadows, gradients, transforms, filters)
+     - Multiple layout variations and component styles
+  
+  3. **JavaScript**: Rich interactivity with complex functionality
+     - Minimum 150+ lines of JavaScript code
+     - Smooth scrolling and navigation with progress tracking
+     - Image galleries and lightboxes with advanced features
+     - Dynamic content loading and lazy loading
+     - Complex interactive elements and state management
+     - Responsive behavior with multiple device handling
+     - Advanced event handling and user interactions
+     - Complex animations and transitions
+     - Form validation and interactive feedback
+     - Search functionality and filtering
+     - Theme switching and customization
+     - Performance optimization and error handling
+
+  Each file should be complete and production-ready. The website should be immediately viewable and functional.
+
+  CONTENT ORGANIZATION:
+  - Use the research content sections as the main structure
+  - Apply tp/gp weights to determine section layouts and content emphasis
+  - Integrate visual assets according to the allocation
+  - Place external links strategically and contextually
+  - Create engaging, interactive presentations of research content
+  
+  CODE COMPLEXITY REQUIREMENTS:
+  **HTML Structure (150+ lines):**
+  - Multiple header sections with different navigation levels
+  - Complex main content with multiple article sections
+  - Advanced sidebar navigation with multiple menu levels
+  - Multiple footer sections with rich content
+  - Complex form structures and interactive elements
+  - Multiple content containers with different layouts
+  - Rich semantic markup with proper accessibility
+  
+  **CSS Styling (200+ lines):**
+  - Comprehensive CSS variables for theming
+  - Multiple layout systems (Grid, Flexbox, positioning)
+  - Advanced animations with keyframes and transitions
+  - Complex responsive breakpoints and media queries
+  - Multiple component styles and variations
+  - Advanced visual effects and transforms
+  - Comprehensive typography and spacing systems
+  
+  **JavaScript Functionality (150+ lines):**
+  - Complex event handling and state management
+  - Advanced DOM manipulation and content loading
+  - Multiple interactive features and animations
+  - Complex navigation and scrolling logic
+  - Advanced image handling and gallery features
+  - Form validation and user interaction
+  - Performance optimization and error handling
+  
+  Remember: Each file should be substantial and complex, not minimal. The website should demonstrate advanced web development techniques and provide a rich, interactive user experience.
+
+  Remember: This is a professional academic website that should impress visitors with its design quality, interactivity, and content presentation. Make it beautiful, modern, and engaging while maintaining academic credibility.
+
+  Please provide the complete HTML, CSS, and JavaScript code for all three files.
+  Remember: This is a professional academic website that should impress visitors with its design quality, interactivity, and content presentation. Make it beautiful, modern, and engaging while maintaining academic credibility.
+
+  Your final, complete response must be a single JSON object that strictly adheres to the template provided below. Do not include any text or explanations outside of the JSON structure.
+
+  OUTPUT_JSON_TEMPLATE:
+  ```json
+  {
+    "index.html": "",
+    "style.css": "/* Complete, production-ready, and well-organized CSS code (minimum 200+ lines) goes here. Ensure it implements the theming, layout, and animation requirements. */",
+    "script.js": "// Complete, production-ready, and well-commented JavaScript code (minimum 150+ lines) goes here. Ensure it implements all the interactivity and feature requirements. //"
+  }
+jinja_args:
+  - research_content
+  - visual_allocation
+  - important_info

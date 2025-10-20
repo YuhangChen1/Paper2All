@@ -1,0 +1,135 @@
+<Poster Width="1942" Height="883">
+	<Panel left="18" right="129" width="465" height="411">
+		<Text>Introduction</Text>
+		<Text>• Some object classes are hard to reconstruct</Text>
+		<Text>– Lack of texture</Text>
+		<Text>– Transparency</Text>
+		<Text>– Reflection</Text>
+		<Text>• Solution: shape prior</Text>
+		<Text>– Shapes within object class similar</Text>
+		<Text>– Local distribution of surface normals</Text>
+		<Figure left="59" right="349" width="116" height="87" no="1" OriWidth="0.102312" OriHeight="0.0598749
+" />
+		<Figure left="56" right="450" width="127" height="90" no="2" OriWidth="0.107514" OriHeight="0.0580876
+" />
+		<Figure left="184" right="344" width="250" height="193" no="3" OriWidth="0.262428" OriHeight="0.152815
+" />
+	</Panel>
+
+	<Panel left="18" right="550" width="464" height="305">
+		<Text>Formulation</Text>
+		<Text>• Baseline Method: Volumetric depth map fusion</Text>
+		<Text>– Segmentation of a voxel space into free and occupied space: us ∈ [0, 1]</Text>
+		<Text>• Shape prior formulation</Text>
+		<Text>– Voxel space aligned with object of known class</Text>
+		<Text>ix</Text>
+		<Text>s∈ [0, 1] andi</Text>
+		<Text>i x</Text>
+		<Text>sP=1Labeling of a voxel space into 3 labels:</Text>
+		<Text>free space, ground, object</Text>
+		<Text>• Convex Energy</Text>
+		<Text>– Unary term</Text>
+		<Text>∗ Computed from depth maps, local preference for solid class</Text>
+		<Text>– Smoothness term</Text>
+		<Text>∗ Dependent on surface orientation, position and involved labels</Text>
+	</Panel>
+
+	<Panel left="495" right="132" width="465" height="378">
+		<Text>Overview</Text>
+		<Text>• Locally, surface normals similar between different examples</Text>
+		<Text>– Roof at the top of the car close to horizontal</Text>
+		<Figure left="528" right="240" width="406" height="76" no="4" OriWidth="0" OriHeight="0
+" />
+		<Text>• Local distribution of normals captured from training data</Text>
+		<Text>• Input data regularized using trained local normal distributions</Text>
+		<Text>• Trained anisotropic smoothness used for</Text>
+		<Text>– free space ↔ object</Text>
+		<Text>– ground ↔ object</Text>
+		<Text>• ground ↔ free space generic smoothness</Text>
+		<Text>• Label determined by smoothness</Text>
+	</Panel>
+
+	<Panel left="495" right="522" width="465" height="331">
+		<Text>Convex Energy</Text>
+		<Text>∈ </Text>
+		<Text>•iρ</Text>
+		<Text>s :≥</Text>
+		<Text>joint unary term at voxel s for label i</Text>
+		<Text>•ijφ</Text>
+		<Text>s :convex smoothness term at voxel s for labels i and j</Text>
+		<Text>•ix</Text>
+		<Text>s∈ [0, 1]: indicating whether label i is chosen at voxel s</Text>
+		<Text>•ijx</Text>
+		<Text>s−jix</Text>
+		<Text>s3∈ [−1, 1] : represents the local surface orientation</Text>
+		<Text>3• ek ∈ R : k-th canonical basis vector</Text>
+		<Text>• Optimized using primal-dual algorithm [Chambolle and Pock 2011]</Text>
+	</Panel>
+
+	<Panel left="973" right="129" width="464" height="205">
+		<Text>Unary Term</Text>
+		<Text>• Only indicates free or occupied space</Text>
+		<Figure left="1094" right="226" width="280" height="94" no="5" OriWidth="0.315029" OriHeight="0.0764075
+" />
+	</Panel>
+
+	<Panel left="973" right="347" width="465" height="253">
+		<Text>Shape Prior Training</Text>
+		<Figure left="987" right="381" width="456" height="57" no="6" OriWidth="0" OriHeight="0
+" />
+		<Text>• Training data, mesh models</Text>
+		<Text>• Transformed into volumetric models</Text>
+		<Text>• Per voxel s</Text>
+		<Text>– Acquire normal directions of all training samples</Text>
+		<Text>– Generate histogram over normal directions</Text>
+		<Text>– Probability of normal n at s, Ps (n) given by histogram</Text>
+	</Panel>
+
+	<Panel left="973" right="614" width="467" height="239">
+		<Text>Discrete Wulff Shape</Text>
+		<Text>• φs (·) support function of a Wulff shape Wφs</Text>
+		<Text>[Esedoglu and Osher 2004]</Text>
+		<Text>– Wulff shape: convex shape</Text>
+		<Text>• Intersection of half spaces as parameterization of Wφs</Text>
+		<Text>– n half space normal</Text>
+		<Text>–nd</Text>
+		<Text>sdistance of half-space boundary to origin</Text>
+		<Text>• We have φs (n) =nd</Text>
+		<Text>s [Esedoglu and Osher 2004]</Text>
+		<Text>•nd</Text>
+		<Text>s= − log (Ps (n)), determined by training data</Text>
+		<Figure left="1323" right="684" width="119" height="128" no="7" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="1450" right="130" width="464" height="155">
+		<Text>Trained Shape Prior</Text>
+		<Figure left="1468" right="166" width="231" height="98" no="8" OriWidth="0.378613" OriHeight="0.123324
+" />
+		<Figure left="1720" right="168" width="198" height="94" no="9" OriWidth="0.379191" OriHeight="0.142985
+" />
+		<Text>Slices through the bottle shape prior: vertical, horizontal</Text>
+	</Panel>
+
+	<Panel left="1449" right="298" width="465" height="455">
+		<Text>Results</Text>
+		<Figure left="1460" right="338" width="456" height="136" no="10" OriWidth="0.767052" OriHeight="0.195264
+" />
+		<Figure left="1468" right="484" width="447" height="254" no="11" OriWidth="0.772254" OriHeight="0.340036
+" />
+		<Text>Input image</Text>
+		<Text>Depth map</Text>
+		<Text>Vol. fusion</Text>
+		<Text>Shape Prior</Text>
+	</Panel>
+
+	<Panel left="1452" right="770" width="463" height="82">
+		<Text>Acknowledgements</Text>
+		<Text>We gratefully acknowledge the support of the 4DVideo</Text>
+		<Text>ERC starting grant #210806 and V-Charge grant</Text>
+		<Text>#269916 both under the EC’s FP7/2007-2013.</Text>
+		<Figure left="1786" right="813" width="130" height="39" no="12" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+</Poster>

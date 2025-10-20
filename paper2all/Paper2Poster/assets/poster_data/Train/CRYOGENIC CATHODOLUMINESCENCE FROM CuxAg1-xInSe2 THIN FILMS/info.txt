@@ -1,0 +1,157 @@
+<Poster Width="1003" Height="1298">
+	<Panel left="28" right="165" width="460" height="245">
+		<Text>Motivation</Text>
+		<Text>Cu(In,Ga)Se</Text>
+		<Text>2 is leading choice for high performance thin film solar cells (20.1% efficiency)</Text>
+		<Text>• Bandgaps of the I-III-VI</Text>
+		<Text>2 system (I-Cu,Ag; III-Ga,In; VI-S,Se) cover almost the entire solar</Text>
+		<Text>spectrum, which make it an ideal system for multijunction solar cells</Text>
+		<Text>• However, these make poor solar cells because most of their properties, including</Text>
+		<Text>recombination mechanisms, are poorly understood</Text>
+		<Text>recombination mechanisms, are poorly understood</Text>
+		<Text>• Cathodoluminescence (CL) offers simultaneous scanning of</Text>
+		<Text>electron and spectroscopic images</Text>
+		<Text>• Our goals are to:</Text>
+		<Text>• Study luminescence behavior close to grain boundaries</Text>
+		<Text>• </Text>
+		<Text>• Identify emission differences between samples (Cu vs Ag)</Text>
+		<Text>• Characterize emissions and possible defects responsible</Text>
+		<Text>for transitions</Text>
+		<Figure left="330" right="274" width="163" height="114" no="1" OriWidth="0.372254" OriHeight="0.182306
+" />
+	</Panel>
+
+	<Panel left="26" right="413" width="462" height="295">
+		<Text>Experimental Setup</Text>
+		<Text>Thin film deposition system</Text>
+		<Text>Hybrid sputtering/evaporation</Text>
+		<Text>Hybrid sputtering/evaporation</Text>
+		<Text>• SputteringSi off metalsl (Cu,(C Ag,A In))</Text>
+		<Text>• Substrate held at 550°C</Text>
+		<Text>• Three films analyzed</Text>
+		<Text>• AgInSe</Text>
+		<Text>2 – 300 nm</Text>
+		<Text>• Cu</Text>
+		<Text>0.6Ag</Text>
+		<Text>0.4InSe</Text>
+		<Text>2 – 700 nm</Text>
+		<Text>• CuInSe– 700 nm</Text>
+		<Figure left="28" right="569" width="213" height="138" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>JEOL 7000F analytical SEM</Text>
+		<Figure left="274" right="470" width="210" height="124" no="3" OriWidth="0" OriHeight="0
+" />
+		<Text>• Gatan MonoCL3 Spectrometer</Text>
+		<Text>• Liquid N2-cooled Ge detector</Text>
+		<Text>• Liquid He-cooled stage module</Text>
+		<Text>• Accelerating Voltage = 15 kV</Text>
+		<Text>• Current varied from 22 pA-160,000 pA</Text>
+		<Text>avoid charging during imaging• Some samples were carbon coated to</Text>
+	</Panel>
+
+	<Panel left="27" right="711" width="462" height="490">
+		<Figure left="47" right="768" width="135" height="137" no="4" OriWidth="0.184971" OriHeight="0.141644
+" />
+		<Figure left="186" right="769" width="136" height="135" no="5" OriWidth="0.182659" OriHeight="0.142091
+" />
+		<Text>• Very spatially uniform emissions</Text>
+		<Text>• Most dark areas in PanCL image</Text>
+		<Text>correspond to dark areas in the SEM</Text>
+		<Text>image</Text>
+		<Text>• Very few grains show reduced emission</Text>
+		<Text>intensity from facets</Text>
+		<Text>• No reduction in emission intensity</Text>
+		<Text>from protuberant surface features</Text>
+		<Figure left="46" right="915" width="137" height="138" no="6" OriWidth="0.178613" OriHeight="0.13807
+" />
+		<Figure left="186" right="914" width="136" height="139" no="7" OriWidth="0.178613" OriHeight="0.137623
+" />
+		<Text>• Much more spatial variation of emissions</Text>
+		<Text>bright areas in SEM image• Dark areas in PanCL image correspond to</Text>
+		<Text>• Severe reduction in emission intensity seen</Text>
+		<Text>from protuberant surface features</Text>
+		<Text>• Local variations in luminescence are</Text>
+		<Text>indicative of local variation in defect states</Text>
+		<Text>or composition</Text>
+		<Figure left="46" right="1061" width="136" height="135" no="8" OriWidth="0.179191" OriHeight="0.13807
+" />
+		<Figure left="187" right="1061" width="135" height="136" no="9" OriWidth="0.178035" OriHeight="0.136729
+" />
+		<Text>• More spatial variation of emissions than</Text>
+		<Text>in pure AgInSe</Text>
+		<Text>2, but less than in</Text>
+		<Text>Cu</Text>
+		<Text>0.6Ag</Text>
+		<Text>0.4InSe</Text>
+		<Text>2</Text>
+		<Text>0.60.42</Text>
+		<Text>• Reduction in emission intensity seen as</Text>
+		<Text>we approach surface facets or grain</Text>
+		<Text>edges</Text>
+		<Text>• Center of grains luminesce very well</Text>
+		<Text>• Intense emissions seen around grains</Text>
+	</Panel>
+
+	<Panel left="508" right="161" width="472" height="772">
+		<Text>Power-series and Spectral Imaging</Text>
+		<Figure left="529" right="222" width="451" height="157" no="10" OriWidth="0" OriHeight="0
+" />
+		<Text>+ exponential tail at lowEnergy (eV)</Text>
+		<Text>• Single Gaussian</Text>
+		<Text>excitation power</Text>
+		<Text>new exponential tails at both the high and</Text>
+		<Text>low energy ends• At excitation powers above 2560 pA we see</Text>
+		<Text>• Blue shift of main Gaussian peak</Text>
+		<Text>uniformity• Aligned and overlaid spectral images show spatial and spectral</Text>
+		<Text>• No enhanced emission from grain boundaries or inter-grain areas</Text>
+		<Text>• Uniformity in emission indicates compositional uniformity</Text>
+		<Figure left="521" right="452" width="460" height="156" no="11" OriWidth="0" OriHeight="0
+" />
+		<Text>• Two Gaussians at low excitation power</Text>
+		<Text>appear at higher excitation powers together</Text>
+		<Text>with additional GaussianLow and high energy end exponential tails</Text>
+		<Text>Blue shift of Gaussian peaks</Text>
+		<Text>Aligned and overlaid spectral images show spatial and spectral variation</Text>
+		<Text>• Enhanced emission from grain boundaries and inter-grain areas</Text>
+		<Text>indicating compositional fluctuations between grainsCAIS has the most variation of emissions from grain to grain,grain</Text>
+		<Figure left="522" right="683" width="457" height="162" no="12" OriWidth="0" OriHeight="0
+" />
+		<Text>Very broad emission requires 4+ peaks to fit</Text>
+		<Text>+ exponential tail at low energy</Text>
+		<Text>emitting above 640 pAHigh energy (1200 nm) Gaussian starts</Text>
+		<Text>Blue shift of main Gaussian peaks</Text>
+		<Text>Aligned and overlaid spectral images show spatial and spectral variation</Text>
+		<Text>• Red emission, although very uniform, is most intense inside grains even</Text>
+		<Text>close to facets and surface features</Text>
+		<Text>• Green and blue emissions strongest from grain boundaries and inter-grain</Text>
+		<Text>areas</Text>
+		<Text>CIS has most emission variation from grain to boundary indicating</Text>
+		<Text>compositional fluctuation between grain and grain boundaries</Text>
+	</Panel>
+
+	<Panel left="518" right="937" width="447" height="166">
+		<Text>Conclusions</Text>
+		<Text>Emissions from AgInSe</Text>
+		<Text>2 are more uniform both spatially and spectrally than Cu-containing samples</Text>
+		<Text>AgInSe</Text>
+		<Text>2 less affected by reduced emission from surface features – partly due to less surface faceting</Text>
+		<Text>Cu-containing samples exhibit enhanced luminescence from grain boundary or inter-grain areas</Text>
+		<Text>•Both Cu-containing samples exhibit localized luminescent variations indicative of compositional</Text>
+		<Text>fluctuations or electrically active defect fluctuations</Text>
+		<Text>•As Cu increases, emission gets broader indicating larger number of specific defect states (more local</Text>
+		<Text>chemical variation)</Text>
+		<Text>•Device implications: AIS may produce more uniform cell performance and may exhibit less air-</Text>
+		<Text>sensitivity during manufacture</Text>
+	</Panel>
+
+	<Panel left="518" right="1106" width="454" height="91">
+		<Text>Acknowledgmentsg</Text>
+		<Text>in the Frederick Seitz Materials Research Laboratory Central Facilities, University</Text>
+		<Text>This work was carried out in part in the Frederick Seitz Materials Research Laboratory Central Facilities, University of Illinois, which are partially</Text>
+		<Text>supported by the U.S. Department of Energy under grants DE-FG02-07ER46453 and DE-FG02-07ER46471</Text>
+		<Text>Toledo acknowledgements: Ohio Department of Development (ODOD), Wright Center for Photovoltaics Innovation and Commercialization (PVIC)</Text>
+		<Text>This work was supported by Air Force Research Laboratory, Space Vehicles Directorate, Kirtland AFB (Contract No. FA9453-08-C-0172)</Text>
+		<Text>Special thanks to: Dr. James Mabon (SEM/CL setup) and co-workers Allen Hall, Damon Hebert, Pamela Martin, and Yiming Liu</Text>
+	</Panel>
+
+</Poster>

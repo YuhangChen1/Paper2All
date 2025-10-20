@@ -1,0 +1,95 @@
+<Poster Width="1735" Height="2437">
+	<Panel left="4" right="432" width="1719" height="523">
+		<Text>Overview</Text>
+		<Text> Problem statement</Text>
+		<Text>3D Indoor semantic layout estimation</Text>
+		<Text>Full 6DoF freely moving observer</Text>
+		<Text>No hard Manhattan assumptions</Text>
+		<Text>Near real-time performances</Text>
+		<Text> Experiments</Text>
+		<Text>Tested on the Michigan Indoor Corridor dataset [1]</Text>
+		<Text>Introduction of a new challenging dataset</Text>
+		<Figure left="813" right="492" width="871" height="431" no="1" OriWidth="0.885369" OriHeight="0.294364
+" />
+	</Panel>
+
+	<Panel left="8" right="973" width="857" height="1446">
+		<Text>Proposed approach</Text>
+		<Text> Sparse 3D reconstruction</Text>
+		<Text>Estimate camera pose and a sparse map with:</Text>
+		<Text>Fast Monocular V-SLAM – All frames in real-time</Text>
+		<Text>Slow VisualSfM – Few frames to preserve real-time</Text>
+		<Text> Layout definition</Text>
+		<Text>Made of layout components (walls, ground, floor)</Text>
+		<Text>Walls are orthogonal to the ground plane</Text>
+		<Text>Arbitrary number of walls, not mutually orthogonal</Text>
+		<Text> Layout estimation</Text>
+		<Text>Iterative RanSaC plane fitting</Text>
+		<Text>Large number of inaccurate layout components</Text>
+		<Text>Initialize layout hypotheses as random</Text>
+		<Text>combinations of layout components</Text>
+		<Text>Local perturbation and optimization of hypotheses</Text>
+		<Text>Each hypothesis is a particle in a particle filter</Text>
+		<Text> Scoring hypotheses</Text>
+		<Text> Terms in the score function enforce fitness (P</Text>
+		<Text>f),</Text>
+		<Text>orthogonality to ground (P</Text>
+		<Text>o), reprojection error (P</Text>
+		<Text>r),</Text>
+		<Text>wall-to-wall orientation (P</Text>
+		<Text>m), simplicity (P</Text>
+		<Text>s), wall-to-wall</Text>
+		<Text>intersection (P</Text>
+		<Text>w).</Text>
+		<Text> Advantages:</Text>
+		<Text> No hard Manhattan assumptions</Text>
+		<Text> No a priori knowledge of the observer motions w.r.t. the scene</Text>
+		<Text> Near-real-time performances (~20fps)</Text>
+		<Text> Particle filter implementation allows recovering from noisy and</Text>
+		<Text>wrong initialization exploiting multimodal posterior, re-</Text>
+		<Text>sampling and particle clustering</Text>
+		<Figure left="409" right="2257" width="374" height="142" no="2" OriWidth="0.582373" OriHeight="0.102818
+" />
+	</Panel>
+
+	<Panel left="867" right="971" width="857" height="1092">
+		<Text>Experiments</Text>
+		<Text> Michigan Indoor Corridor dataset [1]</Text>
+		<Text> Indoor video sequences from a mobile robot</Text>
+		<Text> Object-free corridor scenes</Text>
+		<Text> Proposed dataset</Text>
+		<Text> Indoor video sequences from hand-held smartphone</Text>
+		<Text> Various cluttered scenes</Text>
+		<Text>Offices, corridors, large rooms</Text>
+		<Text>Complex layouts (not box-room, not Manhattan)</Text>
+		<Text> Results</Text>
+		<Text> Our method significantly outperforms [1], [2] and [3] in both</Text>
+		<Text>classification accuracy and execution time</Text>
+		<Text> Table below:</Text>
+		<Text> Left – Results on the Michigan Indoor Corridor dataset [1] (excluding and including ceiling)</Text>
+		<Text> Right – Results on the proposed dataset (classification accuracy and computation time)</Text>
+		<Figure left="925" right="1462" width="744" height="310" no="3" OriWidth="0" OriHeight="0
+" />
+		<Figure left="913" right="1790" width="369" height="161" no="4" OriWidth="0.418779" OriHeight="0.119573
+" />
+		<Figure left="1312" right="1789" width="368" height="163" no="5" OriWidth="0.416475" OriHeight="0.119954
+" />
+		<Text>[1] Grace Tsai, Changhai Xu, Jingen Liu, and Benjamin Kuipers. Real-time indoor scene understanding using bayesian</Text>
+		<Text>filtering with motion cues. In ICCV, 2011.</Text>
+		<Text>[2] Varsha Hedau, Derek Hoiem, and David Forsyth. Recovering the spatial layout of cluttered rooms. In ICCV, 2009.</Text>
+		<Text>[3] Derek Hoiem, Alexei A. Efros, and Martial Hebert. Recovering surface layout from an image. IJCV, 75(1), 2007.</Text>
+	</Panel>
+
+	<Panel left="874" right="2072" width="847" height="301">
+		<Text>Conclusions</Text>
+		<Text> Real-time oriented approach for indoor scene understanding</Text>
+		<Text> Probabilistic framework to generate, evaluate and optimize layout</Text>
+		<Text>hypotheses</Text>
+		<Text> Extensive experimental evaluation, that demonstrates that our</Text>
+		<Text>formulation outperforms state-of-the-art methods in both classification</Text>
+		<Text>accuracy and computation time</Text>
+		<Text> Dataset available: http://www.ira.disco.unimib.it/free_your_camera</Text>
+		<Text>http://vision.stanford.edu/3Dlayout/</Text>
+	</Panel>
+
+</Poster>

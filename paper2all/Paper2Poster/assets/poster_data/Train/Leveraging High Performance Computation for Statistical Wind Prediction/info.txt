@@ -1,0 +1,158 @@
+<Poster Width="1734" Height="2244">
+	<Panel left="15" right="234" width="853" height="545">
+		<Text>Overview</Text>
+		<Text>This poster presents a new application of a particular machine learning technique for improving wind</Text>
+		<Text>forecasting. The technique, known as kernel regression, is somewhat similar to fuzzy logic in that both</Text>
+		<Text>make predictions based on the similarity of the current state to historical training states. Unlike fuzzy logic</Text>
+		<Text>systems, kernel regression relaxes the requirement for explicit event classifications and instead leverages</Text>
+		<Text>the training set to implicitly form a multi-dimensional joint density and compute a conditional expectation</Text>
+		<Text>given the available data.</Text>
+		<Text>The need for faster, highly accurate, and cost-effective predictive techniques for wind power forecasting is</Text>
+		<Text>becoming imperative as wind energy becomes a larger contributor to the energy mix in places throughout</Text>
+		<Text>the world. In wind forecasting, like in may other scientific domains, it is often important to be able to tune</Text>
+		<Text>the trade-off between accuracy and computational efficiency. The work presented here represents the</Text>
+		<Text>first steps toward building a portable, parallel, auto-tunable forecasting program where the user can select</Text>
+		<Text>a desired level of accuracy, and the program will respond with the fastest machine-specific parallel</Text>
+		<Text>algorithm that achieves that accuracy target.</Text>
+		<Text>Even though tremendous progress has been made in wind forecasting in the recent years, there remains</Text>
+		<Text>significant work to refine and automate the synthesis of meteorological data for use by wind farm and grid</Text>
+		<Text>operators, for both planning and operational purposes. This presentation will demonstrate the</Text>
+		<Text>effectiveness of computationally tunable machine learning techniques for improving wind power</Text>
+		<Text>prediction, with the goal of finding better ways to deliver accurate forecasts and estimates in a timely</Text>
+		<Text>fashion.</Text>
+	</Panel>
+
+	<Panel left="9" right="779" width="857" height="291">
+		<Text>Kernel Density Estimation</Text>
+		<Text>KDE is a non-parametric model that does not assume any particular structure for the target distribution</Text>
+		<Text>(linear, quadratic, etc). It uses a historical data set to construct a conditional probability density function</Text>
+		<Text>to make estimates. The density estimate is similar to a histogram. On each data point, we put a probability</Text>
+		<Text>mass and then sum all the point masses to get the joint density estimate:</Text>
+		<Figure left="84" right="958" width="699" height="104" no="1" OriWidth="0.386967" OriHeight="0.0494652
+" />
+	</Panel>
+
+	<Panel left="10" right="1068" width="857" height="218">
+		<Text>Why Kernel Density Estimation?</Text>
+		<Text>Kernel Density Estimation is our algorithm of choice because it has lots of “knobs” to adjust the power of</Text>
+		<Text>the algorithm. In one situation, we could turn the knobs to utilize a server farm’s worth of computation for</Text>
+		<Text>multiple hours to yield highly accurate results. In another scenario, we may need to make an estimate in a</Text>
+		<Text>more timely fashion, so we can adjust the algorithm to sacrifice some accuracy in favor of expediency. As</Text>
+		<Text>computational hardware becomes more complex, there will no longer be a one-size-fits-all solution. We</Text>
+		<Text>will need tunable algorithms such as this to make the best use of the hardware at hand.</Text>
+	</Panel>
+
+	<Panel left="10" right="1286" width="856" height="531">
+		<Text>The Nadaraya-Watson KDE Model</Text>
+		<Text>Let x represent the vector of predictor variables and y the quantity to be estimated (in our case, wind</Text>
+		<Text>speed). Given a historical training set (xj, yj) and kernel function K the kernel density estimate at (x, y) is:</Text>
+		<Text>We can then calculate the conditional expectation of y given x:</Text>
+		<Text>There are several nice things about the form of this expression. First, we can use any sort of variable for</Text>
+		<Text>the predictors. Wind speed, wind direction, temperature, time of day, day of year can all be predictor</Text>
+		<Text>variables. These variables can come from multiple sites, including the site where the estimate is being</Text>
+		<Text>made, neighboring measurement sites, and grid points from a numerical weather forecast such as the</Text>
+		<Text>NAM 12km model. It is because of this flexibility that we can use this approach on different application</Text>
+		<Text>types, such as forecasting and site assessment. Also note that during parallelization the algorithm can be</Text>
+		<Text>broken down into relatively independent pieces to minimize the communications burden on a distributed</Text>
+		<Text>memory machine.</Text>
+	</Panel>
+
+	<Panel left="12" right="1817" width="856" height="298">
+		<Text>Forecast Analysis on Wind Speeds at MIT</Text>
+		<Text>To evaluate the effectiveness of our</Text>
+		<Text>methodology, we analyzed a test site on MIT</Text>
+		<Text>campus. Data was taken from sensors on</Text>
+		<Text>the top of the Green Building (Building 44)</Text>
+		<Text>on the east side of campus. There are plans</Text>
+		<Text>to install a small-scale turbine on campus by</Text>
+		<Text>the end of 2010. The turbine installation is</Text>
+		<Text>being planned by MIT Facilities and the MIT</Text>
+		<Text>Full Breeze student group.</Text>
+		<Figure left="407" right="1880" width="431" height="229" no="2" OriWidth="0.378893" OriHeight="0.159091
+" />
+	</Panel>
+
+	<Panel left="881" right="234" width="842" height="535">
+		<Text>Computational Approach</Text>
+		<Text>The recent trend in computing has been towards increasingly parallel machines. This is not just in the</Text>
+		<Text>space of high performance computing (i.e. supercomputing), but also for everyday machines such as</Text>
+		<Text>desktops, notebooks, and even embedded devices! Because power consumption increases with the cube</Text>
+		<Text>of the clock frequency, chip designers are now favoring massive parallelism over faster single core</Text>
+		<Text>performance. As the number of cores increases, everything around them becomes more complex,</Text>
+		<Text>especially the memory subsystem.</Text>
+		<Text>The hardware problem has thus become a software problem. Designing portable, maintainable software</Text>
+		<Text>that can harness the power of parallel computers is of utmost importance . In order to manage the search</Text>
+		<Text>for an efficient algorithm, we plan to leverage a new programming language and compiler, called</Text>
+		<Text>PetaBricks, to search the space of forecast estimation algorithms for the one that will work best given our</Text>
+		<Text>accuracy requirements and hardware and time constraints.</Text>
+		<Text>The figure to the right illustrates a potential set of algorithms</Text>
+		<Text>where the user can trade off computation time for accuracy of</Text>
+		<Text>the result. For example, if we need an answer quickly and are</Text>
+		<Text>willing to sacrifice some accuracy, we would pick an algorithm</Text>
+		<Text>on the left. If we wanted the highest accuracy and are flexible in</Text>
+		<Text>the amount of time required, then we would pick an algorithm</Text>
+		<Text>on the right.</Text>
+		<Figure left="1418" right="549" width="289" height="224" no="3" OriWidth="0.356978" OriHeight="0.207219
+" />
+	</Panel>
+
+	<Panel left="882" right="762" width="848" height="992">
+		<Text>Experiment and Results</Text>
+		<Text>The kernel regression estimate performed</Text>
+		<Text>better on average than both of the other</Text>
+		<Text>techniques. Kernel regression had a MSE</Text>
+		<Text>40% lower than persistence and 12.5%</Text>
+		<Text>percent lower than linear regression.</Text>
+		<Text>The second graph shows how tuning the</Text>
+		<Text>“knobs” of the algorithm allows the user to</Text>
+		<Text>trade accuracy for faster computation. The</Text>
+		<Text>more predictor variables used, the higher</Text>
+		<Text>the accuracy achieved, but at a higher</Text>
+		<Text>computational cost.</Text>
+		<Text>These results were obtained using a</Text>
+		<Text>relatively small set of predictor variables.</Text>
+		<Text>We hope to achieve better results with</Text>
+		<Text>more room for improvement using a better</Text>
+		<Text>estimation algorithm (discussed below) and</Text>
+		<Text>more diverse predictor variables.For this experiment, we used outputs from</Text>
+		<Text>the NAM 12km Model to make forecasts at</Text>
+		<Text>a location on MIT campus (see lower left).</Text>
+		<Text>We used hourly data for the year 2009 to</Text>
+		<Text>make one hour ahead predictions and</Text>
+		<Text>compared the performance of our kernel</Text>
+		<Text>density estimates against persistence and</Text>
+		<Text>linear regression.</Text>
+		<Figure left="1249" right="798" width="458" height="328" no="4" OriWidth="0.385236" OriHeight="0.202763
+" />
+		<Figure left="1250" right="1147" width="458" height="300" no="5" OriWidth="0.372549" OriHeight="0.208556
+" />
+		<Text>We also ran a measure-correlate-predict (MCP) analysis on NOAA ocean buoy data. The kernel density</Text>
+		<Text>estimation achieved an improvement of greater than 25% (in terms of mean squared error versus</Text>
+		<Text>observed) compared to using the variance-ratio MCP method in estimating missing historical data. These</Text>
+		<Text>MCP computations were performed on a SGI Altix 350 machine with 12 Intel Itanium 2 processors running</Text>
+		<Text>Interactive Supercomputing's STAR-P software. Overall, using all 12 processors on the machine, a 8.9x</Text>
+		<Text>speedup compared to serial performance was achieved.</Text>
+		<Text>In the future, we plan to use a modification of the algorithm presented here to minimize the mean</Text>
+		<Text>squared error plus a regularization term, which helps with generalization. This estimation algorithm is</Text>
+		<Text>more complex as it involves solving a large symmetric linear system to attain the objective minimization.</Text>
+		<Text>Moving to this more complex algorithm will provide greater accuracy as well as fertile ground for</Text>
+		<Text>exploring performance vs. accuracy trade-offs.</Text>
+	</Panel>
+
+	<Panel left="883" right="1755" width="844" height="365">
+		<Text>Conclusions</Text>
+		<Text>We have shown that the use of tunable kernel density estimation and regression techniques can be</Text>
+		<Text>applied effectively when leveraging high performance parallel computing resources. Not only are the</Text>
+		<Text>results achieved better than those produced when using methods such as persistence and linear</Text>
+		<Text>regression, but also the algorithms are tunable to allow the user to trade accuracy for computational</Text>
+		<Text>performance and vice versa to suit the user’s needs.</Text>
+		<Text>These types of techniques will become ever more important as parallel computing becomes ubiquitous</Text>
+		<Text>across all types of computing platforms. As software developers struggle to update their programming</Text>
+		<Text>practices to utilize these types of resources, techniques such as the automatic tuning of performance</Text>
+		<Text>parameters to achieve the user’s desired results will become extremely valuable. In the future, we plan to</Text>
+		<Text>implement these techniques with the PetaBricks programming language, which will do automatic</Text>
+		<Text>algorithm selection and parameter tuning to achieve high performance, portable, parallel, variable</Text>
+		<Text>accuracy software for wind prediction applications.</Text>
+	</Panel>
+
+</Poster>

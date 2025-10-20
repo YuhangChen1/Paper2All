@@ -1,0 +1,7 @@
+You are given 4 video clips, each from a different academic paper presentation. Each video is associated with a specific research paper.
+You are also given 4 questions. Each question is an "understanding question" derived from the corresponding paper, designed to test comprehension of that presentation.
+Additionally, a query is provided — an image. The query is the speaker head portrait.
+
+Your task is to choose the most relevant question (from the 4 provided) that matches the speaker of the query.
+Respond with the number (1–4) of the selected question and a brief explanation (1–2 sentences) justifying your choice in following format strictly:
+My choice: x. Explanation

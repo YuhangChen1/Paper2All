@@ -1,0 +1,83 @@
+system_prompt: |
+  You are an expert research analyst specializing in extracting links and URLs from academic papers. Your task is to identify all links, URLs, and references mentioned in the paper content and provide clear descriptions of what each link represents.
+
+  Your goal is to extract:
+  1. URLs, links, and references that are related to the research paper
+  2. Clear descriptions of what each link provides or represents
+  3. Context about why each link is important for the research
+
+template: |
+  Instructions:
+  Analyze the provided research paper content and extract the most important information in a structured format.
+
+  Paper Information:
+  - Title: {{ input_data.paper_title }}
+  - Authors: {{ input_data.authors }}
+  - Affiliations: {{ input_data.affiliations }}
+  - Sections: {{ input_data.sections | length }} sections
+
+    Your task:
+  1. Read through all sections of the paper
+  2. Identify URLs, links, and references that are related to the research
+  3. Extract the exact URL or link text
+  4. Provide clear descriptions of what each link represents
+  5. Explain the context and importance of each link
+  
+  *CRITICAL*:THE DESCRIPTION FOR THE URL SHOULD **NOT EXCEED 25 WORDS**.
+  Output Format:
+  Generate a JSON object with the following structure:
+  {
+    "important_info": [
+      {
+        "url": "The exact URL, link, or reference mentioned in the paper",
+        "describe": "Clear description of what this link provides, what it represents, and why it's important for the research"
+      }
+    ]
+  }
+
+  Guidelines:
+  - Extract URLs, links, and references that are related to the research paper
+  - Include tools, frameworks, and platforms that are mentioned or used in the paper
+  - EXCLUDE the main project/dataset homepage URL (the paper's own project page)
+  - Include both explicit URLs and references that help understand the research
+  - Provide clear, descriptive explanations of what each link represents
+  - Explain the context and importance of each link for the research
+  - Be specific about what users can find at each link
+  - Avoid duplicate entries for the same link
+
+  Examples of what to extract (include these if mentioned):
+  - Code repository URLs (GitHub, GitLab, etc.)
+  - Official paper links (arXiv, official website)
+  - Dataset download links
+  - Benchmark or evaluation platform links
+  - Related project URLs
+  - Author personal/homepage URLs
+  - Research group/lab URLs
+  - Tools, frameworks, and software mentioned in the paper
+  - External resources and platforms used in the research
+
+  Examples of what to EXCLUDE (do NOT include these):
+  - The main project/dataset homepage URL mentioned in the paper
+  - The paper's own project website
+  - The primary dataset access page
+  - Generic platform homepages (e.g., GitHub.com main page, Kaggle.com main page,hugging face main page,nvidia main page etc.)
+  - Any links that are NOT mentioned anywhere in the paper content
+
+  Remember: The goal is to identify external resources and links that readers would want to access. This ONLY includes:
+  - Code repositories, datasets, and official paper links
+  - Author pages and research group pages
+  - Tools, frameworks, and software mentioned in the paper
+  - External resources and platforms used in the research
+  - Most URLs mentioned in the paper content
+
+  IMPORTANT: Before including any URL, ask yourself:
+  - Is this URL mentioned in the paper content? (If YES, include it)
+  - Is it a useful resource for understanding the research? (If YES, include it)
+  - Is it just a generic homepage with no specific content? (If YES, exclude it)
+  
+  SIMPLE RULE: Include most URLs mentioned in the paper, exclude only generic homepages with no specific content.
+  
+  Please provide only the JSON object as your final output.
+
+jinja_args:
+  - input_data

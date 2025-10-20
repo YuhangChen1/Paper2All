@@ -1,0 +1,108 @@
+<Poster Width="1804" Height="883">
+	<Panel left="6" right="160" width="502" height="713">
+		<Text>Problem	</Text>
+		<Text></Text>
+		<Text>•  Assigning relevant tags to query images based on their visual</Text>
+		<Text>content	</Text>
+		<Text></Text>
+		<Figure left="9" right="235" width="328" height="229" no="1" OriWidth="0.405998" OriHeight="0.213904
+" />
+		<Figure left="339" right="228" width="165" height="124" no="2" OriWidth="0.220877" OriHeight="0.108734
+" />
+		<Figure left="358" right="357" width="133" height="126" no="3" OriWidth="0.129758" OriHeight="0.108289
+" />
+		<Text>Challenges	</Text>
+		<Text></Text>
+		<Text>•  Finding the most relevant tags among many possible ones.	</Text>
+		<Text></Text>
+		<Text>•  There are tags that do not occur frequently in the dataset.	</Text>
+		<Text></Text>
+		<Text>•  Images that share many tags may conceptually be very different.	</Text>
+		<Text></Text>
+		<Text>Drawbacks of Existing Methods	</Text>
+		<Text></Text>
+		<Text>•  Addition of images and tags requires retraining the models.	</Text>
+		<Text></Text>
+		<Text>•  ad-hoc feature fusion approaches are usually taken.	</Text>
+		<Text></Text>
+		<Text>Our Contributions	</Text>
+		<Text></Text>
+		<Text>• </Text>
+		<Text>• </Text>
+		<Text>• </Text>
+		<Text>• </Text>
+		<Text>• </Text>
+		<Text>	</Text>
+		<Text></Text>
+		<Text>A query-specific model ( no global training! )	</Text>
+		<Text></Text>
+		<Text>A natural solution to feature fusion	</Text>
+		<Text></Text>
+		<Text>Handling dataset imbalance through weighted NMF formulation	</Text>
+		<Text></Text>
+		<Text>O(n) test-time complexity	</Text>
+		<Text></Text>
+		<Text>Straightforward extension for sub-linear test-time complexity	</Text>
+		<Text></Text>
+	</Panel>
+
+	<Panel left="521" right="160" width="593" height="713">
+		<Text>Proposed Approach	</Text>
+		<Text></Text>
+		<Text>	</Text>
+		<Text></Text>
+		<Figure left="525" right="215" width="585" height="226" no="4" OriWidth="0.811419" OriHeight="0.232175
+" />
+		<Text>Query-specific Training	</Text>
+		<Text></Text>
+		<Text>•  Minimizing L via an iterative alternative approach (U and V are unknown)	</Text>
+		<Text></Text>
+		<Text>•  Training finds the optimum U that minimizes L.	</Text>
+		<Text></Text>
+		<Text>•  T penalizes inaccurate matrix factorization severely for rare tags.	</Text>
+		<Text></Text>
+		<Text>•  W is to bias the learning towards a more accurate factorization of images with</Text>
+		<Text>rare tags.	</Text>
+		<Text></Text>
+		<Text>Recovering Tags of Query (Testing)	</Text>
+		<Text></Text>
+		<Text>1.  Project query’s feature vectors on corresponding basis matrices U	</Text>
+		<Text></Text>
+		<Text>2.  Approximate V(tag) of query by averaging over F different V(visual features)	</Text>
+		<Text></Text>
+		<Text>3.  Predict score of different tags by computing U(tag) × (V(tag))’	</Text>
+		<Text></Text>
+		<Text>4.  Select relevant tags with the highest scores	</Text>
+		<Text></Text>
+	</Panel>
+
+	<Panel left="1129" right="163" width="669" height="357">
+		<Text>Experimental Results	</Text>
+		<Text></Text>
+		<Text>•  Datasets: Corel5K and ESP Game	</Text>
+		<Text></Text>
+		<Text>•  Evaluation metrics: Precision, Recall and N+	</Text>
+		<Text></Text>
+		<Text>Qualitative Results	</Text>
+		<Text></Text>
+		<Text>Predicted tags in green appear in the ground truth</Text>
+		<Text>while red ones do not. 	</Text>
+		<Text></Text>
+		<Figure left="1132" right="362" width="423" height="155" no="5" OriWidth="0.785467" OriHeight="0.217023
+" />
+		<Figure left="1557" right="173" width="238" height="346" no="6" OriWidth="0.312572" OriHeight="0.356506
+" />
+	</Panel>
+
+	<Panel left="1127" right="536" width="672" height="302">
+		<Text>	</Text>
+		<Text></Text>
+		<Text>Effect of Weight Matrices (W and T)	</Text>
+		<Text></Text>
+		<Text>	</Text>
+		<Text></Text>
+		<Figure left="1190" right="577" width="506" height="254" no="7" OriWidth="0.362745" OriHeight="0.18984
+" />
+	</Panel>
+
+</Poster>

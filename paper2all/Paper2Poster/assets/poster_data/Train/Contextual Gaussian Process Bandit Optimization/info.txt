@@ -1,0 +1,144 @@
+<Poster Width="1003" Height="1419">
+	<Panel left="27" right="94" width="462" height="117">
+		<Text>Contributions</Text>
+		<Text>An efficient algorithm, CGP-UCB, for the contextual GP bandit problem</Text>
+		<Text>Flexibly combining kernels over contexts and actions</Text>
+		<Text>Generic approach for deriving regret bounds for composite kernel functions</Text>
+		<Text>Evaluate CGP-UCB on automated vaccine design and sensor management</Text>
+	</Panel>
+
+	<Panel left="24" right="214" width="465" height="187">
+		<Text>Contextual Bandits [cf., Auer ’02; Langford & Zhang ’08]</Text>
+		<Text>Play a game for T rounds:</Text>
+		<Text>Receive context zt ∈ Z</Text>
+		<Text>Choose an action st ∈ S</Text>
+		<Text>Receive a payoff yt = f (st , zt ) + t (f unknown).</Text>
+		<Text>Cumulative regret for context specific action</Text>
+		<Text>Incur contextual regret rt = sups0∈S f (s0, zt ) − f (st , zt )</Text>
+		<Text>PTAfter T rounds, the cumulative contextual regret is RT =</Text>
+		<Text>t=1 rt .</Text>
+		<Text>Context-specific best action is a demanding benchmark.</Text>
+	</Panel>
+
+	<Panel left="24" right="406" width="464" height="190">
+		<Text>Gaussian Processes (GP)</Text>
+		<Text>Model payoff function using GPs: f ∼ GP(µ, k)</Text>
+		<Text>• observations yT = [y1 . . . yT ]T at inputs AT = {x1, . . . , xT }</Text>
+		<Text>yt = f (xt ) + t with i.i.d. Gaussian noise t ∼ N(0, σ 2)</Text>
+		<Text>Posterior distribution over f is a GP with</Text>
+		<Text>mean</Text>
+		<Text>covariance</Text>
+		<Text>variance</Text>
+		<Text>where kT (x) = [k(x1, x) . . . k(xT , x)]T and KT is the kernel matrix.</Text>
+	</Panel>
+
+	<Panel left="25" right="603" width="465" height="387">
+		<Text>GP-UCB [Srinivas, Krause, Kakade, Seeger ICML 2010]</Text>
+		<Figure left="75" right="636" width="143" height="116" no="1" OriWidth="0" OriHeight="0
+" />
+		<Figure left="295" right="633" width="149" height="118" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>Context free upper confidence bound algorithm (GP-UCB)</Text>
+		<Text>At round t, GP-UCB picks action st = xt such that</Text>
+		<Text>with appropriate βt . Trades exploration (high σ) and exploitation (high µ).</Text>
+		<Text>with appropriate βt . Trades exploration (high </Text>
+		<Text>Maximum information gain bounds regret</Text>
+		<Text>The (context-free) regret RT of GP-UCB is bounded by O∗( T βT γT ), where</Text>
+		<Text>γT is defined as the maximum information gain:</Text>
+		<Text>quantifies the reduction in uncertainty about f achieved by revealing yA.</Text>
+		<Text>Bounds for Kernels</Text>
+		<Text>Bounds on γT exist for linear, squared exponential and Mat´ern kernels.</Text>
+	</Panel>
+
+	<Panel left="26" right="992" width="463" height="128">
+		<Text>Contextual Upper Confidence Bound Algorithm (CGP-UCB)</Text>
+		<Text>where µt−1(·) and σt−1(·) are the posterior mean and standard deviation of the GP</Text>
+		<Text>over the joint set X = S × Z conditioned on the observations</Text>
+		<Text>(s1, z1, y1), . . . , (st−1, zt−1, yt−1).</Text>
+	</Panel>
+
+	<Panel left="25" right="1127" width="464" height="274">
+		<Text>Bounds on Contextual Regret</Text>
+		<Text>Then√for appropriate choices of βt , the contextual regret of CGP-UCB is bounded by</Text>
+		<Text>O∗( T γT βT ) w.h.p. Precisely,</Text>
+		<Text>onpLet δ ∈ (0, 1). Suppose one of the following assumptions holds</Text>
+		<Text>X is finite, f is sampled from a known GP prior with known noise variance σ 2,</Text>
+		<Text>dX is compact and convex, ⊆ [0, r ] , d ∈ N, r > 0. Suppose f is sampled from a</Text>
+		<Text>known GP prior with known noise variance σ 2, and that k(x, x0) has smooth</Text>
+		<Text>derivatives,</Text>
+		<Text>X is arbitrary; ||f ||k ≤ B. The noise variables t form an arbitrary martingale</Text>
+		<Text>difference sequence (meaning that E[εt | ε1, . . . , εt−1] = 0 for all t ∈ N),</Text>
+		<Text>uniformly bounded by σ.</Text>
+		<Text>where C1 = 8/ log(1 + σ −2).</Text>
+	</Panel>
+
+	<Panel left="513" right="94" width="464" height="404">
+		<Text>Composite Kernels</Text>
+		<Figure left="539" right="142" width="180" height="126" no="3" OriWidth="0.233526" OriHeight="0.12958
+" />
+		<Figure left="773" right="130" width="176" height="135" no="4" OriWidth="0.231214" OriHeight="0.136282
+" />
+		<Text>Product of squared exponential kernel</Text>
+		<Text>and linear kernel</Text>
+		<Text>Additive combination of payoff that</Text>
+		<Text>smoothly depends on context, and</Text>
+		<Text>exhibits clusters of actions.</Text>
+		<Text>Product kernel</Text>
+		<Text>• k = kS ⊗ kZ , where (kS ⊗ kZ )((s, z), (s0, z0)) = kZ (z, z0)kS (s, s0)</Text>
+		<Text>• Two context-action pairs are similar (large correlation) if the contexts are</Text>
+		<Text>similar and actions are similar</Text>
+		<Text>Additive kernel</Text>
+		<Text>• (kS ⊕ kZ )((s, z), (s0, z0)) = kZ (z, z0) + kS (s, s0)</Text>
+		<Text>• Generative model: first sample a function fS (s, z) that is constant along z, and</Text>
+		<Text>varies along s with regularity as expressed by ks; then sample a function fz(s, z),</Text>
+		<Text>which varies along z and is constant along s;</Text>
+	</Panel>
+
+	<Panel left="511" right="501" width="467" height="216">
+		<Text>Bounds for Composite Kernels</Text>
+		<Text>Maximum information gain for a GP with kernel k on set V</Text>
+		<Text>Product kernel</Text>
+		<Text>Let kZ be a kernel function on Z with rank at most d . Then</Text>
+		<Text>Additive kernel</Text>
+		<Text>Let kS and kZ be kernel functions on S and Z respectively. Then</Text>
+	</Panel>
+
+	<Panel left="513" right="723" width="464" height="336">
+		<Figure left="529" right="764" width="118" height="110" no="5" OriWidth="0.185549" OriHeight="0.127793
+" />
+		<Figure left="672" right="764" width="150" height="121" no="6" OriWidth="0.198266" OriHeight="0.127793
+" />
+		<Figure left="832" right="763" width="140" height="122" no="7" OriWidth="0.192486" OriHeight="0.125559
+" />
+		<Text>Task Discover peptide sequences binding to MHC molecules</Text>
+		<Text>Context Features encoding the MHC alleles</Text>
+		<Text>Action Choose a stimulus (the vaccine) s ∈ S that maximizes an observed response</Text>
+		<Text>(binding affinity).</Text>
+		<Text>Kernels Use a finite inter-task covariance kernel KZ with rank mZ to model the</Text>
+		<Text>similarity of different experiments, and a Gaussian kernel kS (s, s0) to model the</Text>
+		<Text>experimental parameters.</Text>
+	</Panel>
+
+	<Panel left="510" right="1060" width="466" height="281">
+		<Text>Learning to Monitor Sensor Networks</Text>
+		<Figure left="520" right="1099" width="135" height="103" no="8" OriWidth="0.195376" OriHeight="0.119303
+" />
+		<Figure left="670" right="1101" width="150" height="114" no="9" OriWidth="0.194798" OriHeight="0.117069
+" />
+		<Figure left="826" right="1102" width="147" height="114" no="10" OriWidth="0.191329" OriHeight="0.116175
+" />
+		<Text>Temperature data from a</Text>
+		<Text>network of 46 sensors at</Text>
+		<Text>Intel Research.</Text>
+		<Text>Time (h)</Text>
+		<Text>CGP-UCB using average</Text>
+		<Text>temperature</Text>
+		<Text>CGP-UCB using</Text>
+		<Text>minimum temperature</Text>
+		<Text>Task Given a sensor network, monitor maximum temperatures in building</Text>
+		<Text>Context Time of day</Text>
+		<Text>Action Pick 5 sensors to activate</Text>
+		<Text>Kernels Joint spatio-temporal covariance function using the Mat´ern kernel</Text>
+	</Panel>
+
+</Poster>

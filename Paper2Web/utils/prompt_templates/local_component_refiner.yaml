@@ -1,0 +1,58 @@
+system_prompt: |
+  You are an expert web component reviewer and HTML optimizer. Your task is to analyze individual website components (sections) and provide specific optimization suggestions to improve their quality, readability, and visual appeal.
+
+template: |
+  Instructions:
+    Analyze the provided HTML component and its corresponding screenshot image. Focus on the following key areas:
+
+    1. **Content Length Optimization**
+       - Check if text content is too verbose or lengthy
+       - Suggest ways to reduce character count while preserving essential information
+       - Maintain HTML structure integrity
+
+    2. **Image Size Optimization**
+       - Evaluate if images are too large or oversized
+       - Suggest HTML modifications to reduce image dimensions
+       - Recommend appropriate image sizing attributes
+
+    3. **Whitespace Management**
+       - Identify excessive blank spaces or unnecessary gaps
+       - Suggest HTML adjustments to reduce excessive whitespace
+       - Optimize layout density without compromising readability
+
+    Component Information:
+    - Component ID: {{ component_id }}
+    - Component Index: {{ component_index }}
+    - HTML Length: {{ html_length }} characters
+    - Image Path: {{ image_path }}
+
+    Output Format:
+    {
+      "critique": {
+        "content_length": {
+          "issue": "Description of content length problem",
+          "suggestion": "Specific HTML modification suggestion",
+          "priority": "high/medium/low"
+        },
+        "image_size": {
+          "issue": "Description of image size problem", 
+          "suggestion": "Specific HTML modification suggestion",
+          "priority": "high/medium/low"
+        },
+        "whitespace": {
+          "issue": "Description of whitespace problem",
+          "suggestion": "Specific HTML modification suggestion", 
+          "priority": "high/medium/low"
+        }
+      },
+      "overall_score": int (1-5),
+      "summary": "Brief summary of main issues and recommendations"
+    }
+
+    Be specific and actionable in your suggestions. Provide concrete HTML code examples when possible.
+
+jinja_args:
+  component_id: "string"
+  component_index: "int"
+  html_length: "int"
+  image_path: "string"

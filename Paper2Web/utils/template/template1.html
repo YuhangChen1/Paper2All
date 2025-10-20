@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><-Paper Title-></title>
+
+    <!-- External Dependencies: Google Fonts, Font Awesome, and Tailwind CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Styles -->
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #3b82f6;
+            --accent: #60a5fa;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #4f46e5 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero.gradient-shift {
+            background: linear-gradient(-45deg, #2563eb, #3b82f6, #60a5fa, #2563eb);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .authors {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .affiliations {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .authors sup {
+            font-size: 0.7em;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+            margin-left: 2px;
+        }
+
+        .affiliations sup {
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            margin-right: 4px;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray);
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.1);
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.1);
+            font-weight: 700;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            0% {
+                width: 0%;
+                opacity: 0;
+            }
+
+            100% {
+                width: 80%;
+                opacity: 1;
+            }
+        }
+
+        /* Floating navigation effect */
+        nav:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Section */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comparison-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .comparison-line {
+            position: relative;
+            height: 4px;
+            background: linear-gradient(90deg, #ef4444 0%, #fbbf24 50%, #10b981 100%);
+            margin: 3rem 0;
+            border-radius: 2px;
+            overflow: visible;
+        }
+
+        .comparison-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            animation: pulse 2s infinite;
+        }
+
+        .comparison-dot.before {
+            left: 0;
+            background: #ef4444;
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+        }
+
+        .comparison-dot.after {
+            right: 0;
+            background: #10b981;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+        }
+
+        .comparison-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+            width: 0%;
+            animation: progressFill 3s ease-out 1s forwards;
+        }
+
+        @keyframes progressFill {
+            0% {
+                width: 0%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        .comparison-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .comparison-item {
+            flex: 1;
+            text-align: center;
+        }
+
+        .comparison-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .comparison-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comparison-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ef4444, #fbbf24);
+        }
+
+        .after-card::before {
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .comparison-card li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--gray);
+        }
+
+        .comparison-card li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .after-card li::before {
+            content: '✓';
+            color: #10b981;
+        }
+
+        .comparison-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .vs-badge {
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .progress-indicator {
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 150px;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+            width: 0%;
+            animation: fillBar 2s ease-out 2s forwards;
+        }
+
+        @keyframes fillBar {
+            0% {
+                width: 0%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        .progress-text {
+            display: block;
+            margin-top: 0.5rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        /* Image Grid */
+        .image-caption {
+            text-align: center;
+        }
+
+        .image-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .image-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Resources */
+        .resources {
+            background-color: white;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .resource-card {
+            background: var(--light);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .resource-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-card p {
+            margin-bottom: 1rem;
+            color: var(--gray);
+        }
+
+        .resource-link {
+            display: inline-block;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .resource-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Citation */
+        .citation-box {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .citation-box pre {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Enhanced Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .bounce-in {
+            animation: bounceIn 1s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+
+            70% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .gradient-shift {
+            background: linear-gradient(-45deg, #2563eb, #3b82f6, #60a5fa, #2563eb);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .typing-effect {
+            overflow: hidden;
+            border-right: 3px solid;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: var(--primary);
+            }
+        }
+
+        /* Interactive Carousel Styles */
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-image-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-image-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .carousel-image-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-image-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .carousel-caption {
+            text-align: center;
+        }
+
+        .carousel-caption h4 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .carousel-caption p {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Carousel Controls */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-btn-prev {
+            left: 20px;
+        }
+
+        .carousel-btn-next {
+            right: 20px;
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .indicator.active {
+            background: white;
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .indicator:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: scale(1.1);
+        }
+
+        /* Auto-play Controls */
+        .carousel-controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 15px;
+            border-radius: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            background: rgba(37, 99, 235, 0.1);
+            transform: scale(1.1);
+        }
+
+        .carousel-counter {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Auto-play Animation */
+        .carousel-track.auto-play {
+            animation: autoSlide 30s infinite;
+        }
+
+        @keyframes autoSlide {
+
+            0%,
+            16.66% {
+                transform: translateX(0%);
+            }
+
+            20%,
+            36.66% {
+                transform: translateX(-100%);
+            }
+
+            40%,
+            56.66% {
+                transform: translateX(-200%);
+            }
+
+            60%,
+            76.66% {
+                transform: translateX(-300%);
+            }
+
+            80%,
+            96.66% {
+                transform: translateX(-400%);
+            }
+
+            100% {
+                transform: translateX(-500%);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .carousel-wrapper {
+                height: 500px;
+            }
+
+            .carousel-image-card {
+                padding: 1rem;
+            }
+
+            .carousel-image-card img {
+                height: 300px;
+            }
+
+            .carousel-caption h4 {
+                font-size: 1.2rem;
+            }
+
+            .carousel-caption p {
+                font-size: 0.9rem;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-btn-prev {
+                left: 10px;
+            }
+
+            .carousel-btn-next {
+                right: 10px;
+            }
+
+            .carousel-controls {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <header class="hero gradient-shift">
+        <div class="container">
+            <h1><-Paper Title-></h1>
+            <div class="authors"><-Author Name 1-><sup>1</sup>, <-Author Name 2-><sup>1</sup>, <-Author Name
+                            3-><sup>2</sup></div>
+            <div class="affiliations"><sup>1</sup><-Institution Name 1-><br><sup>2</sup><-Institution Name 2-></div>
+            <p><-Abstract: You should insert your paper's abstract here, which should be a concise summary of your
+                    research work. This abstract should typically include the problem statement,
+                    methodology, key findings, and conclusions. Make sure to highlight the main contributions and
+                    significance of your work. The abstract should be self-contained and provide readers with a clear
+                    understanding of what your paper is about without needing to read the full text.-></p>
+            <div class="hero-buttons">
+                <a href="#introduction" class="btn btn-primary">Explore Project</a>
+                <a href="https://github.com/" class="btn btn-secondary" target="_blank">View on
+                    GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="#introduction" class="nav-link active">Introduction</a></li>
+                <li><a href="#related-work" class="nav-link">Related Work</a></li>
+                <li><a href="#dataset" class="nav-link">Dataset</a></li>
+                <li><a href="#methodology" class="nav-link">Methodology</a></li>
+                <li><a href="#results" class="nav-link">Results</a></li>
+                <li><a href="#applications" class="nav-link">Applications</a></li>
+                <li><a href="#resources" class="nav-link">Resources</a></li>
+                <li><a href="#citation" class="nav-link">Citation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="comparison-section">
+        <div class="container">
+            <div class="comparison-wrapper">
+                <div class="comparison-line">
+                    <div class="comparison-dot before"></div>
+                    <div class="comparison-dot after"></div>
+                    <div class="comparison-progress"></div>
+                </div>
+                <div class="comparison-content">
+                    <div class="comparison-item before-item slide-in-left">
+                        <h3>Traditional Academic Dissemination</h3>
+                        <div class="comparison-card before-card">
+                            <div class="card-icon">📄</div>
+                            <h4>Static PDF</h4>
+                            <ul>
+                                <li>Limited interactivity</li>
+                                <li>Constrained visualization</li>
+                                <li>Difficult to share</li>
+                                <li>Poor reading experience</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="comparison-center">
+                        <div class="vs-badge bounce-in">VS</div>
+                        <div class="progress-indicator">
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <span class="progress-text">Huge Gap</span>
+                        </div>
+                    </div>
+                    <div class="comparison-item after-item slide-in-right">
+                        <h3>PAPER2WEB</h3>
+                        <div class="comparison-card after-card">
+                            <div class="card-icon">🚀</div>
+                            <h4>Web Dissemination</h4>
+                            <ul>
+                                <li>Rich multimedia content</li>
+                                <li>Interactive visualizations</li>
+                                <li>Easy sharing and distribution</li>
+                                <li>Immersive reading experience</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section id="introduction">
+        <div class="container">
+            <div class="section-header scale-in">
+                <h2>Introduction</h2>
+            </div>
+            <div class="section-content">
+                <p><-Introduction Section: This section should provide background information about your research area
+                        and clearly state the problem you are addressing. You should explain why this problem is
+                        important and what challenges exist in the current state of the field. Include a brief overview
+                        of existing solutions and their limitations. Then introduce your proposed approach and highlight
+                        how it differs from or improves upon existing methods. This section should be approximately
+                        200-300 words and should motivate readers to continue reading your paper. Make sure to clearly
+                        articulate your research questions and objectives.-></p>
+                <p><-Introduction Continued: Continue building the narrative by explaining the significance of your work
+                        and its potential impact. Discuss the scope and limitations of your research. Provide a roadmap
+                        of the paper by briefly mentioning what each section will cover. This helps readers understand
+                        the structure and flow of your paper. You may also want to mention any key assumptions or
+                        constraints that affect your work. The introduction should conclude with a clear statement of
+                        your main contributions, which will be elaborated upon in later sections.-></p>
+
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="https://placehold.co/800x500/2563eb/ffffff?text=Figure+1:+PAPER2WEB+Overview"
+                            alt="Figure 1: With our work, PAPER2WEB, we constitute the final piece of the puzzle for the presentation and dissemination of academic papers.">
+                        <div class="image-caption">Figure 1: With our work, PAPER2WEB, we constitute the final piece of
+                            the puzzle for the presentation and dissemination of academic papers.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Work -->
+    <section id="related-work" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Related Work</h2>
+            </div>
+            <div class="section-content slide-in-left">
+                <p><-Related Work Section: This section should provide a comprehensive review of existing literature and
+                        research in your field. Start by identifying the main categories of related work and organize
+                        them logically. For each category, discuss the key papers, their approaches, strengths, and
+                        limitations. You should demonstrate your understanding of the current state of the field and
+                        position your work within this context. This section should be approximately 300-400 words and
+                        should include proper citations to relevant papers. Make sure to highlight gaps in existing
+                        research that your work aims to address.-></p>
+                <p><-Related Work Continued: Continue the literature review by discussing more recent developments and
+                        emerging trends in your research area. Compare and contrast different approaches, highlighting
+                        their trade-offs. Discuss any datasets, benchmarks, or evaluation methodologies commonly used in
+                        your field. This helps establish the context for your experimental setup and evaluation.
+                        Conclude this section by clearly stating how your work differs from and improves upon existing
+                        approaches. This sets up the motivation for your methodology section.-></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dataset -->
+    <section id="dataset">
+        <div class="container">
+            <div class="section-header slide-in-right">
+                <h2>Dataset Overview</h2>
+            </div>
+            <div class="section-content fade-in">
+                <p><-Dataset Section: This section should describe the datasets used in your research. Provide detailed
+                        information about the data sources, collection methods, preprocessing steps, and any relevant
+                        statistics. Explain why these datasets are appropriate for your research questions and how they
+                        contribute to the validity of your results. Include information about dataset size,
+                        distribution, and any potential biases or limitations. This section should be approximately
+                        200-300 words and should help readers understand the scope and quality of your experimental
+                        data.-></p>
+                <p><-Dataset Analysis: Continue by discussing the characteristics and properties of your datasets.
+                        Provide statistics about the data distribution, any class imbalances, or other relevant
+                        features. Explain any data augmentation techniques used and justify their appropriateness.
+                        Discuss any ethical considerations related to data collection and usage. If you created a new
+                        dataset, explain the annotation process and quality control measures. This information is
+                        crucial for readers to assess the reliability and generalizability of your results.-></p>
+
+                <div class="image-grid">
+                    <div class="image-card scale-in">
+                        <img src="https://placehold.co/800x500/3b82f6/ffffff?text=Figure+4:+Dataset+Collection"
+                            alt="Figure 4: To study how to transform static papers into exploratory web pages, we collect the first paperwebpage dataset by crawling across multiple top-tier conferences and filtering by online search and human annotators.">
+                        <div class="image-caption">Figure 4: To study how to transform static papers into exploratory
+                            web pages, we collect the first paperwebpage dataset by crawling across multiple top-tier
+                            conferences and filtering by online search and human annotators.</div>
+                    </div>
+                    <div class="image-card scale-in">
+                        <img src="https://placehold.co/800x500/60a5fa/ffffff?text=Figure+6:+Dataset+Analysis"
+                            alt="Figure 6: The figure on the right shows the categorization of our data. We divided the dataset into 13 categories and counted items in each. In addition, we show distributions by conference and by year. The top-left panel presents, for each category, the relative proportions of papers without and with a website among papers with low citation counts. The bottom-left panel depicts the distribution of papers without and with a website restricted to highly cited papers (those with over 1,000 citations).">
+                        <div class="image-caption">Figure 6: The figure on the right shows the categorization of our
+                            data. We divided the dataset into 13 categories and counted items in each. In addition, we
+                            show distributions by conference and by year. The top-left panel presents, for each
+                            category, the relative proportions of papers without and with a website among papers with
+                            low citation counts. The bottom-left panel depicts the distribution of papers without and
+                            with a website restricted to highly cited papers (those with over 1,000 citations).</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section id="methodology" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Methodology/Approach</h2>
+            </div>
+            <div class="section-content slide-in-right">
+                <p><-Methodology Section: This section should provide a detailed description of your proposed approach
+                        or method. Start by giving an overview of your methodology and then break it down into specific
+                        components or steps. Explain the theoretical foundations, algorithms, or techniques used.
+                        Provide sufficient detail so that readers can understand and potentially reproduce your work.
+                        This section should be approximately 300-400 words and should include mathematical formulations,
+                        algorithmic descriptions, or architectural details as appropriate.-></p>
+                <p><-Methodology Details: Continue by explaining the implementation details, parameter settings, and any
+                        design choices made. Discuss the rationale behind key decisions and any trade-offs considered.
+                        If your method involves multiple stages or components, explain how they work together. Include
+                        any preprocessing steps, feature engineering, or optimization procedures. This detailed
+                        explanation helps readers understand the technical contributions of your work and assess its
+                        novelty and effectiveness.-></p>
+                <p><-Methodology Validation: Conclude this section by discussing how your methodology addresses the
+                        limitations identified in the related work section. Explain any theoretical guarantees,
+                        convergence properties, or other analytical results that support your approach. If applicable,
+                        discuss computational complexity and scalability considerations. This helps establish the
+                        theoretical and practical soundness of your proposed method.-></p>
+
+                <div class="image-grid">
+                    <div class="image-card bounce-in">
+                        <img src="https://placehold.co/800x500/2563eb/ffffff?text=Figure+7:+PWAGENT+Framework"
+                            alt="Figure 7: PWAGENT turns papers into project homepages. Papers are deconstructed via Docling/Marker + LLM into multiple assets and stored in an MCP repository. An agent drafts a page, then optimizes until layout and UX are solid.">
+                        <div class="image-caption">Figure 7: PWAGENT turns papers into project homepages. Papers are
+                            deconstructed via Docling/Marker + LLM into multiple assets and stored in an MCP repository.
+                            An agent drafts a page, then optimizes until layout and UX are solid.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section id="results">
+        <div class="container">
+            <div class="section-header slide-in-left">
+                <h2>Results/Evaluation</h2>
+            </div>
+            <div class="section-content fade-in">
+                <p><-Results Section: This section should present your experimental results in a clear and organized
+                        manner. Start with an overview of your experimental setup, including the evaluation metrics
+                        used, baseline methods compared, and experimental conditions. Present quantitative results using
+                        tables and figures, ensuring that all data is properly labeled and explained. This section
+                        should be approximately 300-400 words and should focus on objective, measurable outcomes that
+                        demonstrate the effectiveness of your proposed method.-></p>
+                <p><-Results Analysis: Continue by analyzing the results and discussing their significance. Compare your
+                        method against baselines and explain why certain improvements were achieved. Discuss any
+                        unexpected findings or limitations revealed by the experiments. If applicable, include
+                        statistical significance tests or confidence intervals. Address any failure cases or scenarios
+                        where your method did not perform well. This analysis helps readers understand the strengths and
+                        limitations of your approach.-></p>
+                <p><-Results Discussion: Conclude this section by discussing the broader implications of your results.
+                        Explain how your findings contribute to the field and what they suggest about future research
+                        directions. If your results have practical applications, discuss their potential impact. This
+                        helps readers understand the significance and relevance of your work beyond the specific
+                        experimental setup.-></p>
+
+                <div class="image-grid">
+                    <div class="image-card scale-in">
+                        <img src="https://placehold.co/800x500/3b82f6/ffffff?text=Figure+8:+Evaluation+Metrics"
+                            alt="Figure 8: Our evaluation metrics include multiple modules: (1) scoring Connectivity & Completeness by parsing HTML links and structure with image-text balance and information-efficiency priors, (2) using a MLLM/Human Judge to rate interactivity, aesthetics, and informativeness, and (3) running a QA PaperQuiz on webpage screenshots with a verbosity penalty">
+                        <div class="image-caption">Figure 8: Our evaluation metrics include multiple modules: (1)
+                            scoring Connectivity & Completeness by parsing HTML links and structure with image-text
+                            balance and information-efficiency priors, (2) using a MLLM/Human Judge to rate
+                            interactivity, aesthetics, and informativeness, and (3) running a QA PaperQuiz on webpage
+                            screenshots with a verbosity penalty</div>
+                    </div>
+                    <div class="image-card scale-in">
+                        <img src="https://placehold.co/800x500/60a5fa/ffffff?text=Table+1:+Evaluation+Results"
+                            alt="Table 1: Detailed evaluation of PAPER2WEB across Completeness & Connectivity and Human & MLLM Evaluation.">
+                        <div class="image-caption">Table 1: Detailed evaluation of PAPER2WEB across Completeness &
+                            Connectivity and Human & MLLM Evaluation.</div>
+                    </div>
+                    <div class="image-card scale-in">
+                        <img src="https://placehold.co/800x500/2563eb/ffffff?text=Table+2:+PaperQuiz+Results"
+                            alt="Table 2: PaperQuiz evaluation on the PAPER2WEB, based on open and closed-source MLLMs. The evaluation metrics include Raw Score and Score with Penalty under two settings: 'Verbatim' and 'Interpretive'.">
+                        <div class="image-caption">Table 2: PaperQuiz evaluation on the PAPER2WEB, based on open and
+                            closed-source MLLMs. The evaluation metrics include Raw Score and Score with Penalty under
+                            two settings: 'Verbatim' and 'Interpretive'.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications -->
+    <section id="applications" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Applications</h2>
+            </div>
+            <div class="section-content slide-in-left">
+                <p><-Applications Section: This section should discuss the practical applications and potential impact
+                        of your research. Start by identifying specific domains or industries where your work could be
+                        applied. Provide concrete examples of how your method could be used in real-world scenarios.
+                        Discuss any implementation considerations, scalability requirements, or integration challenges
+                        that potential users might face. This section should be approximately 200-300 words and should
+                        help readers understand the practical value and broader impact of your research.-></p>
+                <p><-Applications Examples: Continue by providing detailed case studies or use cases that demonstrate
+                        the practical utility of your approach. Discuss any pilot studies, user studies, or real-world
+                        deployments if available. Explain how your method addresses specific pain points or improves
+                        upon existing solutions in practical settings. If applicable, discuss potential
+                        commercialization opportunities or open-source release plans. This helps readers understand how
+                        your research translates into practical benefits for end users.-></p>
+
+                <!-- Interactive Image Carousel -->
+                <div class="carousel-container scale-in">
+                    <div class="carousel-wrapper">
+                        <div class="carousel-track" id="applications-carousel">
+                            <div class="carousel-slide active">
+                                <div class="carousel-image-card">
+                                    <img src="https://placehold.co/800x500/2563eb/ffffff?text=Figure+9:+Website+Variants"
+                                        alt="Figure 9: Illustration of website variants for the paper generated by different methods."
+                                        onerror="this.src='https://placehold.co/800x500/2563eb/ffffff?text=Figure+9:+Website+Variants'">
+                                    <div class="carousel-caption">
+                                        <h4>Figure 9</h4>
+                                        <p>Illustration of website variants for the paper generated by different
+                                            methods.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-image-card">
+                                    <img src="https://placehold.co/800x500/3b82f6/ffffff?text=Figure+10:+MLLM+Variants"
+                                        alt="Figure 10: Illustration of website variants for the paper 'MLLM-as-a-Judge: Assessing Multimodal LLM-asa-Judge with Vision-Language Benchmark' 3 generated by different methods."
+                                        onerror="this.src='https://placehold.co/800x500/3b82f6/ffffff?text=Figure+10:+MLLM+Variants'">
+                                    <div class="carousel-caption">
+                                        <h4>Figure 10</h4>
+                                        <p>Illustration of website variants for the paper 'MLLM-as-a-Judge: Assessing
+                                            Multimodal LLM-asa-Judge with Vision-Language Benchmark' 3 generated by
+                                            different methods.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-image-card">
+                                    <img src="https://placehold.co/800x500/60a5fa/ffffff?text=Figure+11:+Interactive3D"
+                                        alt="Figure 11: Illustration of website variants for the paper 'Interactive3D: Create What You Want by Interactive 3D Generation' 5 generated by different methods."
+                                        onerror="this.src='https://placehold.co/800x500/60a5fa/ffffff?text=Figure+11:+Interactive3D'">
+                                    <div class="carousel-caption">
+                                        <h4>Figure 11</h4>
+                                        <p>Illustration of website variants for the paper 'Interactive3D: Create What
+                                            You Want by Interactive 3D Generation' 5 generated by different methods.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-image-card">
+                                    <img src="https://placehold.co/800x500/2563eb/ffffff?text=Figure+12:+SMIRK"
+                                        alt="Figure 12: Illustration of website variants for the paper 'SMIRK: 3D Facial Expressions through Analysis-byNeural-Synthesis' 4 generated by different methods."
+                                        onerror="this.src='https://placehold.co/800x500/2563eb/ffffff?text=Figure+12:+SMIRK'">
+                                    <div class="carousel-caption">
+                                        <h4>Figure 12</h4>
+                                        <p>Illustration of website variants for the paper 'SMIRK: 3D Facial Expressions
+                                            through Analysis-byNeural-Synthesis' 4 generated by different methods.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-image-card">
+                                    <img src="https://placehold.co/800x500/3b82f6/ffffff?text=Figure+13:+MVDream"
+                                        alt="Figure 13: Illustration of website variants for the paper 'MVDream: Multi-view Diffusion for 3D Generation' 7 generated by different methods."
+                                        onerror="this.src='https://placehold.co/800x500/3b82f6/ffffff?text=Figure+13:+MVDream'">
+                                    <div class="carousel-caption">
+                                        <h4>Figure 13</h4>
+                                        <p>Illustration of website variants for the paper 'MVDream: Multi-view Diffusion
+                                            for 3D Generation' 7 generated by different methods.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-image-card">
+                                    <img src="https://placehold.co/800x500/60a5fa/ffffff?text=Figure+14:+Audio+Variants"
+                                        alt="Figure 14: Illustration of website variants for the paper 'Masked Audio Generation using a Single NonAutoregressive Transformer' 6 generated by different methods."
+                                        onerror="this.src='https://placehold.co/800x500/60a5fa/ffffff?text=Figure+14:+Audio+Variants'">
+                                    <div class="carousel-caption">
+                                        <h4>Figure 14</h4>
+                                        <p>Illustration of website variants for the paper 'Masked Audio Generation using
+                                            a Single NonAutoregressive Transformer' 6 generated by different methods.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-image-card">
+                                    <img src="https://placehold.co/800x500/2563eb/ffffff?text=Figure+15:+MVDream+Variants"
+                                        alt="Figure 15: Illustration of website variants for the paper " MVDream:
+                                        Multi-view Diffusion for 3D Generation"7generated by different methods."
+                                        onerror="this.src='https://placehold.co/800x500/2563eb/ffffff?text=Figure+15:+MVDream+Variants'">
+                                    <div class="carousel-caption">
+                                        <h4>Figure 15</h4>
+                                        <p>Illustration of website variants for the paper “MVDream: Multi-view Diffusion
+                                            for 3D Genera
+                                            tion”7generated by different methods.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Carousel Controls -->
+                        <button class="carousel-btn carousel-btn-prev" id="carousel-prev">‹</button>
+                        <button class="carousel-btn carousel-btn-next" id="carousel-next">›</button>
+
+                        <!-- Carousel Indicators -->
+                        <div class="carousel-indicators">
+                            <span class="indicator active" data-slide="0"></span>
+                            <span class="indicator" data-slide="1"></span>
+                            <span class="indicator" data-slide="2"></span>
+                            <span class="indicator" data-slide="3"></span>
+                            <span class="indicator" data-slide="4"></span>
+                            <span class="indicator" data-slide="5"></span>
+                        </div>
+
+                        <!-- Auto-play Controls -->
+                        <div class="carousel-controls">
+                            <button class="control-btn" id="autoplay-toggle">⏸️</button>
+                            <span class="carousel-counter">
+                                <span id="current-slide">1</span> / <span id="total-slides">6</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources -->
+    <section id="resources" class="resources">
+        <div class="container">
+            <div class="section-header slide-in-right">
+                <h2>Resources & External Links</h2>
+            </div>
+            <div class="resource-grid">
+                <div class="resource-card scale-in">
+                    <h3><-Resource Title 1-></h3>
+                    <p><-Resource Description 1: Provide a brief description of this resource, such as a GitHub
+                            repository, dataset, or demo. Explain what users can find here and how it relates to your
+                            research. Include any relevant details about usage, licensing, or requirements.-></p>
+                    <a href="<-Resource URL 1->" class="resource-link" target="_blank"><-Resource Link Text 1-></a>
+                </div>
+                <div class="resource-card scale-in">
+                    <h3><-Resource Title 2-></h3>
+                    <p><-Resource Description 2: Provide a brief description of this resource, such as a paper link,
+                            dataset, or additional materials. Explain what users can find here and how it relates to
+                            your research. Include any relevant details about access, format, or requirements.-></p>
+                    <a href="<-Resource URL 2->" class="resource-link" target="_blank"><-Resource Link Text 2-></a>
+                </div>
+                <div class="resource-card scale-in">
+                    <h3><-Resource Title 3-></h3>
+                    <p><-Resource Description 3: Provide a brief description of this resource, such as a lab website,
+                            additional project, or related work. Explain what users can find here and how it relates to
+                            your research. Include any relevant details about the organization or project.-></p>
+                    <a href="<-Resource URL 3->" class="resource-link" target="_blank"><-Resource Link Text 3-></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Citation -->
+    <section id="citation">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>How to Cite</h2>
+            </div>
+            <div class="citation-box scale-in">
+                <pre id="bibtex-code">@inproceedings{<-AuthorLastName-><-Year->,
+  title={<-Paper Title->},
+  author={<-Author List: Format as "LastName, FirstName and LastName, FirstName"->},
+  booktitle={<-Conference/Journal Name->},
+  year={<-Publication Year->}
+}</pre>
+                <button id="copy-btn" class="copy-btn">Copy</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>PAPER2WEB: LET'S MAKE YOUR PAPER ALIVE!</p>
+                <p>ONE Lab, Huazhong University of Science and Technology</p>
+                <div class="social-links">
+                    <a href="https://github.com/OneLab-HUST/PAPER2WEB" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://arxiv.org/abs/2405.18711" target="_blank"><i class="ai ai-arxiv"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Enhanced Intersection Observer for all animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Stagger animation for multiple elements
+                        const siblings = Array.from(entry.target.parentNode.children)
+                            .filter(child => child !== entry.target);
+                        siblings.forEach((sibling, index) => {
+                            setTimeout(() => {
+                                sibling.classList.add('visible');
+                            }, index * 100);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animation classes
+            const animationClasses = [
+                '.fade-in', '.slide-in-left', '.slide-in-right',
+                '.scale-in', '.bounce-in', '.comparison-item'
+            ];
+
+            animationClasses.forEach(selector => {
+                document.querySelectorAll(selector).forEach(el => {
+                    animationObserver.observe(el);
+                });
+            });
+
+            // Enhanced smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        // Calculate offset for fixed navigation
+                        const navHeight = document.querySelector('nav').offsetHeight;
+                        const targetPosition = target.offsetTop - navHeight - 20;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        // Add active state to clicked link temporarily
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+
+                        // Remove active state after animation
+                        setTimeout(() => {
+                            this.classList.remove('active');
+                        }, 1000);
+                    }
+                });
+            });
+
+            // Enhanced active navigation link based on scroll position
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let ticking = false;
+
+            function updateActiveNav() {
+                const scrollPos = window.scrollY + 100;
+
+                sections.forEach(section => {
+                    const top = section.offsetTop;
+                    const bottom = top + section.offsetHeight;
+                    const id = section.getAttribute('id');
+
+                    if (scrollPos >= top && scrollPos <= bottom) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(updateActiveNav);
+                    ticking = true;
+                }
+            });
+
+            // Enhanced copy BibTeX button with better feedback
+            const copyBtn = document.getElementById('copy-btn');
+            const bibtexCode = document.getElementById('bibtex-code');
+
+            if (copyBtn && bibtexCode) {
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        // Use modern clipboard API if available
+                        if (navigator.clipboard && window.isSecureContext) {
+                            await navigator.clipboard.writeText(bibtexCode.textContent);
+                        } else {
+                            // Fallback for older browsers
+                            const textArea = document.createElement('textarea');
+                            textArea.value = bibtexCode.textContent;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(textArea);
+                        }
+
+                        // Enhanced feedback animation
+                        const originalText = copyBtn.textContent;
+                        const originalBg = copyBtn.style.background;
+
+                        copyBtn.textContent = '✓ Copied!';
+                        copyBtn.style.background = '#10b981';
+                        copyBtn.style.transform = 'scale(1.1)';
+
+                        setTimeout(() => {
+                            copyBtn.textContent = originalText;
+                            copyBtn.style.background = originalBg;
+                            copyBtn.style.transform = 'scale(1)';
+                        }, 2000);
+
+                    } catch (err) {
+                        console.error('Failed to copy text: ', err);
+                        copyBtn.textContent = '✗ Failed';
+
+                        setTimeout(() => {
+                            copyBtn.textContent = 'Copy';
+                        }, 2000);
+                    }
+                });
+            }
+
+            // Add parallax effect to hero section
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.pageYOffset;
+                    const parallax = scrolled * 0.5;
+                    hero.style.transform = `translateY(${parallax}px)`;
+                });
+            }
+
+            // Add typing effect to main title (optional enhancement)
+            const title = document.querySelector('.hero h1');
+            if (title) {
+                const originalTitle = title.textContent;
+                title.style.opacity = '0';
+
+                setTimeout(() => {
+                    title.style.transition = 'opacity 0.5s ease-in-out';
+                    title.style.opacity = '1';
+                    title.classList.add('typing-effect');
+                }, 500);
+            }
+
+            // Enhanced hover effects for cards
+            document.querySelectorAll('.image-card, .resource-card, .comparison-card').forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform += ' rotateY(5deg)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = this.style.transform.replace(' rotateY(5deg)', '');
+                });
+            });
+
+            // Interactive Carousel Functionality
+            const initCarousel = () => {
+                const carousel = document.getElementById('applications-carousel');
+                if (!carousel) return;
+
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                const indicators = document.querySelectorAll('.carousel-indicators .indicator');
+                const prevBtn = document.getElementById('carousel-prev');
+                const nextBtn = document.getElementById('carousel-next');
+                const autoplayToggle = document.getElementById('autoplay-toggle');
+                const currentSlideSpan = document.getElementById('current-slide');
+                const totalSlidesSpan = document.getElementById('total-slides');
+
+                let currentSlide = 0;
+                let autoplayInterval;
+                let isAutoplay = true;
+
+                // Set total slides
+                if (totalSlidesSpan) totalSlidesSpan.textContent = slides.length;
+
+                const updateCarousel = (slideIndex) => {
+                    // Remove active class from all slides and indicators
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    indicators.forEach(indicator => indicator.classList.remove('active'));
+
+                    // Add active class to current slide and indicator
+                    slides[slideIndex].classList.add('active');
+                    if (indicators[slideIndex]) indicators[slideIndex].classList.add('active');
+
+                    // Update carousel track position
+                    const translateX = -slideIndex * 100;
+                    carousel.style.transform = `translateX(${translateX}%)`;
+
+                    // Update counter
+                    if (currentSlideSpan) currentSlideSpan.textContent = slideIndex + 1;
+                };
+
+                const nextSlide = () => {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    updateCarousel(currentSlide);
+                };
+
+                const prevSlide = () => {
+                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                    updateCarousel(currentSlide);
+                };
+
+                const startAutoplay = () => {
+                    if (autoplayInterval) clearInterval(autoplayInterval);
+                    autoplayInterval = setInterval(nextSlide, 5000); // 5 seconds per slide
+                };
+
+                const stopAutoplay = () => {
+                    if (autoplayInterval) {
+                        clearInterval(autoplayInterval);
+                        autoplayInterval = null;
+                    }
+                };
+
+                // Event listeners
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        nextSlide();
+                        stopAutoplay();
+                        setTimeout(startAutoplay, 10000); // Resume autoplay after 10 seconds
+                    });
+                }
+
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        prevSlide();
+                        stopAutoplay();
+                        setTimeout(startAutoplay, 10000); // Resume autoplay after 10 seconds
+                    });
+                }
+
+                // Indicator clicks
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        currentSlide = index;
+                        updateCarousel(currentSlide);
+                        stopAutoplay();
+                        setTimeout(startAutoplay, 10000); // Resume autoplay after 10 seconds
+                    });
+                });
+
+                // Autoplay toggle
+                if (autoplayToggle) {
+                    autoplayToggle.addEventListener('click', () => {
+                        isAutoplay = !isAutoplay;
+                        if (isAutoplay) {
+                            startAutoplay();
+                            autoplayToggle.textContent = '⏸️';
+                        } else {
+                            stopAutoplay();
+                            autoplayToggle.textContent = '▶️';
+                        }
+                    });
+                }
+
+                // Pause autoplay on hover
+                carousel.addEventListener('mouseenter', stopAutoplay);
+                carousel.addEventListener('mouseleave', () => {
+                    if (isAutoplay) startAutoplay();
+                });
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') {
+                        prevSlide();
+                        stopAutoplay();
+                        setTimeout(startAutoplay, 10000);
+                    } else if (e.key === 'ArrowRight') {
+                        nextSlide();
+                        stopAutoplay();
+                        setTimeout(startAutoplay, 10000);
+                    }
+                });
+
+                // Touch/swipe support for mobile
+                let startX = 0;
+                let endX = 0;
+
+                carousel.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+
+                carousel.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    handleSwipe();
+                });
+
+                const handleSwipe = () => {
+                    const threshold = 50;
+                    const diff = startX - endX;
+
+                    if (Math.abs(diff) > threshold) {
+                        if (diff > 0) {
+                            nextSlide(); // Swipe left - next slide
+                        } else {
+                            prevSlide(); // Swipe right - previous slide
+                        }
+                        stopAutoplay();
+                        setTimeout(startAutoplay, 10000);
+                    }
+                };
+
+                // Initialize carousel
+                updateCarousel(0);
+                if (isAutoplay) startAutoplay();
+
+                // Cleanup on page unload
+                window.addEventListener('beforeunload', () => {
+                    stopAutoplay();
+                });
+            };
+
+            // Initialize carousel after DOM is loaded
+            initCarousel();
+        });
+    </script>
+</body>
+
+</html>

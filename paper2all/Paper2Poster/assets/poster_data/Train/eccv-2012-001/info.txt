@@ -1,0 +1,71 @@
+<Poster Width="1766" Height="883">
+	<Panel left="14" right="152" width="561" height="230">
+		<Text>Motivation</Text>
+		<Figure left="41" right="214" width="178" height="140" no="1" OriWidth="0" OriHeight="0
+" />
+		<Text>How to detect objects above the ground,</Text>
+		<Text>without class speciﬁc knowledge?</Text>
+		<Text>How to estimate their velocities?</Text>
+		<Text>How to keep a low computational cost?</Text>
+	</Panel>
+
+	<Panel left="10" right="403" width="566" height="468">
+		<Text>System Overview</Text>
+		<Figure left="29" right="462" width="521" height="126" no="2" OriWidth="0.78143" OriHeight="0.119519
+" />
+		<Figure left="36" right="609" width="220" height="101" no="3" OriWidth="0.363899" OriHeight="0.11331
+" />
+		<Text>(Badino et al. 2009)We use the stixel world model;</Text>
+		<Text>the dominant objects in the scene</Text>
+		<Text>are represented as vertical sticks.</Text>
+		<Figure left="39" right="723" width="195" height="121" no="4" OriWidth="0.365629" OriHeight="0.153279
+" />
+		<Text>The ground plane and stixel distances</Text>
+		<Text>are estimated without a depth map,</Text>
+		<Text>at 100 fps (Benenson et al. 2011 & 2012).</Text>
+		<Text>Motion of stixels is estimated without</Text>
+		<Text>computing the pixelwise optical ﬂow.</Text>
+	</Panel>
+
+	<Panel left="600" right="150" width="567" height="291">
+		<Text>Key Idea</Text>
+		<Text>In the stixel world, motion estation becomes</Text>
+		<Text>a simple 2D dynamic programming problem.</Text>
+		<Text>Simpler problem ⇒ faster solution</Text>
+		<Figure left="652" right="315" width="450" height="98" no="5" OriWidth="0.779123" OriHeight="0.105937
+" />
+	</Panel>
+
+	<Panel left="602" right="466" width="562" height="405">
+		<Text>Evaluation Methodology</Text>
+		<Text>This is the ﬁrst work to provide a quantitative evaluation of</Text>
+		<Text>stixels motion estimation.</Text>
+		<Text>Annotated pedestrian bounding boxes</Text>
+		<Text>are used as proxy for evaluation.</Text>
+		<Text>For each frame, bounding box positions up</Text>
+		<Text>to ∆ frames in the future are predicted.</Text>
+		<Text>"Recall vs ∆ frames" curves are used for</Text>
+		<Text>comparison.</Text>
+		<Figure left="626" right="589" width="161" height="120" no="6" OriWidth="0.364475" OriHeight="0.184711
+" />
+		<Figure left="628" right="726" width="159" height="119" no="7" OriWidth="0.365629" OriHeight="0.183547
+" />
+		<Figure left="804" right="726" width="155" height="119" no="8" OriWidth="0.363322" OriHeight="0.183547
+" />
+		<Figure left="981" right="728" width="158" height="117" no="9" OriWidth="0.363899" OriHeight="0.184711
+" />
+	</Panel>
+
+	<Panel left="1190" right="149" width="564" height="723">
+		<Text>Results</Text>
+		<Figure left="1215" right="211" width="345" height="243" no="10" OriWidth="0.55594" OriHeight="0.282499
+" />
+		<Text>Fair quality,</Text>
+		<Text>at high speed.</Text>
+		<Text>Lower than high</Text>
+		<Text>quality optical ﬂow,</Text>
+		<Text>but comparable to</Text>
+		<Text>icp tracker.</Text>
+	</Panel>
+
+</Poster>

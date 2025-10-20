@@ -1,0 +1,85 @@
+<Poster Width="1734" Height="2857">
+	<Panel left="61" right="437" width="770" height="438">
+		<Text>Goal</Text>
+		<Text>Recognize activities from first person point of view</Text>
+		<Figure left="128" right="599" width="638" height="232" no="1" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="844" right="438" width="824" height="436">
+		<Text>Problem</Text>
+		<Text>Histogram of space-time features is useful video representation</Text>
+		<Text>[Choi et al. 08, Laptev et al. 08, Pirsiavash & Ramanan 12] …</Text>
+		<Figure left="1059" right="622" width="377" height="155" no="2" OriWidth="0" OriHeight="0
+" />
+		<Text>…but hand-crafted (e.g., uniformly split) bin structures need not</Text>
+		<Text>be most discriminative for target recognition task.</Text>
+	</Panel>
+
+	<Panel left="61" right="898" width="1610" height="317">
+		<Text>Main idea</Text>
+		<Text>•Bag-of-objects histogram pyramids to summarize ego-activity</Text>
+		<Text>•Boosting to learn discriminative spatio-temporal partitions</Text>
+		<Text>•“Object-centric” cutting scheme to focus pool of randomized</Text>
+		<Text>partitions near active objects with which camera wearer interacts</Text>
+		<Text>•State-of-the-art results recognizing Activities of Daily Living</Text>
+		<Figure left="930" right="937" width="714" height="263" no="3" OriWidth="0" OriHeight="0
+" />
+	</Panel>
+
+	<Panel left="62" right="1238" width="1609" height="747">
+		<Text>Approach</Text>
+		<Text>Bag-of-objects</Text>
+		<Text>Histograms count detected object</Text>
+		<Text>occurrences in series of space-time bins</Text>
+		<Figure left="86" right="1467" width="528" height="346" no="4" OriWidth="0" OriHeight="0
+" />
+		<Text>Following Pirsiavash & Ramanan, we</Text>
+		<Text>use separate detectors for active and</Text>
+		<Text>passive versions of an object.</Text>
+		<Text>Boosting</Text>
+		<Text>Select discriminative combination of</Text>
+		<Text>bin structures from randomized pool</Text>
+		<Figure left="697" right="1475" width="407" height="407" no="5" OriWidth="0" OriHeight="0
+" />
+		<Text>Object-centric cuts (OCC)</Text>
+		<Text>Focus sampling of bins where “active”</Text>
+		<Text>objects are concentrated</Text>
+		<Figure left="1164" right="1463" width="480" height="374" no="6" OriWidth="0" OriHeight="0
+" />
+		<Text>Emphasize video regions likely to</Text>
+		<Text>characterize key interactions </Text>
+		<Text>Control pool size for boosting</Text>
+	</Panel>
+
+	<Panel left="61" right="2005" width="1610" height="804">
+		<Text>Results</Text>
+		<Figure left="84" right="2119" width="462" height="484" no="7" OriWidth="0" OriHeight="0
+" />
+		<Text>Activities of Daily Living (ADL)</Text>
+		<Text>[Pirsiavash & Ramanan, 2012]</Text>
+		<Text>18 actions ~ food, hygiene, entertainment</Text>
+		<Text>(wash hands, make tea, brush teeth, etc.)</Text>
+		<Text>20 people, 10 hours of video</Text>
+		<Text>We improve the state-of-the-art accuracy on this challenging dataset.</Text>
+		<Figure left="675" right="2090" width="819" height="95" no="8" OriWidth="0.863741" OriHeight="0.0443086
+" />
+		<Text>Methods compared:</Text>
+		<Text>•Bag-of-words (BoW): space-time interest points and HoG/HoF visual words</Text>
+		<Text>•Bag-of-objects: global histogram of detected objects</Text>
+		<Text>•Temporal Pyramid: hand-crafted, one cut in time [Pirsiavash & Ramanan, CVPR12]</Text>
+		<Text>•Boost-RSTP: randomized spatio-temporal pyramids without object-centric cuts</Text>
+		<Figure left="642" right="2391" width="417" height="290" no="9" OriWidth="0.311778" OriHeight="0.127578
+" />
+		<Text>Object-centric cuts achieve lower</Text>
+		<Text>error with smaller pool of candidates</Text>
+		<Text> More efficient training for boosting.</Text>
+		<Figure left="1226" right="2384" width="281" height="274" no="10" OriWidth="0" OriHeight="0
+" />
+		<Text>Best accuracy: actions with regular space-time</Text>
+		<Text>structure (e.g., comb hair, dry hands)</Text>
+		<Text>Most confusions: same active objects involved</Text>
+		<Text>(e.g., making tea vs. making coffee)</Text>
+	</Panel>
+
+</Poster>
