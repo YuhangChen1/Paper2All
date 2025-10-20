@@ -1,5 +1,5 @@
 ui_tars==0.1.4
-numpy==1.26.0
+numpy==2.2.6
 torch==2.7.0
 moviepy==1.0.3
 whisper==1.1.10
@@ -11,6 +11,6 @@ pydantic==2.10.6
 camel-ai>=0.2.0
 torchvision==0.22.0
 PyMuPDF
-whisperx
+whisperx==3.4.3
 pdf2image
 opencv_python
