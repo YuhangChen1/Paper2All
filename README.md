@@ -16,20 +16,28 @@ Academic project websites can more effectively disseminate research when they cl
 
 ## 🔥 News & Updates
 
+- **[2025-10-21]** 🔥🔥  We are thrilled to hear that [**EvoPresent**](https://github.com/eric-ai-lab/EvoPresent) will be integrated into our pipeline in the future. EvoPresent brings advanced aesthetic agents for academic presentations with self-improvement capabilities. Stay tuned for this exciting collaboration!
+- 
+- **[2025-10-21]** 📊 Paper2Web dataset and benchmark are currently uploaded. You can use the [benchmark](https://huggingface.co/datasets/FrancisChen1/Paper2Web_bench) to improve performance. **You can also use the [dataset](https://huggingface.co/datasets/FrancisChen1/Paper2Web) for structural analysis, preference analysis, or to survey past work with tens of thousands of carefully categorized data.** 
+
 - **[2025-10-18]** 🔥🔥 **Paper2ALL** released! Thanks to [**Paper2Video**](https://github.com/showlab/Paper2Video), [**Paper2Poster**](https://github.com/Paper2Poster/Paper2Poster) and [**AutoPR**](https://github.com/LightChen233/AutoPR), we have established a comprehensive pipeline for generating promotional materials for **Paper2ALL**.
 
-- **[2025-10-18]** 📊 Paper2Web dataset and benchmark are currently under development. Stay tuned for comprehensive evaluation resources!
 
-- **[2025-10-19]** 🎥 **Paper2Video** integration in progress! We are working to incorporate [**Paper2Video**](https://github.com/showlab/Paper2Video) into our unified pipeline for comprehensive academic presentation generation. Development ongoing
 
 ## 📋 Table of Contents
 
+- [Overview](#-overview)
+- [News & Updates](#-news--updates)
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Quick Start](#quick-start)
 - [Usage](#usage)
+- [Data for Paper2Web](#data-for-paper2web)
+- [Benchmark for Paper2Web](#benchmark-for-paper2web)
 - [Evaluation](#evaluation)
 - [Contributing](#contributing)
+- [Acknowledgments](#acknowledgments)
+- [Citation](#Citation)
 
 
 ## 🚀 Installation
@@ -67,6 +75,8 @@ sudo apt install libreoffice
 ```bash
 conda install -c conda-forge poppler
 ```
+
+
 
 ## ⚙️ Configuration
 
@@ -146,7 +156,99 @@ python pipeline_all.py --input-dir "path/to/papers" --output-dir "path/to/output
 python pipeline_all.py --input-dir "path/to/papers" --output-dir "path/to/output" --model-choice 3
 ```
 
-<!-- ## 🔧 Advanced Usage
+### Paper2Video
+#### 1. Requirements
+Prepare the environment:
+```bash
+cd paper2all/Paper2Video/src
+conda create -n p2v python=3.10
+conda activate p2v
+pip install -r requirements.txt
+conda install -c conda-forge tectonic ffmpeg poppler
+```
+**[Optional] [Skip](####2-configure-llms) this part if you do not need a human presenter.**
+
+You need to **prepare the environment separately for talking-head generation** to potential avoide package conflicts, please refer to  <a href="git clone https://github.com/fudan-generative-vision/hallo2.git">Hallo2</a>. After installing, use `which python` to get the python environment path.
+```bash
+cd hallo2
+conda create -n hallo python=3.10
+conda activate hallo
+pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https://download.pytorch.org/whl/cu118
+pip install -r requirements.txt
+huggingface-cli download fudan-generative-ai/hallo2 --local-dir ../pretrained_models
+```
+Once you have installed hallo2, the --talking_head_env argument should point to the Python environment where hallo2 is installed. You can find the path to your hallo2 environment by running the following command:
+```bash
+which python
+```
+This will give you the path to the Python executable used by hallo2. You should use this path in the --talking_head_env argument in the pipeline.
+
+#### 2. Inference
+The script `pipeline.py` provides an automated pipeline for generating academic presentation videos. It takes **LaTeX paper sources** together with **reference image/audio** as input, and goes through multiple sub-modules (Slides → Subtitles → Speech → Cursor → Talking Head) to produce a complete presentation video. ⚡ The minimum recommended GPU for running this pipeline is **NVIDIA A6000** with 48G.
+
+#### Example Usage
+Run the following command to launch a fast generation (**without talking-head generation**):
+```bash
+python pipeline_light.py \
+    --model_name_t gpt-4.1 \
+    --model_name_v gpt-4.1 \
+    --result_dir /path/to/output \
+    --paper_latex_root /path/to/latex_proj \
+    --ref_img /path/to/ref_img.png \
+    --ref_audio /path/to/ref_audio.wav \
+    --gpu_list [0,1,2,3,4,5,6,7]
+```
+
+Run the following command to launch a full generation (**with talking-head generation**):
+
+```bash
+python pipeline.py \
+    --model_name_t gpt-4.1 \
+    --model_name_v gpt-4.1 \
+    --model_name_talking hallo2 \
+    --result_dir /path/to/output \
+    --paper_latex_root /path/to/latex_proj \
+    --ref_img /path/to/ref_img.png \
+    --ref_audio /path/to/ref_audio.wav \
+    --talking_head_env /path/to/hallo2_env \
+    --gpu_list [0,1,2,3,4,5,6,7]
+```
+
+## Data for Paper2Web
+
+See [**here**](https://huggingface.co/datasets/FrancisChen1/Paper2Web) to view our curated dataset, which contains metadata and categories of papers with and without project websites, along with citation counts. This dataset can be used for analyzing website preferences and trends, as well as for current hot topics and paper research materials!
+
+Please note that our pipeline as shown, we defines papers without project websites as those that have neither a dedicated project homepage nor a GitHub repository with a homepage link.
+![assets/pic3.png](assets/pic3.png)
+ We categorize these papers into 13 categories:
+- 3D Vision and Computational Graphics
+- Multimodal Learning
+- Generation Model
+- Speech and Audio Process
+- AI for Science
+- ML System and Infrastructure
+- Deep learning Architecture
+- Probabilistic Inference
+- Nature Language Understanding
+- Information Retrieval Recommend System
+- Reinforcement Learning
+- Trustworthy
+- ML Theory and Optimization
+
+![assets/pic4.png](assets/pic4.png)
+
+## Benchmark for Paper2Web
+
+See [**here**](https://huggingface.co/datasets/FrancisChen1/Paper2Web_bench) to get Paper2Web benchmark, including selected original website source code URLs, paper metadata, and partial results from PWAgent.
+
+![assets/pic6.png](assets/pic5.png)
+
+Below are some comparison examples showing the differences between original websites and PWAgent generated versions.
+
+![assets/pic6.png](assets/pic6.png)
+![assets/pic6.png](assets/pic7.png)
+
+## 🔧Evaluate Paper2Web
 
 ### Evaluation Pipeline
 
@@ -162,9 +264,13 @@ python run_all_evaluations.py --paper_name "Paper Title" --base_dir "path/to/pap
 
 **Individual evaluation metrics:**
 ```bash
-python eval_website_pipeline.py --paper_name "Paper Title" --base_dir "path/to/papers" --judge_version "v2" --metric informative_judge
-python eval_website_pipeline.py --paper_name "Paper Title" --base_dir "path/to/papers" --judge_version "v2" --metric qa
-python eval_website_pipeline.py --paper_name "Paper Title" --base_dir "path/to/papers" --judge_version "v2" --metric aesthetic_judge
+python eval_website_pipeline.py --paper_name "Paper Title" --base_dir "path/to/papers" --judge_version "path/to/dictionary/of/code" --metric informative_judge
+```
+```bash
+python eval_website_pipeline.py --paper_name "Paper Title" --base_dir "path/to/papers" --judge_version "path/to/dictionary/of/code" --metric qa
+```
+```bash
+python eval_website_pipeline.py --paper_name "Paper Title" --base_dir "path/to/papers" --judge_version "path/to/dictionary/of/code" --metric aesthetic_judge
 ```
 
 ### Supported Evaluation Metrics
@@ -176,18 +282,16 @@ python eval_website_pipeline.py --paper_name "Paper Title" --base_dir "path/to/p
 - `connectivity_llm`: Navigation structure
 - `interactivity_judge`: Interactive features
 
-## 📊 Evaluation
-
-The system includes comprehensive evaluation tools:
-
 ### Automatic Evaluation
 ```bash
 # Generate QA pairs for evaluation
 python create_paper_questions.py --paper_folder "path/to/paper"
-<!-- 
+```
+
+```bash
 # Run all evaluations
-python run_all_evaluations.py --paper_name "Paper Title" --base_dir "path/to/papers" --judge_version "v2" --auto_generate_qa
-``` -->
+python run_all_evaluations.py --paper_name "Paper Title" --base_dir "path/to/papers" --judge_version "path/to/dictionary/of/code" --auto_generate_qa
+```
 
 
 
@@ -206,10 +310,22 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 - Thanks to the open-source community for the amazing tools and libraries
 - Special thanks to contributors and users of the Paper2AI ecosystem
-- Grateful to the [**Paper2Video**](https://github.com/showlab/Paper2Video)， [**Paper2Poster**](https://github.com/Paper2Poster/Paper2Poster) and [**AutoPR**](https://github.com/LightChen233/AutoPR) teams for their excellent work in academic presentation generation and PR material creation
+- Grateful to the [**Paper2Video**](https://github.com/showlab/Paper2Video)， [**Paper2Poster**](https://github.com/Paper2Poster/Paper2Poster), [**AutoPR**](https://github.com/LightChen233/AutoPR), and [**EvoPresent**](https://github.com/eric-ai-lab/EvoPresent) teams for their excellent work in academic presentation generation and PR material creation
 
+## Citation
+Please kindly cite our paper if you find this project helpful.
 
-
+```bibtex
+@misc{chen2025paper2webletsmakepaper,
+      title={Paper2Web: Let's Make Your Paper Alive!}, 
+      author={Yuhang Chen and Tianpeng Lv and Siyi Zhang and Yixiang Yin and Yao Wan and Philip S. Yu and Dongping Chen},
+      year={2025},
+      eprint={2510.15842},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2510.15842}, 
+}
+```
 <p align="center">
     <strong>⭐ If you find this project helpful, please give it a star!</strong>
 </p>
