@@ -2,7 +2,7 @@
 <h1 align="center"> 🎉 PAPER2WEB: LET’S MAKE YOUR PAPER ALIVE! </h1>
 </p>
 
-
+<a href='https://arxiv.org/abs/2510.15842'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> <a href='https://francischen3.github.io/P2W_Website'><img src='https://img.shields.io/badge/Project-Page-green'></a> <a href='https://huggingface.co/datasets/FrancisChen1/Paper2Web'><img src='https://img.shields.io/badge/🤗-Data-purple'></a> </a> <a href='https://yuhangchen1.github.io/'><img src='https://img.shields.io/badge/Author-home_page-blue'></a></a> <a href='https://oneslab.github.io/'><img src='https://img.shields.io/badge/ONE_Lab-home_page-blue'></a>
 
 ## 📄🌐 Overview
 
@@ -17,7 +17,7 @@ Academic project websites can more effectively disseminate research when they cl
 ## 🔥 News & Updates
 
 - **[2025-10-21]** 🔥🔥  We are thrilled to hear that [**EvoPresent**](https://github.com/eric-ai-lab/EvoPresent) will be integrated into our pipeline in the future. EvoPresent brings advanced aesthetic agents for academic presentations with self-improvement capabilities. Stay tuned for this exciting collaboration!
-- 
+
 - **[2025-10-21]** 📊 Paper2Web dataset and benchmark are currently uploaded. You can use the [benchmark](https://huggingface.co/datasets/FrancisChen1/Paper2Web_bench) to improve performance. **You can also use the [dataset](https://huggingface.co/datasets/FrancisChen1/Paper2Web) for structural analysis, preference analysis, or to survey past work with tens of thousands of carefully categorized data.** 
 
 - **[2025-10-18]** 🔥🔥 **Paper2ALL** released! Thanks to [**Paper2Video**](https://github.com/showlab/Paper2Video), [**Paper2Poster**](https://github.com/Paper2Poster/Paper2Poster) and [**AutoPR**](https://github.com/LightChen233/AutoPR), we have established a comprehensive pipeline for generating promotional materials for **Paper2ALL**.
@@ -26,18 +26,30 @@ Academic project websites can more effectively disseminate research when they cl
 
 ## 📋 Table of Contents
 
-- [Overview](#-overview)
-- [News & Updates](#-news--updates)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Quick Start](#quick-start)
-- [Usage](#usage)
+- [📄🌐 Overview](#-overview)
+- [🔥 News \& Updates](#-news--updates)
+- [📋 Table of Contents](#-table-of-contents)
+- [🚀 Installation](#-installation)
+  - [Prerequisites](#prerequisites)
+  - [Step 1: Create Conda Environment](#step-1-create-conda-environment)
+  - [Step 2: Install Dependencies](#step-2-install-dependencies)
+  - [Step 3: Install System Dependencies](#step-3-install-system-dependencies)
+- [⚙️ Configuration](#️-configuration)
+  - [For All Components](#for-all-components)
+  - [For AutoPR Component](#for-autopr-component)
+  - [Optional: Google Search API (for logo search)](#optional-google-search-api-for-logo-search)
+- [🏃‍♂️ Quick Start](#️-quick-start)
+  - [Input Directory Structure](#input-directory-structure)
+  - [Basic Usage](#basic-usage)
+  - [Paper2Video](#paper2video)
+    - [1. Requirements](#1-requirements)
+    - [2. Inference](#2-inference)
+    - [Example Usage](#example-usage)
 - [Data for Paper2Web](#data-for-paper2web)
 - [Benchmark for Paper2Web](#benchmark-for-paper2web)
-- [Evaluation](#evaluation)
-- [Contributing](#contributing)
-- [Acknowledgments](#acknowledgments)
-- [Citation](#Citation)
+- [🤝 Contributing](#-contributing)
+- [🙏 Acknowledgments](#-acknowledgments)
+- [Citation](#citation)
 
 
 ## 🚀 Installation
@@ -248,7 +260,7 @@ Below are some comparison examples showing the differences between original webs
 ![assets/pic6.png](assets/pic6.png)
 ![assets/pic6.png](assets/pic7.png)
 
-## 🔧Evaluate Paper2Web
+<!-- ## 🔧Evaluate Paper2Web
 
 ### Evaluation Pipeline
 
@@ -292,7 +304,7 @@ python create_paper_questions.py --paper_folder "path/to/paper"
 # Run all evaluations
 python run_all_evaluations.py --paper_name "Paper Title" --base_dir "path/to/papers" --judge_version "path/to/dictionary/of/code" --auto_generate_qa
 ```
-
+ -->
 
 
 ## 🤝 Contributing
