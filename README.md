@@ -320,6 +320,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ## 🙏 Acknowledgments
 
+- Thanks to  [**Dongping Chen**](https://dongping-chen.github.io/) and [**Jianuo Huang**](https://scholar.google.com/citations?user=fHAAbDUAAAAJ&hl=zh-CN) for their guidance and assistance.
 - Thanks to the open-source community for the amazing tools and libraries
 - Special thanks to contributors and users of the Paper2AI ecosystem
 - Grateful to the [**Paper2Video**](https://github.com/showlab/Paper2Video)， [**Paper2Poster**](https://github.com/Paper2Poster/Paper2Poster), [**AutoPR**](https://github.com/LightChen233/AutoPR), and [**EvoPresent**](https://github.com/eric-ai-lab/EvoPresent) teams for their excellent work in academic presentation generation and PR material creation
